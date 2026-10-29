@@ -87,7 +87,11 @@ def detect_persistent_loss(
 ) -> tuple[str | None, float | None]:
     if health.empty:
         return None, None
-    aggregate = health.groupby("day", as_index=False)["power_envelope"].median().sort_values("day")
+    aggregate = (
+        health.groupby("day", as_index=False)
+        .agg(power_envelope=("power_envelope", "median"))
+        .sort_values("day")
+    )
     n_ref = max(3, min(7, max(3, len(aggregate) // 5)))
     baseline = float(aggregate.iloc[:n_ref]["power_envelope"].median())
     if baseline <= 0:
