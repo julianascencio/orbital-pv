@@ -63,7 +63,11 @@ def _column_slug(value: object) -> str:
     return re.sub(r"[^a-z0-9]+", "_", text).strip("_")
 
 
-def _normalize_birds_calibrated(frame: pd.DataFrame) -> pd.DataFrame | None:
+def _normalize_birds_calibrated(
+    frame: pd.DataFrame,
+    *,
+    campaign_date: str | None = None,
+) -> pd.DataFrame | None:
     columns = {_column_slug(column): column for column in frame.columns}
     if "time_stamp" not in columns:
         return None
@@ -74,7 +78,13 @@ def _normalize_birds_calibrated(frame: pd.DataFrame) -> pd.DataFrame | None:
     if not available:
         return None
 
-    timestamp = pd.to_datetime(frame[columns["time_stamp"]], errors="coerce", utc=True)
+    raw_timestamp = frame[columns["time_stamp"]]
+    numeric_timestamp = pd.to_numeric(raw_timestamp, errors="coerce")
+    if numeric_timestamp.notna().mean() > 0.9 and campaign_date is not None:
+        campaign_start = pd.to_datetime(campaign_date, errors="coerce", utc=True, dayfirst=True)
+        timestamp = campaign_start + pd.to_timedelta(numeric_timestamp, unit="s")
+    else:
+        timestamp = pd.to_datetime(raw_timestamp, errors="coerce", utc=True)
     parts: list[pd.DataFrame] = []
     for code in available:
         part = pd.DataFrame(
@@ -134,7 +144,7 @@ def load_birds_eps_workbook(
 
         if normalized:
             clean = frame.drop(columns=["source_sheet"])
-            part = _normalize_birds_calibrated(clean)
+            part = _normalize_birds_calibrated(clean, campaign_date=sheet)
             if part is None:
                 try:
                     part = normalize_birds_like(clean)
