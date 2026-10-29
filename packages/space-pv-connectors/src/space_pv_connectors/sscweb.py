@@ -11,7 +11,9 @@ class SscWebConnector(HttpConnector):
     BASE_URL = "https://sscweb.gsfc.nasa.gov/WS/sscr/2"
 
     def observatories(self) -> str:
-        response = self._client.get(f"{self.BASE_URL}/observatories", headers={"Accept": "application/xml"})
+        response = self._client.get(
+            f"{self.BASE_URL}/observatories", headers={"Accept": "application/xml"}
+        )
         response.raise_for_status()
         return response.text
 

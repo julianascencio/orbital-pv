@@ -18,8 +18,15 @@ class CdawebHapiConnector(HttpConnector):
         response.raise_for_status()
         return response.json()
 
-    def data(self, dataset_id: str, *, time_min: str, time_max: str, parameters: list[str] | None = None) -> dict[str, Any]:
-        params: dict[str, str] = {"id": dataset_id, "time.min": time_min, "time.max": time_max, "format": "json"}
+    def data(
+        self, dataset_id: str, *, time_min: str, time_max: str, parameters: list[str] | None = None
+    ) -> dict[str, Any]:
+        params: dict[str, str] = {
+            "id": dataset_id,
+            "time.min": time_min,
+            "time.max": time_max,
+            "format": "json",
+        }
         if parameters:
             params["parameters"] = ",".join(parameters)
         response = self._client.get(f"{self.BASE_URL}/data", params=params)

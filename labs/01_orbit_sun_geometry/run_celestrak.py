@@ -26,9 +26,14 @@ def main() -> None:
     positions_m, _ = propagate_geocentric_m(satellite, times)
     sun_positions_m = geocentric_sun_positions_m(times)
 
-    visibility = [solar_geometry(sc, sun).illumination_fraction for sc, sun in zip(positions_m, sun_positions_m, strict=True)]
+    visibility = [
+        solar_geometry(sc, sun).illumination_fraction
+        for sc, sun in zip(positions_m, sun_positions_m, strict=True)
+    ]
     print(f"satellite={omm.get('OBJECT_NAME')} norad={NORAD_ID}")
-    print(f"samples={len(times)} min_visibility={min(visibility):.3f} max_visibility={max(visibility):.3f}")
+    print(
+        f"samples={len(times)} min_visibility={min(visibility):.3f} max_visibility={max(visibility):.3f}"
+    )
     print(f"eclipse_samples={sum(v < 0.01 for v in visibility)}")
 
 

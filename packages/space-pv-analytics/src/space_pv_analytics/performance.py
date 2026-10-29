@@ -122,10 +122,20 @@ def estimate_degradation(frame: pd.DataFrame) -> DegradationEstimate:
     x = (aggregate["day"] - aggregate["day"].iloc[0]).dt.total_seconds().to_numpy() / 86_400.0
     y = aggregate["power_envelope"].to_numpy(dtype=float)
     slope, intercept = np.polyfit(x, y, 1)
-    return DegradationEstimate(float(slope), float(slope * DAYS_PER_YEAR * 100.0), float(intercept), len(aggregate))
+    return DegradationEstimate(
+        float(slope), float(slope * DAYS_PER_YEAR * 100.0), float(intercept), len(aggregate)
+    )
 
 
 def summarize_case0(frame: pd.DataFrame, *, anomaly_threshold: float = 5.0) -> Case0Summary:
     health = daily_health(frame, anomaly_threshold=anomaly_threshold)
     loss_start, loss_fraction = detect_persistent_loss(health)
-    return Case0Summary(len(frame), int(frame["panel_id"].nunique()), float(health["is_anomaly"].mean()), estimate_degradation(frame), loss_start is not None, loss_start, loss_fraction)
+    return Case0Summary(
+        len(frame),
+        int(frame["panel_id"].nunique()),
+        float(health["is_anomaly"].mean()),
+        estimate_degradation(frame),
+        loss_start is not None,
+        loss_start,
+        loss_fraction,
+    )

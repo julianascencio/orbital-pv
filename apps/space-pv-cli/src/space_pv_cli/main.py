@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import argparse
 import json
+from collections.abc import Sequence
 from dataclasses import asdict
 from pathlib import Path
-from typing import Sequence
 
 from space_pv_analytics import add_power, add_robust_baseline, daily_health, summarize_case0
 from space_pv_connectors import load_table, make_demo_telemetry, normalize_birds_like

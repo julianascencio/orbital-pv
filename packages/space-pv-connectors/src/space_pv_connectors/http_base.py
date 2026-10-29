@@ -20,7 +20,9 @@ class DownloadReceipt:
 
 class HttpConnector:
     def __init__(self, *, timeout_s: float = 30.0, user_agent: str = "space-pv-analytics/0.2"):
-        self._client = httpx.Client(timeout=timeout_s, follow_redirects=True, headers={"User-Agent": user_agent})
+        self._client = httpx.Client(
+            timeout=timeout_s, follow_redirects=True, headers={"User-Agent": user_agent}
+        )
 
     def close(self) -> None:
         self._client.close()
@@ -32,5 +34,14 @@ class HttpConnector:
         self.close()
 
     @staticmethod
-    def receipt(source: str, url: str, content: bytes, *, path: Path | None = None) -> DownloadReceipt:
-        return DownloadReceipt(source, url, datetime.now(UTC).isoformat(), sha256(content).hexdigest(), len(content), str(path) if path else None)
+    def receipt(
+        source: str, url: str, content: bytes, *, path: Path | None = None
+    ) -> DownloadReceipt:
+        return DownloadReceipt(
+            source,
+            url,
+            datetime.now(UTC).isoformat(),
+            sha256(content).hexdigest(),
+            len(content),
+            str(path) if path else None,
+        )

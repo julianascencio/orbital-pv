@@ -2,7 +2,14 @@
 
 from .config import StorageSettings
 from .duckdb_store import DuckDBStore
-from .jobs import attach_celery_task, create_job, list_jobs, mark_failed, mark_running, mark_succeeded
+from .jobs import (
+    attach_celery_task,
+    create_job,
+    list_jobs,
+    mark_failed,
+    mark_running,
+    mark_succeeded,
+)
 from .map_store import (
     get_track_samples,
     list_latest_satellite_states,
@@ -21,9 +28,9 @@ __all__ = [
     "attach_celery_task",
     "create_engine_from_settings",
     "create_job",
+    "get_track_samples",
     "list_jobs",
     "list_latest_satellite_states",
-    "get_track_samples",
     "mark_failed",
     "mark_running",
     "mark_succeeded",

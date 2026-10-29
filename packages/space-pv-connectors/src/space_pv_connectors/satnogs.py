@@ -15,12 +15,16 @@ class SatnogsDbConnector(HttpConnector):
         response.raise_for_status()
         return response.json()
 
-    def satellites(self, **filters: str | int | float | bool) -> dict[str, Any] | list[dict[str, Any]]:
+    def satellites(
+        self, **filters: str | int | float | bool
+    ) -> dict[str, Any] | list[dict[str, Any]]:
         response = self._client.get(f"{self.BASE_URL}/satellites/", params=filters)
         response.raise_for_status()
         return response.json()
 
-    def telemetry(self, **filters: str | int | float | bool) -> dict[str, Any] | list[dict[str, Any]]:
+    def telemetry(
+        self, **filters: str | int | float | bool
+    ) -> dict[str, Any] | list[dict[str, Any]]:
         """Retrieve decoded/raw telemetry records using SatNOGS API filter parameters."""
         response = self._client.get(f"{self.BASE_URL}/telemetry/", params=filters)
         response.raise_for_status()
@@ -31,7 +35,9 @@ class SatnogsDbConnector(HttpConnector):
         response.raise_for_status()
         return response.json()
 
-    def historical_tle(self, **filters: str | int | float | bool) -> dict[str, Any] | list[dict[str, Any]]:
+    def historical_tle(
+        self, **filters: str | int | float | bool
+    ) -> dict[str, Any] | list[dict[str, Any]]:
         response = self._client.get(f"{self.BASE_URL}/tle/historical/", params=filters)
         response.raise_for_status()
         return response.json()

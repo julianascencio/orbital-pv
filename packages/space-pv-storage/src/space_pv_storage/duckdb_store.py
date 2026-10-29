@@ -65,23 +65,43 @@ class DuckDBStore:
         if not payload:
             return 0
         self.initialize()
-        values = [(row["satellite_id"], row["timestamp"], row["source"], row["signal"], row.get("value"), row.get("unit"), row.get("quality")) for row in payload]
+        values = [
+            (
+                row["satellite_id"],
+                row["timestamp"],
+                row["source"],
+                row["signal"],
+                row.get("value"),
+                row.get("unit"),
+                row.get("quality"),
+            )
+            for row in payload
+        ]
         with self.connect() as con:
-            con.executemany("""
+            con.executemany(
+                """
                 INSERT INTO telemetry
                 (satellite_id, timestamp, source, signal, value, unit, quality)
                 VALUES (?, ?, ?, ?, ?, ?, ?)
-                """, values)
+                """,
+                values,
+            )
         return len(values)
 
-    def refresh_telemetry_rollup(self, satellite_id: str, signal: str, bucket_seconds: int = 60) -> None:
+    def refresh_telemetry_rollup(
+        self, satellite_id: str, signal: str, bucket_seconds: int = 60
+    ) -> None:
         """Build a compact min/max/avg/last cache for fast chart rendering."""
         if bucket_seconds <= 0:
             raise ValueError("bucket_seconds must be positive")
         self.initialize()
         with self.connect() as con:
-            con.execute("DELETE FROM telemetry_rollups WHERE satellite_id = ? AND signal = ? AND bucket_seconds = ?", [satellite_id, signal, bucket_seconds])
-            con.execute("""
+            con.execute(
+                "DELETE FROM telemetry_rollups WHERE satellite_id = ? AND signal = ? AND bucket_seconds = ?",
+                [satellite_id, signal, bucket_seconds],
+            )
+            con.execute(
+                """
                 INSERT INTO telemetry_rollups
                 SELECT
                     satellite_id,
@@ -96,4 +116,6 @@ class DuckDBStore:
                 FROM telemetry
                 WHERE satellite_id = ? AND signal = ? AND value IS NOT NULL
                 GROUP BY satellite_id, signal, bucket_start
-                """, [bucket_seconds, bucket_seconds, bucket_seconds, satellite_id, signal])
+                """,
+                [bucket_seconds, bucket_seconds, bucket_seconds, satellite_id, signal],
+            )

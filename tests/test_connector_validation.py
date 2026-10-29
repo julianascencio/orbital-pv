@@ -13,6 +13,5 @@ def test_celestrak_requires_one_query():
 
 
 def test_naif_restricts_host(tmp_path):
-    with NaifKernelConnector() as connector:
-        with pytest.raises(ValueError):
-            connector.download("https://example.com/kernel.bsp", tmp_path / "kernel.bsp")
+    with NaifKernelConnector() as connector, pytest.raises(ValueError):
+        connector.download("https://example.com/kernel.bsp", tmp_path / "kernel.bsp")

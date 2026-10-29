@@ -1,6 +1,6 @@
+import math
 from contextlib import asynccontextmanager
 from datetime import UTC, datetime, timedelta
-import math
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -12,14 +12,22 @@ from space_pv_storage import (
     attach_celery_task,
     create_engine_from_settings,
     create_job,
+    get_track_samples,
     list_jobs,
     list_latest_satellite_states,
-    get_track_samples,
     session_factory,
 )
 
 from .config import APISettings
-from .schemas import JobAccepted, JobCreate, JobRead, MapSatelliteState, MapScene, MapTrack, OrbitSample
+from .schemas import (
+    JobAccepted,
+    JobCreate,
+    JobRead,
+    MapSatelliteState,
+    MapScene,
+    MapTrack,
+    OrbitSample,
+)
 
 settings = APISettings()
 engine = create_engine_from_settings()
@@ -96,7 +104,6 @@ def get_job(job_id: str) -> JobRead:
         return _job_to_schema(job)
 
 
-
 @app.get("/api/v1/map/satellites/latest", response_model=list[MapSatelliteState])
 def latest_satellite_map_states(limit: int = 2000) -> list[MapSatelliteState]:
     with SessionLocal() as session:
@@ -166,7 +173,12 @@ def _demo_track(
                 altitude_m=altitude_m,
             )
         )
-    return MapTrack(satellite_id=name.lower().replace(" ", "-"), name=name, source="visual_demo", samples=samples)
+    return MapTrack(
+        satellite_id=name.lower().replace(" ", "-"),
+        name=name,
+        source="visual_demo",
+        samples=samples,
+    )
 
 
 @app.get("/api/v1/map/demo", response_model=MapScene)
@@ -185,4 +197,6 @@ def demo_map_scene() -> MapScene:
 def run() -> None:
     import uvicorn
 
-    uvicorn.run("space_pv_api.main:app", host=settings.api_host, port=settings.api_port, reload=False)
+    uvicorn.run(
+        "space_pv_api.main:app", host=settings.api_host, port=settings.api_port, reload=False
+    )
