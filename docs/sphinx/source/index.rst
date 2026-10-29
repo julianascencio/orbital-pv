@@ -25,6 +25,24 @@ It combines orbital geometry, Sun and eclipse state, spacecraft PV modelling,
 space-environment context, flight telemetry, degradation analytics, and
 spatiotemporal visualization.
 
+AI-assisted development
+-----------------------
+
+A substantial portion of OrbitalPV code, documentation, examples, tests, and
+repository scaffolding is generated or drafted with AI assistance.
+
+The scientific basis is curated by the repository developers: they select the
+specific literature, standards, datasets, technical reports, and engineering
+references used to define assumptions, parameter values, methods, examples,
+and the research roadmap. AI is used to accelerate implementation,
+documentation, testing, synthesis, and iteration around that selected evidence
+base.
+
+AI-generated content is therefore not presented as self-validating scientific
+evidence. Users should trace important assumptions to the cited literature and
+validation material, especially for research, qualification, or
+mission-critical applications.
+
 Start here
 ----------
 
