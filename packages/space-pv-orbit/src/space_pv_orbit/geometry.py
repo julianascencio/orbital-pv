@@ -92,9 +92,9 @@ def solar_geometry(spacecraft_position_m, sun_position_m, *, panel_normal=None) 
     sun_distance = float(np.linalg.norm(sun_vector))
     sun_unit = unit_vector(sun_vector)
     return SolarGeometry(
-        tuple(float(v) for v in sun_vector),
+        (float(sun_vector[0]), float(sun_vector[1]), float(sun_vector[2])),
         sun_distance,
-        tuple(float(v) for v in sun_unit),
+        (float(sun_unit[0]), float(sun_unit[1]), float(sun_unit[2])),
         earth_occultation_fraction(r_sc, r_sun),
         cosine_incidence(panel_normal, sun_unit) if panel_normal is not None else None,
     )
