@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 
 for src in [
+    ROOT / "src",
     *ROOT.glob("packages/*/src"),
     ROOT / "apps/space-pv-api/src",
     ROOT / "apps/space-pv-cli/src",

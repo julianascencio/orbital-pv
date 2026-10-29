@@ -2,18 +2,17 @@
 Telemetry-only daily health baseline
 ====================================
 
-The Case 0 workflow provides a deterministic demonstration of upper-envelope
-normalization and persistent-loss detection before full orbit normalization.
+The Case 0 workflow demonstrates upper-envelope normalization and
+persistent-loss detection through the public ``orbitalpv`` API.
 """
 
 import matplotlib.pyplot as plt
 
-from space_pv_analytics import add_power, add_robust_baseline, daily_health
-from space_pv_connectors import make_demo_telemetry
+import orbitalpv as opv
 
-telemetry = make_demo_telemetry(seed=42)
-normalized = add_robust_baseline(add_power(telemetry))
-health = daily_health(normalized)
+telemetry = opv.make_demo_telemetry(seed=42)
+normalized = opv.add_robust_baseline(opv.add_power(telemetry))
+health = opv.daily_health(normalized)
 anomalies = health[health["is_anomaly"]]
 
 fig, ax = plt.subplots()

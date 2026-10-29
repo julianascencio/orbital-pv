@@ -2,9 +2,34 @@
 
 Open-source full-stack lab for **spacecraft photovoltaic performance analytics**: PV physics, orbit/Sun geometry, real spacecraft data connectors, degradation/anomaly analytics, reproducible research labs, and a web application platform.
 
-The structure follows a modular separation-of-concerns approach: domain models, physics engines, connectors and analytics are independent workspace packages with a single `uv` environment and consistent quality tooling.
+The structure follows a modular separation-of-concerns approach: domain models, physics engines, connectors and analytics are independent workspace packages with consistent quality tooling.
 
-> **Naming:** the project/repository is **OrbitalPV**. Existing Python workspace packages keep the explicit `space-pv-*` namespace to make their domain boundaries obvious.
+## Install from PyPI
+
+```bash
+python -m pip install orbital-pv
+```
+
+Use the public API as:
+
+```python
+import orbitalpv as opv
+
+positions_m = opv.circular_orbit_positions_m(
+    altitude_m=550_000.0,
+    inclination_deg=51.6,
+)
+
+g_am0 = opv.am0_irradiance(opv.ASTRONOMICAL_UNIT_M)
+```
+
+Optional extras:
+
+```bash
+python -m pip install "orbital-pv[examples]"
+python -m pip install "orbital-pv[orbit]"
+python -m pip install "orbital-pv[full]"
+```
 
 ## Foundation stack
 
@@ -21,47 +46,45 @@ The structure follows a modular separation-of-concerns approach: domain models, 
 
 ```text
 orbital-pv/
+├── src/orbitalpv/                 # public PyPI API
 ├── apps/
 │   ├── space-pv-cli/
-│   ├── space-pv-api/             # FastAPI application/API boundary
-│   └── space-pv-web/             # React + TypeScript + Vite frontend
+│   ├── space-pv-api/
+│   └── space-pv-web/
 ├── packages/
-│   ├── space-pv-core/             # domain contracts/constants
-│   ├── space-pv-orbit/            # orbit, Sun, eclipse, AOI, SPICE/Skyfield adapters
-│   ├── space-pv-pvmodel/          # pvlib-backed spacecraft PV reference models
-│   ├── space-pv-space-env/        # AM0/radiation/environment models
-│   ├── space-pv-connectors/       # real external satellite/environment data
-│   ├── space-pv-analytics/        # KPIs, residuals, anomalies, degradation
-│   ├── space-pv-storage/          # DuckDB + PostgreSQL persistence
-│   └── space-pv-orchestration/    # Celery queues/tasks; Redis broker
+│   ├── space-pv-core/
+│   ├── space-pv-orbit/
+│   ├── space-pv-pvmodel/
+│   ├── space-pv-space-env/
+│   ├── space-pv-connectors/
+│   ├── space-pv-analytics/
+│   ├── space-pv-storage/
+│   └── space-pv-orchestration/
+├── examples/
 ├── labs/
-│   ├── 00_birds_baseline/
-│   ├── 01_orbit_sun_geometry/
-│   └── 02_pvlib_reference/
 ├── data/{raw,bronze,silver,gold}/
-├── compose.yaml                  # Postgres + Redis + API + worker + Flower + React
 ├── docs/
 └── tests/
 ```
 
-## Documentation site
+The `space_pv_*` packages remain available as lower-level implementation modules for contributors and advanced use, while `orbitalpv` is the stable user-facing import.
 
-The documentation follows the scientific-Python pattern used by projects such as pvlib: a Sphinx site with a User Guide, executable Example Gallery, and generated API Reference.
-
-After GitHub Pages is enabled for this repository, the site will be published at:
+## Documentation
 
 **https://julianascencio.github.io/orbital-pv/**
 
-Build it locally with:
+The documentation uses Sphinx, PyData Sphinx Theme, and Sphinx-Gallery. Gallery examples execute during the documentation build and use the same `orbitalpv` API installed from PyPI.
+
+Build locally:
 
 ```bash
 make docs
 ```
 
-## Install
+## Development
 
 ```bash
-uv sync --group dev --group lab --group orbit --group pv --group space --group app
+uv sync --all-packages --group dev --group lab --group orbit --group pv --group space --group app
 uv run pytest
 uv run ruff check .
 uv run ty check
@@ -95,7 +118,6 @@ eclipse + AOI + AM0      |
 
 See `docs/foundation_stack.md`, `docs/connectors/catalog.md`, `docs/architecture.md` and `docs/state_of_art.md`.
 
-
 ## Application platform
 
 The web/application layer is intentionally separated from the scientific packages:
@@ -115,22 +137,15 @@ docker compose up --build
 
 Then open React on `http://localhost:5173`, FastAPI docs on `http://localhost:8000/docs`, and Flower on `http://localhost:5555`.
 
-See `docs/application_platform.md`.
-
-
 ## Space GIS and dynamic visualization
 
-The platform now separates scientific orbital reference-frame state from Earth-fixed
-GIS render products. PostGIS serves hot satellite positions, ground tracks, stations and
-footprints; DuckDB/Parquet retain analytical history and chart rollups; CesiumJS renders
-time-dynamic 3D orbital scenes. See `docs/space_gis_and_visualization.md`.
+The platform separates scientific orbital reference-frame state from Earth-fixed GIS render products. PostGIS serves hot satellite positions, ground tracks, stations and footprints; DuckDB/Parquet retain analytical history and chart rollups; CesiumJS renders time-dynamic 3D orbital scenes. See `docs/space_gis_and_visualization.md`.
 
 ## Literature library
 
 A curated, source-tagged literature library is maintained in [`docs/literature/`](docs/literature/README.md). It covers the 2026 state of the art in space-PV cells and arrays, mission-aware performance modelling, radiation/degradation, digital twins, telemetry/AI, and open flight datasets/APIs.
 
-
 ## Roadmap evidence
 
-- `docs/literature/09_ieso_2026_workshop_roadmap.md` — 2026 IESO workshop targets translated into software requirements and research roadmap.
+- `docs/literature/09_ieso_2026_workshop_roadmap.md` — 2026 IESO workshop targets translated into repository features and R&D priorities.
 - `docs/product_feature_roadmap.md` — prioritized product epics derived from the literature and 2026 IESO workshop.

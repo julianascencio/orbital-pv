@@ -2,44 +2,27 @@
 Representative Earth orbit families
 ===================================
 
-Plot several common circular-orbit families around Earth in one 3D view.
-
-The geometry is generated from simple classical orbital elements so the
-example remains deterministic and does not require network access.
+Plot common circular-orbit families around Earth using the public OrbitalPV API.
 """
 
 import matplotlib.pyplot as plt
 import numpy as np
 
-EARTH_RADIUS_KM = 6378.137
+import orbitalpv as opv
 
-
-def orbit_xyz_km(
-    radius_km: float,
-    inclination_deg: float,
-    raan_deg: float,
-    argument_deg: np.ndarray,
-) -> np.ndarray:
-    """Return circular-orbit positions in a simple Earth-centered inertial frame."""
-    inclination = np.deg2rad(inclination_deg)
-    raan = np.deg2rad(raan_deg)
-
-    x_pf = radius_km * np.cos(argument_deg)
-    y_pf = radius_km * np.sin(argument_deg)
-
-    x = np.cos(raan) * x_pf - np.sin(raan) * np.cos(inclination) * y_pf
-    y = np.sin(raan) * x_pf + np.cos(raan) * np.cos(inclination) * y_pf
-    z = np.sin(inclination) * y_pf
-    return np.column_stack((x, y, z))
-
-
-argument = np.linspace(0.0, 2.0 * np.pi, 721)
+EARTH_RADIUS_KM = opv.EARTH_EQUATORIAL_RADIUS_M / 1000.0
 
 orbits = {
-    "LEO · 550 km · 51.6°": orbit_xyz_km(EARTH_RADIUS_KM + 550.0, 51.6, 0.0, argument),
-    "Polar/SSO-like · 700 km · 97.4°": orbit_xyz_km(EARTH_RADIUS_KM + 700.0, 97.4, 70.0, argument),
-    "MEO · 20,200 km · 55°": orbit_xyz_km(EARTH_RADIUS_KM + 20_200.0, 55.0, 135.0, argument),
-    "GEO · 35,786 km · 0°": orbit_xyz_km(EARTH_RADIUS_KM + 35_786.0, 0.0, 0.0, argument),
+    "LEO · 550 km · 51.6°": opv.circular_orbit_positions_m(550_000.0, 51.6, samples=721) / 1000.0,
+    "Polar/SSO-like · 700 km · 97.4°": opv.circular_orbit_positions_m(
+        700_000.0, 97.4, raan_deg=70.0, samples=721
+    )
+    / 1000.0,
+    "MEO · 20,200 km · 55°": opv.circular_orbit_positions_m(
+        20_200_000.0, 55.0, raan_deg=135.0, samples=721
+    )
+    / 1000.0,
+    "GEO · 35,786 km · 0°": opv.circular_orbit_positions_m(35_786_000.0, 0.0, samples=721) / 1000.0,
 }
 
 fig = plt.figure(figsize=(9, 8))

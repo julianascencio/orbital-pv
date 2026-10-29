@@ -3,50 +3,56 @@
 Quickstart
 ==========
 
-This short example computes AM0 irradiance, applies illumination and incidence
-geometry, and evaluates a calibrated PV reference model.
+Install OrbitalPV and import its public API:
+
+.. code-block:: bash
+
+   python -m pip install orbital-pv
 
 .. code-block:: python
 
-   from space_pv_pvmodel import (
-       PvwattsReference,
-       effective_irradiance_w_m2,
-       pvwatts_dc_space,
-   )
-   from space_pv_space_env import am0_irradiance
+   import orbitalpv as opv
 
-   one_au_m = 149_597_870_700.0
-   g_am0 = am0_irradiance(one_au_m)
-   g_effective = effective_irradiance_w_m2(
+   g_am0 = opv.am0_irradiance(opv.ASTRONOMICAL_UNIT_M)
+   g_effective = opv.effective_irradiance_w_m2(
        g_am0,
        illumination_fraction=1.0,
        cosine_aoi=0.85,
        optical_factor=0.96,
    )
 
-   reference = PvwattsReference(
+   reference = opv.PvwattsReference(
        pdc0_w=30.0,
        gamma_pdc_per_c=-0.002,
    )
 
-   expected_power_w = pvwatts_dc_space(
+   expected_power_w = opv.pvwatts_dc_space(
        g_effective,
        cell_temperature_c=45.0,
        reference=reference,
    )
 
-The result is an engineering reference calculation. It is not yet a complete
-III-V multijunction, radiation-degraded spacecraft-array model.
+Orbit geometry
+--------------
+
+Generate a representative circular LEO directly from the public package:
+
+.. code-block:: python
+
+   positions_m = opv.circular_orbit_positions_m(
+       altitude_m=550_000.0,
+       inclination_deg=51.6,
+       samples=721,
+   )
 
 Telemetry baseline
 ------------------
 
-A deterministic synthetic dataset is available for validating the analytics
-pipeline:
+.. code-block:: python
 
-.. code-block:: bash
-
-   uv run --package space-pv-cli space-pv case0 --demo
+   telemetry = opv.make_demo_telemetry(seed=42)
+   normalized = opv.add_robust_baseline(opv.add_power(telemetry))
+   health = opv.daily_health(normalized)
 
 Next steps
 ----------
