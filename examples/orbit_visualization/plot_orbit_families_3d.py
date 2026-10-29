@@ -37,15 +37,9 @@ argument = np.linspace(0.0, 2.0 * np.pi, 721)
 
 orbits = {
     "LEO · 550 km · 51.6°": orbit_xyz_km(EARTH_RADIUS_KM + 550.0, 51.6, 0.0, argument),
-    "Polar/SSO-like · 700 km · 97.4°": orbit_xyz_km(
-        EARTH_RADIUS_KM + 700.0, 97.4, 70.0, argument
-    ),
-    "MEO · 20,200 km · 55°": orbit_xyz_km(
-        EARTH_RADIUS_KM + 20_200.0, 55.0, 135.0, argument
-    ),
-    "GEO · 35,786 km · 0°": orbit_xyz_km(
-        EARTH_RADIUS_KM + 35_786.0, 0.0, 0.0, argument
-    ),
+    "Polar/SSO-like · 700 km · 97.4°": orbit_xyz_km(EARTH_RADIUS_KM + 700.0, 97.4, 70.0, argument),
+    "MEO · 20,200 km · 55°": orbit_xyz_km(EARTH_RADIUS_KM + 20_200.0, 55.0, 135.0, argument),
+    "GEO · 35,786 km · 0°": orbit_xyz_km(EARTH_RADIUS_KM + 35_786.0, 0.0, 0.0, argument),
 }
 
 fig = plt.figure(figsize=(9, 8))
