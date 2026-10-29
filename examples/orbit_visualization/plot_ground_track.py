@@ -16,6 +16,7 @@ EARTH_RADIUS_KM = 6378.137
 EARTH_MU_KM3_S2 = 398_600.4418
 EARTH_ROTATION_RAD_S = 7.2921159e-5
 
+
 def orbit_xyz_km(
     radius_km: float,
     inclination_deg: float,
@@ -34,6 +35,7 @@ def orbit_xyz_km(
     z = np.sin(inclination) * y_pf
     return np.column_stack((x, y, z))
 
+
 altitude_km = 550.0
 radius_km = EARTH_RADIUS_KM + altitude_km
 period_s = 2.0 * np.pi * np.sqrt(radius_km**3 / EARTH_MU_KM3_S2)
@@ -51,9 +53,7 @@ y_ecef = -sin_theta * eci[:, 0] + cos_theta * eci[:, 1]
 z_ecef = eci[:, 2]
 
 longitude_deg = np.rad2deg(np.arctan2(y_ecef, x_ecef))
-latitude_deg = np.rad2deg(
-    np.arctan2(z_ecef, np.sqrt(x_ecef**2 + y_ecef**2))
-)
+latitude_deg = np.rad2deg(np.arctan2(z_ecef, np.sqrt(x_ecef**2 + y_ecef**2)))
 
 plot_longitude = longitude_deg.copy()
 plot_latitude = latitude_deg.copy()
