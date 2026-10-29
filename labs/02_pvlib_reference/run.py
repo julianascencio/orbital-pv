@@ -11,8 +11,7 @@ def main() -> None:
     reference = opv.PvwattsReference(pdc0_w=30.0, gamma_pdc_per_c=-0.002)
     power = opv.pvwatts_dc_space(g_eff, 45.0, reference)
     print(
-        f"AM0={g_am0:.2f} W/m2 effective={float(g_eff):.2f} W/m2 "
-        f"expected_dc={float(power):.2f} W"
+        f"AM0={g_am0:.2f} W/m2 effective={float(g_eff):.2f} W/m2 expected_dc={float(power):.2f} W"
     )
 
 
