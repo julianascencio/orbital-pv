@@ -12,7 +12,7 @@ Reference model
    :members:
 
 Single-diode / De Soto adapter
------------------------------
+--------------------------------
 
 .. automodule:: space_pv_pvmodel.desoto
    :members:
