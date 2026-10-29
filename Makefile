@@ -1,4 +1,4 @@
-.PHONY: sync quality test case0 tree dev dev-down api worker web
+.PHONY: sync quality test case0 tree dev dev-down api worker web docs docs-clean
 
 sync:
 	uv sync --all-groups
@@ -31,3 +31,11 @@ web:
 
 tree:
 	find . -maxdepth 4 -not -path './.git/*' | sort
+
+
+docs:
+	uv sync --all-packages --group docs
+	uv run sphinx-build -W --keep-going -b html docs/sphinx/source docs/sphinx/build/html
+
+docs-clean:
+	rm -rf docs/sphinx/build
