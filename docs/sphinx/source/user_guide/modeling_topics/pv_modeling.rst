@@ -24,7 +24,7 @@ The initial broadband model is:
 where each factor is supplied by a separate physical or calibration layer.
 
 Single-diode modelling
----------------------
+----------------------
 
 The De Soto/single-diode adapter is useful for silicon and other
 single-junction experiments, parameter-estimation tests, and validation.
