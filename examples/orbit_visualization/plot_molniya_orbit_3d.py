@@ -1,6 +1,6 @@
 """
 Molniya-style highly elliptical orbit
-====================================
+=====================================
 
 Visualize a representative highly elliptical orbit with the characteristic
 63.4° critical inclination used by Molniya-style missions.
