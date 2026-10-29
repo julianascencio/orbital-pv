@@ -45,10 +45,10 @@ except PackageNotFoundError:
 
 __all__ = [
     "ASTRONOMICAL_UNIT_M",
-    "DeSotoParameters",
     "EARTH_EQUATORIAL_RADIUS_M",
     "EARTH_ROTATION_RATE_RAD_S",
     "EARTH_STANDARD_GRAVITATIONAL_PARAMETER_M3_S2",
+    "DeSotoParameters",
     "PvwattsReference",
     "SolarGeometry",
     "__version__",
