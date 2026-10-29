@@ -1,22 +1,29 @@
 # Lab 01 — Orbit + Sun geometry foundation
 
-Goal: turn orbital state into the geometry needed by PV analytics.
+This lab shows the live-orbit workflow through the **public `orbitalpv` package**.
 
-Pipeline:
+## Install
 
-```text
-CelesTrak / Space-Track OMM
-        |
-        v
-Skyfield + Vallado SGP4 -----> spacecraft r,v in time
-        |
-Astropy / JPL / SPICE -------> Sun vector
-        |
-        v
-Earth occultation + panel attitude -> illumination fraction + cos(AOI)
-        |
-        v
-AM0 irradiance -> effective irradiance -> PV model
+```bash
+python -m pip install "orbital-pv[orbit]"
 ```
 
-Use Skyfield/SGP4 for Earth-orbit catalog objects. Use SpiceyPy when a mission publishes SPICE kernels or when attitude/planetary geometry needs mission-grade kernels.
+## Run
+
+```bash
+python labs/01_orbit_sun_geometry/run_celestrak.py
+```
+
+## Public API workflow
+
+```python
+import orbitalpv as opv
+
+omm = opv.fetch_celestrak_omm(25544)
+satellite = opv.satellite_from_omm(omm)
+positions_m, velocities_m_s = opv.propagate_geocentric_m(satellite, times)
+sun_positions_m = opv.geocentric_sun_positions_m(times)
+geometry = opv.solar_geometry(positions_m[0], sun_positions_m[0])
+```
+
+Persist the retrieved OMM when reproducibility matters.

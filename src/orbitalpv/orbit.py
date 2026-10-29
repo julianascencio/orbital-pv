@@ -13,6 +13,12 @@ from space_pv_orbit import (
     quaternion_wxyz_to_matrix,
     solar_geometry,
 )
+from space_pv_orbit.astropy_engine import geocentric_sun_positions_m
+from space_pv_orbit.skyfield_engine import (
+    propagate_geocentric_m,
+    satellite_from_omm,
+    satellite_from_tle,
+)
 
 EARTH_STANDARD_GRAVITATIONAL_PARAMETER_M3_S2 = 3.986004418e14
 EARTH_ROTATION_RATE_RAD_S = 7.2921159e-5
@@ -138,8 +144,12 @@ __all__ = [
     "circular_orbit_positions_m",
     "cosine_incidence",
     "earth_occultation_fraction",
+    "geocentric_sun_positions_m",
     "ground_track_deg_from_eci",
     "keplerian_orbit_positions_m",
+    "propagate_geocentric_m",
     "quaternion_wxyz_to_matrix",
+    "satellite_from_omm",
+    "satellite_from_tle",
     "solar_geometry",
 ]
