@@ -16,7 +16,7 @@ If you are new to OrbitalPV:
 * read the :doc:`user_guide/getting_started/package_overview`;
 * follow :doc:`user_guide/getting_started/installation`;
 * run the :doc:`user_guide/getting_started/quickstart`;
-* explore the :ref:`sphx_glr_gallery`;
+* explore the :doc:`gallery/index`;
 * use the :doc:`reference/index` for package and function details.
 
 Core modelling idea
