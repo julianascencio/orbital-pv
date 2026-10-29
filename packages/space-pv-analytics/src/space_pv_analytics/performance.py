@@ -111,7 +111,11 @@ def detect_persistent_loss(
 
 def estimate_degradation(frame: pd.DataFrame) -> DegradationEstimate:
     health = daily_health(frame)
-    aggregate = health.groupby("day", as_index=False)["power_envelope"].median().sort_values("day")
+    aggregate = (
+        health.groupby("day", as_index=False)
+        .agg(power_envelope=("power_envelope", "median"))
+        .sort_values("day")
+    )
     loss_start, _ = detect_persistent_loss(health)
     if loss_start is not None:
         cutoff = pd.Timestamp(loss_start)
