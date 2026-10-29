@@ -52,7 +52,7 @@ print(f"panels={telemetry['panel_id'].nunique()}")
 print(f"start={telemetry['timestamp'].min()}")
 print(f"end={telemetry['timestamp'].max()}")
 
-counts = telemetry.groupby("panel_id").size().sort_values(ascending=False)
+counts = telemetry["panel_id"].value_counts()
 fig, ax = plt.subplots(figsize=(8.5, 4.5))
 counts.plot.bar(ax=ax)
 ax.set(xlabel="Panel", ylabel="Telemetry samples")
