@@ -20,6 +20,22 @@ Created by **ASVA Consulting**, OrbitalPV is an open-source full-stack lab for *
 
 The structure follows a modular separation-of-concerns approach: domain models, physics engines, connectors and analytics are independent workspace packages with consistent quality tooling.
 
+## AI-assisted development and literature basis
+
+A substantial part of the code, documentation, examples, tests, and repository scaffolding in OrbitalPV is generated or drafted with AI assistance.
+
+The scientific direction is **not intended to come from unsourced model invention**. Repository developers choose the specific papers, standards, datasets, technical reports, and other literature used to define the physical assumptions, reference values, methods, examples, and research roadmap. AI is then used to accelerate implementation, synthesis, documentation, testing, and iteration around that selected evidence base.
+
+In practice:
+
+- source literature and technical references are selected by the repository developers;
+- model assumptions and numerical baselines should be traceable to cited literature, public datasets, or explicitly documented engineering assumptions;
+- AI-generated code and text are reviewed, tested, and corrected by human contributors before being treated as part of the project;
+- generated outputs should not be interpreted as independently validated scientific truth merely because they are present in the repository;
+- for research, qualification, or mission-critical use, users should verify the underlying references, assumptions, and validation evidence.
+
+The curated evidence base is maintained in `docs/literature/` and in the references attached to individual methods and examples.
+
 ## Install from PyPI
 
 ```bash
