@@ -13,9 +13,7 @@ import orbitalpv as opv
 
 altitude_m = 550_000.0
 radius_m = opv.EARTH_EQUATORIAL_RADIUS_M + altitude_m
-period_s = 2.0 * np.pi * np.sqrt(
-    radius_m**3 / opv.EARTH_STANDARD_GRAVITATIONAL_PARAMETER_M3_S2
-)
+period_s = 2.0 * np.pi * np.sqrt(radius_m**3 / opv.EARTH_STANDARD_GRAVITATIONAL_PARAMETER_M3_S2)
 
 time_s = np.linspace(0.0, 3.0 * period_s, 1800)
 true_anomaly = 2.0 * np.pi * time_s / period_s
