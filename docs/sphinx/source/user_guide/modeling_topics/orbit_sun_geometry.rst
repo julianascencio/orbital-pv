@@ -44,3 +44,19 @@ Frame discipline
 Do not store an inertial vector as longitude/latitude geometry. Scientific
 states must retain their frame and epoch. Earth-fixed GIS products are derived
 later for visualization and spatial queries.
+
+Visualization examples
+----------------------
+
+The Example Gallery includes several offline orbit visualizations:
+
+* :doc:`../../gallery/orbit_visualization/plot_orbit_families_3d` compares
+  representative LEO, polar/SSO-like, MEO, and GEO circular orbits around Earth.
+* :doc:`../../gallery/orbit_visualization/plot_molniya_orbit_3d` shows a
+  representative highly elliptical Molniya-style orbit.
+* :doc:`../../gallery/orbit_visualization/plot_ground_track` transforms an
+  inclined inertial orbit into an Earth-fixed ground track and handles the
+  antimeridian discontinuity.
+
+These examples use deterministic geometry for documentation. Operational
+analysis should use traceable orbital elements or mission ephemerides.
