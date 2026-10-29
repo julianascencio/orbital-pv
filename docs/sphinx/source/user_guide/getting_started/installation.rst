@@ -3,13 +3,47 @@
 Installation
 ============
 
-OrbitalPV currently targets **Python 3.13 or newer** and uses `uv
-<https://docs.astral.sh/uv/>`_ for workspace and dependency management.
+Install OrbitalPV from PyPI
+---------------------------
 
-Install from source
--------------------
+OrbitalPV targets **Python 3.13 or newer**. For normal use, install the public
+distribution from PyPI:
 
-Clone the repository and create the development environment:
+.. code-block:: bash
+
+   python -m pip install orbital-pv
+
+Then import the package as:
+
+.. code-block:: python
+
+   import orbitalpv as opv
+
+Optional extras
+---------------
+
+For plotting the documentation examples:
+
+.. code-block:: bash
+
+   python -m pip install "orbital-pv[examples]"
+
+For advanced orbit/ephemeris adapters:
+
+.. code-block:: bash
+
+   python -m pip install "orbital-pv[orbit]"
+
+For the broader optional stack:
+
+.. code-block:: bash
+
+   python -m pip install "orbital-pv[full]"
+
+Development installation
+------------------------
+
+Contributors should clone the repository and use the uv workspace:
 
 .. code-block:: bash
 
@@ -17,27 +51,15 @@ Clone the repository and create the development environment:
    cd orbital-pv
    uv sync --all-packages --group dev --group lab
 
-For the full scientific stack:
-
-.. code-block:: bash
-
-   uv sync --all-packages --group dev --group lab --group pv --group orbit --group space
-
-For application development:
-
-.. code-block:: bash
-
-   uv sync --all-packages --group app
-
-For documentation development:
+Documentation development:
 
 .. code-block:: bash
 
    uv sync --all-packages --group docs
    make docs
 
-Verify the installation
------------------------
+Verify the development environment
+----------------------------------
 
 .. code-block:: bash
 
@@ -45,13 +67,3 @@ Verify the installation
    uv run ruff check .
    uv run ty check
    uv run pytest
-
-Optional services
------------------
-
-The full application stack uses PostgreSQL/PostGIS and Redis. Start the local
-development services with:
-
-.. code-block:: bash
-
-   docker compose up --build

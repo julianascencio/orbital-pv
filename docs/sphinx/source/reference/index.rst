@@ -1,13 +1,13 @@
 API Reference
 =============
 
-The API Reference is generated from OrbitalPV source modules. Use the User
-Guide for concepts and workflows; use these pages when you need exact Python
-objects and signatures.
+The public API is documented first. The ``space_pv_*`` pages document
+lower-level internal packages used by contributors and advanced users.
 
 .. toctree::
    :maxdepth: 2
 
+   orbitalpv
    core
    orbit
    pvmodel

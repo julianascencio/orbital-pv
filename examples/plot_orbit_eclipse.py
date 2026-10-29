@@ -2,30 +2,28 @@
 Eclipse fraction along a circular orbit
 ========================================
 
-This example uses the geometric Earth/Sun occultation model to show how
-illumination changes around a simple circular LEO orbit.
+Use OrbitalPV's public orbit generator and occultation model to compute
+illumination around a simple circular LEO orbit.
 """
 
 import matplotlib.pyplot as plt
 import numpy as np
 
-from space_pv_core.constants import ASTRONOMICAL_UNIT_M, EARTH_EQUATORIAL_RADIUS_M
-from space_pv_orbit.geometry import earth_occultation_fraction
+import orbitalpv as opv
 
-altitude_m = 550_000.0
-radius_m = EARTH_EQUATORIAL_RADIUS_M + altitude_m
-angle_deg = np.linspace(0.0, 360.0, 721)
-angle_rad = np.deg2rad(angle_deg)
-
-spacecraft = np.column_stack(
-    (radius_m * np.cos(angle_rad), radius_m * np.sin(angle_rad), np.zeros_like(angle_rad))
+positions_m = opv.circular_orbit_positions_m(
+    altitude_m=400_000.0,
+    inclination_deg=0.0,
+    samples=721,
 )
-sun = np.array([ASTRONOMICAL_UNIT_M, 0.0, 0.0])
-
-illumination = np.array([earth_occultation_fraction(position, sun) for position in spacecraft])
+sun_position_m = np.array([opv.ASTRONOMICAL_UNIT_M, 0.0, 0.0])
+illumination = np.array(
+    [opv.earth_occultation_fraction(position, sun_position_m) for position in positions_m]
+)
+orbit_angle_deg = np.linspace(0.0, 360.0, len(positions_m))
 
 fig, ax = plt.subplots()
-ax.plot(angle_deg, illumination)
+ax.plot(orbit_angle_deg, illumination)
 ax.set(xlabel="Orbit angle [deg]", ylabel="Illumination fraction", ylim=(-0.05, 1.05))
 ax.set_title("Earth occultation along a simple circular LEO orbit")
 ax.grid(True, alpha=0.3)

@@ -1,9 +1,92 @@
+[build-system]
+requires = ["setuptools>=84", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "orbital-pv"
 version = "0.3.0"
-description = "OrbitalPV: research platform for spacecraft photovoltaic performance analytics"
+description = "Open-source spacecraft photovoltaic performance analytics"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.13"
-dependencies = []
+authors = [{ name = "OrbitalPV contributors" }]
+keywords = ["photovoltaics", "space", "satellite", "orbit", "solar", "telemetry"]
+dependencies = [
+  "httpx>=0.28,<0.29",
+  "numpy>=2.3",
+  "pandas>=2.2",
+  "pvlib>=0.15.2,<0.16",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering",
+]
+
+[project.urls]
+Documentation = "https://julianascencio.github.io/orbital-pv/"
+Source = "https://github.com/julianascencio/orbital-pv"
+Issues = "https://github.com/julianascencio/orbital-pv/issues"
+
+[project.scripts]
+orbital-pv = "space_pv_cli.main:main"
+
+[project.optional-dependencies]
+orbit = [
+  "astropy>=8.0,<9",
+  "skyfield>=1.55,<2",
+  "sgp4>=2.27,<3",
+  "spiceypy>=8.2,<9",
+]
+excel = ["openpyxl>=3.1"]
+radiation = ["spacepy>=0.7"]
+examples = ["matplotlib>=3.10"]
+app = [
+  "celery[redis]>=5.6,<6",
+  "duckdb>=1.5,<2",
+  "fastapi>=0.141,<1",
+  "psycopg[binary]>=3.2,<4",
+  "pydantic-settings>=2.7,<3",
+  "sqlalchemy>=2.0,<3",
+  "uvicorn[standard]>=0.34,<1",
+]
+full = [
+  "astropy>=8.0,<9",
+  "celery[redis]>=5.6,<6",
+  "duckdb>=1.5,<2",
+  "fastapi>=0.141,<1",
+  "matplotlib>=3.10",
+  "openpyxl>=3.1",
+  "psycopg[binary]>=3.2,<4",
+  "pydantic-settings>=2.7,<3",
+  "sgp4>=2.27,<3",
+  "skyfield>=1.55,<2",
+  "spacepy>=0.7",
+  "spiceypy>=8.2,<9",
+  "sqlalchemy>=2.0,<3",
+  "uvicorn[standard]>=0.34,<1",
+]
+
+[tool.setuptools.packages.find]
+where = [
+  "src",
+  "packages/space-pv-core/src",
+  "packages/space-pv-orbit/src",
+  "packages/space-pv-pvmodel/src",
+  "packages/space-pv-space-env/src",
+  "packages/space-pv-connectors/src",
+  "packages/space-pv-analytics/src",
+  "packages/space-pv-storage/src",
+  "packages/space-pv-orchestration/src",
+  "apps/space-pv-api/src",
+  "apps/space-pv-cli/src",
+]
+include = ["orbitalpv*", "space_pv_*"]
+namespaces = false
 
 [tool.uv]
 package = false
@@ -17,9 +100,11 @@ members = [
 
 [dependency-groups]
 dev = [
+  "build>=1.3",
   "pytest>=9.0",
   "pytest-cov>=7.0",
   "ruff>=0.13",
+  "twine>=6.2",
   "ty>=0.0.8",
 ]
 lab = [
@@ -43,7 +128,7 @@ docs = [
 [tool.ruff]
 line-length = 100
 target-version = "py313"
-src = ["packages/*/src", "apps/*/src"]
+src = ["src", "packages/*/src", "apps/*/src"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
@@ -56,6 +141,7 @@ indent-style = "space"
 [tool.ty.environment]
 python-version = "3.13"
 root = [
+  "src",
   "packages/space-pv-core/src",
   "packages/space-pv-orbit/src",
   "packages/space-pv-pvmodel/src",
