@@ -69,9 +69,7 @@ def constellation_positions_m(orbit_angle_rad: float) -> np.ndarray:
 
 
 radius_m = opv.EARTH_EQUATORIAL_RADIUS_M + ALTITUDE_M
-period_s = 2.0 * np.pi * np.sqrt(
-    radius_m**3 / opv.EARTH_STANDARD_GRAVITATIONAL_PARAMETER_M3_S2
-)
+period_s = 2.0 * np.pi * np.sqrt(radius_m**3 / opv.EARTH_STANDARD_GRAVITATIONAL_PARAMETER_M3_S2)
 time_s = np.linspace(0.0, period_s, TIME_SAMPLES)
 orbit_angle_rad = 2.0 * np.pi * time_s / period_s
 
@@ -89,10 +87,7 @@ eclipsed_satellites: list[int] = []
 for angle in orbit_angle_rad:
     positions_m = constellation_positions_m(float(angle))
     illumination = np.array(
-        [
-            opv.earth_occultation_fraction(position_m, sun_position_m)
-            for position_m in positions_m
-        ]
+        [opv.earth_occultation_fraction(position_m, sun_position_m) for position_m in positions_m]
     )
 
     effective_irradiance = opv.effective_irradiance_w_m2(
@@ -126,10 +121,7 @@ print(f"max_eclipsed_satellites={max(eclipsed_satellites)}")
 snapshot_m = constellation_positions_m(0.0)
 snapshot_km = snapshot_m / 1000.0
 illumination_snapshot = np.array(
-    [
-        opv.earth_occultation_fraction(position_m, sun_position_m)
-        for position_m in snapshot_m
-    ]
+    [opv.earth_occultation_fraction(position_m, sun_position_m) for position_m in snapshot_m]
 )
 
 fig = plt.figure(figsize=(9, 8))
