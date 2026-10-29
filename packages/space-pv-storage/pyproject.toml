@@ -1,0 +1,15 @@
+[project]
+name = "space-pv-storage"
+version = "0.1.0"
+description = "DuckDB and PostgreSQL persistence adapters for Space PV Analytics"
+requires-python = ">=3.13"
+dependencies = [
+  "duckdb>=1.5,<2",
+  "pydantic-settings>=2.7,<3",
+  "sqlalchemy>=2.0,<3",
+  "psycopg[binary]>=3.2,<4",
+]
+
+[build-system]
+requires = ["uv_build>=0.10,<0.11"]
+build-backend = "uv_build"
