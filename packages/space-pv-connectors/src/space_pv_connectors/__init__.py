@@ -11,7 +11,6 @@ from .tabular import load_table, make_demo_telemetry, normalize_birds_like
 
 __all__ = [
     "BirdsEPSConnector",
-    "load_birds_eps_workbook",
     "CdawebHapiConnector",
     "CelesTrakConnector",
     "DownloadReceipt",
@@ -20,6 +19,7 @@ __all__ = [
     "SatnogsDbConnector",
     "SpaceTrackConnector",
     "SscWebConnector",
+    "load_birds_eps_workbook",
     "load_table",
     "make_demo_telemetry",
     "normalize_birds_like",
