@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import re
 from typing import ClassVar
 
 import pandas as pd
@@ -57,8 +58,13 @@ _BIRDS_PANEL_CODES = {
 }
 
 
+def _column_slug(value: object) -> str:
+    text = str(value).strip().lower()
+    return re.sub(r"[^a-z0-9]+", "_", text).strip("_")
+
+
 def _normalize_birds_calibrated(frame: pd.DataFrame) -> pd.DataFrame | None:
-    columns = {str(column).strip().lower(): column for column in frame.columns}
+    columns = {_column_slug(column): column for column in frame.columns}
     if "time_stamp" not in columns:
         return None
 
