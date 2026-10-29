@@ -80,5 +80,6 @@ sphinx_gallery_conf = {
     "remove_config_comments": True,
 }
 
+
 def setup(app):
     app.add_css_file("orbitalpv.css")
