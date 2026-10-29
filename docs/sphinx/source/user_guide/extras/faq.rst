@@ -24,13 +24,13 @@ scientific state. Only derived Earth-fixed longitude/latitude products belong
 in normal GIS geometry.
 
 Does the project already model radiation degradation?
-----------------------------------------------------
+------------------------------------------------------
 
 Not end to end. The architecture and literature roadmap are in place, while
 the current implemented environment package is still a foundation layer.
 
 Which open telemetry dataset should I start with?
-------------------------------------------------
+-------------------------------------------------
 
 BIRDS EPS is the current recommended first benchmark because it contains open
 panel/battery voltage, current, and temperature data and includes known panel
