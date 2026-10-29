@@ -1,6 +1,6 @@
 """Public OrbitalPV API.
 
-Install with ``pip install orbital-pv`` and import this package as ``orbitalpv``.
+Install with pip install orbital-pv and import this package as orbitalpv.
 """
 
 from importlib.metadata import PackageNotFoundError, version
@@ -12,6 +12,18 @@ from .analytics import (
     detect_persistent_loss,
     estimate_degradation,
     summarize_case0,
+)
+from .cells import (
+    AM0_REFERENCE_IRRADIANCE_W_M2,
+    REFERENCE_RADIATION_FLUENCE_E_CM2,
+    REFERENCE_TEMPERATURE_C,
+    SPACE_CELL_TECHNOLOGIES,
+    SpaceCellSimulation,
+    SpaceCellTechnology,
+    get_space_cell_technology,
+    list_space_cell_technologies,
+    radiation_retention_factor,
+    simulate_space_cell,
 )
 from .data import (
     CelesTrakConnector,
@@ -51,17 +63,23 @@ from .pv import (
 try:
     __version__ = version("orbital-pv")
 except PackageNotFoundError:
-    __version__ = "0.3.1"
+    __version__ = "0.4.0"
 
 __all__ = [
+    "AM0_REFERENCE_IRRADIANCE_W_M2",
     "ASTRONOMICAL_UNIT_M",
     "EARTH_EQUATORIAL_RADIUS_M",
     "EARTH_ROTATION_RATE_RAD_S",
     "EARTH_STANDARD_GRAVITATIONAL_PARAMETER_M3_S2",
+    "REFERENCE_RADIATION_FLUENCE_E_CM2",
+    "REFERENCE_TEMPERATURE_C",
+    "SPACE_CELL_TECHNOLOGIES",
     "CelesTrakConnector",
     "DeSotoParameters",
     "PvwattsReference",
     "SolarGeometry",
+    "SpaceCellSimulation",
+    "SpaceCellTechnology",
     "__version__",
     "add_power",
     "add_robust_baseline",
@@ -76,17 +94,21 @@ __all__ = [
     "estimate_degradation",
     "fetch_celestrak_omm",
     "geocentric_sun_positions_m",
+    "get_space_cell_technology",
     "ground_track_deg_from_eci",
     "incidence_factor",
     "keplerian_orbit_positions_m",
+    "list_space_cell_technologies",
     "load_table",
     "make_demo_telemetry",
     "normalize_birds_like",
     "propagate_geocentric_m",
     "pvwatts_dc_space",
     "quaternion_wxyz_to_matrix",
+    "radiation_retention_factor",
     "satellite_from_omm",
     "satellite_from_tle",
+    "simulate_space_cell",
     "single_diode_points",
     "solar_geometry",
     "summarize_case0",

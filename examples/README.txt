@@ -17,9 +17,12 @@ Featured sub-galleries
 .. toctree::
    :maxdepth: 1
 
+   space_cells/index
    constellations/index
    orbit_visualization/index
 
-The constellation gallery includes the Starlink Gen1 shell solar-generation
-simulation, while the orbit-visualization gallery contains representative orbit
-families, ground tracks, and highly elliptical orbit examples.
+The space-cell gallery compares silicon, GaAs, 3J, 4J and IMM technologies,
+including temperature and radiation sensitivity. The constellation gallery
+includes the Starlink Gen1 shell solar-generation simulation, while the
+orbit-visualization gallery contains representative orbit families, ground
+tracks, and highly elliptical orbit examples.

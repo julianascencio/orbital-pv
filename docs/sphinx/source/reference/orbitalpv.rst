@@ -1,8 +1,8 @@
-Public ``orbitalpv`` API
-========================
+Public orbitalpv API
+====================
 
-Install the distribution with ``pip install orbital-pv`` and import it as
-``orbitalpv``.
+Install the distribution with pip install orbital-pv and import it as
+orbitalpv.
 
 .. automodule:: orbitalpv
    :members:
@@ -19,6 +19,13 @@ PV helpers
 ----------
 
 .. automodule:: orbitalpv.pv
+   :members:
+   :no-index:
+
+Space cell simulator
+--------------------
+
+.. automodule:: orbitalpv.cells
    :members:
    :no-index:
 
