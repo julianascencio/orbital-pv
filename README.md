@@ -2,7 +2,7 @@
 
 Open-source full-stack lab for **spacecraft photovoltaic performance analytics**: PV physics, orbit/Sun geometry, real spacecraft data connectors, degradation/anomaly analytics, reproducible research labs, and a web application platform.
 
-The structure follows the same separation-of-concerns philosophy as Bazefield analytics: domain models, physics engines, connectors and analytics are independent workspace packages with a single `uv` environment and consistent quality tooling.
+The structure follows a modular separation-of-concerns approach: domain models, physics engines, connectors and analytics are independent workspace packages with a single `uv` environment and consistent quality tooling.
 
 > **Naming:** the project/repository is **OrbitalPV**. Existing Python workspace packages keep the explicit `space-pv-*` namespace to make their domain boundaries obvious.
 
