@@ -220,3 +220,38 @@ ax.set(xlabel="Panel", ylabel="Last vs first campaign change [%]")
 ax.set_title("Step 7 — Real panel changes for engineering follow-up")
 ax.grid(True, axis="y", alpha=0.3)
 plt.show()
+
+# %% Step 8 — Screen for persistent cross-panel imbalance
+#
+# A panel can already be impaired in the first available campaign, in which
+# case a first-vs-last comparison will not reveal the condition. We therefore
+# also compare each panel's typical campaign upper envelope with the median
+# across all five faces. Because spacecraft attitude is not normalized, this is
+# an engineering screening metric rather than a definitive fault label.
+#
+# The BIRDS publication reports a solar-panel failure on RAAVANA. A panel that
+# remains orders of magnitude below its peers is qualitatively consistent with
+# that report, but this example does not infer the authors' expert label.
+
+panel_level = (
+    session_p95.groupby("panel_id", as_index=False)
+    .agg(typical_p95_w=("power_p95_w", "median"))
+    .sort_values("typical_p95_w")
+)
+fleet_median = float(panel_level["typical_p95_w"].median())
+panel_level["relative_to_panel_median"] = (
+    panel_level["typical_p95_w"] / fleet_median if fleet_median else np.nan
+)
+
+print("\nCross-panel upper-envelope comparison")
+print(panel_level.to_string(index=False))
+
+fig, ax = plt.subplots(figsize=(8.5, 4.5))
+ax.bar(panel_level["panel_id"], panel_level["relative_to_panel_median"])
+ax.axhline(1.0, linestyle="--", linewidth=1, label="Median panel")
+ax.axhline(0.2, linestyle=":", linewidth=1, label="Exploratory 20% screen")
+ax.set(xlabel="Panel", ylabel="Typical envelope / median panel envelope")
+ax.set_title("Step 8 — Persistent cross-panel imbalance screen")
+ax.grid(True, axis="y", alpha=0.3)
+ax.legend()
+plt.show()
