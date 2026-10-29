@@ -131,7 +131,7 @@ session_p95["session_rank"] = session_p95["source_sheet"].astype(str).map(sessio
 session_p95 = session_p95.sort_values(["panel_id", "session_rank"])
 
 fig, ax = plt.subplots(figsize=(9, 4.8))
-for panel_id, panel in session_p95.groupby("panel_id", sort=True):
+for _panel_id, panel in session_p95.groupby("panel_id", sort=True):
     ax.plot(
         panel["session_rank"],
         panel["power_p95_w"],
