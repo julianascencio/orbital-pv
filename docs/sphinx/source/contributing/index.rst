@@ -24,6 +24,30 @@ Before opening a pull request
    uv run pytest
    make docs
 
+AI-assisted contribution policy
+-------------------------------
+
+OrbitalPV is intentionally AI-assisted. A substantial share of repository
+content may be generated or drafted with AI, including code, documentation,
+tests, examples, and research synthesis.
+
+AI assistance does not replace scientific provenance. Contributors should:
+
+* select and cite the specific literature, datasets, standards, or technical
+  reports that motivate a method or parameterization;
+* distinguish literature-backed values from engineering assumptions,
+  placeholders, or illustrative defaults;
+* review AI-generated implementations for physical validity, numerical
+  correctness, units, edge cases, and reproducibility;
+* add tests and validation evidence appropriate to the claimed fidelity;
+* avoid presenting AI-generated text or code as independent scientific
+  validation;
+* update the literature library when new sources materially influence the
+  repository.
+
+The intended workflow is **developer-selected evidence -> AI-assisted
+implementation -> human review and validation**, not unsourced AI generation.
+
 Scientific contributions
 ------------------------
 
