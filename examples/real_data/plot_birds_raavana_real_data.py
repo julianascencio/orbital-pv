@@ -157,7 +157,7 @@ plt.show()
 # temperature and operating state are not yet normalized.
 
 pieces = []
-for panel_id, panel in session_p95.groupby("panel_id", sort=True):
+for _panel_id, panel in session_p95.groupby("panel_id", sort=True):
     panel = panel.copy().sort_values("session_rank")
     reference = float(panel.iloc[0]["power_p95_w"])
     panel["relative_envelope"] = panel["power_p95_w"] / reference if reference else np.nan
