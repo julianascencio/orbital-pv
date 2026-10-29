@@ -113,69 +113,100 @@ ax.legend(fontsize=7, ncols=2)
 fig.autofmt_xdate()
 plt.show()
 
-# %% Step 5 — Compare each panel's upper power envelope
+# %% Step 5 — Compare each measurement session's upper power envelope
 #
-# A tumbling CubeSat naturally produces many low-power samples. Instead of
-# interpreting every low point as a fault, we compare the daily 95th-percentile
-# envelope for each panel.
+# The RAAVANA workbook contains dated high-sampling campaigns. A tumbling
+# CubeSat naturally produces many low-power samples, so we compare each
+# session's 95th-percentile power instead of treating every low point as a
+# fault.
 
-powered["day"] = powered["timestamp"].dt.floor("D")
-daily_p95 = powered.groupby(["panel_id", "day"], as_index=False).agg(
+session_p95 = powered.groupby(["panel_id", "source_sheet"], as_index=False).agg(
     power_p95_w=("power_w", lambda values: float(values.quantile(0.95))),
     samples=("power_w", "size"),
 )
 
-fig, ax = plt.subplots(figsize=(10, 4.8))
-for panel_id, panel in daily_p95.groupby("panel_id", sort=True):
-    ax.plot(panel["day"], panel["power_p95_w"], marker=".", ms=4, label=panel_id)
-ax.set(xlabel="UTC day", ylabel="Daily 95th-percentile power [W]")
-ax.set_title("Step 5 — Daily upper-envelope power by panel")
+session_order = list(dict.fromkeys(powered["source_sheet"].astype(str)))
+session_rank = {name: index for index, name in enumerate(session_order)}
+session_p95["session_rank"] = session_p95["source_sheet"].astype(str).map(session_rank)
+session_p95 = session_p95.sort_values(["panel_id", "session_rank"])
+
+fig, ax = plt.subplots(figsize=(9, 4.8))
+for panel_id, panel in session_p95.groupby("panel_id", sort=True):
+    ax.plot(
+        panel["session_rank"],
+        panel["power_p95_w"],
+        marker="o",
+        label=panel_id,
+    )
+ax.set(
+    xlabel="Measurement campaign",
+    ylabel="Session 95th-percentile power [W]",
+    xticks=range(len(session_order)),
+    xticklabels=session_order,
+)
+ax.set_title("Step 5 — Upper-envelope power by real measurement campaign")
 ax.grid(True, alpha=0.25)
 ax.legend(fontsize=7, ncols=2)
-fig.autofmt_xdate()
+plt.xticks(rotation=20)
 plt.show()
 
-# %% Step 6 — Normalize each panel and screen for persistent health changes
+# %% Step 6 — Normalize each panel to its first measurement campaign
 #
-# OrbitalPV's telemetry-only baseline normalizes each panel to its own early
-# high-power reference. This is an exploratory health indicator rather than a
-# physics-normalized performance ratio.
+# This creates a simple relative health indicator. It is deliberately not a
+# flight-qualified fault classifier: spacecraft attitude, beta angle,
+# temperature and operating state are not yet normalized.
 
-normalized = opv.add_robust_baseline(powered.drop(columns=["day"]))
-health = opv.daily_health(normalized, anomaly_threshold=4.0)
+pieces = []
+for panel_id, panel in session_p95.groupby("panel_id", sort=True):
+    panel = panel.copy().sort_values("session_rank")
+    reference = float(panel.iloc[0]["power_p95_w"])
+    panel["relative_envelope"] = panel["power_p95_w"] / reference if reference else np.nan
+    panel["screen_low"] = panel["relative_envelope"] < 0.80
+    pieces.append(panel)
+session_health = pd.concat(pieces, ignore_index=True)
 
-fig, ax = plt.subplots(figsize=(10, 4.8))
-for panel_id, panel in health.groupby("panel_id", sort=True):
-    ax.plot(panel["day"], panel["power_envelope"], marker=".", ms=4, label=panel_id)
-    flagged = panel[panel["is_anomaly"]]
-    ax.scatter(flagged["day"], flagged["power_envelope"], marker="x", s=28)
-ax.axhline(1.0, linestyle="--", linewidth=1, label="Early reference")
-ax.set(xlabel="UTC day", ylabel="Normalized upper-envelope power")
-ax.set_title("Step 6 — Exploratory panel health and flagged low-envelope days")
+fig, ax = plt.subplots(figsize=(9, 4.8))
+for panel_id, panel in session_health.groupby("panel_id", sort=True):
+    ax.plot(
+        panel["session_rank"],
+        panel["relative_envelope"],
+        marker="o",
+        label=panel_id,
+    )
+    flagged = panel[panel["screen_low"]]
+    ax.scatter(flagged["session_rank"], flagged["relative_envelope"], marker="x", s=45)
+ax.axhline(1.0, linestyle="--", linewidth=1, label="First-session reference")
+ax.axhline(0.8, linestyle=":", linewidth=1, label="Exploratory 80% screen")
+ax.set(
+    xlabel="Measurement campaign",
+    ylabel="Relative upper-envelope power",
+    xticks=range(len(session_order)),
+    xticklabels=session_order,
+)
+ax.set_title("Step 6 — Relative panel health screen")
 ax.grid(True, alpha=0.25)
 ax.legend(fontsize=7, ncols=2)
-fig.autofmt_xdate()
+plt.xticks(rotation=20)
 plt.show()
 
-# %% Step 7 — Summarize panel-to-panel behavior
+# %% Step 7 — Summarize first-to-last campaign changes
 #
-# We compare early and late median upper-envelope power. This does not assign
-# the BIRDS expert fault label; it simply shows which panel histories deserve
-# closer engineering investigation.
+# The source publication reports a RAAVANA panel failure. We do not assign that
+# expert label here; we rank the measured panel changes so an engineer can see
+# which panel history deserves closer investigation.
 
 summary_rows = []
-for panel_id, panel in health.groupby("panel_id", sort=True):
-    panel = panel.sort_values("day")
-    window = max(3, min(10, len(panel) // 4))
-    early = float(panel.head(window)["power_envelope"].median())
-    late = float(panel.tail(window)["power_envelope"].median())
+for panel_id, panel in session_health.groupby("panel_id", sort=True):
+    panel = panel.sort_values("session_rank")
+    first = float(panel.iloc[0]["power_p95_w"])
+    last = float(panel.iloc[-1]["power_p95_w"])
     summary_rows.append(
         {
             "panel_id": panel_id,
-            "early_envelope": early,
-            "late_envelope": late,
-            "relative_change_percent": 100.0 * (late / early - 1.0) if early else np.nan,
-            "flagged_days": int(panel["is_anomaly"].sum()),
+            "first_p95_w": first,
+            "last_p95_w": last,
+            "relative_change_percent": 100.0 * (last / first - 1.0) if first else np.nan,
+            "screened_campaigns": int(panel["screen_low"].sum()),
         }
     )
 
@@ -185,7 +216,7 @@ print(panel_summary.to_string(index=False))
 fig, ax = plt.subplots(figsize=(8.5, 4.5))
 ax.bar(panel_summary["panel_id"], panel_summary["relative_change_percent"])
 ax.axhline(0.0, linewidth=1)
-ax.set(xlabel="Panel", ylabel="Late vs early envelope change [%]")
-ax.set_title("Step 7 — Panel-level change for engineering follow-up")
+ax.set(xlabel="Panel", ylabel="Last vs first campaign change [%]")
+ax.set_title("Step 7 — Real panel changes for engineering follow-up")
 ax.grid(True, axis="y", alpha=0.3)
 plt.show()
