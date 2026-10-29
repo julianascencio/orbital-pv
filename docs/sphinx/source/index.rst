@@ -38,10 +38,11 @@ and the research roadmap. AI is used to accelerate implementation,
 documentation, testing, synthesis, and iteration around that selected evidence
 base.
 
-AI-generated content is therefore not presented as self-validating scientific
-evidence. Users should trace important assumptions to the cited literature and
-validation material, especially for research, qualification, or
-mission-critical applications.
+AI-generated content may contain errors or imperfect interpretations of the
+selected sources. The repository is reviewed and tested as it evolves, but
+validation is still developing and is not yet comprehensive across all models
+and examples. Users should trace important assumptions to the cited literature
+and independently verify results when higher confidence is required.
 
 Start here
 ----------

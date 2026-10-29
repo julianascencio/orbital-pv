@@ -46,7 +46,10 @@ AI assistance does not replace scientific provenance. Contributors should:
   repository.
 
 The intended workflow is **developer-selected evidence -> AI-assisted
-implementation -> human review and validation**, not unsourced AI generation.
+implementation -> human review, testing, and progressive validation**. Some
+parts of the repository remain early-stage and may contain AI-generated errors
+or imperfect interpretations, so deeper validation should grow alongside the
+project.
 
 Scientific contributions
 ------------------------
