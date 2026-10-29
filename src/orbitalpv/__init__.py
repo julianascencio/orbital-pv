@@ -65,7 +65,7 @@ from .pv import (
 try:
     __version__ = version("orbital-pv")
 except PackageNotFoundError:
-    __version__ = "0.4.0"
+    __version__ = "0.4.1"
 
 __all__ = [
     "AM0_REFERENCE_IRRADIANCE_W_M2",
