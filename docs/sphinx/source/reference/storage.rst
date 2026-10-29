@@ -2,7 +2,7 @@ Storage
 =======
 
 .. automodule:: space_pv_storage
-   :members:
+   :members: DuckDBStore, JobRun, JobStatus, StorageSettings
 
 DuckDB
 ------
@@ -17,7 +17,7 @@ PostgreSQL jobs
    :members:
 
 .. automodule:: space_pv_storage.postgres
-   :members:
+   :members: JobRun, JobStatus, create_engine_from_settings, session_factory
 
 Map serving
 -----------
