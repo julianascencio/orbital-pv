@@ -18,14 +18,17 @@ r_apogee_km = EARTH_RADIUS_KM + apogee_altitude_km
 semi_major_axis_m = 0.5 * (r_perigee_km + r_apogee_km) * 1000.0
 eccentricity = (r_apogee_km - r_perigee_km) / (r_apogee_km + r_perigee_km)
 
-orbit_km = opv.keplerian_orbit_positions_m(
-    semi_major_axis_m,
-    eccentricity,
-    inclination_deg=63.4,
-    raan_deg=35.0,
-    argument_of_periapsis_deg=270.0,
-    samples=1000,
-) / 1000.0
+orbit_km = (
+    opv.keplerian_orbit_positions_m(
+        semi_major_axis_m,
+        eccentricity,
+        inclination_deg=63.4,
+        raan_deg=35.0,
+        argument_of_periapsis_deg=270.0,
+        samples=1000,
+    )
+    / 1000.0
+)
 
 fig = plt.figure(figsize=(9, 8))
 ax = fig.add_subplot(111, projection="3d")
