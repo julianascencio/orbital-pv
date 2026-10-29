@@ -13,7 +13,13 @@ from .analytics import (
     estimate_degradation,
     summarize_case0,
 )
-from .data import CelesTrakConnector, fetch_celestrak_omm, load_table, make_demo_telemetry, normalize_birds_like
+from .data import (
+    CelesTrakConnector,
+    fetch_celestrak_omm,
+    load_table,
+    make_demo_telemetry,
+    normalize_birds_like,
+)
 from .environment import am0_irradiance, incidence_factor
 from .orbit import (
     ASTRONOMICAL_UNIT_M,
