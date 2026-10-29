@@ -44,6 +44,20 @@ orbital-pv/
 └── tests/
 ```
 
+## Documentation site
+
+The documentation follows the scientific-Python pattern used by projects such as pvlib: a Sphinx site with a User Guide, executable Example Gallery, and generated API Reference.
+
+After GitHub Pages is enabled for this repository, the site will be published at:
+
+**https://julianascencio.github.io/orbital-pv/**
+
+Build it locally with:
+
+```bash
+make docs
+```
+
 ## Install
 
 ```bash

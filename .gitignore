@@ -25,3 +25,6 @@ outputs/*
 *.duckdb.wal
 node_modules/
 dist/
+
+# Documentation build output
+docs/sphinx/build/
