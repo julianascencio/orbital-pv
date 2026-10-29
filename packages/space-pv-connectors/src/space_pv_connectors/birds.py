@@ -48,6 +48,51 @@ class BirdsEPSConnector(HttpConnector):
         return load_birds_eps_workbook(path, normalized=normalized)
 
 
+_BIRDS_PANEL_CODES = {
+    "py": "+Y",
+    "px": "+X",
+    "mz": "-Z",
+    "mx": "-X",
+    "pz": "+Z",
+}
+
+
+def _normalize_birds_calibrated(frame: pd.DataFrame) -> pd.DataFrame | None:
+    columns = {str(column).strip().lower(): column for column in frame.columns}
+    if "time_stamp" not in columns:
+        return None
+
+    available = [
+        code
+        for code in _BIRDS_PANEL_CODES
+        if f"v{code}_mv" in columns and f"i{code}_ma" in columns
+    ]
+    if not available:
+        return None
+
+    timestamp = pd.to_datetime(frame[columns["time_stamp"]], errors="coerce", utc=True)
+    parts: list[pd.DataFrame] = []
+    for code in available:
+        part = pd.DataFrame(
+            {
+                "timestamp": timestamp,
+                "panel_id": _BIRDS_PANEL_CODES[code],
+                "voltage_v": pd.to_numeric(frame[columns[f"v{code}_mv"]], errors="coerce")
+                / 1000.0,
+                "current_a": pd.to_numeric(frame[columns[f"i{code}_ma"]], errors="coerce")
+                / 1000.0,
+            }
+        )
+        temp_key = f"t{code}_c"
+        if temp_key in columns:
+            part["temperature_c"] = pd.to_numeric(frame[columns[temp_key]], errors="coerce")
+        parts.append(part)
+
+    return pd.concat(parts, ignore_index=True).dropna(
+        subset=["timestamp", "voltage_v", "current_a"]
+    )
+
+
 def _header_score(values: list[object]) -> int:
     text = " ".join(str(value).lower() for value in values if pd.notna(value))
     keywords = ("volt", "current", "curr", "temp", "date", "time", "panel", "solar", "battery")
@@ -86,11 +131,14 @@ def load_birds_eps_workbook(
         raw_parts.append(frame)
 
         if normalized:
-            try:
-                part = normalize_birds_like(frame.drop(columns=["source_sheet"]))
-            except ValueError as exc:
-                errors.append(f"{sheet}: {exc}")
-                continue
+            clean = frame.drop(columns=["source_sheet"])
+            part = _normalize_birds_calibrated(clean)
+            if part is None:
+                try:
+                    part = normalize_birds_like(clean)
+                except ValueError as exc:
+                    errors.append(f"{sheet}: {exc}")
+                    continue
             part["source_sheet"] = sheet
             normalized_parts.append(part)
 
