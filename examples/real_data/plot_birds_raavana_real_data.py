@@ -95,7 +95,7 @@ plt.show()
 
 # %% Step 4 — Convert voltage and current into measured electrical power
 #
-# ``add_power`` is deliberately simple: P = V × I. Eclipse, spacecraft
+# ``add_power`` is deliberately simple: P = V x I. Eclipse, spacecraft
 # attitude and free rotation remain visible in the raw measured signal.
 
 powered = opv.add_power(telemetry)
