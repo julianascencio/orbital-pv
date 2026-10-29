@@ -1,18 +1,26 @@
 # Lab 02 — pvlib-backed reference PV model
 
-`pvlib` is the reference implementation layer for familiar PV equations, not the complete space-cell model.
+This lab demonstrates the public **`orbitalpv` API** rather than importing the implementation packages directly.
 
-Initial uses:
+## Install
 
-- PVWatts-like calibrated BOL panel reference.
-- De Soto / single-diode baseline for single-junction experiments.
-- I-V curve utilities and parameter-estimation experiments.
+```bash
+python -m pip install orbital-pv
+```
 
-Not assumed valid without additional work:
+## Run
 
-- terrestrial ambient/wind cell-temperature models,
-- atmospheric airmass/spectral models,
-- native III-V multi-junction current matching,
-- radiation degradation.
+```bash
+python labs/02_pvlib_reference/run.py
+```
 
-Space-specific inputs (AM0, eclipse, AOI, measured/thermal cell temperature, radiation state) are calculated outside pvlib and passed into the adapter.
+Core usage:
+
+```python
+import orbitalpv as opv
+
+g_am0 = opv.am0_irradiance(opv.ASTRONOMICAL_UNIT_M)
+g_eff = opv.effective_irradiance_w_m2(g_am0, 1.0, 0.85, optical_factor=0.96)
+reference = opv.PvwattsReference(pdc0_w=30.0, gamma_pdc_per_c=-0.002)
+power = opv.pvwatts_dc_space(g_eff, 45.0, reference)
+```

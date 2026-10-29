@@ -13,7 +13,7 @@ from .analytics import (
     estimate_degradation,
     summarize_case0,
 )
-from .data import load_table, make_demo_telemetry, normalize_birds_like
+from .data import CelesTrakConnector, fetch_celestrak_omm, load_table, make_demo_telemetry, normalize_birds_like
 from .environment import am0_irradiance, incidence_factor
 from .orbit import (
     ASTRONOMICAL_UNIT_M,
@@ -25,9 +25,13 @@ from .orbit import (
     circular_orbit_positions_m,
     cosine_incidence,
     earth_occultation_fraction,
+    geocentric_sun_positions_m,
     ground_track_deg_from_eci,
     keplerian_orbit_positions_m,
+    propagate_geocentric_m,
     quaternion_wxyz_to_matrix,
+    satellite_from_omm,
+    satellite_from_tle,
     solar_geometry,
 )
 from .pv import (
@@ -41,10 +45,11 @@ from .pv import (
 try:
     __version__ = version("orbital-pv")
 except PackageNotFoundError:
-    __version__ = "0.3.0"
+    __version__ = "0.3.1"
 
 __all__ = [
     "ASTRONOMICAL_UNIT_M",
+    "CelesTrakConnector",
     "EARTH_EQUATORIAL_RADIUS_M",
     "EARTH_ROTATION_RATE_RAD_S",
     "EARTH_STANDARD_GRAVITATIONAL_PARAMETER_M3_S2",
@@ -63,14 +68,19 @@ __all__ = [
     "earth_occultation_fraction",
     "effective_irradiance_w_m2",
     "estimate_degradation",
+    "fetch_celestrak_omm",
+    "geocentric_sun_positions_m",
     "ground_track_deg_from_eci",
     "incidence_factor",
     "keplerian_orbit_positions_m",
     "load_table",
     "make_demo_telemetry",
     "normalize_birds_like",
+    "propagate_geocentric_m",
     "pvwatts_dc_space",
     "quaternion_wxyz_to_matrix",
+    "satellite_from_omm",
+    "satellite_from_tle",
     "single_diode_points",
     "solar_geometry",
     "summarize_case0",

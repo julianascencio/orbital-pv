@@ -30,3 +30,5 @@ jobs:
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/orbit_visualization/plot_orbit_families_3d.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/orbit_visualization/plot_molniya_orbit_3d.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/orbit_visualization/plot_ground_track.py
+          /tmp/orbitalpv-wheel/bin/python labs/00_birds_baseline/run.py
+          /tmp/orbitalpv-wheel/bin/python labs/02_pvlib_reference/run.py
