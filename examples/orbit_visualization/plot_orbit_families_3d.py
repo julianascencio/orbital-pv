@@ -13,10 +13,7 @@ import orbitalpv as opv
 EARTH_RADIUS_KM = opv.EARTH_EQUATORIAL_RADIUS_M / 1000.0
 
 orbits = {
-    "LEO · 550 km · 51.6°": opv.circular_orbit_positions_m(
-        550_000.0, 51.6, samples=721
-    )
-    / 1000.0,
+    "LEO · 550 km · 51.6°": opv.circular_orbit_positions_m(550_000.0, 51.6, samples=721) / 1000.0,
     "Polar/SSO-like · 700 km · 97.4°": opv.circular_orbit_positions_m(
         700_000.0, 97.4, raan_deg=70.0, samples=721
     )
@@ -25,10 +22,7 @@ orbits = {
         20_200_000.0, 55.0, raan_deg=135.0, samples=721
     )
     / 1000.0,
-    "GEO · 35,786 km · 0°": opv.circular_orbit_positions_m(
-        35_786_000.0, 0.0, samples=721
-    )
-    / 1000.0,
+    "GEO · 35,786 km · 0°": opv.circular_orbit_positions_m(35_786_000.0, 0.0, samples=721) / 1000.0,
 }
 
 fig = plt.figure(figsize=(9, 8))
