@@ -49,7 +49,18 @@ indent-style = "space"
 
 [tool.ty.environment]
 python-version = "3.13"
-root = ["packages/*/src", "apps/*/src"]
+root = [
+  "packages/space-pv-core/src",
+  "packages/space-pv-orbit/src",
+  "packages/space-pv-pvmodel/src",
+  "packages/space-pv-space-env/src",
+  "packages/space-pv-connectors/src",
+  "packages/space-pv-analytics/src",
+  "packages/space-pv-storage/src",
+  "packages/space-pv-orchestration/src",
+  "apps/space-pv-api/src",
+  "apps/space-pv-cli/src",
+]
 
 [tool.pytest.ini_options]
 addopts = "-q"
