@@ -63,9 +63,7 @@ def _normalize_birds_calibrated(frame: pd.DataFrame) -> pd.DataFrame | None:
         return None
 
     available = [
-        code
-        for code in _BIRDS_PANEL_CODES
-        if f"v{code}_mv" in columns and f"i{code}_ma" in columns
+        code for code in _BIRDS_PANEL_CODES if f"v{code}_mv" in columns and f"i{code}_ma" in columns
     ]
     if not available:
         return None
@@ -77,10 +75,8 @@ def _normalize_birds_calibrated(frame: pd.DataFrame) -> pd.DataFrame | None:
             {
                 "timestamp": timestamp,
                 "panel_id": _BIRDS_PANEL_CODES[code],
-                "voltage_v": pd.to_numeric(frame[columns[f"v{code}_mv"]], errors="coerce")
-                / 1000.0,
-                "current_a": pd.to_numeric(frame[columns[f"i{code}_ma"]], errors="coerce")
-                / 1000.0,
+                "voltage_v": pd.to_numeric(frame[columns[f"v{code}_mv"]], errors="coerce") / 1000.0,
+                "current_a": pd.to_numeric(frame[columns[f"i{code}_ma"]], errors="coerce") / 1000.0,
             }
         )
         temp_key = f"t{code}_c"
