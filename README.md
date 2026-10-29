@@ -30,9 +30,10 @@ In practice:
 
 - source literature and technical references are selected by the repository developers;
 - model assumptions and numerical baselines should be traceable to cited literature, public datasets, or explicitly documented engineering assumptions;
-- AI-generated code and text are reviewed, tested, and corrected by human contributors before being treated as part of the project;
-- generated outputs should not be interpreted as independently validated scientific truth merely because they are present in the repository;
-- for research, qualification, or mission-critical use, users should verify the underlying references, assumptions, and validation evidence.
+- AI-generated code and text are reviewed and tested where practical, but validation is still evolving and is not yet deep or comprehensive across all models and examples;
+- as with any AI-assisted work, generated code, explanations, parameter choices, or literature interpretations may contain mistakes and should be checked against the cited sources;
+- generated outputs should be treated as research and engineering work in progress rather than independently validated scientific truth;
+- for research, qualification, or mission-critical use, users should independently verify the underlying references, assumptions, numerical results, and validation evidence.
 
 The curated evidence base is maintained in `docs/literature/` and in the references attached to individual methods and examples.
 
