@@ -138,7 +138,7 @@ def _split_antimeridian(
 ) -> list[list[tuple[float, float]]]:
     if len(samples) < 2:
         raise ValueError("at least two samples are required")
-    parts: [list[tuple[float, float]]] = [[]]
+    parts: list[list[tuple[float, float]]] = [[]]
     previous_lon = None
     for _, lon, lat, _ in samples:
         if previous_lon is not None and abs(lon - previous_lon) > 180.0:
