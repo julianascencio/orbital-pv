@@ -48,9 +48,9 @@ telemetry = telemetry.dropna(subset=["timestamp", "voltage_v", "current_a"])
 telemetry = telemetry.sort_values(["panel_id", "timestamp"]).reset_index(drop=True)
 
 print(f"rows={len(telemetry):,}")
-print(f"panels={telemetry["panel_id"].nunique()}")
-print(f"start={telemetry["timestamp"].min()}")
-print(f"end={telemetry["timestamp"].max()}")
+print(f"panels={telemetry['panel_id'].nunique()}")
+print(f"start={telemetry['timestamp'].min()}")
+print(f"end={telemetry['timestamp'].max()}")
 
 counts = telemetry.groupby("panel_id").size().sort_values(ascending=False)
 fig, ax = plt.subplots(figsize=(8.5, 4.5))
@@ -120,9 +120,9 @@ plt.show()
 # envelope for each panel.
 
 powered["day"] = powered["timestamp"].dt.floor("D")
-daily_p95 = (
-    powered.groupby(["panel_id", "day"], as_index=False)
-    .agg(power_p95_w=("power_w", lambda values: float(values.quantile(0.95))), samples=("power_w", "size"))
+daily_p95 = powered.groupby(["panel_id", "day"], as_index=False).agg(
+    power_p95_w=("power_w", lambda values: float(values.quantile(0.95))),
+    samples=("power_w", "size"),
 )
 
 fig, ax = plt.subplots(figsize=(10, 4.8))
