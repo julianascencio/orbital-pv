@@ -98,9 +98,11 @@ def load_birds_eps_workbook(
         if not normalized_parts:
             detail = "; ".join(errors) if errors else "no readable sheets"
             raise ValueError(f"Could not normalize BIRDS EPS workbook {workbook.name}: {detail}")
-        return pd.concat(normalized_parts, ignore_index=True).sort_values(
-            ["panel_id", "timestamp"]
-        ).reset_index(drop=True)
+        return (
+            pd.concat(normalized_parts, ignore_index=True)
+            .sort_values(["panel_id", "timestamp"])
+            .reset_index(drop=True)
+        )
 
     if not raw_parts:
         raise ValueError(f"No readable sheets found in {workbook}")
