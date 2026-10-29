@@ -1,0 +1,11 @@
+:root {
+  --pst-color-primary: #2f6fdb;
+}
+
+.bd-page-width {
+  max-width: 92rem;
+}
+
+div.highlight-text pre {
+  line-height: 1.45;
+}
