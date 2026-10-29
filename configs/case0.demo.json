@@ -1,0 +1,6 @@
+{
+  "seed": 42,
+  "window": 101,
+  "anomaly_threshold": 5.0,
+  "degradation_reference_samples": 500
+}

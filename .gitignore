@@ -1,0 +1,27 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.ty_cache/
+.coverage
+htmlcov/
+.DS_Store
+.idea/
+.vscode/
+.ipynb_checkpoints/
+data/raw/*
+data/bronze/*
+data/silver/*
+data/gold/*
+!data/**/.gitkeep
+!data/README.md
+outputs/*
+!outputs/.gitkeep
+
+# Application platform
+.env
+*.duckdb
+*.duckdb.wal
+node_modules/
+dist/

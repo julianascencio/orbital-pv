@@ -1,0 +1,19 @@
+[project]
+name = "space-pv-orbit"
+version = "0.2.0"
+requires-python = ">=3.13"
+dependencies = [
+  "space-pv-core",
+  "numpy>=2.3",
+  "astropy>=8.0",
+  "skyfield>=1.55",
+  "sgp4>=2.27",
+  "spiceypy>=8.2",
+]
+
+[build-system]
+requires = ["uv_build>=0.10,<0.11"]
+build-backend = "uv_build"
+
+[tool.uv.sources]
+space-pv-core = { workspace = true }

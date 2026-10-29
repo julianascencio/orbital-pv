@@ -1,0 +1,90 @@
+services:
+  postgres:
+    image: postgis/postgis:17-3.6-alpine
+    environment:
+      POSTGRES_DB: spacepv
+      POSTGRES_USER: spacepv
+      POSTGRES_PASSWORD: spacepv
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infra/postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U spacepv -d spacepv"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.python
+    command: uv run --package space-pv-api uvicorn space_pv_api.main:app --host 0.0.0.0 --port 8000 --reload
+    environment: &app-env
+      SPACE_PV_POSTGRES_DSN: postgresql+psycopg://spacepv:spacepv@postgres:5432/spacepv
+      SPACE_PV_CELERY_BROKER_URL: redis://redis:6379/0
+      SPACE_PV_CELERY_RESULT_BACKEND: redis://redis:6379/1
+      SPACE_PV_DUCKDB_PATH: /app/data/space_pv.duckdb
+      SPACE_PV_CORS_ORIGINS: http://localhost:5173
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.python
+    command: uv run --package space-pv-orchestration celery -A space_pv_orchestration.celery_app:celery_app worker -l INFO -Q celery,analytics,ingestion,orbit,pv
+    environment: *app-env
+    volumes:
+      - .:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  flower:
+    build:
+      context: .
+      dockerfile: Dockerfile.python
+    command: uv run --with flower celery --broker=redis://redis:6379/0 flower --port=5555
+    environment: *app-env
+    ports:
+      - "5555:5555"
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  web:
+    image: node:22-alpine
+    working_dir: /app
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    volumes:
+      - ./apps/space-pv-web:/app
+      - web_node_modules:/app/node_modules
+    ports:
+      - "5173:5173"
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:
+  web_node_modules:
