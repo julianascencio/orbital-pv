@@ -122,6 +122,7 @@ docs = [
   "pydata-sphinx-theme>=0.23,<0.24",
   "sphinx-gallery>=0.22,<0.23",
   "matplotlib>=3.10",
+  "openpyxl>=3.1",
 ]
 
 [tool.ruff]

@@ -26,7 +26,9 @@ from .cells import (
     simulate_space_cell,
 )
 from .data import (
+    BirdsEPSConnector,
     CelesTrakConnector,
+    fetch_birds_eps,
     fetch_celestrak_omm,
     load_table,
     make_demo_telemetry,
@@ -74,6 +76,7 @@ __all__ = [
     "REFERENCE_RADIATION_FLUENCE_E_CM2",
     "REFERENCE_TEMPERATURE_C",
     "SPACE_CELL_TECHNOLOGIES",
+    "BirdsEPSConnector",
     "CelesTrakConnector",
     "DeSotoParameters",
     "PvwattsReference",
@@ -92,6 +95,7 @@ __all__ = [
     "earth_occultation_fraction",
     "effective_irradiance_w_m2",
     "estimate_degradation",
+    "fetch_birds_eps",
     "fetch_celestrak_omm",
     "geocentric_sun_positions_m",
     "get_space_cell_technology",
