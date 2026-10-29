@@ -1,6 +1,22 @@
 # OrbitalPV
 
-Open-source full-stack lab for **spacecraft photovoltaic performance analytics**: PV physics, orbit/Sun geometry, real spacecraft data connectors, degradation/anomaly analytics, reproducible research labs, and a web application platform.
+<p align="center">
+  <a href="https://asvaconsulting.com">
+    <img
+      src="https://asvaconsulting.com/wp-content/uploads/2022/05/ASVA-1-1-scaled.jpg"
+      alt="ASVA Consulting"
+      width="280"
+    />
+  </a>
+</p>
+
+<p align="center">
+  <strong>Created by ASVA Consulting</strong><br>
+  <a href="https://asvaconsulting.com">asvaconsulting.com</a><br>
+  <a href="mailto:contacto@asvaconsulting.com">contacto@asvaconsulting.com</a>
+</p>
+
+Created by **ASVA Consulting**, OrbitalPV is an open-source full-stack lab for **spacecraft photovoltaic performance analytics**: PV physics, orbit/Sun geometry, real spacecraft data connectors, degradation/anomaly analytics, reproducible research labs, and a web application platform.
 
 The structure follows a modular separation-of-concerns approach: domain models, physics engines, connectors and analytics are independent workspace packages with consistent quality tooling.
 
@@ -149,3 +165,10 @@ A curated, source-tagged literature library is maintained in [`docs/literature/`
 
 - `docs/literature/09_ieso_2026_workshop_roadmap.md` — 2026 IESO workshop targets translated into repository features and R&D priorities.
 - `docs/product_feature_roadmap.md` — prioritized product epics derived from the literature and 2026 IESO workshop.
+
+## Creator and contact
+
+OrbitalPV is created and maintained by **ASVA Consulting**.
+
+- Website: https://asvaconsulting.com
+- Contact: contacto@asvaconsulting.com
