@@ -54,4 +54,4 @@ Next steps
 * :doc:`../modeling_topics/orbit_sun_geometry`
 * :doc:`../modeling_topics/pv_modeling`
 * :doc:`../modeling_topics/telemetry_analytics`
-* :ref:`sphx_glr_gallery`
+* :doc:`../../gallery/index`
