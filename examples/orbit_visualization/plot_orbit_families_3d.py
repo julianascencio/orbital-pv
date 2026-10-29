@@ -13,6 +13,7 @@ import numpy as np
 
 EARTH_RADIUS_KM = 6378.137
 
+
 def orbit_xyz_km(
     radius_km: float,
     inclination_deg: float,
@@ -31,12 +32,11 @@ def orbit_xyz_km(
     z = np.sin(inclination) * y_pf
     return np.column_stack((x, y, z))
 
+
 argument = np.linspace(0.0, 2.0 * np.pi, 721)
 
 orbits = {
-    "LEO · 550 km · 51.6°": orbit_xyz_km(
-        EARTH_RADIUS_KM + 550.0, 51.6, 0.0, argument
-    ),
+    "LEO · 550 km · 51.6°": orbit_xyz_km(EARTH_RADIUS_KM + 550.0, 51.6, 0.0, argument),
     "Polar/SSO-like · 700 km · 97.4°": orbit_xyz_km(
         EARTH_RADIUS_KM + 700.0, 97.4, 70.0, argument
     ),
