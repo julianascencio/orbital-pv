@@ -1,4 +1,4 @@
-from .birds import BirdsEPSConnector
+from .birds import BirdsEPSConnector, load_birds_eps_workbook
 from .cdaweb import CdawebHapiConnector
 from .celestrak import CelesTrakConnector
 from .http_base import DownloadReceipt
@@ -19,6 +19,7 @@ __all__ = [
     "SatnogsDbConnector",
     "SpaceTrackConnector",
     "SscWebConnector",
+    "load_birds_eps_workbook",
     "load_table",
     "make_demo_telemetry",
     "normalize_birds_like",

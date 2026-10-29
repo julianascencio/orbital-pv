@@ -22,7 +22,7 @@ jobs:
         run: |
           python -m venv /tmp/orbitalpv-wheel
           /tmp/orbitalpv-wheel/bin/python -m pip install --upgrade pip
-          /tmp/orbitalpv-wheel/bin/python -m pip install dist/*.whl matplotlib
+          /tmp/orbitalpv-wheel/bin/python -m pip install dist/*.whl matplotlib openpyxl
           /tmp/orbitalpv-wheel/bin/python -c "import orbitalpv as opv; print(opv.__version__)"
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/plot_pv_incidence.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/plot_case0_health.py
@@ -33,5 +33,6 @@ jobs:
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/constellations/plot_starlink_gen1_solar_generation.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/space_cells/plot_space_cell_iv_comparison.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/space_cells/plot_space_cell_temperature_radiation.py
+          MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/real_data/plot_birds_raavana_real_data.py
           /tmp/orbitalpv-wheel/bin/python labs/00_birds_baseline/run.py
           /tmp/orbitalpv-wheel/bin/python labs/02_pvlib_reference/run.py
