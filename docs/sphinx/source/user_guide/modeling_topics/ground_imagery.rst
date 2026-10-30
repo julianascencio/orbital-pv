@@ -204,8 +204,9 @@ fixed area in square kilometres. Large studies should use appropriately
 bounded queries or bulk OSM extracts instead of treating a public Overpass
 instance as an unlimited global download service. [#overpass]_
 
-See :doc:`../../gallery/ground_imagery/plot_ground_satellite_inputs` for the
-executable image-and-feature walkthrough.
+The executable image-and-feature walkthroughs cover
+:doc:`Cestas, France <../../gallery/ground_imagery/plot_ground_satellite_inputs>`
+and :doc:`Rinconada near Rengo, Chile <../../gallery/ground_imagery/plot_rengo_solar_plant>`.
 
 Attribution and primary sources
 -------------------------------

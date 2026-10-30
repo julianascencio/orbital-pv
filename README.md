@@ -79,7 +79,9 @@ python -m pip install "orbital-pv[ground,examples] @ git+https://github.com/juli
 ```
 
 See the [ground imagery guide](https://julianascencio.github.io/orbital-pv/user_guide/modeling_topics/ground_imagery.html)
-and [real-image gallery example](https://julianascencio.github.io/orbital-pv/gallery/ground_imagery/plot_ground_satellite_inputs.html).
+and the real-image gallery examples for
+[Cestas, France](https://julianascencio.github.io/orbital-pv/gallery/ground_imagery/plot_ground_satellite_inputs.html)
+and [Rinconada near Rengo, Chile](https://julianascencio.github.io/orbital-pv/gallery/ground_imagery/plot_rengo_solar_plant.html).
 The guide relates these inputs to [Dunnett et al. (2020)](https://doi.org/10.1038/s41597-020-0469-8):
 the paper starts from OSM features; satellite imagery adds inspection context.
 Farm clustering, GHSL filtering and capacity calibration are separate methodology steps.

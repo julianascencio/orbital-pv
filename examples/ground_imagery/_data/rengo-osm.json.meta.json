@@ -1,0 +1,26 @@
+{
+  "source": "OpenStreetMap / Overpass API",
+  "url": "https://overpass-api.de/api/interpreter",
+  "retrieved_at": "2026-10-30T09:55:09.434066+00:00",
+  "sha256": "6a8153ef47df4066b2fb0747eeeb422f0604b9986564cc916000ff7ec477cf3f",
+  "bytes": 2911,
+  "path": "examples/ground_imagery/_data/rengo-osm.json",
+  "request": {
+    "endpoint": "https://overpass-api.de/api/interpreter",
+    "bbox": [
+      -70.824,
+      -34.412,
+      -70.808,
+      -34.402
+    ],
+    "sources": [
+      "solar"
+    ],
+    "query": "[out:json][timeout:25];\n(\n  nwr[\"generator:source\"=\"solar\"](-34.412,-70.824,-34.402,-70.808);\n  nwr[\"plant:source\"=\"solar\"](-34.412,-70.824,-34.402,-70.808);\n  nwr[\"power\"~\"^(generator|plant)$\"][\"power_source\"=\"solar\"](-34.412,-70.824,-34.402,-70.808);\n);\nout body geom;"
+  },
+  "license": "ODbL-1.0",
+  "attribution": "\u00a9 OpenStreetMap contributors",
+  "license_url": "https://www.openstreetmap.org/copyright",
+  "paper_doi": "10.1038/s41597-020-0469-8",
+  "parser_version": "1"
+}
