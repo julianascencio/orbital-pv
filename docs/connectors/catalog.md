@@ -16,6 +16,12 @@ The connector layer retrieves raw external facts and preserves provenance. It do
 | Flying Laptop / DaRUS | calibrated four-array voltage/current and derived V×I, UTC packet timestamps | No | Measured on-orbit generation; monthly archives, DOI 10.18419/darus-451, CC BY 4.0 |
 | OPS-SAT-AD v2 | original photodiode/magnetometer segments and expert anomaly annotations | No | Sensor/illumination-related benchmark; units unspecified in source, DOI 10.5281/zenodo.15108715, CC BY 4.0 |
 | LASP LISIRD | TSIS-1/SORCE measured total irradiance; TSIS-1 measured spectral irradiance | No | Real illumination inputs in W/m² or W/m²/nm; 1-AU and actual-Earth-distance fields, uncertainties and quality flags |
+| Earth Search / Sentinel-2 Collection 1 | STAC scene metadata, RGB, spectral bands and scene classification | No | Native-resolution ground-image crops and GeoTIFF export; optional Rasterio; no implicit reflectance conversion or cloud masking |
+| OpenStreetMap / Overpass | Raw solar/wind nodes, ways and relations with tags and geometry | No | Small-area mapping inputs following Dunnett et al.'s source-tag selection, with legacy tags included; no farm clustering or capacity estimation |
+
+The [ground imagery guide](https://julianascencio.github.io/orbital-pv/user_guide/modeling_topics/ground_imagery.html)
+and [Cestas gallery walkthrough](https://julianascencio.github.io/orbital-pv/gallery/ground_imagery/plot_ground_satellite_inputs.html)
+show how image and OSM snapshots remain distinct, with acquisition dates, source licenses and checksums.
 
 ## Executable measurement examples
 

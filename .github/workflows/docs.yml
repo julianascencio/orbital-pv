@@ -23,7 +23,7 @@ jobs:
       - uses: astral-sh/setup-uv@v6
         with:
           python-version: "3.13"
-      - run: uv sync --all-packages --group docs
+      - run: uv sync --all-packages --group docs --group ground
       - name: Build Sphinx documentation
         run: uv run sphinx-build -W --keep-going -b html docs/sphinx/source docs/sphinx/build/html
       - name: Upload Pages artifact

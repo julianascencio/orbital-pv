@@ -22,7 +22,7 @@ jobs:
         run: |
           python -m venv /tmp/orbitalpv-wheel
           /tmp/orbitalpv-wheel/bin/python -m pip install --upgrade pip
-          /tmp/orbitalpv-wheel/bin/python -m pip install dist/*.whl matplotlib openpyxl
+          /tmp/orbitalpv-wheel/bin/python -m pip install dist/*.whl matplotlib openpyxl rasterio
           /tmp/orbitalpv-wheel/bin/python -c "import orbitalpv as opv; print(opv.__version__)"
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/plot_pv_incidence.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/plot_case0_health.py
@@ -36,6 +36,7 @@ jobs:
           for example in examples/pv_analytics/plot_*.py; do
             MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python "$example"
           done
+          MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/ground_imagery/plot_ground_satellite_inputs.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/space_cells/plot_space_cell_iv_comparison.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/space_cells/plot_space_cell_temperature_radiation.py
           for example in examples/real_data/plot_*.py; do
