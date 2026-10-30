@@ -22,6 +22,97 @@ from space_pv_orbit.skyfield_engine import (
 
 EARTH_STANDARD_GRAVITATIONAL_PARAMETER_M3_S2 = 3.986004418e14
 EARTH_ROTATION_RATE_RAD_S = 7.2921159e-5
+_EARTH_J2 = 1.08262668e-3
+_TROPICAL_YEAR_S = 365.2422 * 86_400.0
+
+
+def circular_orbit_period_s(altitude_m: float) -> float:
+    """Return the two-body period of a circular Earth orbit in seconds.
+
+    ``altitude_m`` is a finite, positive height above the equatorial Earth
+    radius. This is a design estimate, without perturbations or station keeping.
+    """
+    if not np.isfinite(altitude_m) or altitude_m <= 0.0:
+        raise ValueError("altitude_m must be finite and positive")
+    radius = EARTH_EQUATORIAL_RADIUS_M + altitude_m
+    return float(2.0 * np.pi * np.sqrt(radius**3 / EARTH_STANDARD_GRAVITATIONAL_PARAMETER_M3_S2))
+
+
+def sun_synchronous_inclination_deg(altitude_m: float) -> float:
+    """Estimate circular sun-synchronous inclination from first-order J2.
+
+    Match ``-1.5 * J2 * n * (R/a)**2 * cos(i)`` to one eastward node
+    revolution per 365.2422-day tropical year. The result is a mean-element
+    design approximation; it omits higher harmonics, drag and short-period
+    effects. It does not imply uninterrupted sunlight.
+
+    Raises ``ValueError`` when altitude is invalid or J2 alone cannot provide
+    the required precession at that altitude.
+    """
+    period = circular_orbit_period_s(altitude_m)
+    radius = EARTH_EQUATORIAL_RADIUS_M + altitude_m
+    mean_motion = 2.0 * np.pi / period
+    node_rate = 2.0 * np.pi / _TROPICAL_YEAR_S
+    cos_inclination = -node_rate / (
+        1.5 * _EARTH_J2 * mean_motion * (EARTH_EQUATORIAL_RADIUS_M / radius) ** 2
+    )
+    if abs(cos_inclination) > 1.0:
+        raise ValueError("No first-order J2 sun-synchronous solution at this altitude")
+    return float(np.rad2deg(np.arccos(cos_inclination)))
+
+
+def raan_from_local_solar_time_deg(
+    local_time_hours: float,
+    *,
+    sun_right_ascension_deg: float = 0.0,
+    ascending: bool = True,
+) -> float:
+    """Convert local solar time at an equator crossing to RAAN in degrees.
+
+    Hours must be in ``[0, 24)``. Set ``ascending=False`` for a descending
+    crossing. The returned ascending-node angle is wrapped to ``[0, 360)``.
+    Supply the *mean* Sun's right ascension for mean local solar time, or the
+    physical Sun's right ascension for apparent local solar time. These differ
+    by the equation of time and must not be silently interchanged.
+
+    This sets the plane at one epoch; it does not propagate nodal precession.
+    """
+    if not np.isfinite(local_time_hours) or not 0.0 <= local_time_hours < 24.0:
+        raise ValueError("local_time_hours must be finite and in [0, 24)")
+    if not np.isfinite(sun_right_ascension_deg):
+        raise ValueError("sun_right_ascension_deg must be finite")
+    node_offset = 0.0 if ascending else 180.0
+    return float((sun_right_ascension_deg + 15.0 * (local_time_hours - 12.0) + node_offset) % 360.0)
+
+
+def circular_eclipse_duration_s(
+    altitude_m: float, beta_angle_deg: float | np.ndarray
+) -> np.ndarray:
+    """Estimate eclipse duration per circular orbit with a cylindrical shadow.
+
+    ``beta_angle_deg`` is the signed angle between the Earth-to-Sun direction
+    and the orbital plane, in ``[-90, 90]``. Returns seconds as an array with
+    the input beta shape (a zero-dimensional array for a scalar).
+
+    A spherical Earth and a point Sun at infinite distance are assumed. The
+    eclipse half-angle is ``acos(sqrt(1 - (R/a)**2) / cos(beta))`` below the
+    critical beta ``asin(R/a)``; above it the duration is zero. Finite solar
+    radius, penumbra, atmosphere and oblateness are omitted. In particular,
+    zero here is not proof of uninterrupted full sunlight: use
+    :func:`earth_occultation_fraction` for a finite-Sun geometry check.
+
+    See NASA's spacecraft thermal-environment course, slides 110-119:
+    https://ntrs.nasa.gov/api/citations/20200007746/downloads/20200007746.pdf
+    """
+    period = circular_orbit_period_s(altitude_m)
+    beta = np.asarray(beta_angle_deg, dtype=float)
+    if not np.all(np.isfinite(beta)) or np.any(np.abs(beta) > 90.0):
+        raise ValueError("beta_angle_deg must be finite and in [-90, 90]")
+    radius_ratio = EARTH_EQUATORIAL_RADIUS_M / (EARTH_EQUATORIAL_RADIUS_M + altitude_m)
+    critical_beta = np.rad2deg(np.arcsin(radius_ratio))
+    cosine_half_angle = np.sqrt(1.0 - radius_ratio**2) / np.cos(np.deg2rad(beta))
+    half_angle = np.arccos(np.clip(cosine_half_angle, 0.0, 1.0))
+    return np.where(np.abs(beta) >= critical_beta, 0.0, period * half_angle / np.pi)
 
 
 def keplerian_orbit_positions_m(
@@ -141,6 +232,8 @@ __all__ = [
     "EARTH_STANDARD_GRAVITATIONAL_PARAMETER_M3_S2",
     "SolarGeometry",
     "body_vector_to_reference",
+    "circular_eclipse_duration_s",
+    "circular_orbit_period_s",
     "circular_orbit_positions_m",
     "cosine_incidence",
     "earth_occultation_fraction",
@@ -149,7 +242,9 @@ __all__ = [
     "keplerian_orbit_positions_m",
     "propagate_geocentric_m",
     "quaternion_wxyz_to_matrix",
+    "raan_from_local_solar_time_deg",
     "satellite_from_omm",
     "satellite_from_tle",
     "solar_geometry",
+    "sun_synchronous_inclination_deg",
 ]

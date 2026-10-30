@@ -17,6 +17,7 @@ workflows in OrbitalPV.
    :maxdepth: 2
 
    modeling_topics/orbit_sun_geometry
+   modeling_topics/constellations
    modeling_topics/pv_modeling
    modeling_topics/space_environment
    modeling_topics/telemetry_analytics
