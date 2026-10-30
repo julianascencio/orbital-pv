@@ -4,6 +4,21 @@ Data connectors
 .. automodule:: space_pv_connectors
    :members:
 
+Ground satellite imagery
+------------------------
+
+.. automodule:: space_pv_connectors.ground_imagery
+   :members:
+
+.. automodule:: space_pv_connectors.ground_raster
+   :members:
+
+Ground renewable-energy features
+--------------------------------
+
+.. automodule:: space_pv_connectors.ground_osm
+   :members:
+
 BIRDS EPS
 ---------
 

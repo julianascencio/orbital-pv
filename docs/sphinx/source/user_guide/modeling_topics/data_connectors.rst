@@ -19,7 +19,12 @@ OrbitalPV contains initial adapters for:
 * BIRDS EPS — open panel and battery telemetry;
 * Flying Laptop / DaRUS — calibrated on-orbit solar-array voltage and current;
 * OPS-SAT-AD — original annotated photodiode and magnetometer measurements;
-* LASP LISIRD — measured total and spectral solar irradiance.
+* LASP LISIRD — measured total and spectral solar irradiance;
+* Earth Search Sentinel-2 — ground imagery, spectral bands and scene classification;
+* OpenStreetMap / Overpass — raw solar and wind installation features.
+
+See :doc:`ground_imagery` for image retrieval and the relationship to
+Dunnett et al. (2020), including which inputs the paper actually uses.
 
 The NOAA SWPC connector also normalizes measured GOES integral proton and
 electron flux. SatNOGS metadata is public, but its telemetry endpoint currently

@@ -1,0 +1,26 @@
+{
+  "source": "OpenStreetMap / Overpass API",
+  "url": "https://overpass-api.de/api/interpreter",
+  "retrieved_at": "2026-10-30T08:26:33.994730+00:00",
+  "sha256": "ebea7aa59516ee4855bb6ea272b5c2fa85465d302e1fd8a29ba28a1d1c84a4cc",
+  "bytes": 63621,
+  "path": "examples/ground_imagery/_data/cestas-osm.json",
+  "request": {
+    "endpoint": "https://overpass-api.de/api/interpreter",
+    "bbox": [
+      -0.833,
+      44.709,
+      -0.795,
+      44.742
+    ],
+    "sources": [
+      "solar"
+    ],
+    "query": "[out:json][timeout:25];\n(\n  nwr[\"generator:source\"=\"solar\"](44.709,-0.833,44.742,-0.795);\n  nwr[\"plant:source\"=\"solar\"](44.709,-0.833,44.742,-0.795);\n  nwr[\"power\"~\"^(generator|plant)$\"][\"power_source\"=\"solar\"](44.709,-0.833,44.742,-0.795);\n);\nout body geom;"
+  },
+  "license": "ODbL-1.0",
+  "attribution": "\u00a9 OpenStreetMap contributors",
+  "license_url": "https://www.openstreetmap.org/copyright",
+  "paper_doi": "10.1038/s41597-020-0469-8",
+  "parser_version": "1"
+}

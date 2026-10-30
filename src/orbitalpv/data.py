@@ -9,9 +9,12 @@ from space_pv_connectors import (
     BirdsEPSConnector,
     CelesTrakConnector,
     FlyingLaptopConnector,
+    GroundImage,
     LisirdConnector,
     NoaaSwpcConnector,
+    OpenStreetMapEnergyConnector,
     OpsSatADConnector,
+    Sentinel2GroundConnector,
     load_birds_eps_workbook,
     load_flying_laptop_power,
     load_goes_integral_particle_flux,
@@ -19,6 +22,7 @@ from space_pv_connectors import (
     load_table,
     make_demo_telemetry,
     normalize_birds_like,
+    read_ground_image,
 )
 
 
@@ -93,9 +97,12 @@ __all__ = [
     "BirdsEPSConnector",
     "CelesTrakConnector",
     "FlyingLaptopConnector",
+    "GroundImage",
     "LisirdConnector",
     "NoaaSwpcConnector",
+    "OpenStreetMapEnergyConnector",
     "OpsSatADConnector",
+    "Sentinel2GroundConnector",
     "fetch_birds_eps",
     "fetch_celestrak_omm",
     "fetch_flying_laptop_power",
@@ -107,4 +114,5 @@ __all__ = [
     "load_table",
     "make_demo_telemetry",
     "normalize_birds_like",
+    "read_ground_image",
 ]

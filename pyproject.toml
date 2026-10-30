@@ -44,6 +44,7 @@ orbit = [
 excel = ["openpyxl>=3.1"]
 radiation = ["spacepy>=0.7"]
 examples = ["matplotlib>=3.10"]
+ground = ["rasterio>=1.4,<2"]
 app = [
   "celery[redis]>=5.6,<6",
   "duckdb>=1.5,<2",
@@ -63,6 +64,7 @@ full = [
   "psycopg[binary]>=3.2,<4",
   "pydantic-settings>=2.7,<3",
   "sgp4>=2.27,<3",
+  "rasterio>=1.4,<2",
   "skyfield>=1.55,<2",
   "spacepy>=0.7",
   "spiceypy>=8.2,<9",
@@ -114,6 +116,7 @@ lab = [
   "pandas>=2.2",
 ]
 pv = ["pvlib>=0.15.2,<0.16"]
+ground = ["rasterio>=1.4,<2"]
 orbit = ["astropy>=8.0,<9", "skyfield>=1.55,<2", "sgp4>=2.27,<3", "spiceypy>=8.2,<9"]
 space = ["spacepy>=0.7"]
 app = ["fastapi>=0.141,<1", "uvicorn[standard]>=0.34,<1", "celery[redis]>=5.6,<6", "duckdb>=1.5,<2", "sqlalchemy>=2.0,<3", "psycopg[binary]>=3.2,<4", "pydantic-settings>=2.7,<3"]

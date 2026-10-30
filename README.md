@@ -64,6 +64,26 @@ python -m pip install "orbital-pv[orbit]"
 python -m pip install "orbital-pv[full]"
 ```
 
+### Ground satellite imagery
+
+The repository's ground-data API retrieves **Sentinel-2 Collection 1 imagery**
+through Earth Search and **solar/wind features from OpenStreetMap** through
+Overpass. Search by bounding box, dates and scene cloud cover, read a small area
+from a Cloud-Optimized GeoTIFF, and export raw pixels with their CRS, calibration
+metadata and provenance. Neither service requires an API key.
+
+Install the new, unreleased API with the optional raster reader:
+
+```bash
+python -m pip install "orbital-pv[ground,examples] @ git+https://github.com/julianascencio/orbital-pv.git"
+```
+
+See the [ground imagery guide](https://julianascencio.github.io/orbital-pv/user_guide/modeling_topics/ground_imagery.html)
+and [real-image gallery example](https://julianascencio.github.io/orbital-pv/gallery/ground_imagery/plot_ground_satellite_inputs.html).
+The guide relates these inputs to [Dunnett et al. (2020)](https://doi.org/10.1038/s41597-020-0469-8):
+the paper starts from OSM features; satellite imagery adds inspection context.
+Farm clustering, GHSL filtering and capacity calibration are separate methodology steps.
+
 ## Foundation stack
 
 - **pvlib** — tested PV equations and I-V/single-diode reference models behind a space-specific adapter.
@@ -72,6 +92,7 @@ python -m pip install "orbital-pv[full]"
 - **SpiceyPy / NASA SPICE** — mission-grade ephemeris, attitude, clocks and frame transforms.
 - **SpacePy / later radiation engines** — radiation/environment workstream.
 - **HTTP connectors** — CelesTrak, Space-Track, NASA SSCWeb, NAIF, CDAWeb/HAPI, NOAA SWPC, SatNOGS DB and BIRDS EPS.
+- **Ground inputs** — Earth Search Sentinel-2 Collection 1 COGs and OpenStreetMap solar/wind features, with optional Rasterio window reads.
 
 `poliastro` is intentionally not a core dependency because its upstream repository is archived.
 
