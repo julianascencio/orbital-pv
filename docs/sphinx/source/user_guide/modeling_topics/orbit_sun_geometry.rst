@@ -61,15 +61,26 @@ The Example Gallery includes several offline orbit visualizations:
 These examples use deterministic geometry for documentation. Operational
 analysis should use traceable orbital elements or mission ephemerides.
 
-Constellation-scale example
----------------------------
+Constellation examples
+----------------------
 
-The Example Gallery also includes a constellation-scale demonstration:
+The :doc:`constellations` guide links published mission geometry to viewing
+conditions, eclipses and illustrative power budgets. The gallery includes:
+
+* :doc:`../../gallery/constellations/plot_geo_irradiance_imaging_constellation`
+  compares selected GOES, Meteosat and Himawari viewing geometry and eclipse seasons.
+* :doc:`../../gallery/constellations/plot_polar_earth_observation_constellation`
+  shows the nominal Sentinel-2B/2C pair, ground tracks and illumination.
+* :doc:`../../gallery/constellations/plot_space_data_center_orbits`
+  compares Suncatcher- and ASCEND-motivated orbital scenarios with seasonal
+  shadow, finite-Sun penumbra and a declared load/storage budget.
+* :doc:`../../gallery/constellations/plot_compact_data_center_constellation`
+  distinguishes compact-cluster eclipses from staggered eclipses in a
+  hypothetical ring and keeps local power deficits separate from fleet sums.
 
 * :doc:`../../gallery/constellations/plot_starlink_gen1_solar_generation`
   models the FCC-authorized 1,584-spacecraft, 550 km, 53° Starlink Gen1 shell
   and computes fleet illumination and illustrative solar generation over one orbit.
 
-The orbital geometry follows the public FCC authorization. Electrical power
-assumptions in the example are explicitly illustrative rather than manufacturer
-specifications.
+The Starlink orbital geometry follows the public FCC authorization.
+Electrical power assumptions in all examples are explicitly illustrative.

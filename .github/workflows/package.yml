@@ -30,7 +30,9 @@ jobs:
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/orbit_visualization/plot_orbit_families_3d.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/orbit_visualization/plot_molniya_orbit_3d.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/orbit_visualization/plot_ground_track.py
-          MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/constellations/plot_starlink_gen1_solar_generation.py
+          for example in examples/constellations/plot_*.py; do
+            MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python "$example"
+          done
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/space_cells/plot_space_cell_iv_comparison.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/space_cells/plot_space_cell_temperature_radiation.py
           for example in examples/real_data/plot_*.py; do

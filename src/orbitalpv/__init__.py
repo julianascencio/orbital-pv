@@ -52,6 +52,8 @@ from .orbit import (
     EARTH_STANDARD_GRAVITATIONAL_PARAMETER_M3_S2,
     SolarGeometry,
     body_vector_to_reference,
+    circular_eclipse_duration_s,
+    circular_orbit_period_s,
     circular_orbit_positions_m,
     cosine_incidence,
     earth_occultation_fraction,
@@ -60,9 +62,11 @@ from .orbit import (
     keplerian_orbit_positions_m,
     propagate_geocentric_m,
     quaternion_wxyz_to_matrix,
+    raan_from_local_solar_time_deg,
     satellite_from_omm,
     satellite_from_tle,
     solar_geometry,
+    sun_synchronous_inclination_deg,
 )
 from .pv import (
     DeSotoParameters,
@@ -75,7 +79,7 @@ from .pv import (
 try:
     __version__ = version("orbital-pv")
 except PackageNotFoundError:
-    __version__ = "0.5.0"
+    __version__ = "0.6.0"
 
 __all__ = [
     "AM0_REFERENCE_IRRADIANCE_W_M2",
@@ -102,6 +106,8 @@ __all__ = [
     "add_robust_baseline",
     "am0_irradiance",
     "body_vector_to_reference",
+    "circular_eclipse_duration_s",
+    "circular_orbit_period_s",
     "circular_orbit_positions_m",
     "cosine_incidence",
     "daily_health",
@@ -129,6 +135,7 @@ __all__ = [
     "propagate_geocentric_m",
     "pvwatts_dc_space",
     "quaternion_wxyz_to_matrix",
+    "raan_from_local_solar_time_deg",
     "radiation_retention_factor",
     "satellite_from_omm",
     "satellite_from_tle",
@@ -136,4 +143,5 @@ __all__ = [
     "single_diode_points",
     "solar_geometry",
     "summarize_case0",
+    "sun_synchronous_inclination_deg",
 ]
