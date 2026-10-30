@@ -33,6 +33,9 @@ jobs:
           for example in examples/constellations/plot_*.py; do
             MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python "$example"
           done
+          for example in examples/pv_analytics/plot_*.py; do
+            MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python "$example"
+          done
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/space_cells/plot_space_cell_iv_comparison.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/space_cells/plot_space_cell_temperature_radiation.py
           for example in examples/real_data/plot_*.py; do

@@ -6,12 +6,18 @@ Install with pip install orbital-pv and import this package as orbitalpv.
 from importlib.metadata import PackageNotFoundError, version
 
 from .analytics import (
+    LOSS_CATEGORIES,
+    LossStage,
+    PowerLossBreakdown,
+    PowerLossSummary,
     add_power,
     add_robust_baseline,
     daily_health,
     detect_persistent_loss,
     estimate_degradation,
+    power_loss_breakdown,
     summarize_case0,
+    summarize_power_losses,
 )
 from .cells import (
     AM0_REFERENCE_IRRADIANCE_W_M2,
@@ -73,13 +79,14 @@ from .pv import (
     PvwattsReference,
     effective_irradiance_w_m2,
     pvwatts_dc_space,
+    pvwatts_loss_chain,
     single_diode_points,
 )
 
 try:
     __version__ = version("orbital-pv")
 except PackageNotFoundError:
-    __version__ = "0.6.0"
+    __version__ = "0.7.0"
 
 __all__ = [
     "AM0_REFERENCE_IRRADIANCE_W_M2",
@@ -87,6 +94,7 @@ __all__ = [
     "EARTH_EQUATORIAL_RADIUS_M",
     "EARTH_ROTATION_RATE_RAD_S",
     "EARTH_STANDARD_GRAVITATIONAL_PARAMETER_M3_S2",
+    "LOSS_CATEGORIES",
     "REFERENCE_RADIATION_FLUENCE_E_CM2",
     "REFERENCE_TEMPERATURE_C",
     "SPACE_CELL_TECHNOLOGIES",
@@ -95,8 +103,11 @@ __all__ = [
     "DeSotoParameters",
     "FlyingLaptopConnector",
     "LisirdConnector",
+    "LossStage",
     "NoaaSwpcConnector",
     "OpsSatADConnector",
+    "PowerLossBreakdown",
+    "PowerLossSummary",
     "PvwattsReference",
     "SolarGeometry",
     "SpaceCellSimulation",
@@ -132,8 +143,10 @@ __all__ = [
     "load_table",
     "make_demo_telemetry",
     "normalize_birds_like",
+    "power_loss_breakdown",
     "propagate_geocentric_m",
     "pvwatts_dc_space",
+    "pvwatts_loss_chain",
     "quaternion_wxyz_to_matrix",
     "raan_from_local_solar_time_deg",
     "radiation_retention_factor",
@@ -143,5 +156,6 @@ __all__ = [
     "single_diode_points",
     "solar_geometry",
     "summarize_case0",
+    "summarize_power_losses",
     "sun_synchronous_inclination_deg",
 ]

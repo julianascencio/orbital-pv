@@ -5,6 +5,7 @@ from space_pv_pvmodel import (
     PvwattsReference,
     effective_irradiance_w_m2,
     pvwatts_dc_space,
+    pvwatts_loss_chain,
     single_diode_points,
 )
 
@@ -13,5 +14,6 @@ __all__ = [
     "PvwattsReference",
     "effective_irradiance_w_m2",
     "pvwatts_dc_space",
+    "pvwatts_loss_chain",
     "single_diode_points",
 ]

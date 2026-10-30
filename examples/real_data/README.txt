@@ -42,6 +42,12 @@ downloads approximately 30 MB and OPS-SAT approximately 19 MB once. Irradiance
 and GOES examples request bounded subsets. The examples state when power is
 computed from measured V/I or when a modeled PV response uses measured input.
 
+For a held-out empirical reference comparison using the Flying Laptop
+measurements, see :doc:`Flying Laptop reference gap
+</gallery/pv_analytics/plot_flying_laptop_reference_gap>`. It reports signed
+power gaps, sampling coverage and observed-time energy while leaving physical
+causes unexplained when the required evidence is unavailable.
+
 BIRDS campaign details
 ----------------------
 

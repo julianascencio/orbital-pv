@@ -19,6 +19,7 @@ workflows in OrbitalPV.
    modeling_topics/orbit_sun_geometry
    modeling_topics/constellations
    modeling_topics/pv_modeling
+   modeling_topics/pv_loss_analysis
    modeling_topics/space_environment
    modeling_topics/telemetry_analytics
    modeling_topics/data_connectors

@@ -18,12 +18,16 @@ Featured sub-galleries
    :maxdepth: 1
 
    real_data/index
+   pv_analytics/index
    space_cells/index
    constellations/index
    orbit_visualization/index
 
-The real-data gallery retrieves and analyzes measured on-orbit spacecraft PV telemetry. The space-cell gallery compares silicon, GaAs, 3J, 4J and IMM technologies,
+The real-data gallery retrieves and analyzes measured on-orbit spacecraft PV
+telemetry. The PV-analytics gallery explains expected-versus-actual power gaps,
+physical and operational loss categories, and observed-time energy budgets.
+The space-cell gallery compares silicon, GaAs, 3J, 4J and IMM technologies,
 including temperature and radiation sensitivity. The constellation gallery
-includes the Starlink Gen1 shell solar-generation simulation, while the
-orbit-visualization gallery contains representative orbit families, ground
+includes communications, Earth-imaging and proposed space data-center scenarios.
+The orbit-visualization gallery contains representative orbit families, ground
 tracks, and highly elliptical orbit examples.

@@ -114,6 +114,30 @@ Build locally:
 make docs
 ```
 
+## PV modelling and loss analytics
+
+OrbitalPV 0.7 explains **expected power minus actual power** with an explicit
+loss ledger. `pvwatts_loss_chain` exposes cumulative physical and controller
+predictions; `power_loss_breakdown` turns their differences into named stages
+and categories; `summarize_power_losses` reports observed-time energy in Wh.
+
+The categories cover solar resource, eclipse/pointing, optics/spectrum, cell
+temperature, radiation/aging, mismatch/wiring, conversion, operations, and an
+unexplained residual. Every attributed stage carries an evidence description.
+Gains keep their sign, multiplicative losses are not added as independent
+percentages, and energy accounting excludes missing samples and long gaps.
+
+Choose an ideal reference for a design budget or a healthy operating model
+for underperformance analysis. Normal eclipse and temperature effects already
+included in the operating expectation must not be counted twice. V×I telemetry
+alone does not establish available maximum power or the cause of a shortfall.
+
+The [PV-analytics gallery](https://julianascencio.github.io/orbital-pv/gallery/pv_analytics/index.html)
+contains a physical spacecraft loss budget, a two-array operating diagnostic,
+and a held-out reference comparison using real Flying Laptop measurements.
+See the [loss-analysis guide](https://julianascencio.github.io/orbital-pv/user_guide/modeling_topics/pv_loss_analysis.html)
+for equations, evidence requirements and reusable code.
+
 ## Development
 
 ```bash
