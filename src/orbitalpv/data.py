@@ -27,11 +27,21 @@ def fetch_celestrak_omm(catnr: int) -> dict[str, object]:
 def fetch_birds_eps(
     satellite: str,
     destination: str | Path,
+    *,
+    campaign_year: int | None = None,
 ) -> pd.DataFrame:
-    """Download and normalize real on-orbit BIRDS EPS telemetry."""
+    """Download and normalize real on-orbit BIRDS EPS telemetry.
+
+    ``campaign_year`` explicitly dates sheet names that omit a year, without
+    overriding fully dated sheets. Numeric clocks retain their elapsed seconds;
+    calendar-anchored timestamps do not establish the true acquisition time.
+    See :func:`load_birds_eps_workbook` for metadata and excluded test sheets.
+    """
 
     with BirdsEPSConnector() as connector:
-        return connector.download_frame(satellite, destination, normalized=True)
+        return connector.download_frame(
+            satellite, destination, normalized=True, campaign_year=campaign_year
+        )
 
 
 __all__ = [
