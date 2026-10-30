@@ -18,6 +18,8 @@ import space_pv_connectors.ground_site
 from space_pv_connectors.ground_raster import GroundImage
 from space_pv_connectors.ground_site import PVSite
 
+from .pv_detection import PVFootprintPrediction
+
 if TYPE_CHECKING:
     from matplotlib.axes import Axes
     from matplotlib.figure import Figure
@@ -299,4 +301,108 @@ def plot_pv_site_quality(
     return fig, axes
 
 
-__all__ = ["plot_pv_site", "plot_pv_site_quality"]
+def plot_pv_detection(
+    site: space_pv_connectors.ground_site.PVSite,
+    prediction: PVFootprintPrediction,
+    *,
+    reference_labels: np.ndarray | None = None,
+    reference_label: str = "Separate reference labels",
+    reference_credit: str | None = None,
+) -> tuple[Figure, np.ndarray]:
+    """Compare a real RGB image, model scores and image-derived PV footprints.
+
+    Inference output must match the site's red-band native grid and scene.
+    Optional -1/0/1 reference labels add separate orange outlines; they are
+    not used to create or clip the prediction. Unknown references remain
+    unknown. Supply a source-specific ``reference_label`` and attribution in
+    ``reference_credit`` when displaying mapped reference data. The function
+    returns the figure and three axes for customization.
+    """
+    rgb, red = _image(site, "visual", 3), _image(site, "red", 1)
+    metadata = prediction.metadata
+    if (
+        metadata.get("scene_id") != red.scene_id
+        or metadata.get("crs") != red.crs
+        or tuple(metadata.get("transform", ())) != red.transform
+        or tuple(metadata.get("bounds", ())) != red.bounds
+        or prediction.mask.shape != red.data.shape[1:]
+        or prediction.probabilities.shape != prediction.mask.shape
+        or rgb.transform != red.transform
+        or rgb.crs != red.crs
+        or rgb.data.shape[1:] != red.data.shape[1:]
+    ):
+        raise ValueError("Prediction and RGB must match the site's red-band scene and native grid")
+    if reference_labels is not None:
+        reference = np.ma.asarray(reference_labels)
+        if (
+            reference.shape != prediction.mask.shape
+            or not np.isin(reference.compressed(), (-1, 0, 1)).all()
+        ):
+            raise ValueError("Reference labels must match the prediction grid and contain -1/0/1")
+        reference_labels = np.ma.filled(reference.astype(np.int8), -1)
+    plt = _optional("matplotlib.pyplot")
+    colors = _optional("matplotlib.colors")
+    lines = _optional("matplotlib.lines")
+    grid, acquired = _grid(red), _acquired(site)
+    fig, axes = plt.subplots(1, 3, figsize=(14, 5.4), layout="constrained")
+    visual = np.moveaxis(rgb.data.filled(0), 0, -1)
+    axes[0].imshow(visual, extent=grid[0], interpolation="nearest")
+    axes[0].set_title("Sentinel-2 RGB\n" + grid[3])
+    scores = axes[1].imshow(
+        prediction.probabilities,
+        extent=grid[0],
+        cmap="magma",
+        vmin=0,
+        vmax=1,
+        interpolation="nearest",
+    )
+    axes[1].set_facecolor("#d9d9d9")
+    axes[1].set_title("PV class score\nUncalibrated model probability")
+    fig.colorbar(scores, ax=axes[1], shrink=0.74, label="Score")
+    axes[2].imshow(visual, extent=grid[0], interpolation="nearest")
+    mask = np.ma.masked_where(~prediction.mask.filled(False), prediction.mask.filled(False))
+    axes[2].imshow(
+        mask,
+        extent=grid[0],
+        cmap=colors.ListedColormap(["#00e5ff"]),
+        alpha=0.65,
+        interpolation="nearest",
+    )
+    handles = [lines.Line2D([], [], color="#00b8cc", linewidth=5, label="Image prediction")]
+    if reference_labels is not None and np.any(reference_labels == 1):
+        a, _, c, _, e, f = red.transform
+        x = c + a * (np.arange(prediction.mask.shape[1]) + 0.5)
+        y = f + e * (np.arange(prediction.mask.shape[0]) + 0.5)
+        axes[2].contour(
+            x,
+            y,
+            (reference_labels == 1).astype(float),
+            levels=[0.5],
+            colors=["#ffb000"],
+            linewidths=0.9,
+        )
+        handles.append(lines.Line2D([], [], color="#ffb000", label=reference_label))
+    axes[2].legend(handles=handles, fontsize=8, loc="upper right")
+    axes[2].set_title(
+        f"Predicted footprint: {prediction.area_m2 / 10000:.2f} ha\n"
+        f"Score ≥ {metadata['threshold']:g}; region ≥ {metadata['min_area_m2']:g} m²"
+    )
+    for ax in axes:
+        _axes_labels(ax, grid)
+        ax.set(xlim=grid[0][:2], ylim=grid[0][2:])
+    training_note = "training area" if metadata.get("overlaps_training_area") else "unseen area"
+    fig.suptitle(f"{site.name} · {acquired:%d %B %Y}\nImage-only inference · {training_note}")
+    footer = (
+        f"Modified Copernicus Sentinel data ({acquired.year}) / Element 84 · "
+        "Pixel footprints are not individual modules"
+    )
+    if reference_labels is not None:
+        footer += "\n" + (
+            reference_credit
+            or "Reference labels are supplied separately; verify their source and date"
+        )
+    fig.supxlabel(footer, fontsize=8)
+    return fig, axes
+
+
+__all__ = ["plot_pv_detection", "plot_pv_site", "plot_pv_site_quality"]

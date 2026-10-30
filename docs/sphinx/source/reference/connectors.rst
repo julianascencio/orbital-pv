@@ -25,6 +25,12 @@ Ground renewable-energy features
 .. automodule:: space_pv_connectors.ground_osm
    :members:
 
+Historical settlement context
+-----------------------------
+
+.. automodule:: space_pv_connectors.ground_ghsl
+   :members:
+
 BIRDS EPS
 ---------
 

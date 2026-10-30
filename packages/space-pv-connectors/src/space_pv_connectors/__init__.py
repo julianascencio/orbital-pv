@@ -2,6 +2,7 @@ from .birds import BirdsEPSConnector, load_birds_eps_workbook
 from .cdaweb import CdawebHapiConnector
 from .celestrak import CelesTrakConnector
 from .flying_laptop import FlyingLaptopConnector, load_flying_laptop_power
+from .ground_ghsl import GHSLSettlementConnector, SettlementRaster, load_settlement_raster
 from .ground_imagery import Sentinel2GroundConnector
 from .ground_osm import OpenStreetMapEnergyConnector
 from .ground_raster import GroundImage, load_ground_image, read_ground_image
@@ -22,6 +23,7 @@ __all__ = [
     "CelesTrakConnector",
     "DownloadReceipt",
     "FlyingLaptopConnector",
+    "GHSLSettlementConnector",
     "GroundImage",
     "LisirdConnector",
     "NaifKernelConnector",
@@ -31,6 +33,7 @@ __all__ = [
     "PVSite",
     "SatnogsDbConnector",
     "Sentinel2GroundConnector",
+    "SettlementRaster",
     "SpaceTrackConnector",
     "SscWebConnector",
     "load_birds_eps_workbook",
@@ -39,6 +42,7 @@ __all__ = [
     "load_ground_image",
     "load_opssat_segments",
     "load_pv_site",
+    "load_settlement_raster",
     "load_table",
     "make_demo_telemetry",
     "normalize_birds_like",

@@ -1,0 +1,778 @@
+{
+  "capacity_reference": {
+    "bytes": 107844,
+    "license": {
+      "name": "CC0",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "value": 2
+    },
+    "path": "examples/ground_imagery/_data/wiki_solar_join.csv",
+    "processing": "Unmodified member from the authors original version2 archive. Source capacity is reported MW; original source does not identify AC/DC basis. panel.area is OSM polygon area proxy in km2, not verified module area.",
+    "retrieved_at": "2026-10-30T11:41:52.426556+00:00",
+    "sha256": "35015b31f01d8342d2305c5ef28cb280249e9a8f21e4335912fbe8da6f1bcd21",
+    "source_archive": "global_wind_solar_2020.zip",
+    "source_archive_md5": "2a84bc2b630fd4e3dc1fc503bb9c5934",
+    "source_doi": "10.6084/m9.figshare.11310269.v2",
+    "source_member": "global_wind_solar_2020/analysis/data/wiki_solar_join.csv",
+    "source_url": "https://ndownloader.figshare.com/files/21979983"
+  },
+  "capacity_validation": {
+    "area_basis": "osm_polygon_proxy",
+    "bias_mw": 7.969652026399075,
+    "capacity_basis": "reported",
+    "interval_coverage": 0.9873417721518988,
+    "mae_mw": 8.492859331324697,
+    "n_evaluated": 158,
+    "n_extrapolated": 1,
+    "n_total": 159,
+    "n_withheld": 1,
+    "nominal_confidence": 0.95,
+    "r2": 0.2321852032424,
+    "rmse_mw": 13.126124866314598
+  },
+  "configuration": {
+    "cestas": {
+      "bbox": [
+        -0.833,
+        44.709,
+        -0.795,
+        44.742
+      ],
+      "cache_prefix": "cestas",
+      "max_cloud_cover": 10,
+      "max_items": 10,
+      "name": "Cestas solar park, France",
+      "time_max": "2024-09-01",
+      "time_min": "2024-06-01"
+    },
+    "rengo": {
+      "bbox": [
+        -70.824,
+        -34.412,
+        -70.808,
+        -34.402
+      ],
+      "cache_prefix": "rengo",
+      "max_cloud_cover": 10,
+      "max_items": 5,
+      "name": "Rinconada near Rengo, Chile",
+      "time_max": "2026-03-01",
+      "time_min": "2026-01-01"
+    },
+    "tenerife": {
+      "bbox": [
+        -16.447,
+        28.192,
+        -16.439,
+        28.198
+      ],
+      "cache_prefix": "tenerife",
+      "max_cloud_cover": 10,
+      "max_items": 5,
+      "name": "Icor, Arico, Tenerife",
+      "time_max": "2026-09-01",
+      "time_min": "2026-06-01"
+    }
+  },
+  "image_validation": {
+    "area_filtered": {
+      "accuracy": 0.960170146945089,
+      "evaluated_fraction": 0.9369565217391305,
+      "evaluated_pixels": 5172,
+      "f1": 0.4521276595744681,
+      "false_negative": 68,
+      "false_positive": 138,
+      "iou": 0.2920962199312715,
+      "labelled_coverage": 1.0,
+      "labelled_pixels": 5172,
+      "precision": 0.3811659192825112,
+      "prediction_valid_pixels": 5520,
+      "recall": 0.5555555555555556,
+      "total_pixels": 5520,
+      "true_negative": 4881,
+      "true_positive": 85
+    },
+    "label_source": "OSM photovoltaic generator polygons; map snapshot 2026-10-30T10:23:04Z; image S2A_T28RCS_20260804T115232_L2A; pixel-centre weak labels; outside boundary buffer 20 m; background_is_negative=True; explicit_negative_polygons=0; not independently surveyed ground truth",
+    "min_area_m2": 1000.0,
+    "model_id": "932e70d74665b06f55ed0907f858b9e505618b4792c1e023057ed245d9396ab6",
+    "raw_threshold": {
+      "accuracy": 0.9586233565351895,
+      "evaluated_fraction": 0.9369565217391305,
+      "evaluated_pixels": 5172,
+      "f1": 0.45408163265306123,
+      "false_negative": 64,
+      "false_positive": 150,
+      "iou": 0.29372937293729373,
+      "labelled_coverage": 1.0,
+      "labelled_pixels": 5172,
+      "precision": 0.3723849372384937,
+      "prediction_valid_pixels": 5520,
+      "recall": 0.5816993464052288,
+      "total_pixels": 5520,
+      "true_negative": 4869,
+      "true_positive": 89
+    },
+    "scene_id": "S2A_T28RCS_20260804T115232_L2A",
+    "site_id": "tenerife",
+    "spatially_disjoint_from_training": true,
+    "threshold": 0.5
+  },
+  "inputs_sha256": {
+    "cestas-blue.tif": "172f1e0511b8e1a1a4079b6dba6b35a869385145f729ff6fd4305fabcc948689",
+    "cestas-blue.tif.meta.json": "5ef5d4366ad6ac028bc0e3d5d1d5f5485e7f94ac4b0c920358e65ded107d924c",
+    "cestas-ghsl.tif": "500443a439cd32e4bfa65632dba25183754073d37eb65302dcf22d21b3e3010e",
+    "cestas-ghsl.tif.meta.json": "7ad8dc9785deae725fee32962816edc8b764dbddd3a662c2c76d26892cd71ee1",
+    "cestas-green.tif": "bd2de5b77c114b852acd8c8b978e90265111634b24b420587809b1eca400fec9",
+    "cestas-green.tif.meta.json": "283c608f6e38a5f2b01f7f105acf3d9338b132a6b9cfdc5c91b45fb6c0aa5e9d",
+    "cestas-nir.tif": "cf3cebf0f434d56574c2cb831260d65a93d1aeb6ad017fb30aa0c1c3e386c2f3",
+    "cestas-nir.tif.meta.json": "908e33aef905c7de89822db5a8818c4cf15b563013a8a5ff65eca38102d2db82",
+    "cestas-osm.json": "ebea7aa59516ee4855bb6ea272b5c2fa85465d302e1fd8a29ba28a1d1c84a4cc",
+    "cestas-osm.json.meta.json": "0ada28878b3b9a021dff33a60a3efcc6526525ced6084e0291f1b3b6cbb4ea7f",
+    "cestas-red.tif": "f85fdf4c90dd75958c17377b1b8e85220b6bc355c6584df66f37298fb117486f",
+    "cestas-red.tif.meta.json": "2a48251d642dcb508b3ca7d546da9e2188b20ce593d7100eaf9eb222989e349f",
+    "cestas-scenes.json": "15b792d3ded03a69a505c2aa974aff4d2d7e42922c486acfa3ffa7bea465c542",
+    "cestas-scenes.json.meta.json": "6f072076aaef75b0bee608f955561681a6ac12e22bc5044f77a7890cc5be3726",
+    "cestas-scl.tif": "b822c98d4664cf564d0fedea2156f1daf690b50dc5a482da65cf34eefbddb362",
+    "cestas-scl.tif.meta.json": "5d9c8ce41e0cb5e77470f7d025b7e0b16c30fc675947709c88146bd914f3f633",
+    "cestas-swir16.tif": "8a02b4ed528ebd63b47a75c38ee141e83cf36bf4b83f7e8d0020efefe582019c",
+    "cestas-swir16.tif.meta.json": "ead3532703bdf5fe1cd116b1f658e9e811abf3d0c6d49e610db76d3618095913",
+    "cestas-swir22.tif": "63a7a3b478ed3a88f0171f6f74ae4c8ec5cb79cacade9c3c02fa05d2d815cf9d",
+    "cestas-swir22.tif.meta.json": "1294d2b235482f501928fedcac8f17e6ad622a8b7eb6f55b100e7034fcdc9104",
+    "cestas-visual.tif": "6b2205abfa426bc4b1547ce60aa4ca441756d5305e926770802d56fabc026222",
+    "cestas-visual.tif.meta.json": "4403a8c8fffda01b55c354619f3842b4ab7389e40987cccd3e02d6dcb90afef5",
+    "pv-sites.json": "4c8d934a0f9f01b4d96422f14b5e87a9347c3f04aed79539d4ee10315c22d825",
+    "rengo-blue.tif": "b00096e454bd92172b7d99a417b98a49e905afb2c8bfe2540ebb4655c67c387b",
+    "rengo-blue.tif.meta.json": "e9e5ebbffd108ae83dbc693fc3984c1f2c8eb74a3a44d7b397bfe96129df414a",
+    "rengo-ghsl.tif": "7bb8a2ce576eb9f937cc0b68e7a54900a61d34b86400e4dc00d5f1941bd9459e",
+    "rengo-ghsl.tif.meta.json": "05762d45135650ec427abbfbe7189bb9c2b56c53b9a90dc31109ae4eb6f1c8ec",
+    "rengo-green.tif": "a49896f4e7652ae7a5ee0dd1f78cdab0736632a747b2df097831f2355cc8018b",
+    "rengo-green.tif.meta.json": "92bfee4ab2a431d22636b84d4d836f1cb07e537877d15d33c5c640c765dd689e",
+    "rengo-nir.tif": "30ea61e2cb953fb3654f5fa1deeba1ee2aa31fa84f1e5e0a61d89c74d88b8533",
+    "rengo-nir.tif.meta.json": "c46a4839a9e0c347b47ff36486b09ed5b078acdc7e75992f96bdddfc8b92d549",
+    "rengo-osm.json": "6a8153ef47df4066b2fb0747eeeb422f0604b9986564cc916000ff7ec477cf3f",
+    "rengo-osm.json.meta.json": "2e9fdbeaa05fc23999736ebdb0b78fe03b369bcf78f66ac961bb268892a4a943",
+    "rengo-red.tif": "7dda23f23ff3a1e360ab602bf5c6f0783c273b5cdcd72c588e69e071a552d40f",
+    "rengo-red.tif.meta.json": "de9574ef966b6987bac08c1e8f84c604e5c0e413fcd3de55c12f6809dc556700",
+    "rengo-scenes.json": "d356c7201ce8ec79c37150ffa7831a8daed8778ea4c592e81d94847c59ccb8fa",
+    "rengo-scenes.json.meta.json": "ac7d186921f13656820eb2833d800c8dc53da3e42417c226229cc31c529e0e29",
+    "rengo-scl.tif": "63dcebf99562ad5dad6d7e34d795efc0843545d3ef34f39cdda15cb43fafe77c",
+    "rengo-scl.tif.meta.json": "cd5b5b76afe6db87079e883a3d6480a7165769ff33ee8b6bc055032876828634",
+    "rengo-swir16.tif": "926c35a6f7f6d6860c4d3920bf75217cfa062d93a4b1ac415286c0393c937977",
+    "rengo-swir16.tif.meta.json": "e51a497d1e9316b4663a19d900e4c9f3cb6ca22ee9a62a57d433a2ce5b65022b",
+    "rengo-swir22.tif": "71ba50be8b8f0785d9cfd153254706acf7136ef8ee162b2ef429383dfdc46dbb",
+    "rengo-swir22.tif.meta.json": "c57fd84aeb09a8dc0950e9504e9f13f8fef9f7c0384732678bb2264a7744d46d",
+    "rengo-visual.tif": "ba915ccbdf9d0ff6db7fd44cc03e9f04f2f56e4c99ce41fc91f7d8ca96d07f34",
+    "rengo-visual.tif.meta.json": "fe345dd1f89e553b25f3f82424094ecb123278d618edd766e908d54b1db68bf0",
+    "tenerife-blue.tif": "0889cfa2cf9ab70ecdf48e9698df55b1dc3ca533bc531b7d2cf10dd289ed5327",
+    "tenerife-blue.tif.meta.json": "814fade340f2dd800dc4965d4bfa7a4aa72c401b6a2656aa659ecaaef83134e7",
+    "tenerife-ghsl.tif": "f192718f2699053e93afcd0593ce7b0c1a7330d63f9cd1b2e705732e9d232b80",
+    "tenerife-ghsl.tif.meta.json": "033ca02e65f677d286d333dbcc1f871015f8b74b901b319e409823aa52ff0e18",
+    "tenerife-green.tif": "3619da8b9b873659abb5e8c595cc1d5265f19e5cff8ec07b9c5cb3e9f64ec4ba",
+    "tenerife-green.tif.meta.json": "2f8e8642bd1030d4c42ae2b06e3b876ab836d064803f4132a885ffc4714930ef",
+    "tenerife-nir.tif": "2e94323ddffcfb8ba311a9c18bd984ddea20a772c538c8cb709db2183fa13a06",
+    "tenerife-nir.tif.meta.json": "7f7ca9fdf5330aa6cfeb28bd55d0207eb56c7e29806b0b2318a6a5686e3105d8",
+    "tenerife-osm.json": "b6f53ad9a49c9637346969b1d012902062e88b8f9c4e4b60dc849dbe2b8a8e1a",
+    "tenerife-osm.json.meta.json": "d9ee6d9e03bda3f77c4550e0b43d98170949d11ab5509d8676f115dec25d130f",
+    "tenerife-red.tif": "b9fee73246248d73697717794e42cf5cfea8ce221799282d7b872ce6372c88bd",
+    "tenerife-red.tif.meta.json": "26cb9a0194238e83aebb6d18dc9a024d545076c552ea33105d32bbce9ec33aba",
+    "tenerife-scenes.json": "7f6e5a767f5bacc18b89c2de73b16e2d973e4b71b315d91b288c25b41aaa13ae",
+    "tenerife-scenes.json.meta.json": "47faa22887dd302aa601f319f72a2d19cd433dfd9233fb480c6105b9555d3dd9",
+    "tenerife-scl.tif": "6fcd680116c6b2f33497dc0166b3663c0947331b1c839edf62d137974ae6d333",
+    "tenerife-scl.tif.meta.json": "5c30c2fb294d7f69e357a4996cf18202f4d9cd549b7fe76ed21b551021e77fb9",
+    "tenerife-swir16.tif": "7b8c2b39eec56666e7b3af15c5a369d802fd1ca06c773c41668d25bc3d81d01b",
+    "tenerife-swir16.tif.meta.json": "fbba33cced6be71f017185f11d684a6e26d3b1970b750db335a21fb5e66f3593",
+    "tenerife-swir22.tif": "f68e6644ec00f8b07b03d30c99939f09c375e0afa69e1252a84ba4fd3d160680",
+    "tenerife-swir22.tif.meta.json": "16fe3c757a19a8ca71e9cbb51665f539de1e22a482f1450be913edbf3f543ab7",
+    "tenerife-visual.tif": "cebbeaa747c0c12137b792b857030402329382334204541f8bf952576a445c5a",
+    "tenerife-visual.tif.meta.json": "38506dc3925e89794e5312c4fd70434131c350969c7d409c4c49e7954ecc001f",
+    "wiki_solar_join.csv": "35015b31f01d8342d2305c5ef28cb280249e9a8f21e4335912fbe8da6f1bcd21",
+    "wiki_solar_join.csv.meta.json": "9b7830e42571351964f28ac4138a297800aba5ba3c913bffe00f8aa2991373fa"
+  },
+  "interpretation": {
+    "capacity": "Historical reported-MW area proxy; AC/DC unspecified; country transfer errors reported",
+    "detector": "Research baseline; one training site; weak OSM reference, not surveyed accuracy",
+    "rengo": "Transfer illustration without panel-level reference; no accuracy score claimed",
+    "settlement": "2015 epoch R2023A; farm-centroid lookup; not the original 2019 edition"
+  },
+  "sites": {
+    "cestas": {
+      "acquired_at": "2024-08-10T11:08:48.933000Z",
+      "bbox_wgs84": [
+        -0.833,
+        44.709,
+        -0.795,
+        44.742
+      ],
+      "images": {
+        "blue": {
+          "bounds": [
+            671550.0,
+            4952900.0,
+            674670.0,
+            4956660.0
+          ],
+          "crs": "EPSG:32630",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            10.0,
+            10.0
+          ],
+          "shape": [
+            1,
+            376,
+            312
+          ]
+        },
+        "green": {
+          "bounds": [
+            671550.0,
+            4952900.0,
+            674670.0,
+            4956660.0
+          ],
+          "crs": "EPSG:32630",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            10.0,
+            10.0
+          ],
+          "shape": [
+            1,
+            376,
+            312
+          ]
+        },
+        "nir": {
+          "bounds": [
+            671550.0,
+            4952900.0,
+            674670.0,
+            4956660.0
+          ],
+          "crs": "EPSG:32630",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            10.0,
+            10.0
+          ],
+          "shape": [
+            1,
+            376,
+            312
+          ]
+        },
+        "red": {
+          "bounds": [
+            671550.0,
+            4952900.0,
+            674670.0,
+            4956660.0
+          ],
+          "crs": "EPSG:32630",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            10.0,
+            10.0
+          ],
+          "shape": [
+            1,
+            376,
+            312
+          ]
+        },
+        "scl": {
+          "bounds": [
+            671540.0,
+            4952900.0,
+            674680.0,
+            4956660.0
+          ],
+          "crs": "EPSG:32630",
+          "dtype": "uint8",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            20.0,
+            20.0
+          ],
+          "shape": [
+            1,
+            188,
+            157
+          ]
+        },
+        "swir16": {
+          "bounds": [
+            671540.0,
+            4952900.0,
+            674680.0,
+            4956660.0
+          ],
+          "crs": "EPSG:32630",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            20.0,
+            20.0
+          ],
+          "shape": [
+            1,
+            188,
+            157
+          ]
+        },
+        "swir22": {
+          "bounds": [
+            671540.0,
+            4952900.0,
+            674680.0,
+            4956660.0
+          ],
+          "crs": "EPSG:32630",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            20.0,
+            20.0
+          ],
+          "shape": [
+            1,
+            188,
+            157
+          ]
+        },
+        "visual": {
+          "bounds": [
+            671550.0,
+            4952900.0,
+            674670.0,
+            4956660.0
+          ],
+          "crs": "EPSG:32630",
+          "dtype": "uint8",
+          "masked_band_samples": 9,
+          "pixel_size": [
+            10.0,
+            10.0
+          ],
+          "shape": [
+            3,
+            376,
+            312
+          ]
+        }
+      },
+      "name": "Cestas solar park, France",
+      "osm_element_counts": {
+        "way": 23
+      },
+      "osm_timestamp": "2026-10-30T08:24:41Z",
+      "scene_cloud_cover_percent": 0.031728,
+      "scene_id": "S2A_T30TXQ_20240810T105747_L2A",
+      "scl_pixel_counts": {
+        "4": 21539,
+        "5": 7961,
+        "6": 3,
+        "7": 13
+      },
+      "search": {
+        "limit": 10,
+        "limit_reached": false,
+        "matched": 3,
+        "returned": 3
+      }
+    },
+    "rengo": {
+      "acquired_at": "2026-02-11T14:52:20.673000Z",
+      "bbox_wgs84": [
+        -70.824,
+        -34.412,
+        -70.808,
+        -34.402
+      ],
+      "images": {
+        "blue": {
+          "bounds": [
+            332340.0,
+            6190650.0,
+            333840.0,
+            6191790.0
+          ],
+          "crs": "EPSG:32719",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            10.0,
+            10.0
+          ],
+          "shape": [
+            1,
+            114,
+            150
+          ]
+        },
+        "green": {
+          "bounds": [
+            332340.0,
+            6190650.0,
+            333840.0,
+            6191790.0
+          ],
+          "crs": "EPSG:32719",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            10.0,
+            10.0
+          ],
+          "shape": [
+            1,
+            114,
+            150
+          ]
+        },
+        "nir": {
+          "bounds": [
+            332340.0,
+            6190650.0,
+            333840.0,
+            6191790.0
+          ],
+          "crs": "EPSG:32719",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            10.0,
+            10.0
+          ],
+          "shape": [
+            1,
+            114,
+            150
+          ]
+        },
+        "red": {
+          "bounds": [
+            332340.0,
+            6190650.0,
+            333840.0,
+            6191790.0
+          ],
+          "crs": "EPSG:32719",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            10.0,
+            10.0
+          ],
+          "shape": [
+            1,
+            114,
+            150
+          ]
+        },
+        "scl": {
+          "bounds": [
+            332340.0,
+            6190640.0,
+            333840.0,
+            6191800.0
+          ],
+          "crs": "EPSG:32719",
+          "dtype": "uint8",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            20.0,
+            20.0
+          ],
+          "shape": [
+            1,
+            58,
+            75
+          ]
+        },
+        "swir16": {
+          "bounds": [
+            332340.0,
+            6190640.0,
+            333840.0,
+            6191800.0
+          ],
+          "crs": "EPSG:32719",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            20.0,
+            20.0
+          ],
+          "shape": [
+            1,
+            58,
+            75
+          ]
+        },
+        "swir22": {
+          "bounds": [
+            332340.0,
+            6190640.0,
+            333840.0,
+            6191800.0
+          ],
+          "crs": "EPSG:32719",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            20.0,
+            20.0
+          ],
+          "shape": [
+            1,
+            58,
+            75
+          ]
+        },
+        "visual": {
+          "bounds": [
+            332340.0,
+            6190650.0,
+            333840.0,
+            6191790.0
+          ],
+          "crs": "EPSG:32719",
+          "dtype": "uint8",
+          "masked_band_samples": 4,
+          "pixel_size": [
+            10.0,
+            10.0
+          ],
+          "shape": [
+            3,
+            114,
+            150
+          ]
+        }
+      },
+      "inference_uses_osm": false,
+      "name": "Rinconada near Rengo, Chile",
+      "osm_element_counts": {
+        "way": 1
+      },
+      "osm_timestamp": "2026-10-30T09:53:40Z",
+      "predicted_area_m2": 132100.0,
+      "scene_cloud_cover_percent": 0.001257,
+      "scene_id": "S2C_T19HCC_20260211T144012_L2A",
+      "scl_pixel_counts": {
+        "4": 1965,
+        "5": 2376,
+        "7": 9
+      },
+      "search": {
+        "limit": 5,
+        "limit_reached": true,
+        "matched": 22,
+        "returned": 5
+      }
+    },
+    "tenerife": {
+      "acquired_at": "2026-08-04T11:53:59.065000Z",
+      "bbox_wgs84": [
+        -16.447,
+        28.192,
+        -16.439,
+        28.198
+      ],
+      "images": {
+        "blue": {
+          "bounds": [
+            357970.0,
+            3119300.0,
+            358770.0,
+            3119990.0
+          ],
+          "crs": "EPSG:32628",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            10.0,
+            10.0
+          ],
+          "shape": [
+            1,
+            69,
+            80
+          ]
+        },
+        "green": {
+          "bounds": [
+            357970.0,
+            3119300.0,
+            358770.0,
+            3119990.0
+          ],
+          "crs": "EPSG:32628",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            10.0,
+            10.0
+          ],
+          "shape": [
+            1,
+            69,
+            80
+          ]
+        },
+        "nir": {
+          "bounds": [
+            357970.0,
+            3119300.0,
+            358770.0,
+            3119990.0
+          ],
+          "crs": "EPSG:32628",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            10.0,
+            10.0
+          ],
+          "shape": [
+            1,
+            69,
+            80
+          ]
+        },
+        "red": {
+          "bounds": [
+            357970.0,
+            3119300.0,
+            358770.0,
+            3119990.0
+          ],
+          "crs": "EPSG:32628",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            10.0,
+            10.0
+          ],
+          "shape": [
+            1,
+            69,
+            80
+          ]
+        },
+        "scl": {
+          "bounds": [
+            357960.0,
+            3119300.0,
+            358780.0,
+            3120000.0
+          ],
+          "crs": "EPSG:32628",
+          "dtype": "uint8",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            20.0,
+            20.0
+          ],
+          "shape": [
+            1,
+            35,
+            41
+          ]
+        },
+        "swir16": {
+          "bounds": [
+            357960.0,
+            3119300.0,
+            358780.0,
+            3120000.0
+          ],
+          "crs": "EPSG:32628",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            20.0,
+            20.0
+          ],
+          "shape": [
+            1,
+            35,
+            41
+          ]
+        },
+        "swir22": {
+          "bounds": [
+            357960.0,
+            3119300.0,
+            358780.0,
+            3120000.0
+          ],
+          "crs": "EPSG:32628",
+          "dtype": "uint16",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            20.0,
+            20.0
+          ],
+          "shape": [
+            1,
+            35,
+            41
+          ]
+        },
+        "visual": {
+          "bounds": [
+            357970.0,
+            3119300.0,
+            358770.0,
+            3119990.0
+          ],
+          "crs": "EPSG:32628",
+          "dtype": "uint8",
+          "masked_band_samples": 0,
+          "pixel_size": [
+            10.0,
+            10.0
+          ],
+          "shape": [
+            3,
+            69,
+            80
+          ]
+        }
+      },
+      "inference_uses_osm": false,
+      "name": "Icor, Arico, Tenerife",
+      "osm_element_counts": {
+        "way": 52
+      },
+      "osm_timestamp": "2026-10-30T10:23:04Z",
+      "predicted_area_m2": 33300.0,
+      "scene_cloud_cover_percent": 0.155066,
+      "scene_id": "S2A_T28RCS_20260804T115232_L2A",
+      "scl_pixel_counts": {
+        "4": 1,
+        "5": 1434
+      },
+      "search": {
+        "limit": 5,
+        "limit_reached": true,
+        "matched": 9,
+        "returned": 5
+      }
+    }
+  },
+  "versions": {
+    "numpy": "2.5.4",
+    "pyproj": "3.8.0",
+    "rasterio": "1.5.2",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "shapely": "2.2.0"
+  }
+}

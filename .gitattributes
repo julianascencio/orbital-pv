@@ -1,0 +1,2 @@
+# Preserve the original archive member's bytes and CRLF line endings.
+examples/ground_imagery/_data/wiki_solar_join.csv -text whitespace=cr-at-eol
