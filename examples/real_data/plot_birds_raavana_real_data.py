@@ -2,256 +2,406 @@
 Real BIRDS CubeSat solar-panel telemetry
 ========================================
 
-This example walks step by step through a real on-orbit PV analysis using the
-public ``orbitalpv`` API.
+Analyze **all four BIRDS spacecraft** through the public ``orbitalpv`` API,
+with full-resolution RAAVANA traces and a longer TSURU campaign history.
+The published workbooks contain **48 flight campaigns, 31,725 measurement
+times and 158,625 panel observations** across five faces per spacecraft.
 
-We use **RAAVANA**, one of the BIRDS 1U CubeSats. The public BIRDS EPS dataset
-contains measured solar-panel voltage, current and temperature. The dataset
-paper reports that RAAVANA experienced a panel failure during its mission,
-which makes it useful for demonstrating health-oriented analysis.
+RAAVANA has only **two campaigns**, but they contain **2,159 measurement
+times**, mostly hidden when plotted on a month-wide date axis. Here we show
+every native sample against elapsed minutes, add within-campaign summaries,
+and use TSURU's **40 flight campaigns** for the longer comparison. No samples
+are interpolated or invented between campaigns.
 
-Source
-------
+Install ``pip install -U "orbital-pv[excel,examples]>=0.4.2"``. The first run downloads
+the original workbooks; later runs reuse the local copies. Delete a cached
+workbook to fetch it again. Printed checksums identify the input files.
+
+Source and time interpretation
+------------------------------
 
 * Jara et al. (2022), *On-orbit Electrical Power System Dataset of 1U
   CubeSat constellation for Machine Learning Models*.
-* DOI: 10.17632/8kp25ycf63.1
-* Upstream repository: https://github.com/BIRDSOpenSource/EPS_dataset
+* Dataset: https://doi.org/10.17632/8kp25ycf63.1 (CC BY 4.0).
+* Workbooks: https://github.com/BIRDSOpenSource/EPS_dataset.
+* Acquisition details: https://pmc.ncbi.nlm.nih.gov/articles/PMC9679683/.
 
-The analysis below is exploratory. It demonstrates how to retrieve, normalize,
-visualize and summarize the real telemetry; it does not claim to reproduce the
-authors' expert fault labels or a flight-qualified diagnosis.
+The workbooks give campaign dates and elapsed seconds, **not a known UTC
+clock start**. The connector's ``timestamp`` is a calendar-date anchor plus
+the supplied elapsed seconds. We use dates for campaign summaries and elapsed
+minutes for detailed traces; these reconstructed timestamps must not be
+joined directly to orbit/attitude data as precise acquisition times.
+
+TSURU's March--December sheet names omit a year. We explicitly assign 2021,
+an inference consistent with its March 2021 deployment and the following
+January 2022 sheets. The two sheets named ``Test1 w batt`` and ``Test2 wo batt``
+are excluded from flight analysis. Dates that already include a year retain
+it. Campaigns are sorted by date, since workbook order is not chronological.
+
+All health comparisons remain exploratory: attitude, illumination, thermal
+state and operating conditions are not normalized. More measurements do not,
+by themselves, establish a degradation rate or a fault diagnosis.
 """
 
 from __future__ import annotations
 
+from hashlib import sha256
 from pathlib import Path
 from tempfile import gettempdir
 
+import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
 import orbitalpv as opv
 
-# %% Step 1 — Download and normalize the real telemetry
+# %% Step 1 — Load all available flight campaigns and count actual measurements
 #
-# ``fetch_birds_eps`` downloads the original XLSX workbook and converts all
-# recognizable panel telemetry into OrbitalPV's canonical schema.
+# Each measurement time contributes five panel rows. Count the two quantities
+# separately, retaining spacecraft and campaign identity throughout. The
+# explicit TSURU year applies only to sheet dates that omit their year.
 
 cache = Path(gettempdir()) / "orbitalpv-real-data"
 cache.mkdir(parents=True, exist_ok=True)
-workbook = cache / "RAAVANA.xlsx"
+satellite_years = {"RAAVANA": None, "UGUISU": None, "NEPALISAT": None, "TSURU": 2021}
+frames = []
+for satellite, campaign_year in satellite_years.items():
+    workbook = cache / f"{satellite}.xlsx"
+    if workbook.exists():
+        frame = opv.load_birds_eps_workbook(workbook, campaign_year=campaign_year)
+    else:
+        frame = opv.fetch_birds_eps(satellite, workbook, campaign_year=campaign_year)
+    frame["satellite"] = satellite
+    frames.append(frame)
+    print(f"{satellite}.xlsx SHA256={sha256(workbook.read_bytes()).hexdigest()}")
 
-telemetry = opv.fetch_birds_eps("RAAVANA", workbook)
-telemetry = telemetry.dropna(subset=["timestamp", "voltage_v", "current_a"])
-telemetry = telemetry.sort_values(["panel_id", "timestamp"]).reset_index(drop=True)
-
-print(f"rows={len(telemetry):,}")
-print(f"panels={telemetry['panel_id'].nunique()}")
-print(f"start={telemetry['timestamp'].min()}")
-print(f"end={telemetry['timestamp'].max()}")
-
-counts = telemetry["panel_id"].value_counts()
-fig, ax = plt.subplots(figsize=(8.5, 4.5))
-counts.plot.bar(ax=ax)
-ax.set(xlabel="Panel", ylabel="Telemetry samples")
-ax.set_title("Step 1 — Real RAAVANA samples available by panel")
-ax.grid(True, axis="y", alpha=0.3)
-plt.show()
-
-# %% Step 2 — Inspect measured panel voltage
-#
-# We lightly downsample only for plotting so the figure remains readable.
-# The analysis itself continues to use every valid telemetry sample.
-
-plot_parts = []
-for _, panel in telemetry.groupby("panel_id", sort=True):
-    stride = max(1, len(panel) // 2500)
-    plot_parts.append(panel.iloc[::stride])
-plot_frame = pd.concat(plot_parts, ignore_index=True)
-
-fig, ax = plt.subplots(figsize=(10, 4.8))
-for panel_id, panel in plot_frame.groupby("panel_id", sort=True):
-    ax.plot(panel["timestamp"], panel["voltage_v"], ".", ms=2, alpha=0.55, label=panel_id)
-ax.set(xlabel="UTC time", ylabel="Panel voltage [V]")
-ax.set_title("Step 2 — Measured solar-panel voltage")
-ax.grid(True, alpha=0.25)
-ax.legend(fontsize=7, ncols=2)
-fig.autofmt_xdate()
-plt.show()
-
-# %% Step 3 — Inspect measured panel current
-
-fig, ax = plt.subplots(figsize=(10, 4.8))
-for panel_id, panel in plot_frame.groupby("panel_id", sort=True):
-    ax.plot(panel["timestamp"], panel["current_a"], ".", ms=2, alpha=0.55, label=panel_id)
-ax.set(xlabel="UTC time", ylabel="Panel current [A]")
-ax.set_title("Step 3 — Measured solar-panel current")
-ax.grid(True, alpha=0.25)
-ax.legend(fontsize=7, ncols=2)
-fig.autofmt_xdate()
-plt.show()
-
-# %% Step 4 — Convert voltage and current into measured electrical power
-#
-# ``add_power`` is deliberately simple: P = V x I. Eclipse, spacecraft
-# attitude and free rotation remain visible in the raw measured signal.
-
+telemetry = pd.concat(frames, ignore_index=True)
+telemetry = telemetry.sort_values(
+    ["satellite", "campaign_date", "panel_id", "elapsed_seconds"]
+).reset_index(drop=True)
 powered = opv.add_power(telemetry)
 powered = powered[np.isfinite(powered["power_w"])].copy()
 
-fig, ax = plt.subplots(figsize=(10, 4.8))
-for panel_id, panel in powered.groupby("panel_id", sort=True):
-    stride = max(1, len(panel) // 2500)
-    shown = panel.iloc[::stride]
-    ax.plot(shown["timestamp"], shown["power_w"], ".", ms=2, alpha=0.55, label=panel_id)
-ax.set(xlabel="UTC time", ylabel="Measured panel power [W]")
-ax.set_title("Step 4 — Measured solar-panel electrical power")
-ax.grid(True, alpha=0.25)
-ax.legend(fontsize=7, ncols=2)
-fig.autofmt_xdate()
+measurement_times = telemetry.drop_duplicates(["satellite", "source_sheet", "elapsed_seconds"])
+campaigns = (
+    measurement_times.groupby(["satellite", "source_sheet"], as_index=False)
+    .agg(
+        campaign_date=("campaign_date", "first"),
+        measurement_times=("elapsed_seconds", "size"),
+        first_second=("elapsed_seconds", "min"),
+        last_second=("elapsed_seconds", "max"),
+    )
+    .sort_values(["satellite", "campaign_date"])
+)
+campaigns["duration_minutes"] = (campaigns["last_second"] - campaigns["first_second"]) / 60
+coverage = campaigns.groupby("satellite").agg(
+    flight_campaigns=("source_sheet", "size"),
+    measurement_times=("measurement_times", "sum"),
+    first_campaign=("campaign_date", "min"),
+    last_campaign=("campaign_date", "max"),
+)
+coverage["panel_observations"] = telemetry.groupby("satellite").size()
+print(coverage.to_string())
+print(
+    f"Total: {len(campaigns):,} flight campaigns; "
+    f"{len(measurement_times):,} measurement times; {len(telemetry):,} panel observations"
+)
+print("Campaign dates are calendar anchors; absolute UTC acquisition times are unknown.")
+
+fig, ax = plt.subplots(figsize=(10, 4.5), layout="constrained")
+for row, (satellite, group) in enumerate(campaigns.groupby("satellite", sort=True)):
+    ax.scatter(group["campaign_date"], np.full(len(group), row), s=35, label=satellite)
+ax.set(
+    xlabel="Campaign date (no data implied between markers)",
+    ylabel="Spacecraft",
+    yticks=range(len(coverage)),
+    yticklabels=[
+        f"{name} — {count} campaigns" for name, count in coverage["flight_campaigns"].items()
+    ],
+    title="Step 1 — All 48 real flight campaigns across four BIRDS spacecraft",
+)
+ax.xaxis.set_major_locator(mdates.MonthLocator(interval=2))
+ax.xaxis.set_major_formatter(mdates.DateFormatter("%b %Y"))
+ax.grid(True, axis="x", alpha=0.25)
 plt.show()
 
-# %% Step 5 — Compare each measurement session's upper power envelope
+# %% Step 2 — Resolve RAAVANA's full voltage time series inside each campaign
 #
-# The RAAVANA workbook contains dated high-sampling campaigns. A tumbling
-# CubeSat naturally produces many low-power samples, so we compare each
-# session's 95th-percentile power instead of treating every low point as a
-# fault.
+# Each subplot contains one complete recording at the native five-second
+# cadence. Separate axes make the thousands of samples visible without drawing
+# a line across the 26-day gap. Colors and panel labels remain consistent in
+# every subsequent figure.
 
-session_p95 = powered.groupby(["panel_id", "source_sheet"], as_index=False).agg(
+panel_colors = dict(
+    zip(
+        sorted(telemetry["panel_id"].unique()),
+        ["#0072B2", "#D55E00", "#009E73", "#CC79A7", "#E69F00"],
+        strict=True,
+    )
+)
+raavana = powered[powered["satellite"] == "RAAVANA"].copy()
+raavana_campaigns = campaigns[campaigns["satellite"] == "RAAVANA"]
+print("\nRAAVANA native recording coverage")
+print(raavana_campaigns.to_string(index=False))
+
+
+def plot_raavana_quantity(column: str, ylabel: str, title: str) -> None:
+    """Show every sample separately within each RAAVANA flight campaign."""
+    fig, axes = plt.subplots(
+        1, len(raavana_campaigns), figsize=(11, 4.3), sharey=True, layout="constrained"
+    )
+    for ax, campaign in zip(np.atleast_1d(axes), raavana_campaigns.itertuples(), strict=True):
+        session = raavana[raavana["source_sheet"] == campaign.source_sheet]
+        for panel_id, panel in session.groupby("panel_id", sort=True):
+            ax.plot(
+                panel["elapsed_seconds"] / 60,
+                panel[column],
+                ".",
+                ms=2,
+                alpha=0.65,
+                color=panel_colors[panel_id],
+                label=panel_id,
+            )
+        ax.set(
+            title=f"{campaign.source_sheet}\n{campaign.measurement_times:,} measurement times",
+            xlabel="Elapsed minutes within campaign",
+        )
+        ax.grid(True, alpha=0.25)
+    axes[0].set_ylabel(ylabel)
+    axes[-1].legend(title="Panel", fontsize=8, ncols=3)
+    fig.suptitle(title)
+    plt.show()
+
+
+plot_raavana_quantity(
+    "voltage_v", "Measured panel voltage [V]", "Step 2 — Full-resolution RAAVANA voltage"
+)
+
+# %% Step 3 — Inspect every measured current sample
+#
+# These are calibrated currents from the workbook, converted from mA to A.
+
+plot_raavana_quantity(
+    "current_a", "Measured panel current [A]", "Step 3 — Full-resolution RAAVANA current"
+)
+
+# %% Step 4 — Inspect the accompanying panel temperatures
+#
+# Temperature helps put changes in electrical output in context; it is not a
+# correction for spacecraft attitude or solar incidence.
+
+plot_raavana_quantity(
+    "temperature_c",
+    "Measured panel temperature [°C]",
+    "Step 4 — Full-resolution RAAVANA temperature",
+)
+
+# %% Step 5 — Calculate measured power for every panel observation
+#
+# ``opv.add_power`` calculates P = V x I. We retain the complete measured signal
+# within each campaign, including low-power intervals. No orbital eclipse or
+# fault labels are inferred from those intervals alone.
+
+plot_raavana_quantity(
+    "power_w", "Measured panel power [W]", "Step 5 — Full-resolution RAAVANA electrical power"
+)
+
+# %% Step 6 — Use many within-campaign windows instead of two summary points
+#
+# Five-minute, non-overlapping windows expose changes within each RAAVANA
+# recording. A window needs at least 30 valid panel samples (half the expected
+# 60 samples at five-second cadence); the final window is retained if it meets
+# that requirement. Windows are always grouped by spacecraft, campaign and
+# panel, so none can span the gap between recordings. These local P95 values
+# describe short-term operating behavior, not an independent health verdict.
+
+window_seconds = 300
+minimum_window_samples = 30
+raavana["window_start_s"] = np.floor(raavana["elapsed_seconds"] / window_seconds) * window_seconds
+window_p95 = raavana.groupby(
+    ["satellite", "source_sheet", "panel_id", "window_start_s"], as_index=False
+).agg(
     power_p95_w=("power_w", lambda values: float(values.quantile(0.95))),
     samples=("power_w", "size"),
 )
+window_p95 = window_p95[window_p95["samples"] >= minimum_window_samples]
+window_count = len(window_p95.drop_duplicates(["satellite", "source_sheet", "window_start_s"]))
+print(
+    f"\nRAAVANA: {window_count} within-campaign time windows; {len(window_p95)} panel-window summaries"
+)
 
-session_order = list(dict.fromkeys(powered["source_sheet"].astype(str)))
-session_rank = {name: index for index, name in enumerate(session_order)}
-session_p95["session_rank"] = session_p95["source_sheet"].astype(str).map(session_rank)
-session_p95 = session_p95.sort_values(["panel_id", "session_rank"])
+fig, axes = plt.subplots(
+    1, len(raavana_campaigns), figsize=(11, 4.3), sharey=True, layout="constrained"
+)
+for ax, campaign in zip(axes, raavana_campaigns.itertuples(), strict=True):
+    session = window_p95[window_p95["source_sheet"] == campaign.source_sheet]
+    for panel_id, panel in session.groupby("panel_id", sort=True):
+        ax.scatter(
+            panel["window_start_s"] / 60,
+            panel["power_p95_w"],
+            s=22,
+            color=panel_colors[panel_id],
+            label=panel_id,
+        )
+    ax.set(title=campaign.source_sheet, xlabel="Window start [elapsed minutes]")
+    ax.grid(True, alpha=0.25)
+axes[0].set_ylabel("Five-minute 95th-percentile power [W]")
+axes[-1].legend(title="Panel", fontsize=8, ncols=3)
+fig.suptitle(f"Step 6 — {window_count} real time windows, separated by campaign")
+plt.show()
 
-fig, ax = plt.subplots(figsize=(9, 4.8))
-for _panel_id, panel in session_p95.groupby("panel_id", sort=True):
-    ax.plot(
-        panel["session_rank"],
+# %% Step 7 — Extend the history to TSURU's 40 flight campaigns
+#
+# Compute campaign summaries using every valid measurement from all four
+# spacecraft. TSURU supplies a longer March 2021--January 2022 comparison.
+# Marker-only plots avoid suggesting continuous coverage between campaigns.
+# The bars above show how many native measurement times support each point.
+
+session_p95 = (
+    powered.groupby(["satellite", "panel_id", "source_sheet", "campaign_date"], as_index=False)
+    .agg(
+        power_p95_w=("power_w", lambda values: float(values.quantile(0.95))),
+        samples=("power_w", "size"),
+    )
+    .sort_values(["satellite", "panel_id", "campaign_date"])
+)
+tsuru_sessions = session_p95[session_p95["satellite"] == "TSURU"]
+tsuru_campaigns = campaigns[campaigns["satellite"] == "TSURU"]
+
+fig, axes = plt.subplots(
+    2, 1, figsize=(10, 7), sharex=True, layout="constrained", gridspec_kw={"height_ratios": [1, 2]}
+)
+axes[0].bar(
+    tsuru_campaigns["campaign_date"],
+    tsuru_campaigns["measurement_times"],
+    width=2.5,
+    color="#586A83",
+)
+axes[0].set(ylabel="Measurement times", title="Step 7 — TSURU: 40 real flight campaigns")
+for panel_id, panel in tsuru_sessions.groupby("panel_id", sort=True):
+    axes[1].scatter(
+        panel["campaign_date"],
         panel["power_p95_w"],
-        marker="o",
+        s=24,
+        color=panel_colors[panel_id],
         label=panel_id,
     )
-ax.set(
-    xlabel="Measurement campaign",
-    ylabel="Session 95th-percentile power [W]",
-    xticks=range(len(session_order)),
-    xticklabels=session_order,
+axes[1].set(
+    xlabel="Campaign date (2021 inferred for yearless sheets)",
+    ylabel="Campaign 95th-percentile power [W]",
 )
-ax.set_title("Step 5 — Upper-envelope power by real measurement campaign")
-ax.grid(True, alpha=0.25)
-ax.legend(fontsize=7, ncols=2)
-plt.xticks(rotation=20)
+axes[1].xaxis.set_major_locator(mdates.MonthLocator(interval=2))
+axes[1].xaxis.set_major_formatter(mdates.DateFormatter("%b %Y"))
+axes[1].legend(title="Panel", fontsize=8, ncols=5)
+for ax in axes:
+    ax.grid(True, alpha=0.25)
 plt.show()
 
-# %% Step 6 — Normalize each panel to its first measurement campaign
+# %% Step 8 — Inspect TSURU recordings at the beginning, middle and end
 #
-# This creates a simple relative health indicator. It is deliberately not a
-# flight-qualified fault classifier: spacecraft attitude, beta angle,
-# temperature and operating state are not yet normalized.
+# The campaign summaries above use all 23,266 TSURU measurement times. For
+# detailed comparison, display every native sample from three representative
+# recordings. Preserve the workbook's actual elapsed values, including its
+# fractional-second sampling intervals, instead of imposing a fixed cadence.
 
-pieces = []
-for _panel_id, panel in session_p95.groupby("panel_id", sort=True):
-    panel = panel.copy().sort_values("session_rank")
-    reference = float(panel.iloc[0]["power_p95_w"])
-    panel["relative_envelope"] = panel["power_p95_w"] / reference if reference else np.nan
-    panel["screen_low"] = panel["relative_envelope"] < 0.80
-    pieces.append(panel)
-session_health = pd.concat(pieces, ignore_index=True)
+selected_tsuru = tsuru_campaigns.iloc[[0, len(tsuru_campaigns) // 2, -1]]
+fig, axes = plt.subplots(3, 1, figsize=(10, 8), sharey=True, layout="constrained")
+for ax, campaign in zip(axes, selected_tsuru.itertuples(), strict=True):
+    session = powered[
+        (powered["satellite"] == "TSURU") & (powered["source_sheet"] == campaign.source_sheet)
+    ]
+    for panel_id, panel in session.groupby("panel_id", sort=True):
+        ax.plot(
+            panel["elapsed_seconds"] / 60,
+            panel["power_w"],
+            ".",
+            ms=2,
+            alpha=0.65,
+            color=panel_colors[panel_id],
+            label=panel_id,
+        )
+    ax.set(
+        title=f"{campaign.campaign_date:%Y-%m-%d} — {campaign.measurement_times:,} measurement times",
+        xlabel="Elapsed minutes within campaign",
+        ylabel="Panel power [W]",
+    )
+    ax.grid(True, alpha=0.25)
+axes[0].legend(title="Panel", fontsize=8, ncols=5)
+fig.suptitle("Step 8 — Three TSURU recordings at native resolution")
+plt.show()
 
-fig, ax = plt.subplots(figsize=(9, 4.8))
-for panel_id, panel in session_health.groupby("panel_id", sort=True):
-    ax.plot(
-        panel["session_rank"],
+# %% Step 9 — Compare TSURU's relative campaign envelopes
+#
+# Normalize each face to its own first campaign P95. This extends the former
+# two-point view to 40 campaign points per face. The reference is a measured
+# operating state, not a proven healthy baseline. Changes in illumination and
+# attitude can move this ratio; no degradation rate is fitted to it.
+
+tsuru_relative = tsuru_sessions.copy()
+reference = tsuru_relative.groupby("panel_id")["power_p95_w"].transform("first")
+tsuru_relative["relative_envelope"] = tsuru_relative["power_p95_w"] / reference.where(reference > 0)
+
+fig, ax = plt.subplots(figsize=(10, 4.8), layout="constrained")
+for panel_id, panel in tsuru_relative.groupby("panel_id", sort=True):
+    ax.scatter(
+        panel["campaign_date"],
         panel["relative_envelope"],
-        marker="o",
+        s=24,
+        color=panel_colors[panel_id],
         label=panel_id,
     )
-    flagged = panel[panel["screen_low"]]
-    ax.scatter(flagged["session_rank"], flagged["relative_envelope"], marker="x", s=45)
-ax.axhline(1.0, linestyle="--", linewidth=1, label="First-session reference")
-ax.axhline(0.8, linestyle=":", linewidth=1, label="Exploratory 80% screen")
+ax.axhline(1.0, color="#586A83", linestyle="--", linewidth=1, label="First campaign")
 ax.set(
-    xlabel="Measurement campaign",
-    ylabel="Relative upper-envelope power",
-    xticks=range(len(session_order)),
-    xticklabels=session_order,
+    xlabel="Campaign date",
+    ylabel="P95 power / first-campaign P95",
+    title="Step 9 — Relative TSURU output across 40 campaigns",
 )
-ax.set_title("Step 6 — Relative panel health screen")
+ax.xaxis.set_major_locator(mdates.MonthLocator(interval=2))
+ax.xaxis.set_major_formatter(mdates.DateFormatter("%b %Y"))
 ax.grid(True, alpha=0.25)
-ax.legend(fontsize=7, ncols=2)
-plt.xticks(rotation=20)
+ax.legend(fontsize=8, ncols=3)
 plt.show()
 
-# %% Step 7 — Summarize first-to-last campaign changes
+# %% Step 10 — Compare persistent panel imbalance across all four spacecraft
 #
-# The source publication reports a RAAVANA panel failure. We do not assign that
-# expert label here; we rank the measured panel changes so an engineer can see
-# which panel history deserves closer investigation.
+# A face can already be underperforming in the first recording. Compare the
+# median campaign P95 for each face against its own spacecraft's median face,
+# keeping spacecraft separate. This is a descriptive comparison, not a fault
+# classifier: differently oriented faces need not receive equal illumination.
+# The dataset publication reports RAAVANA and UGUISU panel failures, but these
+# ratios do not reproduce the authors' expert labels.
 
-summary_rows = []
-for panel_id, panel in session_health.groupby("panel_id", sort=True):
-    panel = panel.sort_values("session_rank")
-    first = float(panel.iloc[0]["power_p95_w"])
-    last = float(panel.iloc[-1]["power_p95_w"])
-    summary_rows.append(
-        {
-            "panel_id": panel_id,
-            "first_p95_w": first,
-            "last_p95_w": last,
-            "relative_change_percent": 100.0 * (last / first - 1.0) if first else np.nan,
-            "screened_campaigns": int(panel["screen_low"].sum()),
-        }
-    )
-
-panel_summary = pd.DataFrame(summary_rows).sort_values("relative_change_percent")
-print(panel_summary.to_string(index=False))
-
-fig, ax = plt.subplots(figsize=(8.5, 4.5))
-ax.bar(panel_summary["panel_id"], panel_summary["relative_change_percent"])
-ax.axhline(0.0, linewidth=1)
-ax.set(xlabel="Panel", ylabel="Last vs first campaign change [%]")
-ax.set_title("Step 7 — Real panel changes for engineering follow-up")
-ax.grid(True, axis="y", alpha=0.3)
-plt.show()
-
-# %% Step 8 — Screen for persistent cross-panel imbalance
-#
-# A panel can already be impaired in the first available campaign, in which
-# case a first-vs-last comparison will not reveal the condition. We therefore
-# also compare each panel's typical campaign upper envelope with the median
-# across all five faces. Because spacecraft attitude is not normalized, this is
-# an engineering screening metric rather than a definitive fault label.
-#
-# The BIRDS publication reports a solar-panel failure on RAAVANA. A panel that
-# remains orders of magnitude below its peers is qualitatively consistent with
-# that report, but this example does not infer the authors' expert label.
-
-panel_level = (
-    session_p95.groupby("panel_id", as_index=False)
-    .agg(typical_p95_w=("power_p95_w", "median"))
-    .sort_values("typical_p95_w")
+panel_level = session_p95.groupby(["satellite", "panel_id"], as_index=False).agg(
+    typical_p95_w=("power_p95_w", "median")
 )
-fleet_median = float(panel_level["typical_p95_w"].median())
-panel_level["relative_to_panel_median"] = (
-    panel_level["typical_p95_w"] / fleet_median if fleet_median else np.nan
-)
-
-print("\nCross-panel upper-envelope comparison")
+spacecraft_reference = panel_level.groupby("satellite")["typical_p95_w"].transform("median")
+panel_level["relative_to_spacecraft_median"] = panel_level[
+    "typical_p95_w"
+] / spacecraft_reference.where(spacecraft_reference > 0)
+print("\nCross-panel upper-envelope comparison (each spacecraft considered separately)")
 print(panel_level.to_string(index=False))
 
-fig, ax = plt.subplots(figsize=(8.5, 4.5))
-ax.bar(panel_level["panel_id"], panel_level["relative_to_panel_median"])
-ax.axhline(1.0, linestyle="--", linewidth=1, label="Median panel")
-ax.axhline(0.2, linestyle=":", linewidth=1, label="Exploratory 20% screen")
-ax.set(xlabel="Panel", ylabel="Typical envelope / median panel envelope")
-ax.set_title("Step 8 — Persistent cross-panel imbalance screen")
-ax.grid(True, axis="y", alpha=0.3)
-ax.legend()
+fig, axes = plt.subplots(2, 2, figsize=(10, 7), sharey=True, layout="constrained")
+for ax, (satellite, panel) in zip(
+    axes.flat, panel_level.groupby("satellite", sort=True), strict=True
+):
+    ax.bar(
+        panel["panel_id"],
+        panel["relative_to_spacecraft_median"],
+        color=[panel_colors[name] for name in panel["panel_id"]],
+    )
+    ax.axhline(1.0, color="#586A83", linestyle="--", linewidth=1)
+    ax.set(title=satellite, xlabel="Panel", ylabel="Envelope / spacecraft median")
+    ax.grid(True, axis="y", alpha=0.25)
+fig.suptitle("Step 10 — Persistent panel imbalance across four spacecraft")
 plt.show()
+
+# %% Interpretation
+#
+# The detailed plots now resolve thousands of genuine timestamps within the
+# available recordings, while TSURU adds 40 campaign-level comparison points.
+# Sparse campaign coverage must not be treated as continuous mission history:
+# do not integrate across missing dates or infer a mission energy yield.
+# Precisely timed ephemeris, attitude and calibrated illumination data would
+# be needed before these descriptive comparisons become physical diagnostics.

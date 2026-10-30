@@ -30,6 +30,7 @@ from .data import (
     CelesTrakConnector,
     fetch_birds_eps,
     fetch_celestrak_omm,
+    load_birds_eps_workbook,
     load_table,
     make_demo_telemetry,
     normalize_birds_like,
@@ -65,7 +66,7 @@ from .pv import (
 try:
     __version__ = version("orbital-pv")
 except PackageNotFoundError:
-    __version__ = "0.4.1"
+    __version__ = "0.4.2"
 
 __all__ = [
     "AM0_REFERENCE_IRRADIANCE_W_M2",
@@ -103,6 +104,7 @@ __all__ = [
     "incidence_factor",
     "keplerian_orbit_positions_m",
     "list_space_cell_technologies",
+    "load_birds_eps_workbook",
     "load_table",
     "make_demo_telemetry",
     "normalize_birds_like",
