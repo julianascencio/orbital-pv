@@ -11,6 +11,12 @@ Reference model
 .. automodule:: space_pv_pvmodel.model
    :members:
 
+Sequential power model
+----------------------
+
+.. automodule:: space_pv_pvmodel.losses
+   :members: pvwatts_loss_chain
+
 Single-diode / De Soto adapter
 --------------------------------
 

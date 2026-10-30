@@ -29,8 +29,9 @@ Scientific packages
    weather, and open spacecraft telemetry.
 
 ``space-pv-analytics``
-   Performance normalization, degradation, persistent-loss, residual, and
-   health analytics.
+   Signed expected-versus-actual loss breakdowns, evidence-labelled categories,
+   gap-aware energy accounting, performance normalization, degradation,
+   persistent-loss, residual, and health analytics.
 
 Platform packages
 -----------------

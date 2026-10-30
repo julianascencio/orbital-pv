@@ -19,6 +19,18 @@ A physics-aware residual is then:
 
    r(t) = P_{measured}(t) - P_{expected}(t)
 
+Loss accounting uses the opposite sign, so a positive value is a shortfall:
+
+.. math::
+
+   L(t) = P_{expected}(t) - P_{actual}(t)
+
+``opv.power_loss_breakdown`` reconciles this gap into named, evidence-labelled
+stages and reporting categories. ``opv.summarize_power_losses`` integrates
+the ledger over common observed intervals and reports the uncovered portion
+of each recorded time span. Gains remain negative losses and unsupported
+causes remain unexplained. See :doc:`pv_loss_analysis` for the full workflow.
+
 Case 0 baseline
 ---------------
 
@@ -31,7 +43,7 @@ The baseline deliberately does not claim physical normalization.
 Health progression
 ------------------
 
-The planned hierarchy is:
+The modelling hierarchy is:
 
 1. telemetry-only upper-envelope health;
 2. orbit/Sun normalized power;
@@ -39,6 +51,12 @@ The planned hierarchy is:
 4. radiation-aware expected power;
 5. topology/EPS-aware residuals;
 6. uncertainty-aware degradation and remaining-power forecasts.
+
+The sequential PV model and loss ledger support supplied geometry, temperature,
+degradation and electrical/controller states. Parameter identification, causal
+diagnosis, calibrated radiation inference and uncertainty-aware forecasts are
+still separate work; a loss bucket is not evidence that its physical cause has
+been established.
 
 Benchmarking
 ------------

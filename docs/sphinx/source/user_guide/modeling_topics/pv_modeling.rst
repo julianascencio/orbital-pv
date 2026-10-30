@@ -23,6 +23,23 @@ The initial broadband model is:
 
 where each factor is supplied by a separate physical or calibration layer.
 
+Sequential power and loss stages
+------------------------------------------------------------
+
+``opv.pvwatts_loss_chain`` exposes the individual cumulative powers behind a
+PVWatts-based reference prediction, then adds optional degradation, mismatch,
+harness, conversion and controller factors. It returns each stage in watts
+and preserves temperature or irradiance gains relative to the reference.
+
+The factors describe independently measured states or explicit assumptions;
+they are not inferred from low power. Inherent cell and coverglass efficiencies
+already included in the calibrated reference must not be applied twice.
+
+Combine these predictions with ``opv.power_loss_breakdown`` and
+``opv.summarize_power_losses`` to obtain signed power contributions and an
+energy waterfall. See :doc:`pv_loss_analysis` and the
+:doc:`PV-analytics gallery </gallery/pv_analytics/index>` for complete examples.
+
 Single-diode modelling
 ----------------------
 
