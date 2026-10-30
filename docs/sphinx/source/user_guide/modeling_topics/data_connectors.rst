@@ -16,7 +16,14 @@ OrbitalPV contains initial adapters for:
 * NASA CDAWeb/HAPI — heliophysics time series;
 * NOAA SWPC — space-weather context;
 * SatNOGS DB — satellite metadata and mission-dependent telemetry;
-* BIRDS EPS — open panel and battery telemetry.
+* BIRDS EPS — open panel and battery telemetry;
+* Flying Laptop / DaRUS — calibrated on-orbit solar-array voltage and current;
+* OPS-SAT-AD — original annotated photodiode and magnetometer measurements;
+* LASP LISIRD — measured total and spectral solar irradiance.
+
+The NOAA SWPC connector also normalizes measured GOES integral proton and
+electron flux. SatNOGS metadata is public, but its telemetry endpoint currently
+requires authentication; it is not an anonymous real-data example.
 
 Real BIRDS EPS telemetry
 ------------------------
@@ -151,6 +158,153 @@ Primary sources:
   <https://data.mendeley.com/datasets/8kp25ycf63/1>`_;
 * `JAXA confirmation of TSURU's 14 March 2021 deployment
   <https://humans-in-space.jaxa.jp/en/biz-lab/news/detail/001359.html>`_.
+
+Additional measured-data workflows
+----------------------------------
+
+Install the current public API and plotting support:
+
+.. code-block:: bash
+
+   python -m pip install -U "orbital-pv[excel,examples]>=0.5.0"
+
+These are separate observations with different physical meanings. An array's
+electrical measurements, an irradiance instrument's input measurements, and
+particle-environment measurements are not interchangeable.
+
+.. list-table:: New executable connector examples
+   :header-rows: 1
+   :widths: 20 40 40
+
+   * - Source
+     - Public connector
+     - Measured example
+   * - Flying Laptop
+     - ``FlyingLaptopConnector`` / ``fetch_flying_laptop_power``
+     - :doc:`../../gallery/real_data/plot_flying_laptop_power`
+   * - OPS-SAT-AD v2
+     - ``OpsSatADConnector`` / ``fetch_opssat_segments``
+     - :doc:`../../gallery/real_data/plot_opssat_photodiode_telemetry`
+   * - TSIS-1 and SORCE TIM
+     - ``LisirdConnector.total_solar_irradiance``
+     - :doc:`../../gallery/real_data/plot_lisird_measured_irradiance`
+   * - TSIS-1 SIM
+     - ``LisirdConnector.spectral_irradiance``
+     - :doc:`../../gallery/real_data/plot_lisird_measured_spectrum`
+   * - NOAA GOES
+     - ``NoaaSwpcConnector.goes_integral_particle_flux``
+     - :doc:`../../gallery/real_data/plot_goes_measured_particle_flux`
+
+Flying Laptop: actual array voltage and current
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The University of Stuttgart publishes monthly archives under CC BY 4.0,
+`DOI 10.18419/darus-451 <https://doi.org/10.18419/darus-451>`_, with a separate
+`packet and units description <https://doi.org/10.18419/darus-456>`_. The
+connector reads electrical packet 4900 directly from the compressed archive,
+without extracting archive paths. It validates downloads against the provider's
+catalog checksum and records a SHA-256 provenance sidecar.
+
+.. code-block:: python
+
+   import orbitalpv as opv
+
+   power = opv.fetch_flying_laptop_power(
+       "2018-02", "data/FLP_TM_HK_2018-02.tar.bz2",
+       time_min="2018-02-01", time_max="2018-02-02",
+   )
+   # Offline reuse of the complete downloaded month:
+   month = opv.load_flying_laptop_power("data/FLP_TM_HK_2018-02.tar.bz2")
+
+February 2018 contains 75,097 packet timestamps and 300,388 array observations.
+The right, left, center and onboard experimental ``test`` array stay distinct.
+Voltage is in V and current in A; ``power_w`` is calculated as V times I.
+The Unix-millisecond timestamps represent UTC packet generation, with up to
+400 ms difference from sensor acquisition documented by the provider. Time
+filters use an inclusive start and exclusive end. The gallery shows monthly
+coverage, native voltage/current/power, and daily upper envelopes.
+
+OPS-SAT: original sensor signals and annotations
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The `OPSSAT-AD v2 release <https://doi.org/10.5281/zenodo.15108715>`_ supplies
+303,493 original measurements in 2,123 segments from nine channels. The
+connector downloads ``segments.csv`` rather than the extracted-feature table,
+pins the version and SHA-256, and preserves channel, segment, expert annotation
+and the provider's train/test split. The dataset is CC BY 4.0.
+
+.. code-block:: python
+
+   import orbitalpv as opv
+
+   signals = opv.fetch_opssat_segments(
+       "data/opssat_segments_v2.csv", channels=["CADC0892"], split="test"
+   )
+
+Photodiode and magnetometer values retain their source scale. The published
+CSV supplies no engineering units, so they must not be interpreted as panel
+current or generated power. The numeric ``anomaly`` field contains the expert
+annotation; the inconsistent text ``label`` field is preserved but not used
+for classification. The gallery plots native signals and separately selected
+nominal/anomalous segments without filling the missing mission intervals.
+
+LISIRD: measured total and spectral irradiance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`LASP's public science products <https://lasp.colorado.edu/tsis/data/>`_ supply
+TSIS-1 TIM and SORCE TIM total irradiance, plus TSIS-1 SIM spectral irradiance.
+The connector validates units and decodes the time conventions declared by
+the LaTiS ``jsond`` metadata. Nominal bin centers and weighted average
+measurement times remain separate where both are provided.
+
+.. code-block:: python
+
+   import orbitalpv as opv
+
+   with opv.LisirdConnector() as connector:
+       tsi = connector.total_solar_irradiance(
+           "tsis_tsi_24hr", time_min="2023-01-01", time_max="2024-01-01",
+           cache_path="data/tsis_2023.json",
+       )
+       spectrum = connector.spectral_irradiance(
+           time_min="2023-06-01", time_max="2023-06-04",
+           cache_path="data/tsis_spectrum_20230601_03.json",
+       )
+
+TSI fields at 1 AU and actual Earth distance are distinct and use W/m²;
+spectral fields use W/m²/nm with wavelengths in nm. Provider fill values,
+uncertainties, provisional flags and spectral quality bits remain explicit.
+The 2023 daily series has 365 nominal bins but only 292 valid measured bins
+in the checked snapshot. The example leaves the missing bins as gaps.
+
+The spectral example uses three daily spectra with 2,104 wavelength bins
+each. It shows quality-marked wavelengths separately and does not integrate
+across rejected intervals. The illustrative PV response in the TSI example
+is a simulation driven by measured irradiance, not measured spacecraft power.
+
+GOES: measured particle environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+   import orbitalpv as opv
+
+   with opv.NoaaSwpcConnector() as connector:
+       protons = connector.goes_integral_particle_flux(
+           "protons", period="7-day", cache_path="data/goes_protons.json"
+       )
+
+This retrieves a rolling observation window and caches the original response;
+``refresh=True`` requests a new snapshot. Flux is in particles/(cm² s sr),
+and actual satellite IDs and energy thresholds are retained. Primary proton
+and electron observations can come from different GOES spacecraft. Integral
+energy channels overlap and must not be summed; energetic protons can
+contaminate electron measurements. These geostationary observations are
+environmental context, not a spacecraft-specific radiation damage dose.
+
+See NOAA's `proton <https://www.swpc.noaa.gov/products/goes-proton-flux>`_ and
+`electron <https://www.swpc.noaa.gov/products/goes-electron-flux>`_ product
+descriptions for units and limitations.
 
 Provenance contract
 -------------------

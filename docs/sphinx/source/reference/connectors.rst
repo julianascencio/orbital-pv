@@ -16,6 +16,24 @@ CelesTrak
 .. automodule:: space_pv_connectors.celestrak
    :members:
 
+Flying Laptop measured arrays
+-----------------------------
+
+.. automodule:: space_pv_connectors.flying_laptop
+   :members:
+
+OPS-SAT annotated measurements
+------------------------------
+
+.. automodule:: space_pv_connectors.opssat
+   :members:
+
+LASP measured irradiance
+------------------------
+
+.. automodule:: space_pv_connectors.lisird
+   :members:
+
 Space-Track
 -----------
 

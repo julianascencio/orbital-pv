@@ -6,7 +6,11 @@ from .http_base import HttpConnector
 
 
 class SatnogsDbConnector(HttpConnector):
-    """Public SatNOGS DB API for satellite metadata, TLEs and decoded telemetry."""
+    """SatNOGS DB metadata and TLE API; telemetry endpoints require authentication.
+
+    Public satellite metadata does not imply anonymous telemetry access.
+    The current telemetry endpoint returns HTTP 401 without credentials.
+    """
 
     BASE_URL = "https://db.satnogs.org/api"
 

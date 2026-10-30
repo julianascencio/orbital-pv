@@ -1,0 +1,31 @@
+# Real measurement sources
+
+These sources were checked against their published files and live public endpoints on 30 October 2026. The connectors preserve measurements and source metadata; the examples state when electrical power is calculated or a PV response is simulated.
+
+| Source | Measurements and time representation | Example coverage | Attribution |
+|---|---|---|---|
+| Flying Laptop | Packet 4900 array voltage in V and current in A; Unix milliseconds for UTC packet generation | February 2018: 75,097 packets, four array channels, 300,388 V/I pairs | FLP Team, [telemetry DOI 10.18419/darus-451](https://doi.org/10.18419/darus-451), [schema DOI 10.18419/darus-456](https://doi.org/10.18419/darus-456), CC BY 4.0 |
+| OPS-SAT-AD v2 | Original sensor values and UTC timestamps; photodiode/magnetometer units unspecified in the published CSV | 303,493 values, 2,123 annotated segments, nine channels, January–June 2022 | Ruszczak et al., [data DOI 10.5281/zenodo.15108715](https://doi.org/10.5281/zenodo.15108715), [descriptor paper](https://doi.org/10.1038/s41597-025-05035-3), CC BY 4.0 |
+| TSIS-1 TIM / SORCE TIM | Calibrated total solar irradiance in W/m², 1 AU and true Earth distance, uncertainty, nominal daily/six-hour bin centers | TSIS-1 2023 annual series and a separate 2019 instrument overlap | [LASP TSIS science products](https://lasp.colorado.edu/tsis/data/), [SORCE TSI](https://lasp.colorado.edu/sorce/data/tsi-data/); retain instrument-team attribution |
+| TSIS-1 SIM | Calibrated spectral irradiance in W/m²/nm, wavelength in nm, daily/twelve-hour bin centers and quality bits | 1–3 June 2023: 6,312 wavelength-time rows across three spectra | [TSIS data and release notes](https://lasp.colorado.edu/tsis/data/), [LISIRD](https://lasp.colorado.edu/lisird/); retain instrument-team attribution |
+| NOAA GOES | Five-minute integral proton/electron flux in particles/(cm² s sr), UTC observation times and per-record GOES satellite number | Recent seven-day snapshot; counts vary by retrieval and coverage | NOAA SWPC [proton product](https://www.swpc.noaa.gov/products/goes-proton-flux), [electron product](https://www.swpc.noaa.gov/products/goes-electron-flux), [data service](https://services.swpc.noaa.gov/json/goes/) |
+
+## Interpretation and reproducibility
+
+**Flying Laptop.** The connector reads voltage and current from the same packet and computes their product. The source documents up to 400 ms between sensor acquisition and packet generation. The four arrays are right, left, center and the spacecraft's experimental `test` array; `test` is an on-orbit array name. Signed sensor offsets are retained. The downloaded archive is checked against the DaRUS catalog checksum, and a SHA-256 provenance sidecar is saved. The example downloads approximately 30 MB once and then reads its checked local copy. Other published months can be requested by `YYYY-MM`; filtering uses an inclusive start and exclusive end in UTC.
+
+**OPS-SAT.** `segments.csv` contains original telemetry; the separate `dataset.csv` contains extracted features and is not used by this connector. The v2 CSV has an inconsistent text `label` column: nominal records also say `anomaly`. The numeric `anomaly` field is the actual provider annotation. Both fields remain available, but examples use the numeric one. Published segment IDs, source train/test assignments and gaps are retained. The selected segments do not establish a mission-wide anomaly rate. Photodiode values are not converted to current, irradiance, angles or panel power without a calibration supplied by the source. The complete v2 file is pinned by DOI and SHA-256.
+
+**LISIRD.** LaTiS `jsond` metadata declares parameter order, units and missing values. Its nominal time coordinate uses Unix milliseconds; the weighted average measurement date uses Julian days where supplied. They are decoded separately. TSI zero fill values become NaN and remain gaps; provisional flags and uncertainties remain visible. Spectral quality bits are retained, and a conservative zero-flag selection is identified explicitly. Spectral plots do not bridge rejected wavelength intervals or equate the 200–2400 nm product with all-wavelength TSI. TSIS and SORCE can have instrument offsets, so the example compares them rather than splicing an uncorrected composite. Cached raw JSON is bound to the dataset and requested dates by a sidecar and SHA-256; retain these files to reproduce a particular product revision.
+
+**GOES.** The primary-role mapping can differ between proton and electron instruments, so the connector retains each record's GOES number. The service exposes rolling windows, not an arbitrary historical-date query. The raw response and retrieval timestamp are cached; `refresh=True` explicitly updates that snapshot. Missing/negative/nonfinite flux values are flagged, with the original fields retained. Integral energy channels overlap and must not be summed. Electron channels can be contaminated by energetic protons. Flux at a geostationary observer is not a solar-cell damage dose for another orbit; a transport/shielding/damage model would be needed.
+
+None of these examples fills missing measurement periods with synthetic data. No temporal alignment between different missions is implied.
+
+## Additional sources investigated
+
+- [ESA-ADB](https://github.com/kplabs-pl/ESA-ADB) is an authentic annotated mission-telemetry benchmark, but the current multi-mission archives are large and channel identities are anonymized. It remains a future bulk-data connector candidate.
+- The [SatNOGS API](https://db.satnogs.org/api/) has public metadata endpoints, but its telemetry endpoint returned HTTP 401 without credentials in the access check. It is not presented as a working anonymous measurement gallery.
+- [RHONE / Baoyun](https://github.com/TiansuanConstellation/ATC25-RHONE-Data) describes useful on-orbit power traces, but its linked download was not verified as publicly accessible in this check. No connector is claimed to retrieve data that could not be inspected.
+
+These access observations do not mean the sources are permanently unavailable. A future integration should first verify the actual file schema, units, redistribution terms and reproducible access path.
