@@ -45,6 +45,72 @@ including the optional raster reader and plotting packages:
 For a reproducible analysis, pin the Git commit and keep the returned STAC
 metadata, OSM response, query parameters, and output imagery together.
 
+Map a PV site with shared utilities
+-------------------------------------
+
+``load_pv_site`` combines the scene search, native image crops, verified local
+cache and OSM query. The same plotting functions work for Cestas, Rinconada
+and Icor in Tenerife; only the site name, bounding box and dates change.
+
+.. code-block:: python
+
+   import matplotlib.pyplot as plt
+   import orbitalpv as opv
+
+   site = opv.load_pv_site(
+       name="Icor PV site, Arico, Tenerife",
+       bbox=(-16.447, 28.192, -16.439, 28.198),
+       time_min="2026-06-01", time_max="2026-09-01",
+       max_cloud_cover=10, max_items=5,
+       cache_dir="data/icor", cache_prefix="tenerife",
+   )
+   opv.plot_pv_site(site, overlay_osm=True)
+   opv.plot_pv_site_quality(site)
+   plt.show()
+
+The returned ``PVSite`` keeps the bounded search in ``site.scenes``, the
+selected STAC item in ``site.item``, the original Overpass response in
+``site.osm`` and each native ``GroundImage`` in ``site.images``. Call
+``site.summary()`` for acquisition, search-limit, grid and source-feature
+metadata. For direct spectral work, use
+``site.images["red"].reflectance()``; its raw pixels remain unchanged.
+
+.. list-table:: Reusable PV mapping utilities
+   :header-rows: 1
+   :widths: 32 68
+
+   * - Utility
+     - Purpose
+   * - ``load_pv_site``
+     - Load or retrieve one site's imagery and original mapped solar features.
+   * - ``load_ground_image``
+     - Restore a saved crop with its checksum, native grid, mask and source metadata.
+   * - ``plot_pv_site``
+     - Display RGB and optionally project OSM features into the image's CRS.
+   * - ``plot_pv_site_quality``
+     - Display calibrated red reflectance beside categorical SCL on its native grid.
+
+The default assets are ``visual``, ``red`` and ``scl``. Search still selects
+the first returned scene by scene-wide cloud cover unless ``scene_id`` is
+specified; an explicit scene must occur in the bounded search results.
+Inspect local quality classes and the image before relying on that choice.
+Different native grids are retained. Plotting functions return Matplotlib
+axes or a figure/axes pair for customization and leave ``plt.show()`` to
+the caller.
+
+The cache uses ``<prefix>-scenes.json``, ``<prefix>-osm.json`` and
+``<prefix>-<asset>.tif`` with their provenance sidecars. An existing cache
+must match its request, selected scene, area, asset and checksum. Choose a
+new directory/prefix when changing a study, or pass ``refresh=True`` to
+retrieve fresh inputs explicitly. ``offline=True`` requires a complete,
+valid local cache and prevents network access; it cannot be combined with
+``refresh=True``. The gallery uses this mode for its bundled snapshots.
+
+The overlays retain their OpenStreetMap provenance. Plant boundaries and
+panel-group outlines can overlap, so their areas must not be summed as if
+they were distinct sites. Geometry members and gaps stay separate, and
+image and map dates are shown independently.
+
 Search and read a small image
 -----------------------------
 
@@ -205,8 +271,9 @@ bounded queries or bulk OSM extracts instead of treating a public Overpass
 instance as an unlimited global download service. [#overpass]_
 
 The executable image-and-feature walkthroughs cover
-:doc:`Cestas, France <../../gallery/ground_imagery/plot_ground_satellite_inputs>`
-and :doc:`Rinconada near Rengo, Chile <../../gallery/ground_imagery/plot_rengo_solar_plant>`.
+:doc:`Cestas, France <../../gallery/ground_imagery/plot_ground_satellite_inputs>`,
+:doc:`Rinconada near Rengo, Chile <../../gallery/ground_imagery/plot_rengo_solar_plant>`
+and :doc:`Icor in Tenerife <../../gallery/ground_imagery/plot_tenerife_solar_plant>`.
 
 Attribution and primary sources
 -------------------------------

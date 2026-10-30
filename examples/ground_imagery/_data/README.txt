@@ -137,6 +137,84 @@ native grid, acquisition date and unmodified calibration metadata. Only
 sidecar path fields were relocated to repository-relative paths; source
 JSON payloads and crop pixels were not altered.
 
+Icor in Arico, Tenerife
+----------------------
+
+Area: WGS84 (west, south, east, north) =
+(-16.447, 28.192, -16.439, 28.198).
+
+Site identity
+~~~~~~~~~~~~~
+
+The Instituto Tecnologico y de Energias Renovables (ITER) infrastructure
+inventory identifies Icor as a 2000 kW photovoltaic installation (record 6),
+at longitude -16.442229, latitude 28.194341:
+https://datos.gob.es/es/catalogo/la0012321-infraestructuras-de-generacion-de-energia-en-tenerife
+https://datos.tenerife.es/ckan/dataset/fa991fa9-a113-452c-9f1b-331b1ffefbe1/resource/2782375b-f2c7-4a05-a685-4eee554a6b1b/download/plantas-fotovoltaicas-y-parques-eolicos.geojson
+
+ITER's 2019 operating programme, printed page 26 (PDF page index 25), also
+records Icor as an existing 2 MW ground-mounted plant in Arico:
+https://www.iter.es/wp-content/uploads/2019/05/PAIF-ITER-2019-_compressed-1.pdf
+Capacity is from these source records; it is not inferred from the pixels or
+the OSM tags. The example uses the existing Icor site, distinct from Icor II.
+
+The official location point lies within OSM plant way 430266023. Way 430266024
+encloses the adjacent array block. Both have photovoltaic method tags:
+https://www.openstreetmap.org/way/430266023
+https://www.openstreetmap.org/way/430266024
+Their combined source bounds are
+(-16.4450687, 28.193818, -16.441437, 28.1968758), inside the example bbox.
+
+Sentinel-2
+~~~~~~~~~~
+
+Contains modified Copernicus Sentinel data (2026), processed by Element 84.
+Scene: S2A_T28RCS_20260804T115232_L2A
+Acquired: 2026-08-04T11:53:59.065000Z
+Collection: sentinel-2-c1-l2a
+API: https://earth-search.aws.element84.com/v1
+Scene-wide cloud cover: 0.155066 percent, not a local cloud-mask result.
+The collection and Sentinel data legal-notice links above also apply here.
+
+tenerife-scenes.json is a bounded search snapshot for 2026-06-01 through
+2026-09-01, cloud cover <= 10 percent and max_items=5. The API reported nine
+matches; the snapshot retains the first five sorted by increasing cloud
+cover, with limit_reached=true. The example selects the first returned item.
+
+The GeoTIFFs contain native pixel-aligned crops, without reprojection,
+resampling, cloud masking or applied reflectance scaling:
+
+* tenerife-visual.tif: uint8 display-ready RGB, 10 m, 3 x 69 x 80.
+* tenerife-red.tif: uint16 raw B04 digital numbers, 10 m, 1 x 69 x 80.
+* tenerife-scl.tif: uint8 scene-classification codes, 20 m, 1 x 35 x 41.
+
+The crop CRS is EPSG:32628 (UTM zone 28 north). The red band's explicit source
+scale is 0.0001 and offset is -0.1, retained as GeoTIFF metadata. Explicitly
+calibrated red reflectance ranges from 0.0807 to 0.3743. The SCL crop contains
+one vegetation (4) pixel and 1434 not-vegetated (5) pixels. These categories
+do not identify photovoltaic modules. There are no nodata samples in any crop.
+
+RGB/red bounds: (357970, 3119300, 358770, 3119990) metres.
+SCL bounds: (357960, 3119300, 358780, 3120000) metres.
+Each grid retains its own outward pixel alignment. Native 10 m imagery gives
+site context; the OSM vectors can contain finer detail than these pixels.
+
+OpenStreetMap
+~~~~~~~~~~~~~
+
+© OpenStreetMap contributors, ODbL-1.0; the license links above also apply.
+tenerife-osm.json is the unmodified bounded Overpass response, with source
+timestamp 2026-10-30T10:23:04Z. It contains 52 ways: two power=plant boundaries
+and 50 power=generator PV row/group outlines. These are mapped objects,
+not 52 unique plants. Their geometries overlap and their areas must not be
+summed. Capacity tags contain only "yes"; the 2 MW value comes from ITER.
+The October map snapshot is not contemporaneous with the August image.
+
+All five tenerife-* payloads have checksum and provenance sidecars. The
+source queries, full STAC items, native grids and original calibration are
+retained. Only the sidecar path fields were relocated to repository-relative
+paths; the source JSON payloads and crop pixels were not altered.
+
 Paper
 -----
 

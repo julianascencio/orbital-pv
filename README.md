@@ -72,6 +72,12 @@ Overpass. Search by bounding box, dates and scene cloud cover, read a small area
 from a Cloud-Optimized GeoTIFF, and export raw pixels with their CRS, calibration
 metadata and provenance. Neither service requires an API key.
 
+Use `load_pv_site(...)` to load verified imagery and original mapped solar
+features together, then `plot_pv_site(site, overlay_osm=True)` for a map and
+`plot_pv_site_quality(site)` for calibrated spectral and quality views.
+The utilities share cache verification, coordinate transforms, source dates
+and attribution across all ground-imagery examples.
+
 Install the new, unreleased API with the optional raster reader:
 
 ```bash
@@ -80,8 +86,9 @@ python -m pip install "orbital-pv[ground,examples] @ git+https://github.com/juli
 
 See the [ground imagery guide](https://julianascencio.github.io/orbital-pv/user_guide/modeling_topics/ground_imagery.html)
 and the real-image gallery examples for
-[Cestas, France](https://julianascencio.github.io/orbital-pv/gallery/ground_imagery/plot_ground_satellite_inputs.html)
-and [Rinconada near Rengo, Chile](https://julianascencio.github.io/orbital-pv/gallery/ground_imagery/plot_rengo_solar_plant.html).
+[Cestas, France](https://julianascencio.github.io/orbital-pv/gallery/ground_imagery/plot_ground_satellite_inputs.html),
+[Rinconada near Rengo, Chile](https://julianascencio.github.io/orbital-pv/gallery/ground_imagery/plot_rengo_solar_plant.html)
+and [Icor, Tenerife](https://julianascencio.github.io/orbital-pv/gallery/ground_imagery/plot_tenerife_solar_plant.html).
 The guide relates these inputs to [Dunnett et al. (2020)](https://doi.org/10.1038/s41597-020-0469-8):
 the paper starts from OSM features; satellite imagery adds inspection context.
 Farm clustering, GHSL filtering and capacity calibration are separate methodology steps.

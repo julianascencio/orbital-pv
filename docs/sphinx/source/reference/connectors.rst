@@ -13,6 +13,12 @@ Ground satellite imagery
 .. automodule:: space_pv_connectors.ground_raster
    :members:
 
+Cached PV site inputs
+---------------------
+
+.. automodule:: space_pv_connectors.ground_site
+   :members:
+
 Ground renewable-energy features
 --------------------------------
 
