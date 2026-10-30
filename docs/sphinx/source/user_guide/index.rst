@@ -24,6 +24,7 @@ workflows in OrbitalPV.
    modeling_topics/telemetry_analytics
    modeling_topics/data_connectors
    modeling_topics/ground_imagery
+   modeling_topics/pv_footprints
    modeling_topics/storage_gis
 
 .. toctree::

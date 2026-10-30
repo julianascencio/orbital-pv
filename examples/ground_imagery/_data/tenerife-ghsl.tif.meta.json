@@ -1,0 +1,62 @@
+{
+  "bbox_wgs84": [
+    -16.447,
+    28.192,
+    -16.439,
+    28.198
+  ],
+  "bounds": [
+    -1525000.0,
+    3431000.0,
+    -1523000.0,
+    3433000.0
+  ],
+  "bytes": 1942,
+  "crs": "ESRI:54009",
+  "dtype": "int16",
+  "edition": "R2023A",
+  "epoch": 2015,
+  "path": "examples/ground_imagery/_data/tenerife-ghsl.tif",
+  "provenance": {
+    "archive_bytes": 29185689,
+    "archive_sha256": "cd5bc9ef9521bdd5600520005c5a769afc11ba74384f05fd96c0739db5c7f30e",
+    "attribution": "\u00a9 European Union, JRC GHSL",
+    "historical_epoch_not_current_land_cover": true,
+    "license": "CC-BY-4.0",
+    "member": "GHS_SMOD_E2015_GLOBE_R2023A_54009_1000_V2_0.tif",
+    "paper_input_edition": false,
+    "product": "GHS_SMOD_E2015_GLOBE_R2023A_54009_1000_V2_0",
+    "request": {
+      "bbox": [
+        -16.447,
+        28.192,
+        -16.439,
+        28.198
+      ],
+      "edition": "R2023A",
+      "epoch": 2015,
+      "local_source_sha256": null,
+      "source_url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_SMOD_GLOBE_R2023A/GHS_SMOD_E2015_GLOBE_R2023A_54009_1000/V2-0/GHS_SMOD_E2015_GLOBE_R2023A_54009_1000_V2_0.zip",
+      "version": "2.0"
+    },
+    "resampling": "none; native 1 km Mollweide grid",
+    "retrieved_at": "2026-10-30T11:44:42.318701+00:00",
+    "source": "European Commission JRC GHS-SMOD",
+    "url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_SMOD_GLOBE_R2023A/GHS_SMOD_E2015_GLOBE_R2023A_54009_1000/V2-0/GHS_SMOD_E2015_GLOBE_R2023A_54009_1000_V2_0.zip"
+  },
+  "resampled": false,
+  "schema": "orbitalpv-ghsl-crop-v1",
+  "sha256": "f192718f2699053e93afcd0593ce7b0c1a7330d63f9cd1b2e705732e9d232b80",
+  "shape": [
+    2,
+    2
+  ],
+  "transform": [
+    1000.0,
+    0.0,
+    -1525000.0,
+    0.0,
+    -1000.0,
+    3433000.0
+  ]
+}

@@ -91,7 +91,19 @@ and the real-image gallery examples for
 and [Icor, Tenerife](https://julianascencio.github.io/orbital-pv/gallery/ground_imagery/plot_tenerife_solar_plant.html).
 The guide relates these inputs to [Dunnett et al. (2020)](https://doi.org/10.1038/s41597-020-0469-8):
 the paper starts from OSM features; satellite imagery adds inspection context.
-Farm clustering, GHSL filtering and capacity calibration are separate methodology steps.
+The [PV footprint guide](https://julianascencio.github.io/orbital-pv/user_guide/modeling_topics/pv_footprints.html)
+adds **image-derived detection**, geometry deduplication and farm grouping,
+historical GHSL context, and independently calibrated capacity estimates.
+
+`PVFootprintModel` trains on supplied labelled imagery and predicts a new
+scene without OSM at inference. The [held-out Tenerife example](https://julianascencio.github.io/orbital-pv/gallery/ground_imagery/plot_pv_footprint_detection.html)
+trains on Cestas and reports its limitations: about **0.45 F1** agreement with
+weak OSM labels. This is a research baseline, not a globally validated detector.
+The [inventory and capacity example](https://julianascencio.github.io/orbital-pv/gallery/ground_imagery/plot_pv_farm_inventory.html)
+withholds Spain from calibration and reports **8.49 MW MAE** across 158 eligible
+held-out records. Area definitions, historical settlement editions and AC/DC
+ambiguity stay explicit. See [`analysis/ground_pv_mapping`](analysis/ground_pv_mapping)
+for reproducible GeoJSON, GeoTIFF, model and validation exports.
 
 ## Foundation stack
 

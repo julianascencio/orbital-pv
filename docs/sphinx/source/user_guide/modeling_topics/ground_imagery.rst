@@ -23,9 +23,11 @@ capacity records to calibrate estimates. [#dunnett]_
 The connectors here retrieve imagery and the raw OSM input features. Satellite
 imagery is an extension for visual inspection or a future mapping method;
 the paper does not infer its global inventory from satellite pixels.
-GHSL retrieval, polygon deduplication, farm clustering, capacity calibration,
-and validation of the published results are not implemented here. A current
-OSM query is also a different snapshot from the study's original extract.
+The additional :doc:`pv_footprints` methods implement image classification,
+GHSL retrieval, polygon deduplication, farm grouping and capacity calibration.
+They distinguish inferred footprints from source OSM features and report
+validation separately. A current OSM query is a different snapshot from the
+study's original extract; the examples do not recreate its complete inventory.
 
 The original data and scripts are available in the authors' versioned
 Figshare archive, DOI ``10.6084/m9.figshare.11310269.v2``. Its GeoPackage files

@@ -1,0 +1,17 @@
+{
+  "bytes": 107844,
+  "license": {
+    "name": "CC0",
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "value": 2
+  },
+  "path": "examples/ground_imagery/_data/wiki_solar_join.csv",
+  "processing": "Unmodified member from the authors original version2 archive. Source capacity is reported MW; original source does not identify AC/DC basis. panel.area is OSM polygon area proxy in km2, not verified module area.",
+  "retrieved_at": "2026-10-30T11:41:52.426556+00:00",
+  "sha256": "35015b31f01d8342d2305c5ef28cb280249e9a8f21e4335912fbe8da6f1bcd21",
+  "source_archive": "global_wind_solar_2020.zip",
+  "source_archive_md5": "2a84bc2b630fd4e3dc1fc503bb9c5934",
+  "source_doi": "10.6084/m9.figshare.11310269.v2",
+  "source_member": "global_wind_solar_2020/analysis/data/wiki_solar_join.csv",
+  "source_url": "https://ndownloader.figshare.com/files/21979983"
+}

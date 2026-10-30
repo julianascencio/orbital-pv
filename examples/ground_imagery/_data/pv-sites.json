@@ -1,0 +1,29 @@
+{
+  "cestas": {
+    "name": "Cestas solar park, France",
+    "bbox": [-0.833, 44.709, -0.795, 44.742],
+    "time_min": "2024-06-01",
+    "time_max": "2024-09-01",
+    "max_cloud_cover": 10,
+    "max_items": 10,
+    "cache_prefix": "cestas"
+  },
+  "rengo": {
+    "name": "Rinconada near Rengo, Chile",
+    "bbox": [-70.824, -34.412, -70.808, -34.402],
+    "time_min": "2026-01-01",
+    "time_max": "2026-03-01",
+    "max_cloud_cover": 10,
+    "max_items": 5,
+    "cache_prefix": "rengo"
+  },
+  "tenerife": {
+    "name": "Icor, Arico, Tenerife",
+    "bbox": [-16.447, 28.192, -16.439, 28.198],
+    "time_min": "2026-06-01",
+    "time_max": "2026-09-01",
+    "max_cloud_cover": 10,
+    "max_items": 5,
+    "cache_prefix": "tenerife"
+  }
+}

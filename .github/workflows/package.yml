@@ -22,7 +22,7 @@ jobs:
         run: |
           python -m venv /tmp/orbitalpv-wheel
           /tmp/orbitalpv-wheel/bin/python -m pip install --upgrade pip
-          /tmp/orbitalpv-wheel/bin/python -m pip install dist/*.whl matplotlib openpyxl rasterio
+          /tmp/orbitalpv-wheel/bin/python -m pip install dist/*.whl matplotlib openpyxl rasterio pyproj scikit-learn scipy shapely
           /tmp/orbitalpv-wheel/bin/python -c "import orbitalpv as opv; print(opv.__version__)"
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/plot_pv_incidence.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/plot_case0_health.py

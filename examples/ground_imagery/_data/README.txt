@@ -4,6 +4,85 @@ Ground-input snapshots
 These are small REAL source-data snapshots for an offline gallery build,
 not synthetic images, model predictions or a reproduction of a paper.
 
+Additional inputs for footprint detection and inventories
+---------------------------------------------------------
+
+The image-classification example adds blue (B02), green (B03), near-infrared
+(B08), SWIR16 (B11), and SWIR22 (B12) to each site's existing red (B04) band.
+All are crops of exactly the same STAC scene recorded in the site sections
+below. Blue, green and NIR retain native 10 m pixels; SWIR retains native
+20 m pixels. Each crop has its own complete STAC provenance, raw calibration
+metadata and SHA-256 sidecar. No calibration, cloud masking or resampling
+has been applied to the saved source pixels. The model feature builder
+performs these operations explicitly and records them separately.
+
+The source snapshots support an image-only classifier trained on Cestas's
+generator polygons and tested against Tenerife's separate, later OSM labels.
+OSM polygons are weak reference labels, not surveyed contemporaneous truth.
+Outside-map negatives are an explicit assumption, and a 20 m buffer outside
+positive polygons is unknown. The unchanged detector also predicts Rinconada,
+but that site's plant perimeter does not supply panel-level validation.
+
+GHSL historical settlement context
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* cestas-ghsl.tif: 5 x 4 native 1 km cells.
+* rengo-ghsl.tif: 2 x 3 native 1 km cells.
+* tenerife-ghsl.tif: 2 x 2 native 1 km cells.
+
+These are unresampled World Mollweide (ESRI:54009) crops of GHS-SMOD epoch
+2015, release R2023A, version 2.0. They are NOT the R2019A edition used by
+Dunnett et al. (2020). The later release is recorded explicitly; no substitute
+is silently presented as the original paper input. Codes are water 10,
+rural 11/12/13, and urban 21/22/23/30. Unknown and masked cells remain unknown.
+These classes provide historical settlement context, not current PV land use.
+
+Official product:
+https://human-settlement.emergency.copernicus.eu/ghs_smod2023.php
+Source archive:
+https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_SMOD_GLOBE_R2023A/GHS_SMOD_E2015_GLOBE_R2023A_54009_1000/V2-0/GHS_SMOD_E2015_GLOBE_R2023A_54009_1000_V2_0.zip
+Archive bytes: 29,185,689
+Archive SHA-256:
+cd5bc9ef9521bdd5600520005c5a769afc11ba74384f05fd96c0739db5c7f30e
+
+GHSL source data copyright European Union. Reuse is allowed with source
+acknowledgement; this repository does not imply European Commission endorsement.
+https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_SMOD_POP_GLOBE_R2019A/copyright.txt
+The individual sidecars record product identity, exact source, native grid,
+query and crop checksum. The global source archive is not bundled.
+
+Independent capacity calibration table
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+wiki_solar_join.csv is the unchanged anonymised table from:
+global_wind_solar_2020/analysis/data/wiki_solar_join.csv
+within the authors' original version 2 archive:
+https://doi.org/10.6084/m9.figshare.11310269.v2
+https://ndownloader.figshare.com/files/21979983
+
+The archive metadata declares CC0:
+https://creativecommons.org/publicdomain/zero/1.0/
+Credit: Sebastian Dunnett (2020), Harmonised global datasets of wind and
+solar farm locations and power. The associated paper is:
+https://doi.org/10.1038/s41597-020-0469-8
+
+The table contains 1,392 unique sol_id records across 49 countries. Its power
+field is reported MW without a declared AC/DC basis; panel.area is an OSM
+polygon-area proxy in km2, not surveyed module area. All 159 Spanish records
+are withheld from fitting. The historical capacity >= 1000 MW cutoff excludes
+one non-Spanish training record. Of the Spanish records, 158 are inside the
+calibration predictor range and one is withheld rather than extrapolated.
+This table is one component of the paper's pooled calibration data, not the
+complete original pooled model or its full published inventory.
+
+Bytes: 107,844
+SHA-256: 35015b31f01d8342d2305c5ef28cb280249e9a8f21e4335912fbe8da6f1bcd21
+The .meta.json preserves the archive/version, full member path and checksum.
+
+pv-sites.json records the three retrieval configurations for the analysis.
+Model predictions and derived inventories are written separately under the
+caller-selected output directory; no predictions are presented as source data.
+
 Cestas, France
 --------------
 

@@ -49,3 +49,24 @@ PV mapping utilities
 .. automodule:: orbitalpv.mapping
    :members:
    :no-index:
+
+Image-derived PV footprints
+---------------------------
+
+.. automodule:: orbitalpv.pv_detection
+   :members:
+   :no-index:
+
+Farm inventories and capacity calibration
+-----------------------------------------
+
+.. automodule:: orbitalpv.pv_inventory
+   :members:
+   :no-index:
+
+Ground-analysis workflows
+-------------------------
+
+.. automodule:: orbitalpv.ground_analysis
+   :members:
+   :no-index:

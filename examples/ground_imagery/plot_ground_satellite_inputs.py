@@ -8,7 +8,8 @@ plotting helpers produce RGB, mapped outlines and spectral-quality views.
 
 `Dunnett et al. (2020) <https://doi.org/10.1038/s41597-020-0469-8>`_ builds its
 inventory from OSM. These utilities prepare those source features and add
-image context; farm clustering and capacity estimation remain separate work.
+image context; the companion footprint and inventory examples demonstrate
+image classification, farm grouping and calibrated capacity estimates.
 The image is from **10 August 2024**, while the OSM snapshot is from
 **30 October 2026**. The outlines are not contemporaneous validation labels.
 
