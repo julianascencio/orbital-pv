@@ -1,0 +1,48 @@
+{
+  "source": "Earth Search STAC snapshot",
+  "url": "https://earth-search.aws.element84.com/v1/search",
+  "retrieved_at": "2026-10-30T09:54:36.742726+00:00",
+  "sha256": "d356c7201ce8ec79c37150ffa7831a8daed8778ea4c592e81d94847c59ccb8fa",
+  "bytes": 147001,
+  "path": "examples/ground_imagery/_data/rengo-scenes.json",
+  "request": {
+    "endpoint": "https://earth-search.aws.element84.com/v1",
+    "search": {
+      "collections": [
+        "sentinel-2-c1-l2a"
+      ],
+      "bbox": [
+        -70.824,
+        -34.412,
+        -70.808,
+        -34.402
+      ],
+      "datetime": "2026-01-01T00:00:00+00:00/2026-03-01T00:00:00+00:00",
+      "limit": 5,
+      "query": {
+        "eo:cloud_cover": {
+          "lte": 10.0
+        }
+      },
+      "sortby": [
+        {
+          "field": "properties.eo:cloud_cover",
+          "direction": "asc"
+        }
+      ]
+    },
+    "max_items": 5
+  },
+  "pages": [
+    {
+      "source": "Earth Search STAC page",
+      "url": "https://earth-search.aws.element84.com/v1/search",
+      "retrieved_at": "2026-10-30T09:54:36.741730+00:00",
+      "sha256": "1c434e0296cbb5da0d2db33532837d12bd2ecdcfb0c3b27c15d8c379278e5f47",
+      "bytes": 89225,
+      "path": null
+    }
+  ],
+  "documentation": "https://github.com/Element84/earth-search",
+  "attribution": "Contains Copernicus Sentinel data, processed by Element 84"
+}
