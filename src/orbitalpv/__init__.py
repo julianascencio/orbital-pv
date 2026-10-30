@@ -28,9 +28,18 @@ from .cells import (
 from .data import (
     BirdsEPSConnector,
     CelesTrakConnector,
+    FlyingLaptopConnector,
+    LisirdConnector,
+    NoaaSwpcConnector,
+    OpsSatADConnector,
     fetch_birds_eps,
     fetch_celestrak_omm,
+    fetch_flying_laptop_power,
+    fetch_opssat_segments,
     load_birds_eps_workbook,
+    load_flying_laptop_power,
+    load_goes_integral_particle_flux,
+    load_opssat_segments,
     load_table,
     make_demo_telemetry,
     normalize_birds_like,
@@ -66,7 +75,7 @@ from .pv import (
 try:
     __version__ = version("orbital-pv")
 except PackageNotFoundError:
-    __version__ = "0.4.2"
+    __version__ = "0.5.0"
 
 __all__ = [
     "AM0_REFERENCE_IRRADIANCE_W_M2",
@@ -80,6 +89,10 @@ __all__ = [
     "BirdsEPSConnector",
     "CelesTrakConnector",
     "DeSotoParameters",
+    "FlyingLaptopConnector",
+    "LisirdConnector",
+    "NoaaSwpcConnector",
+    "OpsSatADConnector",
     "PvwattsReference",
     "SolarGeometry",
     "SpaceCellSimulation",
@@ -98,6 +111,8 @@ __all__ = [
     "estimate_degradation",
     "fetch_birds_eps",
     "fetch_celestrak_omm",
+    "fetch_flying_laptop_power",
+    "fetch_opssat_segments",
     "geocentric_sun_positions_m",
     "get_space_cell_technology",
     "ground_track_deg_from_eci",
@@ -105,6 +120,9 @@ __all__ = [
     "keplerian_orbit_positions_m",
     "list_space_cell_technologies",
     "load_birds_eps_workbook",
+    "load_flying_laptop_power",
+    "load_goes_integral_particle_flux",
+    "load_opssat_segments",
     "load_table",
     "make_demo_telemetry",
     "normalize_birds_like",

@@ -4,6 +4,47 @@ Real on-orbit data
 These examples retrieve and analyze public spacecraft telemetry rather than
 synthetic data.
 
+Connector workflows
+-------------------
+
+Every walkthrough calls the public ``orbitalpv`` API and includes measured
+coverage, source attribution, units and step-by-step figures. First runs
+retrieve public files or API responses; later runs reuse local snapshots.
+
+.. list-table:: Choose a measured-data workflow
+   :header-rows: 1
+   :widths: 24 38 38
+
+   * - Source
+     - What is measured
+     - Example scope
+   * - Flying Laptop
+     - Solar-array voltage and current; calculated V×I
+     - A month, 75,097 packet times and four arrays
+   * - OPS-SAT-AD
+     - Photodiode/magnetometer signals and expert annotations
+     - 303,493 values in 2,123 source segments
+   * - TSIS-1 / SORCE TIM
+     - Total solar irradiance and uncertainty
+     - Annual history and instrument overlap, with missing bins preserved
+   * - TSIS-1 SIM
+     - Wavelength-resolved solar irradiance and quality flags
+     - Three daily spectra, 2,104 wavelengths each
+   * - NOAA GOES
+     - Integral proton/electron particle flux
+     - Seven-day measured environment snapshot
+   * - BIRDS
+     - Panel voltage, current and temperature
+     - Four spacecraft and 48 flight campaigns
+
+Install ``pip install -U "orbital-pv[excel,examples]>=0.5.0"``. Flying Laptop
+downloads approximately 30 MB and OPS-SAT approximately 19 MB once. Irradiance
+and GOES examples request bounded subsets. The examples state when power is
+computed from measured V/I or when a modeled PV response uses measured input.
+
+BIRDS campaign details
+----------------------
+
 The BIRDS workflow uses measured solar-panel voltage, current and temperature
 from four 1U CubeSats: RAAVANA, UGUISU, NEPALISAT and TSURU. The source
 workbooks contain **48 flight campaigns, 31,725 measurement times and 158,625
