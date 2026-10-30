@@ -1,0 +1,22 @@
+{
+  "provenance": {
+    "kind": "analytic dark-cooling benchmark",
+    "flight_validation": false
+  },
+  "surface": {
+    "area_m2": 1.0,
+    "radiating_area_m2": 2.0,
+    "heat_capacity_j_k": 10000.0,
+    "solar_absorptivity": 0.9,
+    "ir_emissivity": 0.85,
+    "conductance_w_k": 0.0,
+    "bus_temperature_k": 293.15,
+    "sink_temperature_k": 0
+  },
+  "max_step_s": 1.0,
+  "rmse_k": 0.013807953214826696,
+  "maximum_absolute_error_k": 0.018584548111306276,
+  "maximum_energy_balance_error_j": 1.0789335647132248e-08,
+  "samples": 241,
+  "interpretation": "Default run verifies the integrator against an independent analytic solution; it is not flight validation."
+}

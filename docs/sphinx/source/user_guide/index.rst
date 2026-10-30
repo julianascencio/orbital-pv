@@ -26,6 +26,10 @@ workflows in OrbitalPV.
    modeling_topics/ground_imagery
    modeling_topics/pv_footprints
    modeling_topics/storage_gis
+   modeling_topics/physics_research
+   modeling_topics/flight_research
+   modeling_topics/environmental_inputs
+   modeling_topics/ground_research
 
 .. toctree::
    :caption: Extras

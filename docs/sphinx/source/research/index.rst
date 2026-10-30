@@ -27,3 +27,16 @@ Browse the complete library
 
 The research library is evidence and roadmap material. Implemented API behavior
 is documented in the :doc:`../reference/index`.
+
+Implemented 2026 expansion
+--------------------------
+
+The `implementation matrix
+<https://github.com/julianascencio/orbital-pv/blob/main/docs/literature/10_2026_implementation_matrix.md>`_
+maps selected 2024–2026 research to executable methods, data access and evidence
+limits. It distinguishes real-observation benchmarks, independent analytic
+checks, constructed scenarios and optional pretrained-model adapters.
+
+See :doc:`../reference/research` and the corresponding modeling guides for the
+implemented interfaces. Each new analysis directory contains a runner,
+reproduction instructions and an executed reference result.

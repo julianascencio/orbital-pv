@@ -1,0 +1,107 @@
+{
+  "source_paper": "https://arxiv.org/abs/2401.03435",
+  "source_commit": "951b41521351d535b7c2354916d9c4991602e8c7",
+  "source_sha256": "5d761d0bb65730cdbdb364f9c8706e9469bbbc6049cc0ed0b22d95ead8d656fa",
+  "source_file": "CommonData-Telemetries/telemetry_all.csv.zip",
+  "source_license": "Not declared in the source repository",
+  "timestamp_basis": "Source-local clock; timezone unspecified",
+  "requested_start": "2023-05-05 09:00:00",
+  "requested_stop_exclusive": "2023-05-05 15:00:00",
+  "first_source_clock": "2023-05-05 09:00:00",
+  "last_source_clock": "2023-05-05 14:59:59",
+  "source_rows": 21598,
+  "ambiguous_duplicate_rows_excluded": 0,
+  "median_native_cadence_s": 1.0,
+  "bus_energy_budget": {
+    "observed_duration_h": 5.999722222222222,
+    "timestamp_span_h": 5.999722222222222,
+    "coverage_fraction": 1.0,
+    "accepted_intervals": 21597,
+    "excluded_intervals": 0,
+    "max_gap_s": 2.0,
+    "solar_wh": 113.20013909444444,
+    "load_wh": 104.59703797986111,
+    "battery_discharge_wh": 27.87065722222222,
+    "unexplained_balance_wh": 36.47375833680556,
+    "battery_mode": "discharge = -1 x source",
+    "interpretation": "Observed-time energy; no missing periods filled or physical causes inferred"
+  },
+  "input_output_comparison": {
+    "observed_duration_h": 5.999722222222222,
+    "timestamp_span_h": 5.999722222222222,
+    "coverage_fraction": 1.0,
+    "accepted_intervals": 21597,
+    "excluded_intervals": 0,
+    "max_gap_s": 2.0,
+    "solar_wh": 129.78335222222222,
+    "load_wh": 113.20013909444444,
+    "battery_discharge_wh": 0.0,
+    "unexplained_balance_wh": 16.58321312777778,
+    "battery_mode": "not included",
+    "interpretation": "Observed-time energy; no missing periods filled or physical causes inferred"
+  },
+  "compute_load_estimate": {
+    "observed_energy_wh": 22.58029722222222,
+    "nonzero_compute_current_rows": 7349,
+    "atlas_nominal_rail_v": 12.1,
+    "raspberry_pi_nominal_rail_v": 5.1,
+    "boundary": "Measured branch currents times source-code nominal rail voltages; estimated, not independently measured power"
+  },
+  "hourly_observed_energy": [
+    {
+      "hour": "2023-05-05 09:00:00",
+      "solar_wh": 37.216089741666664,
+      "load_wh": 15.399751458194444,
+      "battery_discharge_wh": 4.923037222222223,
+      "unexplained_balance_wh": 26.739375505694447,
+      "observed_seconds": 3600.0
+    },
+    {
+      "hour": "2023-05-05 10:00:00",
+      "solar_wh": 17.44264546388889,
+      "load_wh": 21.166653189305556,
+      "battery_discharge_wh": 5.24040888888889,
+      "unexplained_balance_wh": 1.5164011634722212,
+      "observed_seconds": 3600.0
+    },
+    {
+      "hour": "2023-05-05 11:00:00",
+      "solar_wh": 13.050625466666666,
+      "load_wh": 13.94034602986111,
+      "battery_discharge_wh": 4.3342311111111105,
+      "unexplained_balance_wh": 3.444510547916665,
+      "observed_seconds": 3600.0
+    },
+    {
+      "hour": "2023-05-05 12:00:00",
+      "solar_wh": 18.893825675000002,
+      "load_wh": 16.792917681666665,
+      "battery_discharge_wh": 4.166436944444444,
+      "unexplained_balance_wh": 6.2673449377777795,
+      "observed_seconds": 3600.0
+    },
+    {
+      "hour": "2023-05-05 13:00:00",
+      "solar_wh": 13.56107326111111,
+      "load_wh": 25.625203126666666,
+      "battery_discharge_wh": 5.056205277777778,
+      "unexplained_balance_wh": -7.007924587777776,
+      "observed_seconds": 3600.0
+    },
+    {
+      "hour": "2023-05-05 14:00:00",
+      "solar_wh": 13.03587948611111,
+      "load_wh": 11.672166494166666,
+      "battery_discharge_wh": 4.150337777777778,
+      "unexplained_balance_wh": 5.514050769722222,
+      "observed_seconds": 3599.0
+    }
+  ],
+  "interpretation": [
+    "MPPT input V*I and output-current times bus-voltage are different operating boundaries, neither available MPP.",
+    "Battery discharge sign follows the original authors' plotted convention; independently verify it for other packets.",
+    "The source does not specify its timezone. Default analysis uses relative source-clock durations without asserting UTC.",
+    "An electrical balance residual is unexplained, not an attributed converter/thermal/aging loss.",
+    "Only aggregate numerical results are committed. Download raw telemetry from its source; redistribution licence is unspecified."
+  ]
+}

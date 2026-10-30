@@ -1,0 +1,145 @@
+{
+  "data_kind": "synthetic algorithm scenario; no real forecast skill claim",
+  "seed": 42,
+  "known_displacement_pixels_per_5_minutes": [
+    0.6,
+    1.4
+  ],
+  "method": {
+    "method": "frozen retrieved clear-sky-index advection",
+    "motion_method": "lucas_kanade",
+    "source": "synthetic frozen-cloud motion scenario",
+    "license": "CC0",
+    "inferred": true,
+    "maximum_clear_sky_index": 1.5,
+    "boundary_policy": "unknown incoming cloud field is masked",
+    "native_resolution": "must be supplied with retrieval; interpolating adds no observations",
+    "limitations": [
+      "no cloud growth/dissipation",
+      "no parallax correction",
+      "retrieval and clear-sky-model uncertainty not calibrated",
+      "not a Baguan-solar reproduction"
+    ]
+  },
+  "weather_input": "synthetic smoothed future field used ONLY as a controlled illustration, not an operational weather hindcast",
+  "metrics": {
+    "optical_flow": [
+      {
+        "lead_minutes": 0,
+        "n": 8930,
+        "support_fraction": 0.9689670138888888,
+        "mae_wm2": 0.0,
+        "rmse_wm2": 0.0,
+        "bias_wm2": 0.0,
+        "persistence_rmse_wm2": 0.0,
+        "rmse_skill_vs_persistence": null
+      },
+      {
+        "lead_minutes": 5,
+        "n": 8648,
+        "support_fraction": 0.9383680555555556,
+        "mae_wm2": 0.9631162524321131,
+        "rmse_wm2": 1.2998095564445684,
+        "bias_wm2": -0.001631853876695456,
+        "persistence_rmse_wm2": 34.54413403762345,
+        "rmse_skill_vs_persistence": 0.9623724955725076
+      },
+      {
+        "lead_minutes": 10,
+        "n": 8455,
+        "support_fraction": 0.9174262152777778,
+        "mae_wm2": 2.4810288539475387,
+        "rmse_wm2": 3.62210607495501,
+        "bias_wm2": -0.13281738436811194,
+        "persistence_rmse_wm2": 63.89732208724927,
+        "rmse_skill_vs_persistence": 0.9433136482619856
+      },
+      {
+        "lead_minutes": 20,
+        "n": 8075,
+        "support_fraction": 0.8761935763888888,
+        "mae_wm2": 6.409349977690142,
+        "rmse_wm2": 9.861083243764611,
+        "bias_wm2": 0.19400051968381643,
+        "persistence_rmse_wm2": 94.62750946237335,
+        "rmse_skill_vs_persistence": 0.8957905232866171
+      },
+      {
+        "lead_minutes": 30,
+        "n": 7702,
+        "support_fraction": 0.8357204861111112,
+        "mae_wm2": 9.92874872856845,
+        "rmse_wm2": 15.274779028018353,
+        "bias_wm2": 0.48338839366647024,
+        "persistence_rmse_wm2": 101.96242339356455,
+        "rmse_skill_vs_persistence": 0.8501920754760872
+      }
+    ],
+    "fusion_scenario": [
+      {
+        "lead_minutes": 0,
+        "n": 8930,
+        "support_fraction": 0.9689670138888888,
+        "mae_wm2": 0.0,
+        "rmse_wm2": 0.0,
+        "bias_wm2": 0.0,
+        "persistence_rmse_wm2": 0.0,
+        "rmse_skill_vs_persistence": null
+      },
+      {
+        "lead_minutes": 5,
+        "n": 8648,
+        "support_fraction": 0.9383680555555556,
+        "mae_wm2": 3.759367856980215,
+        "rmse_wm2": 4.689812192273658,
+        "bias_wm2": 1.6078043674654523,
+        "persistence_rmse_wm2": 34.54413403762345,
+        "rmse_skill_vs_persistence": 0.8642370890766637
+      },
+      {
+        "lead_minutes": 10,
+        "n": 8463,
+        "support_fraction": 0.9182942708333334,
+        "mae_wm2": 7.083951726441582,
+        "rmse_wm2": 8.997036990053704,
+        "bias_wm2": 3.011815465847254,
+        "persistence_rmse_wm2": 63.87130794659606,
+        "rmse_skill_vs_persistence": 0.8591380499429213
+      },
+      {
+        "lead_minutes": 20,
+        "n": 8096,
+        "support_fraction": 0.8784722222222222,
+        "mae_wm2": 13.413544952892078,
+        "rmse_wm2": 17.106775285862525,
+        "bias_wm2": 5.945482770032361,
+        "persistence_rmse_wm2": 94.58085057465776,
+        "rmse_skill_vs_persistence": 0.8191306677628234
+      },
+      {
+        "lead_minutes": 30,
+        "n": 7735,
+        "support_fraction": 0.8393012152777778,
+        "mae_wm2": 19.63115583364307,
+        "rmse_wm2": 24.97387379061326,
+        "bias_wm2": 8.298417106031827,
+        "persistence_rmse_wm2": 102.02275860606761,
+        "rmse_skill_vs_persistence": 0.7552127179089236
+      }
+    ]
+  },
+  "motion_diagnostics": {
+    "valid_overlap_fraction": 0.9689670138888888,
+    "global_row_shift_pixels": 0.0,
+    "global_column_shift_pixels": 2.0,
+    "phase_peak": 0.5475927518676411,
+    "phase_peak_to_rms": 14.74068700855326,
+    "global_shift_hits_search_limit": false,
+    "grid_units": "pixels; caller must retain projection and native pixel size",
+    "local_window": 9,
+    "iterations": 3,
+    "locally_refined_fraction": 0.9689670138888888,
+    "sparse_texture_fallback": "global phase-correlation motion"
+  },
+  "real_data_next_step": "Use GOES DSR retrieval or calibrated SEVIRI irradiance, retain geolocation/DQF/acquisition times, use contemporaneous issued weather forecasts and independent irradiance observations"
+}

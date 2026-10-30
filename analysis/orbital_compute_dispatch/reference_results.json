@@ -1,0 +1,48 @@
+{
+  "input_kind": "synthetic 90-minute orbit and declared component assumptions",
+  "period_s": 5400.0,
+  "sunlit_fraction": 0.6,
+  "orbits": 8,
+  "battery": {
+    "capacity_wh": 25,
+    "initial_soc": 0.8,
+    "minimum_soc": 0.2,
+    "maximum_soc": 0.95,
+    "charge_efficiency": 0.95,
+    "discharge_efficiency": 0.95,
+    "max_charge_w": 30,
+    "max_discharge_w": 30
+  },
+  "radiator": {
+    "net_rejection_flux_w_m2": 485.12366327625796,
+    "available_heat_rejection_w": 38.809893062100635,
+    "required_area_m2": 0.07833054306889285,
+    "thermal_margin_w": 0.8098930621006346,
+    "feasible": true
+  },
+  "requested_compute_wh": 96.0,
+  "completed_compute_wh": 96.0,
+  "missed_task_energy_wh": 0.0,
+  "metrics": {
+    "continuous": {
+      "minimum_soc": 0.5457894736842108,
+      "battery_discharged_wh": 76.8,
+      "unserved_load_wh": 0.0,
+      "battery_cycle_damage": 0.0006521503637713831,
+      "maximum_balance_error_w": 0.0
+    },
+    "solar_preferred": {
+      "minimum_soc": 0.7478947368421054,
+      "battery_discharged_wh": 38.4,
+      "unserved_load_wh": 0.0,
+      "battery_cycle_damage": 0.00023682916466912066,
+      "maximum_balance_error_w": 0.0
+    }
+  },
+  "interpretation": "Heuristic dispatch and steady radiator bound; no claim of optimality or commercial orbital-datacenter feasibility.",
+  "inspiration_dois": [
+    "10.1109/ACCESS.2026.3656399",
+    "10.1016/j.asr.2026.06.093",
+    "10.48550/arXiv.2604.27197"
+  ]
+}

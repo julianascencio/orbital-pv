@@ -1,0 +1,20 @@
+{
+  "source": "NOAA NCEI POES/MetOp SEM-2",
+  "license": "Public (provider file metadata)",
+  "url": "https://www.ncei.noaa.gov/data/poes-metop-space-environment-monitor/access/l1b/v01r00/2023/metop01/poes_m01_20230101_proc.nc",
+  "raw_sha256": "ce9fed0c05814b73fb244a0b7decf6c23be1c1abc74794c843dd8f3195ee2f44",
+  "raw_bytes": 6929921,
+  "raw_samples": 43199,
+  "source_start_utc": "2023-01-01T00:00:00.563000+00:00",
+  "source_end_utc": "2023-01-01T23:59:56.447000+00:00",
+  "native_time_encoding": "NOAA native milliseconds since 1970",
+  "provider_processing_level": "Level 2, calibrated fluxes",
+  "source_channels": {
+    "mep_pro_tel0_flux_p1": "#/cm2-s-str-keV",
+    "mep_ele_tel0_flux_e1": "#/cm2-s-str"
+  },
+  "transformation": "UTC minute medians of nonnegative flux; per-channel valid counts; first observed track coordinate per minute",
+  "snapshot_sha256": "bfa30717663529364e46ba6b44455e267f1258064bd91b477c6a7214c233c1bf",
+  "snapshot_rows": 1440,
+  "limits": "Provider reports known contamination; channels have different energy definitions/units. No contamination correction, angular integration, dose, NIEL or solar-cell retention inference."
+}

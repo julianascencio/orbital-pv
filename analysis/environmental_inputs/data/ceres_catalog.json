@@ -1,0 +1,41 @@
+{
+  "collections": [
+    {
+      "collection_id": "C3181056140-LARC_CLOUD",
+      "short_name": "CER_SYN1deg-1Hour_Terra-Aqua-NOAA20",
+      "version": "Edition4B",
+      "title": "CERES and GEO-Enhanced TOA, Within-Atmosphere and Surface Fluxes, Clouds and Aerosols 1-Hourly Terra-Aqua-NOAA20 Edition4B"
+    },
+    {
+      "collection_id": "C3880454279-LARC_CLOUD",
+      "short_name": "CER_SYN1deg-Day_Terra-Aqua-NOAA20",
+      "version": "Edition4B",
+      "title": "CERES and GEO-Enhanced TOA, Within-Atmosphere and Surface Fluxes, Clouds and Aerosols Daily Terra-Aqua-NOAA20 Edition4B"
+    },
+    {
+      "collection_id": "C3181056152-LARC_CLOUD",
+      "short_name": "CER_SYN1deg-MHour_Terra-Aqua-NOAA20",
+      "version": "Edition4B",
+      "title": "CERES and GEO-Enhanced TOA, Within-Atmosphere and Surface Fluxes, Clouds and Aerosols Monthly-Averaged 1-Hourly Terra-Aqua-NOAA20 Edition4B"
+    },
+    {
+      "collection_id": "C3880454295-LARC_CLOUD",
+      "short_name": "CER_SYN1deg-Month_Terra-Aqua-NOAA20",
+      "version": "Edition4B",
+      "title": "CERES and GEO-Enhanced TOA, Within-Atmosphere and Surface Fluxes, Clouds and Aerosols Monthly Terra-Aqua-NOAA20 Edition4B"
+    }
+  ],
+  "granules": [
+    {
+      "id": "G3961655816-LARC_CLOUD",
+      "title": "CER_SYN1deg-1Hour_Terra-Aqua-NOAA20_Edition4B_413412.20230101",
+      "time_start": "2023-01-01T00:00:00.000Z",
+      "time_end": "2023-01-01T23:59:59.999Z",
+      "short_name": "CER_SYN1deg-1Hour_Terra-Aqua-NOAA20",
+      "version": "Edition4B",
+      "data_urls": [
+        "https://data.asdc.earthdata.nasa.gov/asdc-prod-protected/CERES/CER_SYN1deg-1Hour_Terra-Aqua-NOAA20_Edition4B/2023.01.01/CER_SYN1deg-1Hour_Terra-Aqua-NOAA20_Edition4B_413412.20230101"
+      ]
+    }
+  ]
+}

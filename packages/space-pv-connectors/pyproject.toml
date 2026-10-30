@@ -12,6 +12,8 @@ dependencies = [
 
 [project.optional-dependencies]
 ground = ["rasterio>=1.4,<2"]
+netcdf = ["xarray>=2025.1", "h5netcdf>=1.5", "h5py>=3.12"]
+ground-research = ["geopandas>=1.0,<2", "pyogrio>=0.9,<1", "eumdac>=3.0,<4"]
 
 [build-system]
 requires = ["uv_build>=0.10,<0.11"]

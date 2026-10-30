@@ -8,6 +8,7 @@ lower-level internal packages used by contributors and advanced users.
    :maxdepth: 2
 
    orbitalpv
+   research
    core
    orbit
    pvmodel
