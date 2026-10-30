@@ -1,0 +1,45 @@
+{
+  "input_kind": "synthetic circuit scenarios, not labeled spacecraft faults",
+  "substring": {
+    "photocurrent_a": 5.0,
+    "open_circuit_voltage_v": 20.0,
+    "diode_voltage_v": 0.8,
+    "series_resistance_ohm": 0.05,
+    "bypass_voltage_v": 0.5,
+    "fault": "healthy"
+  },
+  "mpp": [
+    {
+      "case": "healthy",
+      "pmp_w": 495.08228389789787,
+      "vmp_v": 51.85,
+      "imp_a": 9.548356487905455
+    },
+    {
+      "case": "one_shaded_substring",
+      "pmp_w": 336.0777352662348,
+      "vmp_v": 35.2,
+      "imp_a": 9.547662933699852
+    },
+    {
+      "case": "one_bypassed_open_substring",
+      "pmp_w": 336.0777352662348,
+      "vmp_v": 35.2,
+      "imp_a": 9.547662933699852
+    },
+    {
+      "case": "one_unbypassed_open_string",
+      "pmp_w": 247.54114194894893,
+      "vmp_v": 51.85,
+      "imp_a": 4.774178243952727
+    },
+    {
+      "case": "one_shorted_substring",
+      "pmp_w": 340.8552196155097,
+      "vmp_v": 35.65,
+      "imp_a": 9.56115623044908
+    }
+  ],
+  "interpretation": "Constant-drop bypass and ideal blocking diodes; no reverse breakdown, hot spots, or arcing.",
+  "inspiration_doi": "10.1016/j.ast.2026.112139"
+}

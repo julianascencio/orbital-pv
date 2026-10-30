@@ -1,0 +1,31 @@
+{
+  "dataset_doi": "10.18419/darus-451",
+  "description_doi": "10.18419/darus-456",
+  "license": "CC BY 4.0",
+  "sha256": "9ec01cfc3128cc4dad522df14cb4aa73191748791a8677e181e4ed4c6e2af1bb",
+  "timestamp_basis": "UTC packet generation; Unix epoch milliseconds",
+  "sensor_acquisition_delay_max_ms": 400,
+  "source": "Flying Laptop / DaRUS",
+  "url": "https://darus.uni-stuttgart.de/api/access/datafile/264",
+  "retrieved_at": "2026-10-30T06:47:55.040097+00:00",
+  "bytes": 30245269,
+  "month": "2018-02",
+  "source_filename": "FLP_TM_HK_2018-02.tar.bz2",
+  "datafile_id": 264,
+  "dataset_version": "9.0",
+  "catalog_checksum": {
+    "type": "MD5",
+    "value": "acb68ff160cc7df99983889656f0551e"
+  },
+  "source_files": [
+    "hk4900_2018-02.csv"
+  ],
+  "snapshot_file": "flying_laptop_right_2018-02-01_03.csv",
+  "snapshot_sha256": "09a7e358d1942739927da92c4f3ea7d847c2fd5d07fa208306b29de283d26f33",
+  "selected_panel": "right",
+  "time_min_utc": "2018-02-01T00:00:00Z",
+  "time_max_utc_exclusive": "2018-02-04T00:00:00Z",
+  "rows": 8599,
+  "processing": "Native calibrated V/I from packet 4900; right array only; no interpolation/resampling/clipping; CSV decimal representation of measured values",
+  "purpose": "Chronological forecast benchmark of operating V/I; not healthy maximum-power reference"
+}

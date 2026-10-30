@@ -1,0 +1,48 @@
+{
+  "spectrum": {
+    "kind": "5772 K blackbody shape normalized over 280-1800 nm; not a measured AM0 reference",
+    "synthetic": true
+  },
+  "eqe_kind": "illustrative idealized external EQE windows, not technology characterization",
+  "integrated_irradiance_w_m2": 1360.9999999999998,
+  "single_junction_photocurrent_a_m2": 478.5085503555377,
+  "tandem_cases": [
+    {
+      "split_wavelength_nm": 600,
+      "top_current_a_m2": 151.20254017741811,
+      "bottom_current_a_m2": 327.30601017811955,
+      "series_current_a_m2": 151.20254017741811,
+      "current_mismatch_fraction": 0.36802575391778136
+    },
+    {
+      "split_wavelength_nm": 650,
+      "top_current_a_m2": 189.2643964775474,
+      "bottom_current_a_m2": 289.2441538779903,
+      "series_current_a_m2": 189.2643964775474,
+      "current_mismatch_fraction": 0.2089403780270106
+    },
+    {
+      "split_wavelength_nm": 700,
+      "top_current_a_m2": 227.1291377427565,
+      "bottom_current_a_m2": 251.3794126127812,
+      "series_current_a_m2": 227.1291377427565,
+      "current_mismatch_fraction": 0.05067887470768595
+    },
+    {
+      "split_wavelength_nm": 750,
+      "top_current_a_m2": 264.1260063798573,
+      "bottom_current_a_m2": 214.3825439756804,
+      "series_current_a_m2": 214.3825439756804,
+      "current_mismatch_fraction": 0.10395522163024451
+    },
+    {
+      "split_wavelength_nm": 800,
+      "top_current_a_m2": 299.8050038911625,
+      "bottom_current_a_m2": 178.70354646437517,
+      "series_current_a_m2": 178.70354646437517,
+      "current_mismatch_fraction": 0.25308107313193773
+    }
+  ],
+  "interpretation": "Photocurrent/current matching only; no voltage, fill-factor or efficiency ranking is inferred.",
+  "inspiration_doi": "10.1038/s44172-026-00813-2"
+}

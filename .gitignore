@@ -25,6 +25,10 @@ outputs/*
 *.duckdb.wal
 node_modules/
 dist/
+build/
+*.egg-info/
 
 # Documentation build output
 docs/sphinx/build/
+docs/sphinx/source/gallery/
+docs/sphinx/source/sg_execution_times.rst

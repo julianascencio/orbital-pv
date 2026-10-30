@@ -105,6 +105,54 @@ held-out records. Area definitions, historical settlement editions and AC/DC
 ambiguity stay explicit. See [`analysis/ground_pv_mapping`](analysis/ground_pv_mapping)
 for reproducible GeoJSON, GeoTIFF, model and validation exports.
 
+## 2026 research expansion (source tree)
+
+The source tree extends the public API with methods, connectors and reproducible
+analyses motivated by selected 2024–2026 papers. The
+[implementation matrix](docs/literature/10_2026_implementation_matrix.md) records
+the source, actual implementation and validation limits for each workstream.
+
+| Public module | Added capabilities |
+| --- | --- |
+| `opv.physics` | Transient thermal/PV energy balance, spectrum-to-NIEL integration, calibrated retention, EQE/tandem currents, array bypass and fault circuits, SOC-constrained dispatch, rainflow damage, compute scheduling and radiator screening. |
+| `opv.flight` | Pinned BUPT-1 telemetry, measured electrical budgets, deterministic and Bayesian linear calibration, chronological V/I forecasting and block-conformal joint power intervals. |
+| `opv.environment_data` | CERES catalog/netCDF inputs and Earth-view integration, POES/MetOp observations, SPENVIS block imports, cached Space-Track history and SPICE attitude transforms. |
+| `opv.ground_research` | ANDPI spectral/adaptive detection, supplied segmentation-model adapters, geographic holdout comparisons, geometry-aware capacity intervals, construction date brackets and new imagery/inventory connectors. |
+| `opv.ground_forecasting` | Clear-sky persistence, phase correlation and local optical flow, cloud advection and forecasts with explicit issue-time checks. |
+
+From a source checkout, install optional readers and examples with:
+
+```bash
+python -m pip install ".[ground-research,netcdf,orbit,examples]"
+```
+
+```python
+import orbitalpv as opv
+
+thermal = opv.physics.simulate_panel_thermal(
+    [0, 60, 120, 180],
+    [1361, 1361, 0, 0],
+    surface=opv.physics.ThermalSurface(heat_capacity_j_k=10_000),
+    earth_ir_w_m2=150,
+)
+print(thermal[["temperature_k", "pv_power_w", "energy_balance_error_j"]])
+
+with opv.environment_data.CeresConnector() as ceres:
+    editions = ceres.collections()
+```
+
+The new gallery and `analysis/` runners execute offline against pinned public
+observations or explicitly labeled scenarios. BUPT-1 raw telemetry is downloaded
+on request; only aggregate reference results are redistributed. Protected or
+gated providers keep their normal authentication requirements. Neural adapters
+do not claim to reproduce PANEL, TransPV, PVP-Adapter or Baguan-Solar without
+the actual model, licensed weights and independent evaluation.
+
+The flight benchmark reports both accuracy and interval width: a high coverage
+number alone does not establish a useful forecast. Thermal, circuit, radiation
+and scheduling scenarios report physical invariants and stated assumptions;
+they are not flight qualification or mission lifetime guarantees.
+
 ## Foundation stack
 
 - **pvlib** — tested PV equations and I-V/single-diode reference models behind a space-specific adapter.

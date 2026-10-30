@@ -1,0 +1,139 @@
+{
+  "dataset_doi": "10.18419/darus-451",
+  "snapshot_sha256": "09a7e358d1942739927da92c4f3ea7d847c2fd5d07fa208306b29de283d26f33",
+  "source_archive_sha256": "9ec01cfc3128cc4dad522df14cb4aa73191748791a8677e181e4ed4c6e2af1bb",
+  "license": "CC BY 4.0",
+  "satellite": "Flying Laptop",
+  "array": "right",
+  "source_samples": 8599,
+  "source_windows": 8410,
+  "continuous_valid_windows": 4516,
+  "training_windows": 1395,
+  "calibration_windows": 1533,
+  "evaluation_windows": 1578,
+  "training_labels_end": "2018-02-01 23:13:49.159000+00:00",
+  "calibration_origins_start": "2018-02-02 00:46:01.886000+00:00",
+  "calibration_labels_end": "2018-02-02 23:59:39.097000+00:00",
+  "evaluation_origins_start": "2018-02-03 00:00:09.242000+00:00",
+  "horizon_source_steps": [
+    1,
+    4,
+    10
+  ],
+  "nominal_cadence_s": 30.15,
+  "nominal_horizon_seconds": [
+    30.15,
+    120.6,
+    301.5
+  ],
+  "ridge": 1.0,
+  "lags_source_steps": [
+    0,
+    1,
+    2,
+    170,
+    176,
+    179
+  ],
+  "conformal": {
+    "nominal_coverage": 0.9,
+    "block_size_records": 20,
+    "calibration_blocks": 76,
+    "discarded_tail_samples": 13,
+    "training_residual_scales_v_a_by_horizon": [
+      [
+        2.7815426541014374,
+        0.22312967173916706
+      ],
+      [
+        5.571967572837462,
+        0.5280344826232063
+      ],
+      [
+        6.719189467477471,
+        0.6398716170816056
+      ]
+    ],
+    "quantile": 8.860728917720241,
+    "joint_vi_coverage": 0.9923954372623575,
+    "joint_power_coverage": 0.9987325728770595,
+    "mean_voltage_width_v": 89.03673736695212,
+    "mean_current_width_a": 8.217060590411299,
+    "mean_power_width_w": 574.748866690504
+  },
+  "forecast_metrics_by_horizon": {
+    "persistence": {
+      "voltage_mae_v": [
+        0.5269533979541352,
+        1.9204122284927894,
+        4.261703167877831
+      ],
+      "current_mae_a": [
+        0.06886558294417694,
+        0.19847453631114015,
+        0.41077905641196527
+      ],
+      "power_mae_w": [
+        1.91058384267106,
+        5.25626885420886,
+        10.611919864633943
+      ],
+      "power_rmse_w": [
+        6.777624404300843,
+        15.391701437553165,
+        23.85638703818635
+      ]
+    },
+    "seasonal_lag_180_steps": {
+      "voltage_mae_v": [
+        4.586044169412259,
+        4.52230272996177,
+        4.315746635526948
+      ],
+      "current_mae_a": [
+        0.4354946646386676,
+        0.43506554766305056,
+        0.4240532590003637
+      ],
+      "power_mae_w": [
+        11.176928427530761,
+        11.165473177595555,
+        10.931478635857935
+      ],
+      "power_rmse_w": [
+        24.898215620236282,
+        24.90392166045941,
+        24.603121448039897
+      ]
+    },
+    "multivariate_ridge": {
+      "voltage_mae_v": [
+        0.7870722628825456,
+        2.354096480115987,
+        2.5474336661654426
+      ],
+      "current_mae_a": [
+        0.09620410630650333,
+        0.2651925936929496,
+        0.3141234848363567
+      ],
+      "power_mae_w": [
+        2.116266983856714,
+        5.967005557606534,
+        7.084603240032088
+      ],
+      "power_rmse_w": [
+        5.862366220479695,
+        13.223229370864741,
+        13.477400477355099
+      ]
+    }
+  },
+  "interpretation": [
+    "Predicts observed operating V/I, not available maximum power or a healthy reference.",
+    "No measurements are interpolated and no energy is extrapolated through excluded gaps.",
+    "180 source samples is an empirical 90.45-minute lag, not independently reconstructed orbit period.",
+    "Finite-sample conformal coverage assumes exchangeable block scores; actual temporal coverage is measured, not guaranteed.",
+    "A compact baseline implementation, not a reproduction of the complete 2026 paper."
+  ]
+}

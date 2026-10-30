@@ -1,0 +1,40 @@
+{
+  "input_kind": "synthetic sensitivity study; no orbit-specific environment or qualified material calibration",
+  "annual_integrated_fluence_cm2": 1000000000000.0,
+  "response_assumption": {
+    "coefficient": 0.08,
+    "reference_fluence_cm2": 1000000000000.0,
+    "minimum_retention": 0.0
+  },
+  "reference_niel_mev_cm2_g": 0.01,
+  "surface": {
+    "area_m2": 1.0,
+    "radiating_area_m2": 2.0,
+    "heat_capacity_j_k": 10000.0,
+    "solar_absorptivity": 0.9,
+    "ir_emissivity": 0.85,
+    "conductance_w_k": 0.0,
+    "bus_temperature_k": 293.15,
+    "sink_temperature_k": 3.0
+  },
+  "end_of_life": [
+    {
+      "case": "unattenuated",
+      "year": 5,
+      "equivalent_fluence_cm2": 8219225024216.617,
+      "retained_fraction": 0.9228244467656187,
+      "temperature_k": 317.2602175397948,
+      "pv_power_w": 362.38817363099975
+    },
+    {
+      "case": "illustrative_attenuation",
+      "year": 5,
+      "equivalent_fluence_cm2": 2751259967605.896,
+      "retained_fraction": 0.954065827006903,
+      "temperature_k": 315.14045374659986,
+      "pv_power_w": 376.30798193527806
+    }
+  ],
+  "interpretation": "Attenuation is supplied, not a shielding-transport calculation; thermal/optical feedback is an illustrative sensitivity.",
+  "inspiration_doi": "10.1016/j.renene.2026.125716"
+}

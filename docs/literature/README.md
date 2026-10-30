@@ -53,3 +53,8 @@ degradation / anomaly / RUL / mission margin
 ```
 
 That system-level focus is what separates this project from a terrestrial PV analytics stack.
+## Implemented 2026 expansion
+
+See [the implementation and evidence matrix](10_2026_implementation_matrix.md)
+for the methods, connectors, executable analyses and validation limits added to
+the source tree from the selected 2024–2026 research.

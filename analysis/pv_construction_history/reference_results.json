@@ -1,0 +1,96 @@
+{
+  "observations": [
+    "2024-01-01T00:00:00+00:00",
+    "2025-01-01T00:00:00+00:00"
+  ],
+  "complete_shared_coverage_asserted": false,
+  "method": "overlap graph with split/merge grouping; EPSG:6933 area",
+  "min_overlap": 0.1,
+  "relative_area_tolerance": 0.05,
+  "date_semantics": "observed footprint change bracket; not electrical commissioning",
+  "inferred": true,
+  "source_before": {
+    "source": "synthetic algorithm demonstration",
+    "license": "CC0",
+    "observed": false
+  },
+  "source_after": {
+    "source": "synthetic algorithm demonstration",
+    "license": "CC0",
+    "observed": false
+  },
+  "changes": [
+    {
+      "before_ids": [
+        "0"
+      ],
+      "after_ids": [
+        "0",
+        "1"
+      ],
+      "status": "expanded_footprint",
+      "area_before_m2": 2461814.4036951275,
+      "area_after_m2": 3077268.0046189083,
+      "area_change_m2": 615453.6009237808,
+      "group_iou": 0.8000000000000003,
+      "split_or_merge": true,
+      "change_window_start_exclusive": null,
+      "change_window_end_inclusive": null,
+      "before_properties": [
+        {
+          "synthetic": true
+        }
+      ],
+      "after_properties": [
+        {
+          "synthetic": true
+        },
+        {
+          "synthetic": true
+        }
+      ]
+    },
+    {
+      "before_ids": [
+        "1"
+      ],
+      "after_ids": [],
+      "status": "not_redetected",
+      "area_before_m2": 1230722.923145482,
+      "area_after_m2": 0.0,
+      "area_change_m2": -1230722.923145482,
+      "group_iou": 0.0,
+      "split_or_merge": false,
+      "change_window_start_exclusive": null,
+      "change_window_end_inclusive": null,
+      "before_properties": [
+        {
+          "synthetic": true
+        }
+      ],
+      "after_properties": []
+    },
+    {
+      "before_ids": [],
+      "after_ids": [
+        "2"
+      ],
+      "status": "newly_observed",
+      "area_before_m2": 0.0,
+      "area_after_m2": 1230173.7784780245,
+      "area_change_m2": 1230173.7784780245,
+      "group_iou": 0.0,
+      "split_or_merge": false,
+      "change_window_start_exclusive": null,
+      "change_window_end_inclusive": null,
+      "before_properties": [],
+      "after_properties": [
+        {
+          "synthetic": true
+        }
+      ]
+    }
+  ],
+  "data_kind": "synthetic scenario; not real construction evidence",
+  "purpose": "verify splitting, expansion, disappearance, addition and temporal ambiguity"
+}
