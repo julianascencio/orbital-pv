@@ -4,7 +4,8 @@ from .celestrak import CelesTrakConnector
 from .flying_laptop import FlyingLaptopConnector, load_flying_laptop_power
 from .ground_imagery import Sentinel2GroundConnector
 from .ground_osm import OpenStreetMapEnergyConnector
-from .ground_raster import GroundImage, read_ground_image
+from .ground_raster import GroundImage, load_ground_image, read_ground_image
+from .ground_site import PVSite, load_pv_site
 from .http_base import DownloadReceipt
 from .lisird import LisirdConnector
 from .naif import NaifKernelConnector
@@ -27,6 +28,7 @@ __all__ = [
     "NoaaSwpcConnector",
     "OpenStreetMapEnergyConnector",
     "OpsSatADConnector",
+    "PVSite",
     "SatnogsDbConnector",
     "Sentinel2GroundConnector",
     "SpaceTrackConnector",
@@ -34,7 +36,9 @@ __all__ = [
     "load_birds_eps_workbook",
     "load_flying_laptop_power",
     "load_goes_integral_particle_flux",
+    "load_ground_image",
     "load_opssat_segments",
+    "load_pv_site",
     "load_table",
     "make_demo_telemetry",
     "normalize_birds_like",

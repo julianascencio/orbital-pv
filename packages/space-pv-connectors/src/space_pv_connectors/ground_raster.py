@@ -248,6 +248,180 @@ class GroundImage:
         )
 
 
+def load_ground_image(path: str | Path, *, max_pixels: int = 4_000_000) -> GroundImage:
+    """Load a saved native crop after verifying its pixels and provenance.
+
+    Read the GeoTIFF and ``.meta.json`` written by :meth:`GroundImage.save_geotiff`.
+    The SHA-256, byte count, source identity, native grid, nodata and calibration
+    must agree. The metadata's original ``path`` is informational, so snapshots
+    can move between computers. Unverified external mask/PAM files are rejected.
+
+    ``max_pixels`` counts all band samples and is enforced before reading the
+    pixels. Raw values, per-band masks and the complete source STAC item are
+    retained; this function never makes network requests or applies calibration.
+    """
+    if isinstance(max_pixels, bool) or not isinstance(max_pixels, int) or max_pixels <= 0:
+        raise ValueError("max_pixels must be a positive integer")
+    image_path = Path(path)
+    sidecar = image_path.with_suffix(image_path.suffix + ".meta.json")
+    for suffix in (".msk", ".aux.xml"):
+        if Path(str(image_path) + suffix).exists():
+            raise ValueError("Saved crops cannot use unverified external mask or PAM sidecars")
+    try:
+        metadata = json.loads(sidecar.read_text(encoding="utf-8"))
+    except (ValueError, UnicodeDecodeError) as exc:
+        raise ValueError("Ground crop provenance is not valid JSON") from exc
+    if not isinstance(metadata, dict):
+        raise ValueError("Ground crop provenance must be a JSON object")
+    with image_path.open("rb") as stream:
+        checksum = file_digest(stream, "sha256").hexdigest()
+    if metadata.get("sha256") != checksum:
+        raise ValueError("Ground crop SHA-256 does not match its provenance")
+    if (
+        isinstance(metadata.get("bytes"), bool)
+        or metadata.get("bytes") != image_path.stat().st_size
+    ):
+        raise ValueError("Ground crop byte count does not match its provenance")
+    if (
+        metadata.get("source") != "Earth Search ground image crop"
+        or metadata.get("scale_offset_applied") is not False
+        or metadata.get("cloud_mask_applied") is not False
+        or metadata.get("resampling") != "none; native pixel-aligned window"
+    ):
+        raise ValueError("Expected provenance for an unscaled, unresampled native ground crop")
+
+    try:
+        scene_id, asset_key, href = (metadata[key] for key in ("scene_id", "asset_key", "url"))
+        if not all(isinstance(value, str) and value for value in (scene_id, asset_key, href)):
+            raise ValueError
+        parsed = urlsplit(href)
+        if parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password:
+            raise ValueError
+        item, asset = metadata["stac_item"], metadata["asset"]
+        if (
+            not isinstance(item, dict)
+            or not isinstance(item.get("properties"), dict)
+            or item.get("id") != scene_id
+            or not isinstance(item.get("assets"), dict)
+            or not isinstance(asset, dict)
+            or item["assets"].get(asset_key) != asset
+            or asset.get("href") != href
+        ):
+            raise ValueError
+        bbox = _validate_bbox(tuple(metadata["bbox_wgs84"]))
+        expected_shape = metadata["shape"]
+        if (
+            not isinstance(expected_shape, list)
+            or len(expected_shape) != 3
+            or any(isinstance(n, bool) or not isinstance(n, int) or n <= 0 for n in expected_shape)
+        ):
+            raise ValueError
+        expected_transform = tuple(float(value) for value in metadata["transform"])
+        expected_bounds = tuple(float(value) for value in metadata["bounds"])
+        if (
+            len(expected_transform) != 6
+            or len(expected_bounds) != 4
+            or not all(math.isfinite(value) for value in (*expected_transform, *expected_bounds))
+            or not isinstance(metadata["crs"], str)
+            or not isinstance(metadata["dtype"], str)
+            or not isinstance(metadata["retrieved_at"], str)
+            or not metadata["retrieved_at"]
+        ):
+            raise ValueError
+        recorded_nodata = metadata["nodata_values"]
+        if not isinstance(recorded_nodata, list) or len(recorded_nodata) != expected_shape[0]:
+            raise ValueError
+        expected_nodata = []
+        for value in recorded_nodata:
+            if value == "NaN":
+                expected_nodata.append(float("nan"))
+            elif value is None:
+                expected_nodata.append(None)
+            elif not isinstance(value, bool) and isinstance(value, (int, float)):
+                if not math.isfinite(value):
+                    raise ValueError
+                expected_nodata.append(float(value))
+            else:
+                raise ValueError
+    except (KeyError, TypeError, ValueError, OverflowError) as exc:
+        raise ValueError(
+            "Ground crop provenance has invalid source identity or grid metadata"
+        ) from exc
+
+    rio = _rasterio()
+    with (
+        rio.Env(GDAL_PAM_ENABLED=False, GDAL_DISABLE_READDIR_ON_OPEN="EMPTY_DIR"),
+        rio.open(image_path) as src,
+    ):
+        if src.driver != "GTiff" or src.crs is None:
+            raise ValueError("Saved ground crop must be a georeferenced GeoTIFF")
+        sample_count = int(src.count) * src.height * src.width
+        if sample_count > max_pixels:
+            raise ValueError(
+                f"Crop requires {sample_count:,} band samples, above max_pixels={max_pixels:,}"
+            )
+        affine = src.transform
+        transform = (affine.a, affine.b, affine.c, affine.d, affine.e, affine.f)
+        left, bottom, right, top = src.bounds
+        bounds = (float(left), float(bottom), float(right), float(top))
+        if (
+            affine.b != 0
+            or affine.d != 0
+            or affine.a <= 0
+            or affine.e >= 0
+            or [src.count, src.height, src.width] != expected_shape
+            or src.crs != rio.crs.CRS.from_user_input(metadata["crs"])
+            or any(dtype != metadata["dtype"] for dtype in src.dtypes)
+            or not np.allclose(transform, expected_transform, rtol=0, atol=1e-8)
+            or not np.allclose(bounds, expected_bounds, rtol=0, atol=1e-8)
+        ):
+            raise ValueError("Ground crop grid does not match its provenance")
+        for actual, expected in zip(src.nodatavals, expected_nodata, strict=True):
+            if actual != expected and not (
+                actual is not None
+                and expected is not None
+                and math.isnan(actual)
+                and math.isnan(expected)
+            ):
+                raise ValueError("Ground crop nodata does not match its provenance")
+        tags = src.tags()
+        if any(
+            tags.get(key) != value
+            for key, value in (
+                ("scene_id", scene_id),
+                ("asset_key", asset_key),
+                ("source_url", href),
+                ("pixel_values", "raw; scale and offset have not been applied"),
+            )
+        ):
+            raise ValueError("Ground crop source tags do not match its provenance")
+        if "reflectance" in asset.get("roles", []):
+            scales, offsets = _band_calibration(asset, src.count)
+        else:
+            scales, offsets = [1.0] * src.count, [0.0] * src.count
+        if not np.allclose(src.scales, scales, rtol=0, atol=1e-12) or not np.allclose(
+            src.offsets, offsets, rtol=0, atol=1e-12
+        ):
+            raise ValueError("Ground crop calibration does not match its source metadata")
+        data = src.read(masked=True)
+        nodata_values = tuple(src.nodatavals)
+        crs = src.crs.to_string()
+    return GroundImage(
+        data=data,
+        crs=crs,
+        transform=transform,
+        bounds=bounds,
+        scene_id=scene_id,
+        asset_key=asset_key,
+        source_url=href,
+        asset_metadata=deepcopy(asset),
+        bbox_wgs84=bbox,
+        item_metadata=deepcopy(item),
+        nodata_values=nodata_values,
+        retrieved_at=metadata["retrieved_at"],
+    )
+
+
 def read_ground_image(
     item: dict[str, Any],
     *,

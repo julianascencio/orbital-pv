@@ -12,7 +12,7 @@ import numpy as np
 import pytest
 
 from space_pv_connectors import ground_raster
-from space_pv_connectors.ground_raster import read_ground_image
+from space_pv_connectors.ground_raster import load_ground_image, read_ground_image
 
 rio = pytest.importorskip("rasterio")
 from rasterio.transform import from_origin  # noqa: E402
@@ -257,6 +257,14 @@ def test_geotiff_round_trip_preserves_raw_pixels_mask_crs_and_calibration(
     assert metadata["cloud_mask_applied"] is False
     assert metadata["sha256"] == sha256(output.read_bytes()).hexdigest() == receipt.sha256
     assert receipt.bytes == output.stat().st_size
+    restored = load_ground_image(output)
+    np.testing.assert_array_equal(restored.data.data, image.data.data)
+    np.testing.assert_array_equal(restored.data.mask, image.data.mask)
+    np.testing.assert_array_equal(restored.reflectance(), image.reflectance())
+    assert restored.asset_metadata == image.asset_metadata
+    assert restored.item_metadata == image.item_metadata
+    assert restored.transform == image.transform
+    assert restored.bbox_wgs84 == image.bbox_wgs84
     with pytest.raises(FileExistsError):
         image.save_geotiff(output)
     image.save_geotiff(output, overwrite=True)
@@ -275,6 +283,97 @@ def test_geotiff_preserves_distinct_per_band_nodata_masks(tmp_path: Path, monkey
     with rio.open(output) as saved:
         np.testing.assert_array_equal(saved.read(masked=True).mask, image.data.mask)
         np.testing.assert_array_equal(saved.read(), image.data.data)
+    restored = load_ground_image(output)
+    np.testing.assert_array_equal(restored.data.mask, image.data.mask)
+    np.testing.assert_array_equal(restored.data.data, image.data.data)
+
+
+def test_cached_crop_enforces_band_sample_limit_before_reading(tmp_path: Path, monkeypatch) -> None:
+    path, _ = _raster(tmp_path, pixels=np.full((3, 10, 10), 15, dtype=np.uint8))
+    _route_https_to_local(monkeypatch, path)
+    image = read_ground_image(_item(asset="visual", count=3, reflectance=False), bbox=BBOX)
+    output = tmp_path / "saved.tif"
+    image.save_geotiff(output)
+    original_open = rio.open
+
+    class NoPixelRead:
+        def __init__(self, source):
+            self.source = source
+
+        def __getattr__(self, name):
+            return getattr(self.source, name)
+
+        def __enter__(self):
+            self.source.__enter__()
+            return self
+
+        def __exit__(self, *args):
+            return self.source.__exit__(*args)
+
+        def read(self, *args, **kwargs):
+            raise AssertionError("Pixel limit must be checked before reading")
+
+    monkeypatch.setattr(
+        rio, "open", lambda *args, **kwargs: NoPixelRead(original_open(*args, **kwargs))
+    )
+    with pytest.raises(ValueError, match="36 band samples"):
+        load_ground_image(output, max_pixels=35)
+
+
+@pytest.mark.parametrize(
+    "field,value,message",
+    [
+        ("sha256", "0" * 64, "SHA-256"),
+        ("bytes", 0, "byte count"),
+        ("bounds", [1, 2, 3, 4], "grid does not match"),
+        ("shape", [1, 1, 1], "grid does not match"),
+        ("nodata_values", [999], "nodata does not match"),
+        ("cloud_mask_applied", True, "native ground crop"),
+        ("scene_id", "another-scene", "invalid source identity"),
+    ],
+)
+def test_saved_crop_rejects_changed_provenance(
+    field, value, message, tmp_path: Path, monkeypatch
+) -> None:
+    path, _ = _raster(tmp_path)
+    _route_https_to_local(monkeypatch, path)
+    output = tmp_path / "saved.tif"
+    read_ground_image(_item(), bbox=BBOX, asset="red").save_geotiff(output)
+    sidecar = output.with_suffix(".tif.meta.json")
+    metadata = json.loads(sidecar.read_text())
+    metadata[field] = value
+    sidecar.write_text(json.dumps(metadata))
+    with pytest.raises(ValueError, match=message):
+        load_ground_image(output)
+
+
+def test_saved_crop_rejects_calibration_changed_only_in_metadata(
+    tmp_path: Path, monkeypatch
+) -> None:
+    path, _ = _raster(tmp_path)
+    _route_https_to_local(monkeypatch, path)
+    output = tmp_path / "saved.tif"
+    read_ground_image(_item(), bbox=BBOX, asset="red").save_geotiff(output)
+    sidecar = output.with_suffix(".tif.meta.json")
+    metadata = json.loads(sidecar.read_text())
+    metadata["asset"]["raster:bands"][0]["offset"] = 0
+    metadata["stac_item"]["assets"]["red"]["raster:bands"][0]["offset"] = 0
+    sidecar.write_text(json.dumps(metadata))
+    with pytest.raises(ValueError, match="calibration does not match"):
+        load_ground_image(output)
+
+
+@pytest.mark.parametrize("suffix", [".msk", ".aux.xml"])
+def test_unverified_external_raster_sidecars_cannot_override_saved_data(
+    suffix: str, tmp_path: Path, monkeypatch
+) -> None:
+    path, _ = _raster(tmp_path)
+    _route_https_to_local(monkeypatch, path)
+    output = tmp_path / "saved.tif"
+    read_ground_image(_item(), bbox=BBOX, asset="red").save_geotiff(output)
+    Path(str(output) + suffix).write_text("not part of the saved crop checksum")
+    with pytest.raises(ValueError, match="unverified external"):
+        load_ground_image(output)
 
 
 def test_save_does_not_silently_drop_unsupported_masks(tmp_path: Path, monkeypatch) -> None:

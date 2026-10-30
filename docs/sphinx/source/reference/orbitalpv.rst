@@ -42,3 +42,10 @@ Data helpers
 .. automodule:: orbitalpv.data
    :members:
    :no-index:
+
+PV mapping utilities
+--------------------
+
+.. automodule:: orbitalpv.mapping
+   :members:
+   :no-index:
