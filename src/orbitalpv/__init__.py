@@ -5,7 +5,7 @@ Install with pip install orbital-pv and import this package as orbitalpv.
 
 from importlib.metadata import PackageNotFoundError, version
 
-from . import environment_data, flight, ground_forecasting, ground_research, physics
+from . import catalogue, environment_data, flight, ground_forecasting, ground_research, physics
 from .analytics import (
     LOSS_CATEGORIES,
     LossStage,
@@ -200,6 +200,7 @@ __all__ = [
     "body_vector_to_reference",
     "build_pv_features",
     "calibrate_block_conformal_vi",
+    "catalogue",
     "chronological_forecast_split",
     "circular_eclipse_duration_s",
     "circular_orbit_period_s",
