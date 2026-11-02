@@ -8,6 +8,7 @@ from typing import Any
 
 import pandas as pd
 
+from .gp_cache import GPCache, GPSnapshot
 from .http_base import HttpConnector
 
 
@@ -43,6 +44,22 @@ class SpaceTrackConnector(HttpConnector):
         if not isinstance(payload, list):
             raise ValueError("Unexpected Space-Track GP response")
         return payload
+
+    def latest_gp_cached(self, norad_cat_id: int, *, cache_path: str | Path) -> GPSnapshot:
+        """Reuse current OMM for two hours; authenticate first on a cache miss.
+
+        Shares the same persistent snapshot/provenance contract as CelesTrak.
+        This conservative interval also satisfies Space-Track's hourly GP limit.
+        """
+        if (
+            isinstance(norad_cat_id, bool)
+            or not isinstance(norad_cat_id, int)
+            or not 1 <= norad_cat_id <= 999999999
+        ):
+            raise ValueError("norad_cat_id must be an integer in 1..999999999")
+        return GPCache(cache_path).get(
+            "Space-Track", f"CATNR={norad_cat_id}", lambda: self.latest_gp(norad_cat_id)
+        )
 
     def gp_history(
         self,

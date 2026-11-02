@@ -10,10 +10,26 @@ export default defineConfig({
     react(),
     viteStaticCopy({
       targets: [
-        { src: `${cesiumSource}/ThirdParty`, dest: cesiumBaseUrl },
-        { src: `${cesiumSource}/Workers`, dest: cesiumBaseUrl },
-        { src: `${cesiumSource}/Assets`, dest: cesiumBaseUrl },
-        { src: `${cesiumSource}/Widgets`, dest: cesiumBaseUrl },
+        {
+          src: `${cesiumSource}/ThirdParty`,
+          dest: cesiumBaseUrl,
+          rename: { stripBase: 4 },
+        },
+        {
+          src: `${cesiumSource}/Workers`,
+          dest: cesiumBaseUrl,
+          rename: { stripBase: 4 },
+        },
+        {
+          src: `${cesiumSource}/Assets`,
+          dest: cesiumBaseUrl,
+          rename: { stripBase: 4 },
+        },
+        {
+          src: `${cesiumSource}/Widgets`,
+          dest: cesiumBaseUrl,
+          rename: { stripBase: 4 },
+        },
       ],
     }),
   ],
@@ -23,8 +39,8 @@ export default defineConfig({
   server: {
     port: 5173,
     proxy: {
-      "/api": "http://localhost:8000",
-      "/health": "http://localhost:8000",
+      "/api": process.env.SPACE_PV_API_PROXY ?? "http://localhost:8000",
+      "/health": process.env.SPACE_PV_API_PROXY ?? "http://localhost:8000",
     },
   },
 });

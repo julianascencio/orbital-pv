@@ -9,6 +9,7 @@ from .ground_raster import GroundImage, load_ground_image, read_ground_image
 from .ground_site import PVSite, load_pv_site
 from .http_base import DownloadReceipt
 from .lisird import LisirdConnector
+from .n2yo import N2YOConnector
 from .naif import NaifKernelConnector
 from .opssat import OpsSatADConnector, load_opssat_segments
 from .satnogs import SatnogsDbConnector
@@ -26,6 +27,7 @@ __all__ = [
     "GHSLSettlementConnector",
     "GroundImage",
     "LisirdConnector",
+    "N2YOConnector",
     "NaifKernelConnector",
     "NoaaSwpcConnector",
     "OpenStreetMapEnergyConnector",

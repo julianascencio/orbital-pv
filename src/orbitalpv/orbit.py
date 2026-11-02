@@ -19,6 +19,7 @@ from space_pv_orbit.skyfield_engine import (
     satellite_from_omm,
     satellite_from_tle,
 )
+from space_pv_orbit.tracking import GroundTrackSample, omm_epoch, propagate_ground_track
 
 EARTH_STANDARD_GRAVITATIONAL_PARAMETER_M3_S2 = 3.986004418e14
 EARTH_ROTATION_RATE_RAD_S = 7.2921159e-5
@@ -230,6 +231,7 @@ __all__ = [
     "EARTH_EQUATORIAL_RADIUS_M",
     "EARTH_ROTATION_RATE_RAD_S",
     "EARTH_STANDARD_GRAVITATIONAL_PARAMETER_M3_S2",
+    "GroundTrackSample",
     "SolarGeometry",
     "body_vector_to_reference",
     "circular_eclipse_duration_s",
@@ -240,7 +242,9 @@ __all__ = [
     "geocentric_sun_positions_m",
     "ground_track_deg_from_eci",
     "keplerian_orbit_positions_m",
+    "omm_epoch",
     "propagate_geocentric_m",
+    "propagate_ground_track",
     "quaternion_wxyz_to_matrix",
     "raan_from_local_solar_time_deg",
     "satellite_from_omm",

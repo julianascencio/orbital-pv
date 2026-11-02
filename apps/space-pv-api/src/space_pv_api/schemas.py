@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
@@ -47,6 +47,9 @@ class OrbitSample(BaseModel):
     longitude_deg: float
     latitude_deg: float
     altitude_m: float
+    speed_m_s: float | None = None
+    velocity_gcrs_m_s: tuple[float, float, float] | None = None
+    illumination_fraction: float | None = None
 
 
 class MapTrack(BaseModel):
@@ -54,8 +57,20 @@ class MapTrack(BaseModel):
     name: str
     source: str
     samples: list[OrbitSample]
+    norad_id: int | None = None
+    element_epoch: datetime | None = None
+    retrieved_at: datetime | None = None
+    element_age_s: float | None = None
+    source_sha256: str | None = None
+    stale: bool = False
+    position_kind: str = "visual_demo"
 
 
 class MapScene(BaseModel):
     generated_at: datetime
     tracks: list[MapTrack]
+    mode: Literal["live", "demo"] = "demo"
+    warnings: list[str] = Field(default_factory=list)
+    catalog_count: int = 0
+    omitted_count: int = 0
+    sample_interval_s: int = 30

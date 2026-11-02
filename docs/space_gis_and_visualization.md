@@ -136,3 +136,13 @@ false line across the world and gives poor bounding boxes. Render-cache ground t
 are therefore stored as `MULTILINESTRING` and split when wrapped longitude jumps across
 the antimeridian. Cesium's 3D time-sampled path remains based on the actual position
 samples and does not depend on this 2D split.
+
+## 8. Implemented live view
+
+`GET /api/v1/map/live` serves current CelesTrak/SGP4 predictions with original
+element epochs and persistent two-hour GP snapshots. The React globe consumes
+five-second samples on a 60-second local refresh, preserves camera state and
+keeps synthetic demos separate. The selected ground-track route reuses the
+same group snapshot. This bounded on-demand view does not yet populate PostGIS;
+the existing database endpoints retain their archival/cache responsibilities.
+See the [live tracking guide](sphinx/source/user_guide/modeling_topics/live_tracking.rst).

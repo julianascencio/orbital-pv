@@ -1,0 +1,7 @@
+{
+  "source": "CelesTrak OMM reproduced in the official Skyfield Earth Satellites guide",
+  "url": "https://rhodesmill.org/skyfield/earth-satellites.html",
+  "element_epoch_utc": "2024-05-06T19:53:04.999776Z",
+  "purpose": "Pinned historical orbit for offline examples and regression checks; never live data",
+  "retrieval_note": "Transcribed from official documentation, verified 2026-11-02"
+}

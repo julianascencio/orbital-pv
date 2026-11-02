@@ -288,6 +288,22 @@ Then open React on `http://localhost:5173`, FastAPI docs on `http://localhost:80
 
 The platform separates scientific orbital reference-frame state from Earth-fixed GIS render products. PostGIS serves hot satellite positions, ground tracks, stations and footprints; DuckDB/Parquet retain analytical history and chart rollups; CesiumJS renders time-dynamic 3D orbital scenes. See `docs/space_gis_and_visualization.md`.
 
+### Live satellite tracking
+
+The web app now defaults to real **CelesTrak OMM JSON + Skyfield/SGP4** predictions.
+Choose a catalog or NORAD ID, inspect altitude, inertial speed and sunlight/eclipse
+status, and display the selected satellite's ground track on the 3D/2D globe.
+The inspector exposes element epoch, age, download time and source checksum.
+Elements are cached persistently for at least two hours; local positions animate
+at wall time. The synthetic demo is a separate, labelled mode.
+
+The [live tracking guide](https://julianascencio.github.io/orbital-pv/user_guide/modeling_topics/live_tracking.html)
+covers startup without a database, API contracts, stale-data handling, an optional
+N2YO connector and cached Space-Track alternatives. The
+[historical ISS example](https://julianascencio.github.io/orbital-pv/gallery/orbit_visualization/plot_live_satellite_tracking.html)
+is reproducible offline. Positions are predictions, not onboard GPS telemetry or
+measured PV output. The interactive view is capped at 100 objects at a time.
+
 ## Literature library
 
 A curated, source-tagged literature library is maintained in [`docs/literature/`](docs/literature/README.md). It covers the 2026 state of the art in space-PV cells and arrays, mission-aware performance modelling, radiation/degradation, digital twins, telemetry/AI, and open flight datasets/APIs.

@@ -9,6 +9,8 @@ dependencies = [
   "uvicorn[standard]>=0.34,<1",
   "space-pv-orchestration",
   "space-pv-storage",
+  "space-pv-connectors",
+  "space-pv-orbit",
 ]
 
 [project.scripts]
@@ -17,6 +19,8 @@ space-pv-api = "space_pv_api.main:run"
 [tool.uv.sources]
 space-pv-orchestration = { workspace = true }
 space-pv-storage = { workspace = true }
+space-pv-connectors = { workspace = true }
+space-pv-orbit = { workspace = true }
 
 [build-system]
 requires = ["uv_build>=0.10,<0.11"]

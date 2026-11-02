@@ -3724,6 +3724,8 @@ source = { editable = "apps/space-pv-api" }
 dependencies = [
     { name = "fastapi" },
     { name = "pydantic-settings" },
+    { name = "space-pv-connectors" },
+    { name = "space-pv-orbit" },
     { name = "space-pv-orchestration" },
     { name = "space-pv-storage" },
     { name = "uvicorn", extra = ["standard"] },
@@ -3733,6 +3735,8 @@ dependencies = [
 requires-dist = [
     { name = "fastapi", specifier = ">=0.141,<1" },
     { name = "pydantic-settings", specifier = ">=2.7,<3" },
+    { name = "space-pv-connectors", editable = "packages/space-pv-connectors" },
+    { name = "space-pv-orbit", editable = "packages/space-pv-orbit" },
     { name = "space-pv-orchestration", editable = "packages/space-pv-orchestration" },
     { name = "space-pv-storage", editable = "packages/space-pv-storage" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.34,<1" },

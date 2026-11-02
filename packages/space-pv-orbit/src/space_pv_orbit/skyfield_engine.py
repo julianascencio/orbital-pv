@@ -2,26 +2,32 @@ from __future__ import annotations
 
 from collections.abc import Sequence
 from datetime import datetime
+from functools import lru_cache
 
 import numpy as np
 
 
-def satellite_from_omm(fields: dict[str, object]):
-    from skyfield.api import EarthSatellite, load
+@lru_cache(maxsize=1)
+def _timescale():
+    from skyfield.api import load
 
-    return EarthSatellite.from_omm(load.timescale(), fields)
+    return load.timescale(builtin=True)
+
+
+def satellite_from_omm(fields: dict[str, object]):
+    from skyfield.api import EarthSatellite
+
+    return EarthSatellite.from_omm(_timescale(), fields)
 
 
 def satellite_from_tle(line1: str, line2: str, *, name: str | None = None):
-    from skyfield.api import EarthSatellite, load
+    from skyfield.api import EarthSatellite
 
-    return EarthSatellite(line1, line2, name=name, ts=load.timescale())
+    return EarthSatellite(line1, line2, name=name, ts=_timescale())
 
 
 def propagate_geocentric_m(satellite, times: Sequence[datetime]) -> tuple[np.ndarray, np.ndarray]:
-    from skyfield.api import load
-
-    t = load.timescale().from_datetimes(list(times))
+    t = _timescale().from_datetimes(list(times))
     state = satellite.at(t)
     return np.asarray(state.position.m, dtype=float).T, np.asarray(
         state.velocity.m_per_s, dtype=float

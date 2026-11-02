@@ -76,6 +76,8 @@ services:
   web:
     image: node:22-alpine
     working_dir: /app
+    environment:
+      SPACE_PV_API_PROXY: http://api:8000
     command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
     volumes:
       - ./apps/space-pv-web:/app

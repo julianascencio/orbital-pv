@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -7,6 +9,8 @@ class APISettings(BaseSettings):
     api_host: str = "0.0.0.0"
     api_port: int = 8000
     cors_origins: str = "http://localhost:5173"
+    gp_cache_path: Path = Path("data/cache/gp.sqlite3")
+    bootstrap_database: bool = True
 
     @property
     def allowed_origins(self) -> list[str]:

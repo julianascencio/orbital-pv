@@ -32,3 +32,7 @@ build/
 docs/sphinx/build/
 docs/sphinx/source/gallery/
 docs/sphinx/source/sg_execution_times.rst
+
+# Download cache and TypeScript build metadata
+data/cache/
+*.tsbuildinfo
