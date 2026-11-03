@@ -10,6 +10,7 @@ lower-level internal packages used by contributors and advanced users.
    orbitalpv
    catalogue
    research
+   mars
    core
    orbit
    pvmodel

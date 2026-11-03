@@ -1,0 +1,38 @@
+{
+  "dataset": "InSight solar energy/current observations and camera opacity",
+  "accessed_date": "2026-11-03",
+  "solar_attribution": "Lorenz et al., Scientific Observations with the InSight Solar Arrays; Johns Hopkins Research Data Repository, DOI 10.7281/T1EPKRKR, version 1.0. CC BY 4.0.",
+  "opacity_attribution": "NASA PDS Atmospheres / InSight camera team; nsyt_tau v1.0; DOI 10.17189/dc8r-ag55. Provider-linked review directory, not asserted final.",
+  "files": {
+    "insight-energy.csv": {
+      "url": "https://archive.data.jhu.edu/api/access/datafile/16253",
+      "sha256": "db5d765758e05bc1928e074520aad240c0c68142851d7aa647d89893cf650e5a",
+      "bytes": 2900,
+      "transformation": "none; original bytes (ASCII current files extracted unchanged from ZIP)"
+    },
+    "Solar_00004-00004.txt": {
+      "url": "https://archive.data.jhu.edu/api/access/datafile/16255",
+      "sha256": "03f675d3d102bf9a354409c4560e785920e77815e55c9781552d71391a41aec7",
+      "bytes": 43416,
+      "transformation": "none; original bytes (ASCII current files extracted unchanged from ZIP)"
+    },
+    "Solar_00052-00052.txt": {
+      "url": "https://archive.data.jhu.edu/api/access/datafile/16255",
+      "sha256": "350e8a7958ee8d4f7d5d53fd5d8200f57cebd149997f7292c9d2eea54eee3219",
+      "bytes": 126430,
+      "transformation": "none; original bytes (ASCII current files extracted unchanged from ZIP)"
+    },
+    "nsyt_tau.csv": {
+      "url": "https://atmos.nmsu.edu/PDS/review/PDS4/insight_tau_bundle/data/nsyt_tau.csv",
+      "sha256": "312ca12bf3f82165be0a65962f321c696807d9592ac0b876596eba64b00ef98c",
+      "bytes": 56888,
+      "transformation": "none; original bytes (ASCII current files extracted unchanged from ZIP)"
+    },
+    "nsyt_tau.xml": {
+      "url": "https://atmos.nmsu.edu/PDS/review/PDS4/insight_tau_bundle/data/nsyt_tau.xml",
+      "sha256": "531633fa40c44e5ab9aa86ba722a203691cfa0bac177bdcf5bfb7546eb8765e9",
+      "bytes": 7158,
+      "transformation": "none; original bytes (ASCII current files extracted unchanged from ZIP)"
+    }
+  }
+}
