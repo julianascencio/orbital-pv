@@ -11,6 +11,7 @@ lower-level internal packages used by contributors and advanced users.
    catalogue
    research
    mars
+   lunar
    core
    orbit
    pvmodel

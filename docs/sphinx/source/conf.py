@@ -77,6 +77,7 @@ sphinx_gallery_conf = {
     "examples_dirs": str(ROOT / "examples"),
     "gallery_dirs": "gallery",
     "filename_pattern": r"/plot_",
+    "ignore_pattern": r"__init__\.py|_lunar_analysis\.py",
     "download_all_examples": False,
     "remove_config_comments": True,
 }

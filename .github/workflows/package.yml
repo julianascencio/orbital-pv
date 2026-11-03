@@ -48,5 +48,8 @@ jobs:
           for example in examples/real_data/plot_*.py; do
             MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python "$example"
           done
+          for example in examples/lunar/plot_*.py; do
+            OPENBLAS_NUM_THREADS=1 MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python "$example"
+          done
           /tmp/orbitalpv-wheel/bin/python labs/00_birds_baseline/run.py
           /tmp/orbitalpv-wheel/bin/python labs/02_pvlib_reference/run.py

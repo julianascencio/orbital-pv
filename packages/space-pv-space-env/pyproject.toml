@@ -3,6 +3,8 @@ name = "space-pv-space-env"
 version = "0.1.0"
 requires-python = ">=3.13"
 dependencies = [
+  "space-pv-orbit",
+  "pandas>=2.2",
   "space-pv-core",
   "numpy>=2.3",
 ]
@@ -13,3 +15,4 @@ build-backend = "uv_build"
 
 [tool.uv.sources]
 space-pv-core = { workspace = true }
+space-pv-orbit = { workspace = true }

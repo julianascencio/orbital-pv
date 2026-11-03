@@ -11,6 +11,7 @@ from . import (
     flight,
     ground_forecasting,
     ground_research,
+    lunar,
     mars,
     physics,
 )
@@ -270,6 +271,7 @@ __all__ = [
     "load_pv_site",
     "load_settlement_raster",
     "load_table",
+    "lunar",
     "make_demo_telemetry",
     "make_lagged_vi_data",
     "mars",

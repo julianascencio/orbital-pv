@@ -190,6 +190,7 @@ indent-style = "space"
 [tool.ty.environment]
 python-version = "3.13"
 root = [
+  "examples/lunar",
   "src",
   "packages/space-pv-core/src",
   "packages/space-pv-orbit/src",
