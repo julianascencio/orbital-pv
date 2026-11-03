@@ -1,0 +1,10 @@
+{
+  "source": "NASA/JPL Horizons",
+  "url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27-61%27&MAKE_EPHEM=YES&EPHEM_TYPE=VECTORS&CENTER=%27500%4010%27&OBJ_DATA=NO&START_TIME=%272024-01-01%27&STOP_TIME=%272024-01-04%27&STEP_SIZE=%271+d%27&OUT_UNITS=AU-D&REF_PLANE=FRAME&REF_SYSTEM=ICRF&TIME_TYPE=TDB&VEC_CORR=NONE&VEC_TABLE=2&CSV_FORMAT=YES",
+  "retrieved_at": "2026-11-03T04:27:36.502532+00:00",
+  "sha256": "72b49252396c42ba8fe6966a4061222d0116eba990137dadf2d6d88e44461044",
+  "bytes": 5675,
+  "path": "examples/real_data/_research/horizons.json",
+  "request_url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27-61%27&MAKE_EPHEM=YES&EPHEM_TYPE=VECTORS&CENTER=%27500%4010%27&OBJ_DATA=NO&START_TIME=%272024-01-01%27&STOP_TIME=%272024-01-04%27&STEP_SIZE=%271+d%27&OUT_UNITS=AU-D&REF_PLANE=FRAME&REF_SYSTEM=ICRF&TIME_TYPE=TDB&VEC_CORR=NONE&VEC_TABLE=2&CSV_FORMAT=YES",
+  "documentation": "https://ssd-api.jpl.nasa.gov/doc/horizons.html"
+}

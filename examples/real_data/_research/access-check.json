@@ -1,0 +1,81 @@
+{
+  "checked_at": "2026-11-03T04:27:52.206881+00:00",
+  "checks": [
+    {
+      "provider": "ntrs",
+      "status": "ok",
+      "bytes": 28843,
+      "sha256": "c3396834825f629b3e05a06bf1d2f64de1326ccb0c0e15fc1ccdc52f21983546",
+      "request_url": "https://ntrs.nasa.gov/api/citations/search?q=%22solar+array%22+%22end+of+life%22&page.from=0&page.size=5"
+    },
+    {
+      "provider": "zenodo",
+      "status": "ok",
+      "bytes": 8992,
+      "sha256": "1d78fc115156d327a0a7caefbecd7bb31b5fcd1366ba67e0acdcbdb80a5ea591",
+      "request_url": "https://zenodo.org/api/records/15108715"
+    },
+    {
+      "provider": "dataverse",
+      "status": "ok",
+      "bytes": 6707,
+      "sha256": "0265f9e645b1b4b215150d8ae96861948958a60aa3c37f2e59006051af959f9e",
+      "request_url": "https://darus.uni-stuttgart.de/api/datasets/:persistentId/versions/1.0?persistentId=doi%3A10.18419%2Fdarus-456"
+    },
+    {
+      "provider": "horizons",
+      "status": "ok",
+      "bytes": 5675,
+      "sha256": "72b49252396c42ba8fe6966a4061222d0116eba990137dadf2d6d88e44461044",
+      "request_url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%27-61%27&MAKE_EPHEM=YES&EPHEM_TYPE=VECTORS&CENTER=%27500%4010%27&OBJ_DATA=NO&START_TIME=%272024-01-01%27&STOP_TIME=%272024-01-04%27&STEP_SIZE=%271+d%27&OUT_UNITS=AU-D&REF_PLANE=FRAME&REF_SYSTEM=ICRF&TIME_TYPE=TDB&VEC_CORR=NONE&VEC_TABLE=2&CSV_FORMAT=YES"
+    },
+    {
+      "provider": "pds",
+      "status": "ok",
+      "bytes": 18312,
+      "sha256": "0672b66680fee11cfb141e8ec1fe323b789f83a4d06771dd07d8d6434e3d9306",
+      "request_url": "https://pds.nasa.gov/api/search/1/products?q=%28product_class+eq+%22Product_Bundle%22%29&limit=2"
+    },
+    {
+      "provider": "psa",
+      "status": "ok",
+      "bytes": 1168,
+      "sha256": "898b58fa90bb2caf3cdcf322ef23ca1d3855f168eb18a0d2958f8a4c2eccd393",
+      "request_url": "https://psa.esa.int/psa-tap/tap/sync?REQUEST=doQuery&LANG=ADQL&FORMAT=json&QUERY=SELECT+TOP+2+granule_uid%2C+instrument_host_name%2C+access_url+FROM+psa.epn_core+WHERE+instrument_host_name+%3D+%27Mars+Express%27&MAXREC=2"
+    },
+    {
+      "provider": "donki",
+      "status": "ok",
+      "bytes": 14403,
+      "sha256": "fbbfa84a55c205528ff6f7e5ed1e7a1a4a0cd42388c54b8153ced84e18d0651d",
+      "request_url": "https://ccmc.gsfc.nasa.gov/DONKI/WS/get/FLR?startDate=2024-05-10&endDate=2024-05-11"
+    }
+  ],
+  "download_checks": [
+    {
+      "source": "NASA NTRS",
+      "url": "https://ntrs.nasa.gov/api/citations/20200000669/downloads/20200000669.pdf",
+      "retrieved_at": "2026-11-03T04:30:31.365679+00:00",
+      "sha256": "b807181a1b43d7974ebd6abb5e8195a7003cb158b3f09a5fa92cada427dcbbf9",
+      "bytes": 2799980,
+      "provider_checksum": null
+    },
+    {
+      "source": "Zenodo",
+      "url": "https://zenodo.org/api/records/15108715/files/requirements.txt/content",
+      "retrieved_at": "2026-11-03T04:30:37.265895+00:00",
+      "sha256": "fd06761596b7271f90cb7183ced57b96884d02ae74195b71dbe26b683a19aaaf",
+      "bytes": 169,
+      "provider_checksum": "md5:252b98857695f9695589f90a590a49e6"
+    },
+    {
+      "source": "Dataverse",
+      "url": "https://s3.tik.uni-stuttgart.de/fokus-dv-prod-1/10.18419/darus-456/16d24bfe8aa-2c52a43343c8?response-content-disposition=attachment%3B%20filename%2A%3DUTF-8%27%27FLP_TM.pdf&response-content-type=application%2Fpdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261103T043042Z&X-Amz-SignedHeaders=host&X-Amz-Credential=ZYFB5FYVYI021REQFP7K%2F20261103%2Fdataverse%2Fs3%2Faws4_request&X-Amz-Expires=172800&X-Amz-Signature=4d7c37ff0104ecc690f28aa9a90b139281c082189c4e23fcc2b3d25abf7cb837",
+      "retrieved_at": "2026-11-03T04:30:48.747040+00:00",
+      "sha256": "5e53b77240b90e7f97f4102425a5941617cc4e4dae804ec84588d8668612cb45",
+      "bytes": 270361,
+      "provider_checksum": "MD5:1edd24edaf9383813fa7a78a660f9114"
+    }
+  ],
+  "discos_live_check": "Not run: no user account token available. Offline contract tests only."
+}

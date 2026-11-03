@@ -1,0 +1,10 @@
+{
+  "source": "Zenodo",
+  "url": "https://zenodo.org/api/records/15108715",
+  "retrieved_at": "2026-11-03T04:27:26.688773+00:00",
+  "sha256": "1d78fc115156d327a0a7caefbecd7bb31b5fcd1366ba67e0acdcbdb80a5ea591",
+  "bytes": 8992,
+  "path": "examples/real_data/_research/zenodo.json",
+  "request_url": "https://zenodo.org/api/records/15108715",
+  "documentation": "https://developers.zenodo.org/"
+}

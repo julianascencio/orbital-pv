@@ -88,6 +88,15 @@ NASA / NOAA services
 .. automodule:: space_pv_connectors.swpc
    :members:
 
+Free spacecraft research APIs
+------------------------------
+
+.. automodule:: space_pv_connectors.research
+   :members:
+
+.. automodule:: space_pv_connectors.research_http
+   :members: ResearchResponse
+
 Tabular utilities
 -----------------
 

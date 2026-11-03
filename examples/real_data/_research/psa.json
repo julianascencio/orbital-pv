@@ -1,0 +1,12 @@
+{"metadata":
+[
+{"name": "granule_uid", "datatype": "char", "xtype": null, "arraysize": "*", "description": "Unique ID in data service", "unit": null, "ucd": "meta.id", "utype": null},
+{"name": "instrument_host_name", "datatype": "char", "xtype": null, "arraysize": "*", "description": "Standard name of the observatory or spacecraft", "unit": null, "ucd": "meta.id;instr.obsty", "utype": null},
+{"name": "access_url", "datatype": "char", "xtype": null, "arraysize": "*", "description": "URL of the data file, case sensitive (additional files may be linked through datalink_url). Can point to a script. If present, next 2 parameters must also be present.", "unit": null, "ucd": "meta.ref.url;meta.file", "utype": null}
+],
+"data":
+[
+["MEX-E\/M-SPICE-6-V1.0:DATA:ESTRACK_V01.BSP::1.0","Mars Express","https:\/\/psa.esa.int\/psa-tap\/data?retrieval_access=DIRECT&retrieval_type=PRODUCT&tapclient=EPN-TAP&id=MEX-E\/M-SPICE-6-V1.0:DATA:ESTRACK_V01.BSP"],
+["MEX-E\/M-SPICE-6-V1.0:DATA:ESTRACK_V01.TF::1.0","Mars Express","https:\/\/psa.esa.int\/psa-tap\/data?retrieval_access=DIRECT&retrieval_type=PRODUCT&tapclient=EPN-TAP&id=MEX-E\/M-SPICE-6-V1.0:DATA:ESTRACK_V01.TF"]
+]
+}
