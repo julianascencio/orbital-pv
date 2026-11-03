@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.sch" schematypens="http://purl.oclc.org/dsdl/schematron" ?>
+<Product_Observational
+    xmlns="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1
+        https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.xsd">
+    <Identification_Area>
+        <logical_identifier>urn:nasa:pds:insight_cameras_tau:data_derived:nsyt_tau</logical_identifier>
+        <version_id>1.0</version_id>
+        <title>InSight Optical Depths</title>
+        <information_model_version>1.20.0.0</information_model_version>
+        <product_class>Product_Observational</product_class>
+    </Identification_Area>
+    <Observation_Area>
+        <Time_Coordinates>
+            <start_date_time>2018-11-26T20:05:43.000Z</start_date_time>
+            <stop_date_time>2022-12-11T10:28:29.000Z</stop_date_time>
+        </Time_Coordinates>
+        <Primary_Result_Summary>
+            <purpose>Science</purpose>
+            <processing_level>Derived</processing_level>
+      		<Science_Facets>
+                <domain>Atmosphere</domain>
+                <discipline_name>Atmospheres</discipline_name>
+      		    <facet1>Meteorology</facet1>
+      		</Science_Facets>
+        </Primary_Result_Summary>
+        <Investigation_Area>
+            <name>InSight</name>
+            <type>Mission</type>
+            <Internal_Reference>
+                <lid_reference>urn:nasa:pds:context:investigation:mission.insight</lid_reference>
+                <reference_type>data_to_investigation</reference_type>
+            </Internal_Reference>
+        </Investigation_Area>
+        <Observing_System>
+            <name>InSight Cameras</name>
+			<Observing_System_Component>
+                <name>Insight Context Camera</name>
+                <type>Instrument</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument:icc.insight</lid_reference>
+                    <reference_type>is_instrument</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+            <Observing_System_Component>
+                <name>Insight Deployment Camera</name>
+                <type>Instrument</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument:idc.insight</lid_reference>
+                    <reference_type>is_instrument</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+            <Observing_System_Component>
+                <name>InSight</name>
+                <type>Host</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.insight</lid_reference>
+                    <reference_type>is_instrument_host</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+        </Observing_System>
+        <Target_Identification>
+            <name>Mars</name>
+            <type>Planet</type>
+            <Internal_Reference>
+                <lid_reference>urn:nasa:pds:context:target:planet.mars</lid_reference>
+                <reference_type>data_to_target</reference_type>
+            </Internal_Reference>
+        </Target_Identification>
+    </Observation_Area>
+    <File_Area_Observational>
+        <File>
+            <file_name>nsyt_tau.csv</file_name>
+            <local_identifier>nsyt_tau</local_identifier>
+            <creation_date_time>2024-05-13T18:00:00</creation_date_time>
+            <file_size unit="byte">56888</file_size>
+	    <records>758</records>
+	    <md5_checksum>d767af6c8a1654faa69e325dcc7bf762</md5_checksum>
+        </File>
+        <Table_Delimited>
+            <name>nsyt_tau.csv</name>
+            <local_identifier>nsyt_tau_table</local_identifier>
+            <offset unit="byte">0</offset>
+            <object_length unit="byte">56888</object_length>
+            <parsing_standard_id>PDS DSV 1</parsing_standard_id>
+            <description>
+                Opacities
+            </description>
+            <records>758</records>
+            <record_delimiter>Line-Feed</record_delimiter>
+            <field_delimiter>Comma</field_delimiter>
+            <Record_Delimited>
+                <fields>7</fields>
+                <groups>0</groups>
+                <Field_Delimited>
+                    <name>PID</name>
+                    <field_number>1</field_number>
+                    <data_type>ASCII_String</data_type>
+                    <maximum_field_length unit="byte">255</maximum_field_length>
+                    <description>
+                        Product Identifier
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>Sol</name>
+                    <field_number>2</field_number>
+                    <data_type>ASCII_Real</data_type>
+                    <unit>days</unit>
+                    <description>
+                        Decimal sols in true solar time
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>LMST</name>
+                    <field_number>3</field_number>
+                    <data_type>ASCII_Real</data_type>
+                    <description>
+                        Local Mean Solar Time
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>L_s</name>
+                    <field_number>4</field_number>
+                    <data_type>ASCII_Real</data_type>
+                    <description>
+                        Solar longitude
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>Tau</name>
+                    <field_number>5</field_number>
+                    <data_type>ASCII_Real</data_type>
+                    <description>
+                        Optical depth at 600 nm
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>Sigma</name>
+                    <field_number>6</field_number>
+                    <data_type>ASCII_Real</data_type>
+                    <description>
+                        Uncertainty
+                    </description>
+                </Field_Delimited>
+                <Field_Delimited>
+                    <name>Fit_sigma</name>
+                    <field_number>7</field_number>
+                    <data_type>ASCII_Real</data_type>
+                    <description>
+                        Relative uncertainty of fit
+                    </description>
+                </Field_Delimited>
+            </Record_Delimited>
+        </Table_Delimited>
+    </File_Area_Observational>
+</Product_Observational>

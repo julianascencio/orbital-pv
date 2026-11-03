@@ -58,3 +58,8 @@ That system-level focus is what separates this project from a terrestrial PV ana
 See [the implementation and evidence matrix](10_2026_implementation_matrix.md)
 for the methods, connectors, executable analyses and validation limits added to
 the source tree from the selected 2024–2026 research.
+
+## Mars surface PV
+
+See [Mars surface papers, data and model evidence](11_mars_surface_pv.md) for the
+InSight comparison, NASA geometry, surface dust treatment and research gaps.

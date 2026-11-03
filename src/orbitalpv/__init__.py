@@ -5,7 +5,15 @@ Install with pip install orbital-pv and import this package as orbitalpv.
 
 from importlib.metadata import PackageNotFoundError, version
 
-from . import catalogue, environment_data, flight, ground_forecasting, ground_research, physics
+from . import (
+    catalogue,
+    environment_data,
+    flight,
+    ground_forecasting,
+    ground_research,
+    mars,
+    physics,
+)
 from .analytics import (
     LOSS_CATEGORIES,
     LossStage,
@@ -264,6 +272,7 @@ __all__ = [
     "load_table",
     "make_demo_telemetry",
     "make_lagged_vi_data",
+    "mars",
     "measured_energy_budget",
     "normalize_birds_like",
     "normalize_bupt1_telemetry",

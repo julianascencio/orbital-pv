@@ -199,6 +199,25 @@ checksum-linked browser exports are generated from it. Ratings retain BOL/EOL,
 Sun distance, reference conditions and bounds. Ambiguous spacecraft power stays
 separate from PV output, and unlike ratings are never summed into a global total.
 
+## Mars surface photovoltaic performance
+
+The source tree now includes `orbitalpv.mars`: NASA Mars24 seasonal geometry,
+Mars-sol energy integration, separate atmospheric/panel dust effects, and the
+existing PVWatts adapter. Public connectors retrieve InSight energy, DBR string
+currents and camera-derived 600-nm opacity with checksums and provenance.
+
+The [Mars guide](docs/sphinx/source/user_guide/modeling_topics/mars_surface_pv.rst),
+[paper matrix](docs/literature/11_mars_surface_pv.md) and
+[reproducible analysis](analysis/mars_surface_pv) explain assumptions and data status.
+Two offline gallery examples compare 200 published daily energy estimates and
+explore seasonal/latitude scenarios. The later-sol comparison has **10.2% RMSE
+relative to mean energy**; a positive bias remains. This is a screening model
+and same-mission hindcast, not independently validated mission hardware sizing.
+
+```bash
+PYTHONPATH=src uv run python analysis/mars_surface_pv/run.py
+```
+
 ## Foundation stack
 
 - **pvlib** — tested PV equations and I-V/single-diode reference models behind a space-specific adapter.

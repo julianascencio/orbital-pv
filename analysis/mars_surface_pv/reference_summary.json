@@ -1,0 +1,64 @@
+{
+  "source_dataset": "InSight solar energy/current observations and camera opacity",
+  "samples_total": 200,
+  "samples_without_opacity_support": 4,
+  "calibration_last_sol": 39,
+  "holdout_first_sol": 40,
+  "opacity_max_interpolation_gap_sols": 15,
+  "dust_loss_per_sol": 0.0028,
+  "models": {
+    "geometry_atmosphere_panel_dust": {
+      "fitted_reference_scale_w": 1738.6076042515424,
+      "calibration": {
+        "n": 35,
+        "mae_wh": 65.29223151140096,
+        "rmse_wh": 86.00495556338282,
+        "bias_wh": 0.8130735782000167,
+        "nrmse_pct_of_mean": 1.9290527084186695
+      },
+      "holdout": {
+        "n": 161,
+        "mae_wh": 255.02240265778667,
+        "rmse_wh": 289.5157003784316,
+        "bias_wh": 255.02240265778667,
+        "nrmse_pct_of_mean": 10.16829507647859
+      }
+    },
+    "geometry_atmosphere": {
+      "fitted_reference_scale_w": 1634.273126164456,
+      "calibration": {
+        "n": 35,
+        "mae_wh": 151.18079346422508,
+        "rmse_wh": 186.4548086070494,
+        "bias_wh": -1.1726539462659145,
+        "nrmse_pct_of_mean": 4.182098010341277
+      },
+      "holdout": {
+        "n": 161,
+        "mae_wh": 1205.0996782424481,
+        "rmse_wh": 1244.3504283136797,
+        "bias_wh": 1205.0996782424481,
+        "nrmse_pct_of_mean": 43.70375187631321
+      }
+    },
+    "geometry_only": {
+      "fitted_reference_scale_w": 1308.781001031571,
+      "calibration": {
+        "n": 35,
+        "mae_wh": 125.48942008574065,
+        "rmse_wh": 158.078863829047,
+        "bias_wh": 0.15113298626081034,
+        "nrmse_pct_of_mean": 3.5456382532334034
+      },
+      "holdout": {
+        "n": 161,
+        "mae_wh": 1313.6470277695132,
+        "rmse_wh": 1327.587103627072,
+        "bias_wh": 1313.6470277695132,
+        "nrmse_pct_of_mean": 46.627168722671804
+      }
+    }
+  },
+  "interpretation": "Retrospective comparison with operational energy estimates. Only scale is fitted to early sols; literature dust rate originates from the same mission, so this is not independent mission validation. Interpolated 600-nm camera opacity is a proxy. Temperature/spectral/EPS behavior is absorbed in the scale, not identified physically.",
+  "opacity_status": "provider-linked review directory; not asserted final"
+}

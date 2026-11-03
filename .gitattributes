@@ -1,2 +1,7 @@
 # Preserve the original archive member's bytes and CRLF line endings.
 examples/ground_imagery/_data/wiki_solar_join.csv -text whitespace=cr-at-eol
+
+# Mars observations retain source checksums and original line endings.
+examples/mars/_data/*.csv -text whitespace=cr-at-eol
+examples/mars/_data/*.txt -text whitespace=cr-at-eol
+examples/mars/_data/*.xml -text whitespace=cr-at-eol,-space-before-tab
