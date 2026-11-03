@@ -20,6 +20,7 @@ workflows in OrbitalPV.
    modeling_topics/constellations
    modeling_topics/pv_modeling
    modeling_topics/mars_surface_pv
+   modeling_topics/lunar_surface_pv
    modeling_topics/pv_loss_analysis
    modeling_topics/space_environment
    modeling_topics/telemetry_analytics

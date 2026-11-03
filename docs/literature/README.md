@@ -63,3 +63,8 @@ the source tree from the selected 2024–2026 research.
 
 See [Mars surface papers, data and model evidence](11_mars_surface_pv.md) for the
 InSight comparison, NASA geometry, surface dust treatment and research gaps.
+
+## Lunar surface PV
+
+See [lunar papers, connectors and modelling boundaries](12_lunar_surface_pv.md)
+for terrain-aware PV, thermal boundaries, storage/tower sizing and rover routing.

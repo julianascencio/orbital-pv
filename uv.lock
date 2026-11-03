@@ -3816,6 +3816,7 @@ dependencies = [
     { name = "openpyxl" },
     { name = "pandas" },
     { name = "space-pv-core" },
+    { name = "space-pv-space-env" },
 ]
 
 [package.optional-dependencies]
@@ -3846,6 +3847,7 @@ requires-dist = [
     { name = "pyogrio", marker = "extra == 'ground-research'", specifier = ">=0.9,<1" },
     { name = "rasterio", marker = "extra == 'ground'", specifier = ">=1.4,<2" },
     { name = "space-pv-core", editable = "packages/space-pv-core" },
+    { name = "space-pv-space-env", editable = "packages/space-pv-space-env" },
     { name = "xarray", marker = "extra == 'netcdf'", specifier = ">=2025.1" },
 ]
 provides-extras = ["ground", "netcdf", "ground-research"]
@@ -3904,6 +3906,7 @@ dependencies = [
     { name = "pandas" },
     { name = "pvlib" },
     { name = "space-pv-core" },
+    { name = "space-pv-space-env" },
 ]
 
 [package.metadata]
@@ -3912,6 +3915,7 @@ requires-dist = [
     { name = "pandas", specifier = ">=2.2" },
     { name = "pvlib", specifier = ">=0.15.2,<0.16" },
     { name = "space-pv-core", editable = "packages/space-pv-core" },
+    { name = "space-pv-space-env", editable = "packages/space-pv-space-env" },
 ]
 
 [[package]]
@@ -3920,13 +3924,17 @@ version = "0.1.0"
 source = { editable = "packages/space-pv-space-env" }
 dependencies = [
     { name = "numpy" },
+    { name = "pandas" },
     { name = "space-pv-core" },
+    { name = "space-pv-orbit" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "numpy", specifier = ">=2.3" },
+    { name = "pandas", specifier = ">=2.2" },
     { name = "space-pv-core", editable = "packages/space-pv-core" },
+    { name = "space-pv-orbit", editable = "packages/space-pv-orbit" },
 ]
 
 [[package]]

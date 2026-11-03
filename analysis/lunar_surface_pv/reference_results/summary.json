@@ -1,0 +1,179 @@
+{
+  "data_kind": "model scenarios; no lunar PV measurements",
+  "input_manifest_sha256": "33db2a6cb5be77f2fa541410848f4731b807899842d61def289c70ed6b65c60a",
+  "analysis_source_sha256": "c48580d7e4cadb1e90660e0e2f6461cef6614624ad633cbf163f1fa5fbc8cbbe",
+  "sites": [
+    {
+      "site": "01",
+      "tower_height_m": 2,
+      "mode": "fixed",
+      "energy_kwh_m2": 1016.1280409408818,
+      "mean_visible_fraction": 0.8300230755283596,
+      "longest_darkness_h": 216.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    },
+    {
+      "site": "01",
+      "tower_height_m": 2,
+      "mode": "sun_tracking",
+      "energy_kwh_m2": 2784.201679023544,
+      "mean_visible_fraction": 0.8300230755283596,
+      "longest_darkness_h": 216.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    },
+    {
+      "site": "01",
+      "tower_height_m": 5,
+      "mode": "fixed",
+      "energy_kwh_m2": 1046.1706581054707,
+      "mean_visible_fraction": 0.9064797079302139,
+      "longest_darkness_h": 146.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    },
+    {
+      "site": "01",
+      "tower_height_m": 5,
+      "mode": "sun_tracking",
+      "energy_kwh_m2": 3033.742235529775,
+      "mean_visible_fraction": 0.9064797079302139,
+      "longest_darkness_h": 146.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    },
+    {
+      "site": "01",
+      "tower_height_m": 20,
+      "mode": "fixed",
+      "energy_kwh_m2": 1046.455541817443,
+      "mean_visible_fraction": 0.9242762045991576,
+      "longest_darkness_h": 70.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    },
+    {
+      "site": "01",
+      "tower_height_m": 20,
+      "mode": "sun_tracking",
+      "energy_kwh_m2": 3091.795292380766,
+      "mean_visible_fraction": 0.9242762045991576,
+      "longest_darkness_h": 70.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    },
+    {
+      "site": "04",
+      "tower_height_m": 2,
+      "mode": "fixed",
+      "energy_kwh_m2": 839.3397344983069,
+      "mean_visible_fraction": 0.8146599020938274,
+      "longest_darkness_h": 114.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    },
+    {
+      "site": "04",
+      "tower_height_m": 2,
+      "mode": "sun_tracking",
+      "energy_kwh_m2": 2732.7519568681255,
+      "mean_visible_fraction": 0.8146599020938274,
+      "longest_darkness_h": 114.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    },
+    {
+      "site": "04",
+      "tower_height_m": 5,
+      "mode": "fixed",
+      "energy_kwh_m2": 856.2911643052242,
+      "mean_visible_fraction": 0.8602687475771128,
+      "longest_darkness_h": 66.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    },
+    {
+      "site": "04",
+      "tower_height_m": 5,
+      "mode": "sun_tracking",
+      "energy_kwh_m2": 2881.282140635154,
+      "mean_visible_fraction": 0.8602687475771128,
+      "longest_darkness_h": 66.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    },
+    {
+      "site": "04",
+      "tower_height_m": 20,
+      "mode": "fixed",
+      "energy_kwh_m2": 875.0917329110961,
+      "mean_visible_fraction": 0.8680848911552178,
+      "longest_darkness_h": 62.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    },
+    {
+      "site": "04",
+      "tower_height_m": 20,
+      "mode": "sun_tracking",
+      "energy_kwh_m2": 2906.9600069150365,
+      "mean_visible_fraction": 0.8680848911552178,
+      "longest_darkness_h": 62.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    },
+    {
+      "site": "11",
+      "tower_height_m": 2,
+      "mode": "fixed",
+      "energy_kwh_m2": 1083.5781446214005,
+      "mean_visible_fraction": 0.8121850080223889,
+      "longest_darkness_h": 258.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    },
+    {
+      "site": "11",
+      "tower_height_m": 2,
+      "mode": "sun_tracking",
+      "energy_kwh_m2": 2722.5835634016635,
+      "mean_visible_fraction": 0.8121850080223889,
+      "longest_darkness_h": 258.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    },
+    {
+      "site": "11",
+      "tower_height_m": 5,
+      "mode": "fixed",
+      "energy_kwh_m2": 1086.339723940446,
+      "mean_visible_fraction": 0.827585678928318,
+      "longest_darkness_h": 258.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    },
+    {
+      "site": "11",
+      "tower_height_m": 5,
+      "mode": "sun_tracking",
+      "energy_kwh_m2": 2773.3282092407403,
+      "mean_visible_fraction": 0.827585678928318,
+      "longest_darkness_h": 258.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    },
+    {
+      "site": "11",
+      "tower_height_m": 20,
+      "mode": "fixed",
+      "energy_kwh_m2": 1086.5529424560832,
+      "mean_visible_fraction": 0.8434178386898933,
+      "longest_darkness_h": 138.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    },
+    {
+      "site": "11",
+      "tower_height_m": 20,
+      "mode": "sun_tracking",
+      "energy_kwh_m2": 2825.0853876202605,
+      "mean_visible_fraction": 0.8434178386898933,
+      "longest_darkness_h": 138.0,
+      "model": "2026 geometric scenario; constant 25 C cells; 2h step"
+    }
+  ],
+  "thermal_max_balance_error_j": 5.122274160385132e-09,
+  "route_arrival_h": 5.0,
+  "route_final_energy_wh": 70.0349533538976,
+  "limits": [
+    "2h year, 30min month; finite window and resolution",
+    "terrain interpolation and omitted subpixel obstacles",
+    "constant cell temperature in yield/storage sweeps; separate coupled thermal experiment",
+    "Diviner fixed spatial-temperature scenarios, not dated predictions",
+    "illustrative equipment and mass assumptions; not a mission design"
+  ]
+}

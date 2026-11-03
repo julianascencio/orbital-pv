@@ -1,0 +1,166 @@
+{
+  "frame": "MOON_ME_DE421",
+  "sites": {
+    "01": {
+      "x_m": -11497.5,
+      "y_m": -12502.5,
+      "selection": "Illustrative high point in PGDA site, not an approved landing location"
+    },
+    "04": {
+      "x_m": -2697.5,
+      "y_m": -6102.5,
+      "selection": "Illustrative high point in PGDA site, not an approved landing location"
+    },
+    "11": {
+      "x_m": -37597.5,
+      "y_m": 14897.5,
+      "selection": "Illustrative high point in PGDA site, not an approved landing location"
+    }
+  },
+  "sources": [
+    {
+      "source": "NASA PGDA LOLA",
+      "url": "https://pgda.gsfc.nasa.gov/data/LOLA_20mpp/LDEM_80S_80MPP_ADJ.TIF",
+      "retrieved_at": "2026-11-03T04:56:57.165878+00:00",
+      "sha256": "82030dcbdd7c4bb0c7d858e9b4b293b9f2cda5a543ba31ec0f42784bd6beee5a",
+      "bytes": 189158392
+    },
+    {
+      "source": "NASA PGDA LOLA",
+      "url": "https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/Site01/Site01_final_adj_5mpp_surf.tif",
+      "retrieved_at": "2026-11-03T05:02:36.263906+00:00",
+      "sha256": "3ba7b97cb00a2bcf21189c3aeb535f65afc21207154ab9f0d43c5bdc1f7e747e",
+      "bytes": 40980810
+    },
+    {
+      "source": "NASA PGDA LOLA",
+      "url": "https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/Site04/Site04_final_adj_5mpp_surf.tif",
+      "retrieved_at": "2026-11-03T05:02:37.310258+00:00",
+      "sha256": "38ff70dbdf2f066c2cfa94a646c3a59d653ce7f6b4528b15fc1b43ee397ce758",
+      "bytes": 40980806
+    },
+    {
+      "source": "NASA PGDA LOLA",
+      "url": "https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/Site11/Site11_final_adj_5mpp_surf.tif",
+      "retrieved_at": "2026-11-03T05:02:39.500348+00:00",
+      "sha256": "58f3372c35bbd6baf38ffd5633c1c96b59bd89dbd252150581d12893a43136e5",
+      "bytes": 40980806
+    },
+    {
+      "source": "NASA PDS LRO Diviner PCP",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.tab",
+      "retrieved_at": "2026-11-03T05:02:31.820116+00:00",
+      "sha256": "571d11da49ceced5f3622e4d5f9e3a4cbaf88962d82688005af2cf0d9f0ace88",
+      "bytes": 215979356
+    },
+    {
+      "source": "NASA PDS LRO Diviner PCP",
+      "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_pcp/seasonal/slon/pols/pcp_avg_tbol_pols_ls030_slon01_240.xml",
+      "retrieved_at": "2026-11-03T05:02:27.294693+00:00",
+      "sha256": "c434aa4916cf70917a09ecbed4c6bd44537ff343687c6c9c056ede843a4064e8",
+      "bytes": 13093
+    },
+    {
+      "source": "NASA NAIF lunar DE421 kernels",
+      "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/lsk/naif0012.tls",
+      "retrieved_at": "2026-11-03T05:02:22.284675+00:00",
+      "sha256": "678e32bdb5a744117a467cd9601cd6b373f0e9bc9bbde1371d5eee39600a039b",
+      "bytes": 5257
+    },
+    {
+      "source": "NASA NAIF lunar DE421 kernels",
+      "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/a_old_versions/de421.bsp",
+      "retrieved_at": "2026-11-03T05:02:22.951074+00:00",
+      "sha256": "08b20db2ae22488650641c5a9033e5bfda4b1c4b440cfeaf20f621cfa18ecdb3",
+      "bytes": 16790528
+    },
+    {
+      "source": "NASA NAIF lunar DE421 kernels",
+      "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/pck/moon_pa_de421_1900-2050.bpc",
+      "retrieved_at": "2026-11-03T05:02:23.155420+00:00",
+      "sha256": "656f90616403d75a75f0cd6c8830fc5b44f8cb4facb5ccb8915e752b397520cf",
+      "bytes": 1770496
+    },
+    {
+      "source": "NASA NAIF lunar DE421 kernels",
+      "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/fk/satellites/moon_080317.tf",
+      "retrieved_at": "2026-11-03T05:02:23.266341+00:00",
+      "sha256": "78732477b96f9863e7b0d65bcee3c22b8707ca5ed0db56d1173319cb2e8c7993",
+      "bytes": 21437
+    },
+    {
+      "source": "NASA SVS lunar illumination 4930",
+      "url": "https://svs.gsfc.nasa.gov/api/4930",
+      "retrieved_at": "2026-11-03T05:02:36.750844+00:00",
+      "sha256": "ccd5a2e072539cd396fb22bb82905e07cca82bf0f2a183d6bc34c9823a32bf8a",
+      "bytes": 65807
+    },
+    {
+      "source": "NASA SVS lunar illumination 4930",
+      "url": "https://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2026_print.jpg",
+      "retrieved_at": "2026-11-03T05:02:36.902504+00:00",
+      "sha256": "366a32ae0b1427e255c9043f3154caf0ba6131596ad85209a051665e10107884",
+      "bytes": 108532
+    }
+  ],
+  "transformations": {
+    "terrain": "Native pixel centres; 5 m 1.4 km windows, 80 m 40 km windows, whole polar DEM strided by 16 (1280 m); no smoothing or gap filling",
+    "diviner": "Original header and 551 verbatim rows of 3176166; x/y within 2000 m of any site; original XML retained; L_s 0--60 and subsolar longitude 0--15 deg; compiled 2009--2020",
+    "geometry": "SPICE DE421 geometric Sun/Earth vectors in MOON_ME_DE421; UTC labels and ET elapsed seconds; 2h year and 30min month boundaries",
+    "svs": "Unmodified NASA metadata and reference JPEG; qualitative illustration only"
+  },
+  "files": {
+    "diviner_label.xml": {
+      "sha256": "c434aa4916cf70917a09ecbed4c6bd44537ff343687c6c9c056ede843a4064e8",
+      "bytes": 13093
+    },
+    "diviner_subset.tab": {
+      "sha256": "3549df564f412a0d573383d7fe17e809f383cf8455a2a13de9a83e05aa431537",
+      "bytes": 37536
+    },
+    "month_2026_ephemeris.csv": {
+      "sha256": "9a4315d54cce981efc257cbc37952e4da336ac1cfc6828fc5701660a5b1cb560",
+      "bytes": 161359
+    },
+    "regional_1280m.npz": {
+      "sha256": "752a393ffbe4e32aaa764883ba4010ac252f2f715f3e55bcefff314012135435",
+      "bytes": 817532
+    },
+    "site01_5m.npz": {
+      "sha256": "3ca50fc8eacc5aabfac77468b8d35b9e973fad230d10a0522269cf3226ae110d",
+      "bytes": 239176
+    },
+    "site01_80m.npz": {
+      "sha256": "25bdc6af844ccdf579f8e814371bbe6fc655f5848efb1a3de662db77b94b1f30",
+      "bytes": 908281
+    },
+    "site04_5m.npz": {
+      "sha256": "b6981909ed9fb5944db734610b4804826cba80f4f56179cdc4fa9ca7394a7d72",
+      "bytes": 255596
+    },
+    "site04_80m.npz": {
+      "sha256": "c98d9405243fecb0821a8932bb4b313cc01cc921419547dfeee92ad7e100df75",
+      "bytes": 907206
+    },
+    "site11_5m.npz": {
+      "sha256": "78b79db2a48e1b989fb880e8ba024b7a613582275f807834d236e604b9a76bbd",
+      "bytes": 235502
+    },
+    "site11_80m.npz": {
+      "sha256": "57958796f1191930d5bce5e39ab92f07b45d5682c04ffa69c89bb1e8ba26fc3e",
+      "bytes": 906715
+    },
+    "svs_2026.jpg": {
+      "sha256": "366a32ae0b1427e255c9043f3154caf0ba6131596ad85209a051665e10107884",
+      "bytes": 108532
+    },
+    "svs_metadata.json": {
+      "sha256": "ccd5a2e072539cd396fb22bb82905e07cca82bf0f2a183d6bc34c9823a32bf8a",
+      "bytes": 65807
+    },
+    "year_2026_ephemeris.csv": {
+      "sha256": "90c0d716388897af5c26ffc971d04e15817e5614ba92c4111447dca037c26ddd",
+      "bytes": 488072
+    }
+  }
+}

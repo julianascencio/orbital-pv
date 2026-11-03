@@ -80,6 +80,28 @@ From an installed checkout, run `python scripts/check_research_connectors.py`
 for a small live access check. These additions are unreleased until the next
 package release.
 
+### Lunar surface power (source tree)
+
+`opv.lunar` adds four anonymous data connectors (LOLA terrain, Diviner polar
+temperatures, NAIF lunar SPICE kernels and NASA SVS illumination references),
+terrain-aware PV, panel thermal modelling, PV/battery/tower design sweeps and
+energy-aware rover routing. Six runnable gallery examples use a compact,
+checksummed bundle of real terrain/temperature inputs and computed geometry.
+Power, hardware and mobility results remain explicit engineering scenarios.
+
+From an installed source checkout, run:
+
+```bash
+python -m pip install -e ".[ground,orbit,examples]"
+python analysis/lunar_surface_pv/run.py --output outputs/lunar_surface_pv
+python examples/lunar/plot_lunar_terrain_yield.py
+```
+
+See the [lunar guide](https://julianascencio.github.io/orbital-pv/user_guide/modeling_topics/lunar_surface_pv.html),
+[runnable analyses](analysis/lunar_surface_pv) and
+[literature evidence](docs/literature/12_lunar_surface_pv.md).
+These APIs are unreleased until the next package release.
+
 ### Ground satellite imagery
 
 The repository's ground-data API retrieves **Sentinel-2 Collection 1 imagery**

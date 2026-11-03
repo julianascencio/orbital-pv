@@ -1,0 +1,19 @@
+site,tower_height_m,mode,energy_kwh_m2,mean_visible_fraction,longest_darkness_h,model
+01,2,fixed,1016.1280409408818,0.8300230755283596,216.0,2026 geometric scenario; constant 25 C cells; 2h step
+01,2,sun_tracking,2784.201679023544,0.8300230755283596,216.0,2026 geometric scenario; constant 25 C cells; 2h step
+01,5,fixed,1046.1706581054707,0.9064797079302139,146.0,2026 geometric scenario; constant 25 C cells; 2h step
+01,5,sun_tracking,3033.742235529775,0.9064797079302139,146.0,2026 geometric scenario; constant 25 C cells; 2h step
+01,20,fixed,1046.455541817443,0.9242762045991576,70.0,2026 geometric scenario; constant 25 C cells; 2h step
+01,20,sun_tracking,3091.795292380766,0.9242762045991576,70.0,2026 geometric scenario; constant 25 C cells; 2h step
+04,2,fixed,839.3397344983069,0.8146599020938274,114.0,2026 geometric scenario; constant 25 C cells; 2h step
+04,2,sun_tracking,2732.7519568681255,0.8146599020938274,114.0,2026 geometric scenario; constant 25 C cells; 2h step
+04,5,fixed,856.2911643052242,0.8602687475771128,66.0,2026 geometric scenario; constant 25 C cells; 2h step
+04,5,sun_tracking,2881.282140635154,0.8602687475771128,66.0,2026 geometric scenario; constant 25 C cells; 2h step
+04,20,fixed,875.0917329110961,0.8680848911552178,62.0,2026 geometric scenario; constant 25 C cells; 2h step
+04,20,sun_tracking,2906.9600069150365,0.8680848911552178,62.0,2026 geometric scenario; constant 25 C cells; 2h step
+11,2,fixed,1083.5781446214005,0.8121850080223889,258.0,2026 geometric scenario; constant 25 C cells; 2h step
+11,2,sun_tracking,2722.5835634016635,0.8121850080223889,258.0,2026 geometric scenario; constant 25 C cells; 2h step
+11,5,fixed,1086.339723940446,0.827585678928318,258.0,2026 geometric scenario; constant 25 C cells; 2h step
+11,5,sun_tracking,2773.3282092407403,0.827585678928318,258.0,2026 geometric scenario; constant 25 C cells; 2h step
+11,20,fixed,1086.5529424560832,0.8434178386898933,138.0,2026 geometric scenario; constant 25 C cells; 2h step
+11,20,sun_tracking,2825.0853876202605,0.8434178386898933,138.0,2026 geometric scenario; constant 25 C cells; 2h step
