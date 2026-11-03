@@ -17,6 +17,7 @@ workflows in OrbitalPV.
    :maxdepth: 2
 
    modeling_topics/orbit_sun_geometry
+   modeling_topics/live_tracking
    modeling_topics/constellations
    modeling_topics/pv_modeling
    modeling_topics/mars_surface_pv

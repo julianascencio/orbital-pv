@@ -16,6 +16,7 @@ from space_pv_connectors import (
     GroundImage,
     HorizonsConnector,
     LisirdConnector,
+    N2YOConnector,
     NoaaSwpcConnector,
     NtrsConnector,
     OpenStreetMapEnergyConnector,
@@ -39,13 +40,23 @@ from space_pv_connectors import (
     normalize_birds_like,
     read_ground_image,
 )
+from space_pv_connectors.gp_cache import GPCache, GPSnapshot, GPUnavailableError
 
 
-def fetch_celestrak_omm(catnr: int) -> dict[str, object]:
-    """Fetch the first CelesTrak OMM record for a NORAD catalog number."""
+def fetch_celestrak_omm(
+    catnr: int, *, cache_path: str | Path = "data/cache/gp.sqlite3"
+) -> dict[str, object]:
+    """Fetch a CelesTrak OMM record, reusing a persistent two-hour cache.
+
+    Use ``CelesTrakConnector.fetch_gp_cached`` when source timestamps, stale
+    warnings and checksums are needed alongside the orbital elements.
+    """
 
     with CelesTrakConnector() as connector:
-        records = connector.fetch_gp(catnr=catnr)
+        snapshot = connector.fetch_gp_cached(cache_path, catnr=catnr)
+    if snapshot.cache_stale or snapshot.warning:
+        raise GPUnavailableError(snapshot.warning or "GP snapshot refresh is overdue")
+    records = snapshot.records
     if not records:
         raise LookupError(f"No CelesTrak OMM record found for NORAD {catnr}")
     return records[0]
@@ -116,9 +127,12 @@ __all__ = [
     "DonkiConnector",
     "FlyingLaptopConnector",
     "GHSLSettlementConnector",
+    "GPCache",
+    "GPSnapshot",
     "GroundImage",
     "HorizonsConnector",
     "LisirdConnector",
+    "N2YOConnector",
     "NoaaSwpcConnector",
     "NtrsConnector",
     "OpenStreetMapEnergyConnector",

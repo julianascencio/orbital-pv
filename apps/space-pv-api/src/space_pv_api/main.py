@@ -28,6 +28,7 @@ from .schemas import (
     MapTrack,
     OrbitSample,
 )
+from .tracking import router as tracking_router
 
 settings = APISettings()
 engine = create_engine_from_settings()
@@ -37,7 +38,8 @@ SessionLocal = session_factory()
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     # Development bootstrap. Replace with Alembic migrations before production.
-    Base.metadata.create_all(engine)
+    if settings.bootstrap_database:
+        Base.metadata.create_all(engine)
     yield
 
 
@@ -54,6 +56,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.include_router(tracking_router)
 
 
 @app.get("/health")
@@ -186,6 +189,7 @@ def demo_map_scene() -> MapScene:
     epoch = datetime.now(UTC).replace(microsecond=0)
     return MapScene(
         generated_at=epoch,
+        catalog_count=3,
         tracks=[
             _demo_track("Demo LEO 51.6", 51.6, 420_000.0, 0.0, epoch),
             _demo_track("Demo SSO 97.4", 82.0, 550_000.0, 115.0, epoch),

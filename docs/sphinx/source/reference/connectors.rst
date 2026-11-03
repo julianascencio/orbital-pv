@@ -102,3 +102,15 @@ Tabular utilities
 
 .. automodule:: space_pv_connectors.tabular
    :members:
+
+GP snapshot cache
+-----------------
+
+.. automodule:: space_pv_connectors.gp_cache
+   :members:
+
+N2YO positions
+--------------
+
+.. automodule:: space_pv_connectors.n2yo
+   :members:

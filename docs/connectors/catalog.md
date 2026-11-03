@@ -5,6 +5,7 @@ The connector layer retrieves raw external facts and preserves provenance. It do
 | Connector | Data | Auth | Primary use |
 |---|---|---:|---|
 | CelesTrak GP | OMM/TLE/CSV satellite orbital elements | No | Current public catalog orbits |
+| N2YO | Calculated current/future positions, observer look angles | API key | Optional direct-position API; element epoch is unknown |
 | Space-Track | GP + historical element sets/catalog | Yes | Authoritative catalog history and broader SSA queries |
 | NASA SSCWeb | definitive/predictive ephemeris for many science spacecraft | No | Real spacecraft positions without maintaining all mission kernels |
 | NASA NAIF | SPICE SPK/CK/FK/PCK/LSK/SCLK kernels | No | Mission-grade geometry, attitude, time/frame transforms |
