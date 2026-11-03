@@ -1,0 +1,4 @@
+array_area_m2,capacity_wh,unserved_energy_wh,final_soc,minimum_soc,terminal_soc_satisfied,feasible,scenario_mass_kg,site,tower_height_m,tower_mass_kg,total_scenario_mass_kg
+10.0,400000.0,0.0,0.95,0.14798108040924507,True,True,2696.6666666666665,04,2,30,2726.6666666666665
+10.0,100000.0,0.0,0.95,0.14977220009534567,True,True,696.6666666666666,04,5,45,741.6666666666666
+10.0,100000.0,0.0,0.95,0.18763481247113242,True,True,696.6666666666666,04,20,120,816.6666666666666

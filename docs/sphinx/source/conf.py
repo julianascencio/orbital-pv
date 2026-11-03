@@ -77,10 +77,27 @@ sphinx_gallery_conf = {
     "examples_dirs": str(ROOT / "examples"),
     "gallery_dirs": "gallery",
     "filename_pattern": r"/plot_",
+    "ignore_pattern": r"__init__\.py|_lunar_analysis\.py",
     "download_all_examples": False,
     "remove_config_comments": True,
 }
 
 
+def _build_satellite_snapshot(app, exception):
+    if exception is not None or app.builder.format != "html":
+        return
+    import shutil
+
+    from orbitalpv.catalogue import build_snapshot
+
+    destination = Path(app.outdir) / "_static" / "satellite-db"
+    if destination.exists():
+        shutil.rmtree(destination)
+    build_snapshot(destination)
+
+
 def setup(app):
     app.add_css_file("orbitalpv.css")
+    app.add_css_file("satellite-database.css")
+    app.add_js_file("satellite-database.mjs", type="module")
+    app.connect("build-finished", _build_satellite_snapshot)

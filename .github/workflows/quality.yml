@@ -17,6 +17,10 @@ jobs:
       - run: uv run ruff check .
       - run: uv run ty check
       - run: uv run pytest --cov=packages --cov=apps
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/js/test_satellite_database.mjs
 
   web:
     runs-on: ubuntu-latest

@@ -1,0 +1,1341 @@
+{
+    "id": 4930,
+    "url": "http://svs.gsfc.nasa.gov/4930/",
+    "page_type": "Visualization",
+    "title": "Illumination at the Moon's South Pole, 2023 to 2030",
+    "description": "2023: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year. || sp_illum_2023_print.jpg (1024x576) [103.9 KB] || sp_illum.0001_searchweb.png (320x180) [55.6 KB] || sp_illum.0001_thm.png (80x40) [5.3 KB] || sp_illum_2deg_2023_1080p30.mp4 (1920x1080) [71.3 MB] || sp_illum_2deg_2023_720p30.mp4 (1280x720) [40.9 MB] || 2023 (1920x1080) [0 Item(s)] || sp_illum_2deg_2023_720p30.webm (1280x720) [17.4 MB] || sp_illum_2deg_2023_360p30.mp4 (640x360) [17.2 MB] || sp_illum_2deg_2023_1080p30.mp4.hwshow || ",
+    "release_date": "2022-10-05T16:00:00-04:00",
+    "update_date": "2025-02-18T00:11:24.511084-05:00",
+    "main_image": {
+        "id": 377396,
+        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2023_print.jpg",
+        "filename": "sp_illum_2023_print.jpg",
+        "media_type": "Image",
+        "alt_text": "2023: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+        "width": 1024,
+        "height": 576,
+        "pixels": 589824
+    },
+    "main_video": null,
+    "main_credits": {
+        "Visualizations by": [
+            {
+                "name": "Ernie Wright",
+                "employer": "USRA"
+            }
+        ]
+    },
+    "progress": "Complete",
+    "media_groups": [
+        {
+            "id": 313835,
+            "url": "http://svs.gsfc.nasa.gov/4930/#media_group_313835",
+            "widget": "Video player",
+            "title": "",
+            "caption": "",
+            "description": "<b>2023:</b> Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+            "items": [
+                {
+                    "id": 210231,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377396,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2023_print.jpg",
+                        "filename": "sp_illum_2023_print.jpg",
+                        "media_type": "Image",
+                        "alt_text": "2023: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1024,
+                        "height": 576,
+                        "pixels": 589824
+                    }
+                },
+                {
+                    "id": 210232,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377397,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum.0001_searchweb.png",
+                        "filename": "sp_illum.0001_searchweb.png",
+                        "media_type": "Image",
+                        "alt_text": "2023: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 320,
+                        "height": 180,
+                        "pixels": 57600
+                    }
+                },
+                {
+                    "id": 210233,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377398,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum.0001_thm.png",
+                        "filename": "sp_illum.0001_thm.png",
+                        "media_type": "Image",
+                        "alt_text": "2023: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 80,
+                        "height": 40,
+                        "pixels": 3200
+                    }
+                },
+                {
+                    "id": 210227,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377395,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2023_1080p30.mp4",
+                        "filename": "sp_illum_2deg_2023_1080p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2023: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1920,
+                        "height": 1080,
+                        "pixels": 2073600
+                    }
+                },
+                {
+                    "id": 210228,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377399,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2023_720p30.mp4",
+                        "filename": "sp_illum_2deg_2023_720p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2023: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1280,
+                        "height": 720,
+                        "pixels": 921600
+                    }
+                },
+                {
+                    "id": 210230,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377394,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/frames/1920x1080_16x9_30p/2023/",
+                        "filename": "2023",
+                        "media_type": "Frames",
+                        "alt_text": "2023: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1920,
+                        "height": 1080,
+                        "pixels": 2073600
+                    }
+                },
+                {
+                    "id": 210234,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377401,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2023_720p30.webm",
+                        "filename": "sp_illum_2deg_2023_720p30.webm",
+                        "media_type": "Movie",
+                        "alt_text": "2023: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1280,
+                        "height": 720,
+                        "pixels": 921600
+                    }
+                },
+                {
+                    "id": 210229,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377400,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2023_360p30.mp4",
+                        "filename": "sp_illum_2deg_2023_360p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2023: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 640,
+                        "height": 360,
+                        "pixels": 230400
+                    }
+                },
+                {
+                    "id": 436230,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 1098445,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2023_1080p30.mp4.hwshow",
+                        "filename": "sp_illum_2deg_2023_1080p30.mp4.hwshow",
+                        "media_type": "HyperwallShow",
+                        "alt_text": "",
+                        "width": 0,
+                        "height": 0,
+                        "pixels": null
+                    }
+                }
+            ],
+            "extra_data": {}
+        },
+        {
+            "id": 313834,
+            "url": "http://svs.gsfc.nasa.gov/4930/#media_group_313834",
+            "widget": "Basic text with HTML",
+            "title": "",
+            "caption": "",
+            "description": "The visualizations on this page simulate the lighting at the South Pole of the Moon in the years 2023 to 2030 at two-hour intervals, a total of 35,064 time steps or frames. The field of view encompasses the area south of 88° south latitude.<br><br>Global terrain mapping by Lunar Reconnaissance Orbiter's laser altimeter, <a href=\"https://www.nasa.gov/mission_pages/LRO/spacecraft/index.html\">LOLA</a>, makes it possible to simulate sunlight and shadow on the Moon at any date in the past or future. This will be vital for planning exploration of the lunar South Pole, where the low Sun angle and rugged terrain produce a uniquely challenging lighting environment.",
+            "items": [],
+            "extra_data": {}
+        },
+        {
+            "id": 313836,
+            "url": "http://svs.gsfc.nasa.gov/4930/#media_group_313836",
+            "widget": "Video player",
+            "title": "",
+            "caption": "",
+            "description": "<b>2024:</b> Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+            "items": [
+                {
+                    "id": 210239,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377404,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2024_print.jpg",
+                        "filename": "sp_illum_2024_print.jpg",
+                        "media_type": "Image",
+                        "alt_text": "2024: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1024,
+                        "height": 576,
+                        "pixels": 589824
+                    }
+                },
+                {
+                    "id": 210235,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377403,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2024_1080p30.mp4",
+                        "filename": "sp_illum_2deg_2024_1080p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2024: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1920,
+                        "height": 1080,
+                        "pixels": 2073600
+                    }
+                },
+                {
+                    "id": 210236,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377405,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2024_720p30.mp4",
+                        "filename": "sp_illum_2deg_2024_720p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2024: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1280,
+                        "height": 720,
+                        "pixels": 921600
+                    }
+                },
+                {
+                    "id": 210238,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377402,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/frames/1920x1080_16x9_30p/2024/",
+                        "filename": "2024",
+                        "media_type": "Frames",
+                        "alt_text": "2024: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1920,
+                        "height": 1080,
+                        "pixels": 2073600
+                    }
+                },
+                {
+                    "id": 210240,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377407,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2024_720p30.webm",
+                        "filename": "sp_illum_2deg_2024_720p30.webm",
+                        "media_type": "Movie",
+                        "alt_text": "2024: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1280,
+                        "height": 720,
+                        "pixels": 921600
+                    }
+                },
+                {
+                    "id": 210237,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377406,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2024_360p30.mp4",
+                        "filename": "sp_illum_2deg_2024_360p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2024: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 640,
+                        "height": 360,
+                        "pixels": 230400
+                    }
+                },
+                {
+                    "id": 436231,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 1098446,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2024_1080p30.mp4.hwshow",
+                        "filename": "sp_illum_2deg_2024_1080p30.mp4.hwshow",
+                        "media_type": "HyperwallShow",
+                        "alt_text": "",
+                        "width": 0,
+                        "height": 0,
+                        "pixels": null
+                    }
+                }
+            ],
+            "extra_data": {}
+        },
+        {
+            "id": 313837,
+            "url": "http://svs.gsfc.nasa.gov/4930/#media_group_313837",
+            "widget": "Video player",
+            "title": "",
+            "caption": "",
+            "description": "<b>2025:</b> Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+            "items": [
+                {
+                    "id": 210245,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377410,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2025_print.jpg",
+                        "filename": "sp_illum_2025_print.jpg",
+                        "media_type": "Image",
+                        "alt_text": "2025: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1024,
+                        "height": 576,
+                        "pixels": 589824
+                    }
+                },
+                {
+                    "id": 210241,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377409,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2025_1080p30.mp4",
+                        "filename": "sp_illum_2deg_2025_1080p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2025: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1920,
+                        "height": 1080,
+                        "pixels": 2073600
+                    }
+                },
+                {
+                    "id": 210242,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377411,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2025_720p30.mp4",
+                        "filename": "sp_illum_2deg_2025_720p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2025: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1280,
+                        "height": 720,
+                        "pixels": 921600
+                    }
+                },
+                {
+                    "id": 210244,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377408,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/frames/1920x1080_16x9_30p/2025/",
+                        "filename": "2025",
+                        "media_type": "Frames",
+                        "alt_text": "2025: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1920,
+                        "height": 1080,
+                        "pixels": 2073600
+                    }
+                },
+                {
+                    "id": 210246,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377413,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2025_720p30.webm",
+                        "filename": "sp_illum_2deg_2025_720p30.webm",
+                        "media_type": "Movie",
+                        "alt_text": "2025: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1280,
+                        "height": 720,
+                        "pixels": 921600
+                    }
+                },
+                {
+                    "id": 210243,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377412,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2025_360p30.mp4",
+                        "filename": "sp_illum_2deg_2025_360p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2025: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 640,
+                        "height": 360,
+                        "pixels": 230400
+                    }
+                },
+                {
+                    "id": 436232,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 1098447,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2025_1080p30.mp4.hwshow",
+                        "filename": "sp_illum_2deg_2025_1080p30.mp4.hwshow",
+                        "media_type": "HyperwallShow",
+                        "alt_text": "",
+                        "width": 0,
+                        "height": 0,
+                        "pixels": null
+                    }
+                }
+            ],
+            "extra_data": {}
+        },
+        {
+            "id": 313838,
+            "url": "http://svs.gsfc.nasa.gov/4930/#media_group_313838",
+            "widget": "Video player",
+            "title": "",
+            "caption": "",
+            "description": "<b>2026:</b> Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+            "items": [
+                {
+                    "id": 210251,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377416,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2026_print.jpg",
+                        "filename": "sp_illum_2026_print.jpg",
+                        "media_type": "Image",
+                        "alt_text": "2026: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1024,
+                        "height": 576,
+                        "pixels": 589824
+                    }
+                },
+                {
+                    "id": 210247,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377415,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2026_1080p30.mp4",
+                        "filename": "sp_illum_2deg_2026_1080p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2026: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1920,
+                        "height": 1080,
+                        "pixels": 2073600
+                    }
+                },
+                {
+                    "id": 210248,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377417,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2026_720p30.mp4",
+                        "filename": "sp_illum_2deg_2026_720p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2026: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1280,
+                        "height": 720,
+                        "pixels": 921600
+                    }
+                },
+                {
+                    "id": 210250,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377414,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/frames/1920x1080_16x9_30p/2026/",
+                        "filename": "2026",
+                        "media_type": "Frames",
+                        "alt_text": "2026: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1920,
+                        "height": 1080,
+                        "pixels": 2073600
+                    }
+                },
+                {
+                    "id": 210252,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377419,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2026_720p30.webm",
+                        "filename": "sp_illum_2deg_2026_720p30.webm",
+                        "media_type": "Movie",
+                        "alt_text": "2026: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1280,
+                        "height": 720,
+                        "pixels": 921600
+                    }
+                },
+                {
+                    "id": 210249,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377418,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2026_360p30.mp4",
+                        "filename": "sp_illum_2deg_2026_360p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2026: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 640,
+                        "height": 360,
+                        "pixels": 230400
+                    }
+                },
+                {
+                    "id": 436233,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 1098448,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2026_1080p30.mp4.hwshow",
+                        "filename": "sp_illum_2deg_2026_1080p30.mp4.hwshow",
+                        "media_type": "HyperwallShow",
+                        "alt_text": "",
+                        "width": 0,
+                        "height": 0,
+                        "pixels": null
+                    }
+                }
+            ],
+            "extra_data": {}
+        },
+        {
+            "id": 313839,
+            "url": "http://svs.gsfc.nasa.gov/4930/#media_group_313839",
+            "widget": "Video player",
+            "title": "",
+            "caption": "",
+            "description": "<b>2027:</b> Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+            "items": [
+                {
+                    "id": 210257,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377422,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2027_print.jpg",
+                        "filename": "sp_illum_2027_print.jpg",
+                        "media_type": "Image",
+                        "alt_text": "2027: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1024,
+                        "height": 576,
+                        "pixels": 589824
+                    }
+                },
+                {
+                    "id": 210253,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377421,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2027_1080p30.mp4",
+                        "filename": "sp_illum_2deg_2027_1080p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2027: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1920,
+                        "height": 1080,
+                        "pixels": 2073600
+                    }
+                },
+                {
+                    "id": 210254,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377423,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2027_720p30.mp4",
+                        "filename": "sp_illum_2deg_2027_720p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2027: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1280,
+                        "height": 720,
+                        "pixels": 921600
+                    }
+                },
+                {
+                    "id": 210256,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377420,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/frames/1920x1080_16x9_30p/2027/",
+                        "filename": "2027",
+                        "media_type": "Frames",
+                        "alt_text": "2027: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1920,
+                        "height": 1080,
+                        "pixels": 2073600
+                    }
+                },
+                {
+                    "id": 210258,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377425,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2027_720p30.webm",
+                        "filename": "sp_illum_2deg_2027_720p30.webm",
+                        "media_type": "Movie",
+                        "alt_text": "2027: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1280,
+                        "height": 720,
+                        "pixels": 921600
+                    }
+                },
+                {
+                    "id": 210255,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377424,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2027_360p30.mp4",
+                        "filename": "sp_illum_2deg_2027_360p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2027: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 640,
+                        "height": 360,
+                        "pixels": 230400
+                    }
+                },
+                {
+                    "id": 436234,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 1098449,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2027_1080p30.mp4.hwshow",
+                        "filename": "sp_illum_2deg_2027_1080p30.mp4.hwshow",
+                        "media_type": "HyperwallShow",
+                        "alt_text": "",
+                        "width": 0,
+                        "height": 0,
+                        "pixels": null
+                    }
+                }
+            ],
+            "extra_data": {}
+        },
+        {
+            "id": 313840,
+            "url": "http://svs.gsfc.nasa.gov/4930/#media_group_313840",
+            "widget": "Video player",
+            "title": "",
+            "caption": "",
+            "description": "<b>2028:</b> Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+            "items": [
+                {
+                    "id": 210263,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377428,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2028_print.jpg",
+                        "filename": "sp_illum_2028_print.jpg",
+                        "media_type": "Image",
+                        "alt_text": "2028: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1024,
+                        "height": 576,
+                        "pixels": 589824
+                    }
+                },
+                {
+                    "id": 210259,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377427,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2028_1080p30.mp4",
+                        "filename": "sp_illum_2deg_2028_1080p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2028: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1920,
+                        "height": 1080,
+                        "pixels": 2073600
+                    }
+                },
+                {
+                    "id": 210260,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377429,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2028_720p30.mp4",
+                        "filename": "sp_illum_2deg_2028_720p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2028: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1280,
+                        "height": 720,
+                        "pixels": 921600
+                    }
+                },
+                {
+                    "id": 210262,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377426,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/frames/1920x1080_16x9_30p/2028/",
+                        "filename": "2028",
+                        "media_type": "Frames",
+                        "alt_text": "2028: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1920,
+                        "height": 1080,
+                        "pixels": 2073600
+                    }
+                },
+                {
+                    "id": 210264,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377431,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2028_720p30.webm",
+                        "filename": "sp_illum_2deg_2028_720p30.webm",
+                        "media_type": "Movie",
+                        "alt_text": "2028: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1280,
+                        "height": 720,
+                        "pixels": 921600
+                    }
+                },
+                {
+                    "id": 210261,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377430,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2028_360p30.mp4",
+                        "filename": "sp_illum_2deg_2028_360p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2028: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 640,
+                        "height": 360,
+                        "pixels": 230400
+                    }
+                },
+                {
+                    "id": 436235,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 1098450,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2028_1080p30.mp4.hwshow",
+                        "filename": "sp_illum_2deg_2028_1080p30.mp4.hwshow",
+                        "media_type": "HyperwallShow",
+                        "alt_text": "",
+                        "width": 0,
+                        "height": 0,
+                        "pixels": null
+                    }
+                }
+            ],
+            "extra_data": {}
+        },
+        {
+            "id": 313841,
+            "url": "http://svs.gsfc.nasa.gov/4930/#media_group_313841",
+            "widget": "Video player",
+            "title": "",
+            "caption": "",
+            "description": "<b>2029:</b> Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+            "items": [
+                {
+                    "id": 210269,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377434,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2029_print.jpg",
+                        "filename": "sp_illum_2029_print.jpg",
+                        "media_type": "Image",
+                        "alt_text": "2029: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1024,
+                        "height": 576,
+                        "pixels": 589824
+                    }
+                },
+                {
+                    "id": 210265,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377433,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2029_1080p30.mp4",
+                        "filename": "sp_illum_2deg_2029_1080p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2029: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1920,
+                        "height": 1080,
+                        "pixels": 2073600
+                    }
+                },
+                {
+                    "id": 210266,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377435,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2029_720p30.mp4",
+                        "filename": "sp_illum_2deg_2029_720p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2029: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1280,
+                        "height": 720,
+                        "pixels": 921600
+                    }
+                },
+                {
+                    "id": 210268,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377432,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/frames/1920x1080_16x9_30p/2029/",
+                        "filename": "2029",
+                        "media_type": "Frames",
+                        "alt_text": "2029: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1920,
+                        "height": 1080,
+                        "pixels": 2073600
+                    }
+                },
+                {
+                    "id": 210270,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377437,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2029_720p30.webm",
+                        "filename": "sp_illum_2deg_2029_720p30.webm",
+                        "media_type": "Movie",
+                        "alt_text": "2029: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1280,
+                        "height": 720,
+                        "pixels": 921600
+                    }
+                },
+                {
+                    "id": 210267,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377436,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2029_360p30.mp4",
+                        "filename": "sp_illum_2deg_2029_360p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2029: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 640,
+                        "height": 360,
+                        "pixels": 230400
+                    }
+                },
+                {
+                    "id": 436236,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 1098451,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2029_1080p30.mp4.hwshow",
+                        "filename": "sp_illum_2deg_2029_1080p30.mp4.hwshow",
+                        "media_type": "HyperwallShow",
+                        "alt_text": "",
+                        "width": 0,
+                        "height": 0,
+                        "pixels": null
+                    }
+                }
+            ],
+            "extra_data": {}
+        },
+        {
+            "id": 313842,
+            "url": "http://svs.gsfc.nasa.gov/4930/#media_group_313842",
+            "widget": "Video player",
+            "title": "",
+            "caption": "",
+            "description": "<b>2030:</b> Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+            "items": [
+                {
+                    "id": 210275,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377440,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2030_print.jpg",
+                        "filename": "sp_illum_2030_print.jpg",
+                        "media_type": "Image",
+                        "alt_text": "2030: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1024,
+                        "height": 576,
+                        "pixels": 589824
+                    }
+                },
+                {
+                    "id": 210271,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377439,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2030_1080p30.mp4",
+                        "filename": "sp_illum_2deg_2030_1080p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2030: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1920,
+                        "height": 1080,
+                        "pixels": 2073600
+                    }
+                },
+                {
+                    "id": 210272,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377441,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2030_720p30.mp4",
+                        "filename": "sp_illum_2deg_2030_720p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2030: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1280,
+                        "height": 720,
+                        "pixels": 921600
+                    }
+                },
+                {
+                    "id": 210274,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377438,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/frames/1920x1080_16x9_30p/2030/",
+                        "filename": "2030",
+                        "media_type": "Frames",
+                        "alt_text": "2030: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1920,
+                        "height": 1080,
+                        "pixels": 2073600
+                    }
+                },
+                {
+                    "id": 210276,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377443,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2030_720p30.webm",
+                        "filename": "sp_illum_2deg_2030_720p30.webm",
+                        "media_type": "Movie",
+                        "alt_text": "2030: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 1280,
+                        "height": 720,
+                        "pixels": 921600
+                    }
+                },
+                {
+                    "id": 210273,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 377442,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2030_360p30.mp4",
+                        "filename": "sp_illum_2deg_2030_360p30.mp4",
+                        "media_type": "Movie",
+                        "alt_text": "2030: Sunlight and shadow within 2 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                        "width": 640,
+                        "height": 360,
+                        "pixels": 230400
+                    }
+                },
+                {
+                    "id": 436237,
+                    "type": "media",
+                    "extra_data": null,
+                    "title": null,
+                    "caption": null,
+                    "instance": {
+                        "id": 1098452,
+                        "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004900/a004930/sp_illum_2deg_2030_1080p30.mp4.hwshow",
+                        "filename": "sp_illum_2deg_2030_1080p30.mp4.hwshow",
+                        "media_type": "HyperwallShow",
+                        "alt_text": "",
+                        "width": 0,
+                        "height": 0,
+                        "pixels": null
+                    }
+                }
+            ],
+            "extra_data": {}
+        }
+    ],
+    "studio": "svs",
+    "funding_sources": [
+        "LRO"
+    ],
+    "credits": [
+        {
+            "role": "Visualizer",
+            "people": [
+                {
+                    "name": "Ernie Wright",
+                    "employer": "USRA"
+                }
+            ]
+        },
+        {
+            "role": "Planetary scientist",
+            "people": [
+                {
+                    "name": "Noah Petro",
+                    "employer": "NASA/GSFC"
+                }
+            ]
+        },
+        {
+            "role": "Technical support",
+            "people": [
+                {
+                    "name": "Laurence Schuler",
+                    "employer": "ADNET Systems, Inc."
+                },
+                {
+                    "name": "Ian Jones",
+                    "employer": "ADNET Systems, Inc."
+                }
+            ]
+        }
+    ],
+    "missions": [
+        "LRO (Lunar Reconnaissance Orbiter)"
+    ],
+    "series": [
+        "The Moon"
+    ],
+    "tapes": [],
+    "papers": [],
+    "datasets": [
+        {
+            "name": "Digital Elevation Map",
+            "common_name": "DEM",
+            "platform": "LRO",
+            "sensor": "LOLA",
+            "type": "Other",
+            "organizations": [],
+            "description": "",
+            "credit": "",
+            "url": "",
+            "date_range": null
+        },
+        {
+            "name": "JPL DE421",
+            "common_name": "DE421",
+            "platform": null,
+            "sensor": null,
+            "type": "Ephemeris",
+            "organizations": [
+                "NASA/JPL"
+            ],
+            "description": "Planetary ephemerides",
+            "credit": "",
+            "url": "http://ssd.jpl.nasa.gov/?ephemerides#planets",
+            "date_range": null
+        }
+    ],
+    "nasa_science_categories": [
+        "Planets & Moons"
+    ],
+    "keywords": [
+        "HDTV",
+        "Hyperwall",
+        "LRO",
+        "Lunar Reconnaissance Orbiter",
+        "Moon",
+        "Permanently Shadowed Regions",
+        "South Pole"
+    ],
+    "recommended_pages": [],
+    "related": [
+        {
+            "id": 14529,
+            "url": "http://svs.gsfc.nasa.gov/14529/",
+            "page_type": "Produced Video",
+            "title": "First U.S. Commercial Provider Just Days From Landing NASA Science And Technology Instruments on the Moon",
+            "description": "See below for associated cut b-roll for the live shots AND a pre-recorded interview with Jim Free. Click here for how you can watch the landing broadcast LIVENASA’s Lunar Reconnaissance Orbiter (LRO) captured this view of the  IM-1 landing region || FINAL_CLPS_Mission_Banner_2.15.jpg (1800x720) [502.1 KB] || FINAL_CLPS_Mission_Banner_2.15_print.jpg (1024x409) [209.8 KB] || FINAL_CLPS_Mission_Banner_2.15_searchweb.png (320x180) [94.5 KB] || FINAL_CLPS_Mission_Banner_2.15_thm.png (80x40) [7.2 KB] || ",
+            "release_date": "2024-02-16T10:00:00-05:00",
+            "update_date": "2024-02-22T12:58:22.121373-05:00",
+            "main_image": {
+                "id": 1089294,
+                "url": "http://svs.gsfc.nasa.gov/vis/a010000/a014500/a014529/FINAL_CLPS_Mission_Banner_2.15.jpg",
+                "filename": "FINAL_CLPS_Mission_Banner_2.15.jpg",
+                "media_type": "Image",
+                "alt_text": "See below for associated cut b-roll for the live shots AND a pre-recorded interview with Jim Free. Click here for how you can watch the landing broadcast LIVENASA’s Lunar Reconnaissance Orbiter (LRO) captured this view of the  IM-1 landing region",
+                "width": 1800,
+                "height": 720,
+                "pixels": 1296000
+            }
+        },
+        {
+            "id": 5038,
+            "url": "http://svs.gsfc.nasa.gov/5038/",
+            "page_type": "Visualization",
+            "title": "The Sun's Path at Different Lunar Latitudes",
+            "description": "The path of the Sun in the lunar sky is shown at four latitudes, including the South Pole. An arrow points toward the Sun. Annotations include the subsolar longitude and the elapsed time in Earth days. || moon.0330_print.jpg (1024x576) [135.4 KB] || moon.0330_searchweb.png (320x180) [76.0 KB] || moon.0330_thm.png (80x40) [5.9 KB] || sun_paths_1080p30.mp4 (1920x1080) [18.0 MB] || sun_paths_720p30.mp4 (1280x720) [8.8 MB] || 1920x1080_16x9_30p (1920x1080) [0 Item(s)] || sun_paths_720p30.webm (1280x720) [4.5 MB] || sun_paths_360p30.mp4 (640x360) [3.0 MB] || sun_paths_1080p30.mp4.hwshow [183 bytes] || ",
+            "release_date": "2022-10-05T16:15:00-04:00",
+            "update_date": "2025-01-06T00:27:45.765575-05:00",
+            "main_image": {
+                "id": 368987,
+                "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005038/moon.0330_print.jpg",
+                "filename": "moon.0330_print.jpg",
+                "media_type": "Image",
+                "alt_text": "The path of the Sun in the lunar sky is shown at four latitudes, including the South Pole. An arrow points toward the Sun. Annotations include the subsolar longitude and the elapsed time in Earth days.",
+                "width": 1024,
+                "height": 576,
+                "pixels": 589824
+            }
+        },
+        {
+            "id": 5029,
+            "url": "http://svs.gsfc.nasa.gov/5029/",
+            "page_type": "Visualization",
+            "title": "Illumination at Schrödinger Basin",
+            "description": "An overhead view of Schrödinger basin showing both the inner peak ring and outer rim. The view is centered on 75°S 133°E with a vertical FOV of 5.8° from a distance of 2 Moon radii. || sp_illum.0002_print.jpg (1024x576) [245.3 KB] || sp_illum.0001_searchweb.png (320x180) [106.0 KB] || sp_illum.0001_thm.png (80x40) [7.1 KB] || schrodinger_2024_2025_720p30.mp4 (1280x720) [58.6 MB] || outer (1920x1080) [0 Item(s)] || schrodinger_2024_2025_720p30.webm (1280x720) [17.2 MB] || schrodinger_2024_2025_1080p30.mp4 (1920x1080) [105.2 MB] || schrodinger_2024_2025_360p30.mp4 (640x360) [20.1 MB] || schrodinger_2024_2025_1080p30.mp4.hwshow || ",
+            "release_date": "2022-10-05T16:10:00-04:00",
+            "update_date": "2025-02-18T00:12:07.530142-05:00",
+            "main_image": {
+                "id": 369259,
+                "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005029/sp_illum.0002_print.jpg",
+                "filename": "sp_illum.0002_print.jpg",
+                "media_type": "Image",
+                "alt_text": "An overhead view of Schrödinger basin showing both the inner peak ring and outer rim. The view is centered on 75°S 133°E with a vertical FOV of 5.8° from a distance of 2 Moon radii.",
+                "width": 1024,
+                "height": 576,
+                "pixels": 589824
+            }
+        },
+        {
+            "id": 5027,
+            "url": "http://svs.gsfc.nasa.gov/5027/",
+            "page_type": "Visualization",
+            "title": "Illumination at the Moon's South Pole to 80°S, 2025 to 2028",
+            "description": "2025: Sunlight and shadow within 10 degrees of the lunar South Pole, rendered at two-hour intervals for a year. || moon.2025_print.jpg (1024x576) [232.8 KB] || moon.2025_searchweb.png (320x180) [96.4 KB] || moon.2025_thm.png (80x40) [7.5 KB] || 2025 (1920x1080) [0 Item(s)] || sp_illum_10deg_2025_720p30.webm (1280x720) [17.6 MB] || sp_illum_10deg_2025_1080p30.mp4 (1920x1080) [176.7 MB] || sp_illum_10deg_2025_720p30.mp4 (1280x720) [107.4 MB] || sp_illum_10deg_2025_360p30.mp4 (640x360) [37.1 MB] || sp_illum_10deg_2025_1080p30.mp4.hwshow || ",
+            "release_date": "2022-10-05T16:05:00-04:00",
+            "update_date": "2025-02-18T00:12:07.382326-05:00",
+            "main_image": {
+                "id": 369317,
+                "url": "http://svs.gsfc.nasa.gov/vis/a000000/a005000/a005027/moon.2025_print.jpg",
+                "filename": "moon.2025_print.jpg",
+                "media_type": "Image",
+                "alt_text": "2025: Sunlight and shadow within 10 degrees of the lunar South Pole, rendered at two-hour intervals for a year.",
+                "width": 1024,
+                "height": 576,
+                "pixels": 589824
+            }
+        },
+        {
+            "id": 4893,
+            "url": "http://svs.gsfc.nasa.gov/4893/",
+            "page_type": "Visualization",
+            "title": "Shadows near the Moon's South Pole",
+            "description": "This video shows the movement of shadows near the Moon's South Pole, over the course of two lunar days, which is approximately two months on Earth.  The visualization was created from data gathered by the Lunar Reconnaissance Orbiter spacecraft.Music Provided by Universal Production Music: “Two Horizons” – Anthony d’AmarioWatch this video on the NASA Goddard YouTube channel. || ShadowsMoonSouthPole_Thumbnail1.jpg (1920x1080) [381.7 KB] || ShadowsMoonSouthPole_Thumbnail1_print.jpg (1024x576) [133.0 KB] || ShadowsMoonSouthPole_YouTubeHD.webm (1920x1080) [10.8 MB] || ShadowsMoonSouthPole_YouTubeHD.mp4 (1920x1080) [157.1 MB] || ShadowsMoonSouthPole_FacebookHD.mp4 (1920x1080) [118.7 MB] || ShadowsMoonSouthPole_CAPTIONS.en_US.srt [1.3 KB] || ShadowsMoonSouthPole_CAPTIONS.en_US.vtt [1.3 KB] || ShadowsMoonSouthPole_MASTER.mov (1920x1080) [1.3 GB] || ShadowsMoonSouthPole_FacebookHD.mp4.hwshow || ",
+            "release_date": "2021-04-01T10:00:00-04:00",
+            "update_date": "2021-04-01T14:52:10-04:00",
+            "main_image": {
+                "id": 379370,
+                "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004800/a004893/moon.1500_print.jpg",
+                "filename": "moon.1500_print.jpg",
+                "media_type": "Image",
+                "alt_text": "Visualization only (No audio, no icons)",
+                "width": 1024,
+                "height": 576,
+                "pixels": 589824
+            }
+        },
+        {
+            "id": 4770,
+            "url": "http://svs.gsfc.nasa.gov/4770/",
+            "page_type": "Visualization",
+            "title": "From Apollo Sites To The South Pole",
+            "description": "Beginning on the near side of the Moon, with the Apollo sites marked, the view quickly moves to the South Pole and zooms in to show the changing illumination conditions there for an entire year. || pole.0126_print.jpg (1024x576) [63.6 KB] || pole.0126_searchweb.png (320x180) [32.6 KB] || pole.0126_thm.png (80x40) [3.1 KB] || apollo_to_south_pole_1080p30.mp4 (1920x1080) [86.6 MB] || apollo_to_south_pole_720p30.mp4 (1280x720) [44.9 MB] || apollo_to_south_pole_720p30.webm (1280x720) [20.0 MB] || apollo (1920x1080) [0 Item(s)] || apollo_to_south_pole_360p30.mp4 (640x360) [16.2 MB] || apollo (3840x2160) [0 Item(s)] || apollo_to_south_pole_2160p30.mp4 (3840x2160) [354.9 MB] || ",
+            "release_date": "2020-07-20T09:00:00-04:00",
+            "update_date": "2022-03-17T11:15:03-04:00",
+            "main_image": {
+                "id": 389500,
+                "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004700/a004770/pole.0126_print.jpg",
+                "filename": "pole.0126_print.jpg",
+                "media_type": "Image",
+                "alt_text": "Beginning on the near side of the Moon, with the Apollo sites marked, the view quickly moves to the South Pole and zooms in to show the changing illumination conditions there for an entire year.",
+                "width": 1024,
+                "height": 576,
+                "pixels": 589824
+            }
+        },
+        {
+            "id": 4043,
+            "url": "http://svs.gsfc.nasa.gov/4043/",
+            "page_type": "Visualization",
+            "title": "LRO Peers into Permanent Shadows",
+            "description": "The Moon's permanently shadowed regions, or PSRs, are places on the Moon that haven't seen the Sun in millions, or even billions, of years. The Earth's tilted axis allows sunlight to fall everywhere on its surface, even at the poles, for at least part of the year. But the Moon's tilt relative to the Sun is only 1.6°, not enough to get sunlight into some deep craters near the lunar north and south poles. PSRs are therefore some of the coldest, darkest places in the solar system.Because of that, PSRs are expected to be excellent traps for volatiles, chemicals that would normally vaporize and escape into space, and this includes water. Lunar Reconnaissance Orbiter (LRO) includes several instruments designed to peer into the PSR darkness and measure temperature, reflectivity, and neutron absorption, all of which are clues to what chemicals might be hiding there. This animation shows where the PSRs are and in what ways LRO can see inside them. || ",
+            "release_date": "2013-03-06T11:00:00-05:00",
+            "update_date": "2023-05-03T13:52:20.595975-04:00",
+            "main_image": {
+                "id": 468217,
+                "url": "http://svs.gsfc.nasa.gov/vis/a000000/a004000/a004043/shot1_on.0420.jpg",
+                "filename": "shot1_on.0420.jpg",
+                "media_type": "Image",
+                "alt_text": "Beginning with a full-frame Moon, the camera flies to the lunar south pole and shows areas of permanent shadow. Realistic shadows evolve through several months.",
+                "width": 1920,
+                "height": 1080,
+                "pixels": 2073600
+            }
+        }
+    ],
+    "sources": [],
+    "products": [],
+    "newer_versions": [],
+    "older_versions": [],
+    "alternate_versions": []
+}

@@ -12,6 +12,13 @@ The connector layer retrieves raw external facts and preserves provenance. It do
 | NASA CDAWeb HAPI | heliophysics mission time series | No | Real space-environment/science measurements |
 | NOAA SWPC | Kp, F10.7, solar wind; normalized measured GOES integral proton/electron flux | No | Geostationary particle environment, with energy thresholds and actual spacecraft identity |
 | ESA DISCOS | spacecraft/object/launch metadata | Account/API terms | Physical/mission metadata; not ephemeris |
+| NASA NTRS | report search, citation metadata and available original documents | No | Evidence discovery for array ratings and specifications; extraction/review required |
+| Zenodo | published dataset search, versions, licenses, checksum-verified open downloads | No for public records/files | Discover additional flight/experimental datasets; restricted files stay restricted |
+| Dataverse / DaRUS | public dataset search, published versions and checksum-verified original downloads | No for public datasets/files | General dataset discovery, complementing the specialized Flying Laptop loader |
+| JPL Horizons | geometric vectors for supported spacecraft/other targets | No | Sun-relative illumination inputs; explicit ICRF, TDB, AU/day; no array attitude |
+| NASA PDS | product search and identifier resolution | No | Mission archive discovery; engineering data availability varies |
+| ESA PSA TAP | bounded ADQL SELECT queries with column units and product links | No for public products | ESA mission products; no universal EPS telemetry |
+| NASA CCMC DONKI | flares, CMEs, SEP and other space-weather events | No through direct CCMC API | Event context; not spacecraft-specific dose or proof of PV degradation |
 | SatNOGS DB | satellite metadata and TLEs; telemetry endpoint | Metadata public; telemetry requires credentials | Do not assume anonymous decoded telemetry access; telemetry returned HTTP 401 in the access check |
 | BIRDS EPS | panel/battery V/I/T telemetry | No | Open real PV/EPS benchmark |
 | Flying Laptop / DaRUS | calibrated four-array voltage/current and derived V×I, UTC packet timestamps | No | Measured on-orbit generation; monthly archives, DOI 10.18419/darus-451, CC BY 4.0 |
@@ -25,6 +32,13 @@ and [Cestas gallery walkthrough](https://julianascencio.github.io/orbital-pv/gal
 show how image and OSM snapshots remain distinct, with acquisition dates, source licenses and checksums.
 
 ## Executable measurement examples
+
+The [free research API guide](https://julianascencio.github.io/orbital-pv/user_guide/modeling_topics/research_connectors.html)
+documents all eight implemented research adapters, explicit pagination and
+query/checksum-bound caches. Its [offline gallery example](https://julianascencio.github.io/orbital-pv/gallery/real_data/plot_research_connectors.html)
+uses original responses from seven anonymous services. DISCOS requires a free
+account/token and was contract-tested without live credentials. Re-run the
+opt-in access check with `python scripts/check_research_connectors.py`.
 
 The [real-data gallery](https://julianascencio.github.io/orbital-pv/gallery/real_data/index.html) uses the public `orbitalpv` API for every connector:
 

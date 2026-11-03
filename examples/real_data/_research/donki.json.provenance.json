@@ -1,0 +1,10 @@
+{
+  "source": "NASA CCMC DONKI",
+  "url": "https://ccmc.gsfc.nasa.gov/DONKI/WS/get/FLR?startDate=2024-05-10&endDate=2024-05-11",
+  "retrieved_at": "2026-11-03T04:27:52.206235+00:00",
+  "sha256": "fbbfa84a55c205528ff6f7e5ed1e7a1a4a0cd42388c54b8153ced84e18d0651d",
+  "bytes": 14403,
+  "path": "examples/real_data/_research/donki.json",
+  "request_url": "https://ccmc.gsfc.nasa.gov/DONKI/WS/get/FLR?startDate=2024-05-10&endDate=2024-05-11",
+  "documentation": "https://ccmc.gsfc.nasa.gov/DONKI/api/"
+}

@@ -35,6 +35,7 @@ Issues = "https://github.com/julianascencio/orbital-pv/issues"
 orbital-pv = "space_pv_cli.main:main"
 
 [project.optional-dependencies]
+catalogue = ["pyarrow>=19,<27"]
 orbit = [
   "astropy>=8.0,<9",
   "skyfield>=1.55,<2",
@@ -72,6 +73,7 @@ app = [
   "uvicorn[standard]>=0.34,<1",
 ]
 full = [
+  "pyarrow>=19,<27",
   "eumdac>=3.0,<4",
   "geopandas>=1.0,<2",
   "h5netcdf>=1.5",
@@ -116,6 +118,9 @@ where = [
 include = ["orbitalpv*", "space_pv_*"]
 namespaces = false
 
+[tool.setuptools.package-data]
+"orbitalpv.catalogue" = ["data/*.json", "data/*.txt", "data/records/*/*.jsonl"]
+
 [tool.uv]
 package = false
 
@@ -128,6 +133,7 @@ members = [
 
 [dependency-groups]
 dev = [
+  "pyarrow>=19,<27",
   "build>=1.3",
   "pytest>=9.0",
   "pytest-cov>=7.0",
@@ -157,6 +163,7 @@ orbit = ["astropy>=8.0,<9", "skyfield>=1.55,<2", "sgp4>=2.27,<3", "spiceypy>=8.2
 space = ["spacepy>=0.7"]
 app = ["fastapi>=0.141,<1", "uvicorn[standard]>=0.34,<1", "celery[redis]>=5.6,<6", "duckdb>=1.5,<2", "sqlalchemy>=2.0,<3", "psycopg[binary]>=3.2,<4", "pydantic-settings>=2.7,<3"]
 docs = [
+  "pyarrow>=19,<27",
   "sphinx>=9.1,<10",
   "pydata-sphinx-theme>=0.23,<0.24",
   "sphinx-gallery>=0.22,<0.23",
@@ -183,6 +190,7 @@ indent-style = "space"
 [tool.ty.environment]
 python-version = "3.13"
 root = [
+  "examples/lunar",
   "src",
   "packages/space-pv-core/src",
   "packages/space-pv-orbit/src",

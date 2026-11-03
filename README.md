@@ -64,6 +64,44 @@ python -m pip install "orbital-pv[orbit]"
 python -m pip install "orbital-pv[full]"
 ```
 
+### Free spacecraft and PV research APIs
+
+The source checkout includes eight additional research connectors:
+`NtrsConnector`, `DiscosConnector`, `ZenodoConnector`, `DataverseConnector`,
+`HorizonsConnector`, `PdsConnector`, `PsaConnector` and `DonkiConnector`.
+Seven support anonymous public access; DISCOS requires a free account/token.
+They preserve original responses, source metadata and checksums, and support
+explicit query caching. Literature and archive search results remain evidence
+to review before adding PV capacity or specifications to the catalogue.
+
+See the [research API guide](https://julianascencio.github.io/orbital-pv/user_guide/modeling_topics/research_connectors.html)
+and [offline example](https://julianascencio.github.io/orbital-pv/gallery/real_data/plot_research_connectors.html).
+From an installed checkout, run `python scripts/check_research_connectors.py`
+for a small live access check. These additions are unreleased until the next
+package release.
+
+### Lunar surface power (source tree)
+
+`opv.lunar` adds four anonymous data connectors (LOLA terrain, Diviner polar
+temperatures, NAIF lunar SPICE kernels and NASA SVS illumination references),
+terrain-aware PV, panel thermal modelling, PV/battery/tower design sweeps and
+energy-aware rover routing. Six runnable gallery examples use a compact,
+checksummed bundle of real terrain/temperature inputs and computed geometry.
+Power, hardware and mobility results remain explicit engineering scenarios.
+
+From an installed source checkout, run:
+
+```bash
+python -m pip install -e ".[ground,orbit,examples]"
+python analysis/lunar_surface_pv/run.py --output outputs/lunar_surface_pv
+python examples/lunar/plot_lunar_terrain_yield.py
+```
+
+See the [lunar guide](https://julianascencio.github.io/orbital-pv/user_guide/modeling_topics/lunar_surface_pv.html),
+[runnable analyses](analysis/lunar_surface_pv) and
+[literature evidence](docs/literature/12_lunar_surface_pv.md).
+These APIs are unreleased until the next package release.
+
 ### Ground satellite imagery
 
 The repository's ground-data API retrieves **Sentinel-2 Collection 1 imagery**
@@ -152,6 +190,55 @@ The flight benchmark reports both accuracy and interval width: a high coverage
 number alone does not establish a useful forecast. Thermal, circuit, radiation
 and scheduling scenarios report physical invariants and stated assumptions;
 they are not flight qualification or mission lifetime guarantees.
+
+## Satellite and space-power database
+
+OrbitalPV now includes a source-tracked catalogue of **27 spacecraft and 20 power-system
+components** in the source tree, with PV capacity, cell efficiency, array details,
+battery/EPS specifications and documented spacecraft-to-component links where available.
+This first batch is a research sample; undisclosed values remain null.
+
+Browse the [satellite database viewer](https://julianascencio.github.io/orbital-pv/database-viewer.html)
+and [database gallery](https://julianascencio.github.io/orbital-pv/gallery/database/index.html)
+after the documentation deployment. The [catalogue guide](catalogues/satellites/README.md)
+explains sources, conditions, conflicts and expansion.
+
+```bash
+python -m pip install ".[catalogue]"  # from this checkout; unreleased addition
+python -m orbitalpv.catalogue validate
+python -m orbitalpv.catalogue build --output outputs/satellite-snapshot
+```
+
+```python
+from orbitalpv import catalogue
+
+satellites = catalogue.load_records("satellites")
+components = catalogue.load_records("components")
+```
+
+Canonical, Git-reviewable JSONL ships in the wheel; deterministic typed Parquet and
+checksum-linked browser exports are generated from it. Ratings retain BOL/EOL,
+Sun distance, reference conditions and bounds. Ambiguous spacecraft power stays
+separate from PV output, and unlike ratings are never summed into a global total.
+
+## Mars surface photovoltaic performance
+
+The source tree now includes `orbitalpv.mars`: NASA Mars24 seasonal geometry,
+Mars-sol energy integration, separate atmospheric/panel dust effects, and the
+existing PVWatts adapter. Public connectors retrieve InSight energy, DBR string
+currents and camera-derived 600-nm opacity with checksums and provenance.
+
+The [Mars guide](docs/sphinx/source/user_guide/modeling_topics/mars_surface_pv.rst),
+[paper matrix](docs/literature/11_mars_surface_pv.md) and
+[reproducible analysis](analysis/mars_surface_pv) explain assumptions and data status.
+Two offline gallery examples compare 200 published daily energy estimates and
+explore seasonal/latitude scenarios. The later-sol comparison has **10.2% RMSE
+relative to mean energy**; a positive bias remains. This is a screening model
+and same-mission hindcast, not independently validated mission hardware sizing.
+
+```bash
+PYTHONPATH=src uv run python analysis/mars_surface_pv/run.py
+```
 
 ## Foundation stack
 

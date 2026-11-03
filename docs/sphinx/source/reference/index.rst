@@ -8,7 +8,10 @@ lower-level internal packages used by contributors and advanced users.
    :maxdepth: 2
 
    orbitalpv
+   catalogue
    research
+   mars
+   lunar
    core
    orbit
    pvmodel

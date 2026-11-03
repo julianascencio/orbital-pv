@@ -1,0 +1,10 @@
+{
+  "source": "Dataverse",
+  "url": "https://darus.uni-stuttgart.de/api/datasets/:persistentId/versions/1.0?persistentId=doi%3A10.18419%2Fdarus-456",
+  "retrieved_at": "2026-11-03T04:27:31.634858+00:00",
+  "sha256": "0265f9e645b1b4b215150d8ae96861948958a60aa3c37f2e59006051af959f9e",
+  "bytes": 6707,
+  "path": "examples/real_data/_research/dataverse.json",
+  "request_url": "https://darus.uni-stuttgart.de/api/datasets/:persistentId/versions/1.0?persistentId=doi%3A10.18419%2Fdarus-456",
+  "documentation": "https://guides.dataverse.org/en/latest/api/"
+}

@@ -1,0 +1,9 @@
+OrbitalPV satellite and space-power component catalogue, created by ASVA Consulting.
+This is a curated initial research dataset, not a complete inventory or certification.
+Source documents remain with their publishers. Only selected factual specifications,
+short original evidence summaries and links are included; no full OEM documents,
+images or logos are redistributed. Source-specific rights apply independently of
+the repository software license. See sources.json for provenance and reuse notes.
+Unknown means unknown, not zero. Ratings under different life, temperature,
+illumination, distance and configuration conditions must not be summed or treated
+as interchangeable. Access date means source inspection, not flight validation.

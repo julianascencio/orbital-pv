@@ -22,8 +22,12 @@ jobs:
         run: |
           python -m venv /tmp/orbitalpv-wheel
           /tmp/orbitalpv-wheel/bin/python -m pip install --upgrade pip
-          /tmp/orbitalpv-wheel/bin/python -m pip install dist/*.whl matplotlib openpyxl rasterio pyproj scikit-learn scipy shapely
+          /tmp/orbitalpv-wheel/bin/python -m pip install dist/*.whl "pyarrow>=19,<27" matplotlib openpyxl rasterio pyproj scikit-learn scipy shapely
           /tmp/orbitalpv-wheel/bin/python -c "import orbitalpv as opv; print(opv.__version__)"
+          cd /tmp
+          /tmp/orbitalpv-wheel/bin/python -m orbitalpv.catalogue validate
+          /tmp/orbitalpv-wheel/bin/python -m orbitalpv.catalogue build --output /tmp/orbitalpv-satellite-snapshot
+          cd "$GITHUB_WORKSPACE"
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/plot_pv_incidence.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/plot_case0_health.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/plot_orbit_eclipse.py
@@ -43,6 +47,9 @@ jobs:
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/space_cells/plot_space_cell_temperature_radiation.py
           for example in examples/real_data/plot_*.py; do
             MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python "$example"
+          done
+          for example in examples/lunar/plot_*.py; do
+            OPENBLAS_NUM_THREADS=1 MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python "$example"
           done
           /tmp/orbitalpv-wheel/bin/python labs/00_birds_baseline/run.py
           /tmp/orbitalpv-wheel/bin/python labs/02_pvlib_reference/run.py
