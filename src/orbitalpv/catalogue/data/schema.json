@@ -1,0 +1,254 @@
+{
+  "version": "1.0.0",
+  "entity_types": [
+    "satellites",
+    "components"
+  ],
+  "required": [
+    "record_id",
+    "identity_key",
+    "entity_type",
+    "name",
+    "created_at",
+    "updated_at",
+    "last_verified_at",
+    "sources",
+    "field_sources_json",
+    "evidence_json",
+    "quality_status"
+  ],
+  "fields": {
+    "record_id": {
+      "type": "string",
+      "description": "Stable identity; changing a rating does not change the record ID."
+    },
+    "identity_key": {
+      "type": "string",
+      "description": "Stable identity; changing a rating does not change the record ID."
+    },
+    "entity_type": {
+      "type": "string",
+      "description": "Stable identity; changing a rating does not change the record ID."
+    },
+    "name": {
+      "type": "string",
+      "description": "Stable identity; changing a rating does not change the record ID."
+    },
+    "created_at": {
+      "type": "string",
+      "description": "UTC ISO timestamp: database creation, content change, or source inspection, respectively."
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "UTC ISO timestamp: database creation, content change, or source inspection, respectively."
+    },
+    "last_verified_at": {
+      "type": "string",
+      "description": "UTC ISO timestamp: database creation, content change, or source inspection, respectively."
+    },
+    "sources": {
+      "type": "list_string",
+      "description": "Source registry IDs or explicitly evidenced component record IDs; never inferred installation."
+    },
+    "component_ids": {
+      "type": "list_string",
+      "description": "Source registry IDs or explicitly evidenced component record IDs; never inferred installation."
+    },
+    "field_sources_json": {
+      "type": "object",
+      "description": "Field-to-source map, concise evidence locators/summaries, or namespaced extra metadata."
+    },
+    "evidence_json": {
+      "type": "object",
+      "description": "Field-to-source map, concise evidence locators/summaries, or namespaced extra metadata."
+    },
+    "extensions_json": {
+      "type": "object",
+      "description": "Field-to-source map, concise evidence locators/summaries, or namespaced extra metadata."
+    },
+    "power_ratings_json": {
+      "type": "list_object",
+      "description": "Additional independently qualified PV output ratings; never sum across conditions."
+    },
+    "quality_status": {
+      "type": "string",
+      "description": "Research quality and limitations; no flight qualification implied."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Research quality and limitations; no flight qualification implied."
+    },
+    "mission_type": {
+      "type": "string",
+      "description": "Source-reported metadata. Status requires a dated assertion; orbit is a regime, not a live position."
+    },
+    "operator": {
+      "type": "string",
+      "description": "Source-reported metadata. Status requires a dated assertion; orbit is a regime, not a live position."
+    },
+    "manufacturer": {
+      "type": "string",
+      "description": "Source-reported metadata. Status requires a dated assertion; orbit is a regime, not a live position."
+    },
+    "model": {
+      "type": "string",
+      "description": "Source-reported metadata. Status requires a dated assertion; orbit is a regime, not a live position."
+    },
+    "variant": {
+      "type": "string",
+      "description": "Source-reported metadata. Status requires a dated assertion; orbit is a regime, not a live position."
+    },
+    "part_number": {
+      "type": "string",
+      "description": "Source-reported metadata. Status requires a dated assertion; orbit is a regime, not a live position."
+    },
+    "orbit_regime": {
+      "type": "string",
+      "description": "Source-reported metadata. Status requires a dated assertion; orbit is a regime, not a live position."
+    },
+    "cospar_id": {
+      "type": "string",
+      "description": "Source-reported metadata. Status requires a dated assertion; orbit is a regime, not a live position."
+    },
+    "launch_date": {
+      "type": "string",
+      "description": "Source-reported metadata. Status requires a dated assertion; orbit is a regime, not a live position."
+    },
+    "status": {
+      "type": "string",
+      "description": "Source-reported metadata. Status requires a dated assertion; orbit is a regime, not a live position."
+    },
+    "status_as_of": {
+      "type": "string",
+      "description": "Source-reported metadata. Status requires a dated assertion; orbit is a regime, not a live position."
+    },
+    "component_type": {
+      "type": "string",
+      "description": "Exact equipment category, cell technology or battery chemistry as reported."
+    },
+    "solar_cell_technology": {
+      "type": "string",
+      "description": "Exact equipment category, cell technology or battery chemistry as reported."
+    },
+    "battery_type": {
+      "type": "string",
+      "description": "Exact equipment category, cell technology or battery chemistry as reported."
+    },
+    "pv_power_w": {
+      "type": "number",
+      "description": "Solar-array output in W at the stated conditions; excludes load consumption and unspecified spacecraft power."
+    },
+    "pv_power_qualifier": {
+      "type": "string",
+      "description": "Rating qualifier (reported/approximate/lower_bound/upper_bound), life basis (BOL/EOL/mission_reference/unspecified), and conditions."
+    },
+    "power_basis": {
+      "type": "string",
+      "description": "Rating qualifier (reported/approximate/lower_bound/upper_bound), life basis (BOL/EOL/mission_reference/unspecified), and conditions."
+    },
+    "power_conditions": {
+      "type": "string",
+      "description": "Rating qualifier (reported/approximate/lower_bound/upper_bound), life basis (BOL/EOL/mission_reference/unspecified), and conditions."
+    },
+    "reference_distance_au": {
+      "type": "number",
+      "description": "Reported rating reference conditions, not inferred instantaneous position, temperature or irradiance."
+    },
+    "reference_temperature_c": {
+      "type": "number",
+      "description": "Reported rating reference conditions, not inferred instantaneous position, temperature or irradiance."
+    },
+    "reference_irradiance_w_m2": {
+      "type": "number",
+      "description": "Reported rating reference conditions, not inferred instantaneous position, temperature or irradiance."
+    },
+    "reported_spacecraft_power_w": {
+      "type": "number",
+      "description": "Ambiguous spacecraft power kept separate from verified PV generation, in W."
+    },
+    "solar_array_area_m2": {
+      "type": "number",
+      "description": "Source-reported array area, m²; do not substitute active cell area or calculate from envelope dimensions."
+    },
+    "mass_kg": {
+      "type": "number",
+      "description": "Mass in kg (qualify in notes), battery Wh/Ah, bus V or design years; never infer energy from Ah without voltage evidence."
+    },
+    "battery_energy_wh": {
+      "type": "number",
+      "description": "Mass in kg (qualify in notes), battery Wh/Ah, bus V or design years; never infer energy from Ah without voltage evidence."
+    },
+    "battery_capacity_ah": {
+      "type": "number",
+      "description": "Mass in kg (qualify in notes), battery Wh/Ah, bus V or design years; never infer energy from Ah without voltage evidence."
+    },
+    "bus_voltage_v": {
+      "type": "number",
+      "description": "Mass in kg (qualify in notes), battery Wh/Ah, bus V or design years; never infer energy from Ah without voltage evidence."
+    },
+    "design_life_years": {
+      "type": "number",
+      "description": "Mass in kg (qualify in notes), battery Wh/Ah, bus V or design years; never infer energy from Ah without voltage evidence."
+    },
+    "norad_id": {
+      "type": "integer",
+      "description": "Catalog identifier or explicit count. NORAD IDs have no five-digit maximum."
+    },
+    "array_count": {
+      "type": "integer",
+      "description": "Catalog identifier or explicit count. NORAD IDs have no five-digit maximum."
+    },
+    "panel_count": {
+      "type": "integer",
+      "description": "Catalog identifier or explicit count. NORAD IDs have no five-digit maximum."
+    },
+    "cell_count": {
+      "type": "integer",
+      "description": "Catalog identifier or explicit count. NORAD IDs have no five-digit maximum."
+    },
+    "junction_count": {
+      "type": "integer",
+      "description": "Catalog identifier or explicit count. NORAD IDs have no five-digit maximum."
+    },
+    "cell_area_cm2": {
+      "type": "number",
+      "description": "Reported component values at reference conditions: cm², %, V, A, mA/cm², µm. Cell and CIC efficiency remain distinct."
+    },
+    "cell_efficiency_pct": {
+      "type": "number",
+      "description": "Reported component values at reference conditions: cm², %, V, A, mA/cm², µm. Cell and CIC efficiency remain distinct."
+    },
+    "voc_v": {
+      "type": "number",
+      "description": "Reported component values at reference conditions: cm², %, V, A, mA/cm², µm. Cell and CIC efficiency remain distinct."
+    },
+    "vmp_v": {
+      "type": "number",
+      "description": "Reported component values at reference conditions: cm², %, V, A, mA/cm², µm. Cell and CIC efficiency remain distinct."
+    },
+    "isc_a": {
+      "type": "number",
+      "description": "Reported component values at reference conditions: cm², %, V, A, mA/cm², µm. Cell and CIC efficiency remain distinct."
+    },
+    "imp_a": {
+      "type": "number",
+      "description": "Reported component values at reference conditions: cm², %, V, A, mA/cm², µm. Cell and CIC efficiency remain distinct."
+    },
+    "jsc_ma_cm2": {
+      "type": "number",
+      "description": "Reported component values at reference conditions: cm², %, V, A, mA/cm², µm. Cell and CIC efficiency remain distinct."
+    },
+    "jmp_ma_cm2": {
+      "type": "number",
+      "description": "Reported component values at reference conditions: cm², %, V, A, mA/cm², µm. Cell and CIC efficiency remain distinct."
+    },
+    "thickness_um": {
+      "type": "number",
+      "description": "Reported component values at reference conditions: cm², %, V, A, mA/cm², µm. Cell and CIC efficiency remain distinct."
+    },
+    "efficiency_basis": {
+      "type": "string",
+      "description": "Typical, production average, or minimum average efficiency and life basis."
+    }
+  }
+}

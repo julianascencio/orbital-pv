@@ -1,0 +1,442 @@
+{
+  "apl_clipper_2024": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "Johns Hopkins APL",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": "2024-08-28",
+    "sha256": null,
+    "title": "Europa Clipper solar arrays mounted",
+    "url": "https://www.jhuapl.edu/news/news-releases/240828-europa-clipper-solar-arrays-mounted-ready-for-jupiter"
+  },
+  "azur_3g30_4x8": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "AZUR SPACE",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": "DB 00010891-01; 2025-04-11",
+    "sha256": null,
+    "title": "3G30 Advanced 4x8 datasheet",
+    "url": "https://www.azurspace.com/media/uploads/file_links/file/bdb_00010891-01-00_tj3g30-advanced_4x8.pdf"
+  },
+  "azur_4g32_4x8": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "AZUR SPACE",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": "DB 00010895-02; 2026-03-24",
+    "sha256": null,
+    "title": "4G32 Advanced 4x8 datasheet",
+    "url": "https://www.azurspace.com/media/uploads/file_links/file/bdb_00010895-02-00_4g32-advanced_4x8.pdf"
+  },
+  "bepicolombo_mission_paper_2021": {
+    "access_method": "Indexed primary mission-paper excerpt inspected.",
+    "publisher": "Mission authors / Space Science Reviews",
+    "retrieved_at": "2026-11-02T23:37:45Z",
+    "reuse_notes": "Selected factual specification and original short summary only; full article not redistributed.",
+    "revision": "2021; DOI 10.1007/s11214-021-00861-4",
+    "sha256": null,
+    "title": "BepiColombo — Mission Overview and Science Goals",
+    "url": "https://link.springer.com/article/10.1007/s11214-021-00861-4"
+  },
+  "esa_bepi_mtm": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "ESA",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": "2018-10",
+    "sha256": null,
+    "title": "BepiColombo solar-array rotation",
+    "url": "https://www.esa.int/ESA_Multimedia/Images/2018/10/BepiColombo_rotates_solar_arrays_16"
+  },
+  "esa_juice_specs": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "ESA",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "Juice spacecraft specifications",
+    "url": "https://www.esa.int/articles/about-us/directorates/science/juice-spacecraft-specs-2"
+  },
+  "esa_mars_express": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "ESA",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "Mars Express spacecraft",
+    "url": "https://www.esa.int/Science_Exploration/Space_Science/Mars_Express/The_spacecraft"
+  },
+  "esa_rosetta": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "ESA",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "Rosetta orbiter",
+    "url": "https://www.esa.int/Science_Exploration/Space_Science/Rosetta/The_Rosetta_orbiter"
+  },
+  "esa_sentinel2": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "ESA",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "Sentinel-2 operations",
+    "url": "https://www.esa.int/Enabling_Support/Operations/Sentinel-2_operations"
+  },
+  "esa_solar_orbiter": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "ESA",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "Solar Orbiter factsheet",
+    "url": "https://www.esa.int/Science_Exploration/Space_Science/Solar_Orbiter/Solar_Orbiter_factsheet"
+  },
+  "isro_astrosat": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "ISRO",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "AstroSat spacecraft",
+    "url": "https://www.isro.gov.in/ISRO_EN/AstroSat-Spacecraft.html"
+  },
+  "isro_cartosat1": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "ISRO",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "CARTOSAT-1",
+    "url": "https://www.isro.gov.in/CARTOSAT_1.html"
+  },
+  "isro_cartosat1_bulletin": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "ISRO",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "Space India / Cartosat-1 salient features",
+    "url": "https://www.isro.gov.in/media_isro/pdf/ResourcesPdf/SpaceIndia/publication%289%29.pdf"
+  },
+  "isro_eos04": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "ISRO",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": "2022-02-14",
+    "sha256": null,
+    "title": "PSLV-C52 / EOS-04 mission",
+    "url": "https://www.isro.gov.in/mission_PSLV_C52.html"
+  },
+  "isro_gsat11": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "ISRO",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": "2018-12-05",
+    "sha256": null,
+    "title": "GSAT-11 mission",
+    "url": "https://www.isro.gov.in/GSAT_11.html"
+  },
+  "isro_gsat30": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "ISRO",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "Data communication / GSAT-30",
+    "url": "https://www.isro.gov.in/DataCommunication.html"
+  },
+  "jaxa_alos2": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "JAXA EORC",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "ALOS-2 overview",
+    "url": "https://www.eorc.jaxa.jp/ALOS-2/en/about/overview.htm"
+  },
+  "jaxa_gosat": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "JAXA EORC",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "GOSAT mission",
+    "url": "https://www.eorc.jaxa.jp/GOSAT/mission.html"
+  },
+  "jaxa_gosat_satnavi": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "JAXA SatNavi",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "GOSAT specifications",
+    "url": "https://www.satnavi.jaxa.jp/ja/project/gosat/index.html"
+  },
+  "jpl_ds1": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "NASA JPL",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "Deep Space 1 solar concentrator arrays",
+    "url": "https://www.jpl.nasa.gov/nmp/ds1/tech/scarlet.html"
+  },
+  "jpl_juno_kit": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "NASA JPL",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "Juno orbit insertion press kit / spacecraft",
+    "url": "https://www.jpl.nasa.gov/news/press_kits/juno/spacecraft/"
+  },
+  "lockheed_juno": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "Lockheed Martin",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "Juno mission",
+    "url": "https://www.lockheedmartin.com/en-us/products/juno.html"
+  },
+  "nasa_dawn": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "NASA",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "Dawn quick facts",
+    "url": "https://science.nasa.gov/mission/dawn/toolkit/quick-facts/"
+  },
+  "nasa_hubble_numbers": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "NASA",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "Hubble by the numbers",
+    "url": "https://science.nasa.gov/mission/hubble/overview/hubble-by-the-numbers/"
+  },
+  "nasa_hubble_power": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "NASA",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "Hubble electrical power",
+    "url": "https://science.nasa.gov/mission/hubble/observatory/design/electrical-power/"
+  },
+  "nasa_kepler_kit": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "NASA NTRS",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": "NTRS 20100002027",
+    "sha256": null,
+    "title": "Kepler mission press kit",
+    "url": "https://ntrs.nasa.gov/api/citations/20100002027/downloads/20100002027.pdf"
+  },
+  "nasa_lucy": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "NASA",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "Lucy spacecraft",
+    "url": "https://science.nasa.gov/mission/lucy/spacecraft/"
+  },
+  "nasa_maven": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "NASA",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "MAVEN mission key facts",
+    "url": "https://science.nasa.gov/mission/maven/"
+  },
+  "nasa_psyche": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "NASA",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "Psyche spacecraft",
+    "url": "https://science.nasa.gov/mission/psyche/spacecraft/"
+  },
+  "nasa_tess_archive": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "NASA GSFC",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "TESS spacecraft archive",
+    "url": "https://asd.gsfc.nasa.gov/archive/tess/spacecraft.html"
+  },
+  "nasa_tess_heasarc": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "NASA HEASARC",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "TESS telescope information",
+    "url": "https://heasarc.gsfc.nasa.gov/docs/tess/telescope_information.html"
+  },
+  "nasa_tess_writer": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "NASA",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "TESS Science Writers Guide",
+    "url": "https://www.nasa.gov/wp-content/uploads/2016/07/tesssciencewritersguidedraft23.pdf?emrc=94a59b"
+  },
+  "nasa_webb_overview": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "NASA",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "Webb telescope overview",
+    "url": "https://science.nasa.gov/mission/webb/science-overview/science-explainers/telescope-overview/"
+  },
+  "redwire_dart_2018": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "Redwire / Deployable Space Systems",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": "2018-04-20",
+    "sha256": null,
+    "title": "DSS ROSA for DART",
+    "url": "https://rdw.com/newsroom/dss-to-provide-rosa-solar-array-for-nasas-double-asteroid-redirection-test-dart-mission/"
+  },
+  "rocketlab_products": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "Rocket Lab",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "Space solar cells/CICs",
+    "url": "https://rocketlabcorp.com/space-systems/solar/space-solar-cellscics/"
+  },
+  "rocketlab_z4jplus": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "Rocket Lab / SolAero",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": "v8; copyright 2024",
+    "sha256": null,
+    "title": "Z4J+ datasheet",
+    "url": "https://rocketlabcorp.com/assets/Uploads/RL-SolAero-Data-Sheet-Z4J%2B-v8.pdf"
+  },
+  "rocketlab_ztj": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "Rocket Lab / SolAero",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "ZTJ datasheet",
+    "url": "https://rocketlabcorp.com/assets/Uploads/RL-SolAero-Data-Sheet-ZTJ.pdf"
+  },
+  "spectrolab_xte_hf": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "Spectrolab",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": "2019-12-23",
+    "sha256": null,
+    "title": "XTE-HF datasheet",
+    "url": "https://www.spectrolab.com/photovoltaics/XTE-HF%20Data%20Sheet%20_12.23.19.pdf"
+  },
+  "spectrolab_xte_lilt": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "Spectrolab",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": "2019-12-23",
+    "sha256": null,
+    "title": "XTE-LILT datasheet",
+    "url": "https://www.spectrolab.com/photovoltaics/XTE-LILT%20Data%20Sheet%20_12.23.19.pdf"
+  },
+  "spectrolab_xte_sf": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "Spectrolab",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": "2022-07-27",
+    "sha256": null,
+    "title": "XTE-SF datasheet",
+    "url": "https://www.spectrolab.com/photovoltaics/XTE-SF%20Data%20Sheet%20_07.27.22.pdf"
+  },
+  "spectrolab_xteplus_geo": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "Spectrolab",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "XTE+ GEO datasheet",
+    "url": "https://www.spectrolab.com/photovoltaics/XTE%2B%20GEO%20Data%20Sheet.pdf"
+  },
+  "spectrolab_xtj_prime_2018": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "Spectrolab",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": "2018-07-16",
+    "sha256": null,
+    "title": "XTJ Prime datasheet",
+    "url": "https://www.spectrolab.com/photovoltaics/XTJ-Prime_Data_Sheet.pdf"
+  },
+  "uml_spacehauc": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "UMass Lowell",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": null,
+    "sha256": null,
+    "title": "SPACE HAUC subsystems",
+    "url": "https://www.uml.edu/Research/LoCSST/Research/spacehauc/subsystems.aspx"
+  },
+  "ursc_astrosat": {
+    "access_method": "Primary publisher page/PDF inspected via web retrieval or indexed primary-source excerpt. Raw bytes not archived.",
+    "publisher": "ISRO URSC",
+    "retrieved_at": "2026-11-02T23:29:32Z",
+    "reuse_notes": "Selected factual specifications and original short summaries only. Source document is linked, not redistributed; publisher rights remain applicable.",
+    "revision": "2015-09-28 page update",
+    "sha256": null,
+    "title": "AstroSat salient features",
+    "url": "https://www.ursc.gov.in/interplanetary/html/astrosat.jsp"
+  }
+}

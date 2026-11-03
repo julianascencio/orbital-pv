@@ -153,6 +153,36 @@ number alone does not establish a useful forecast. Thermal, circuit, radiation
 and scheduling scenarios report physical invariants and stated assumptions;
 they are not flight qualification or mission lifetime guarantees.
 
+## Satellite and space-power database
+
+OrbitalPV now includes a source-tracked catalogue of **27 spacecraft and 20 power-system
+components** in the source tree, with PV capacity, cell efficiency, array details,
+battery/EPS specifications and documented spacecraft-to-component links where available.
+This first batch is a research sample; undisclosed values remain null.
+
+Browse the [satellite database viewer](https://julianascencio.github.io/orbital-pv/database-viewer.html)
+and [database gallery](https://julianascencio.github.io/orbital-pv/gallery/database/index.html)
+after the documentation deployment. The [catalogue guide](catalogues/satellites/README.md)
+explains sources, conditions, conflicts and expansion.
+
+```bash
+python -m pip install ".[catalogue]"  # from this checkout; unreleased addition
+python -m orbitalpv.catalogue validate
+python -m orbitalpv.catalogue build --output outputs/satellite-snapshot
+```
+
+```python
+from orbitalpv import catalogue
+
+satellites = catalogue.load_records("satellites")
+components = catalogue.load_records("components")
+```
+
+Canonical, Git-reviewable JSONL ships in the wheel; deterministic typed Parquet and
+checksum-linked browser exports are generated from it. Ratings retain BOL/EOL,
+Sun distance, reference conditions and bounds. Ambiguous spacecraft power stays
+separate from PV output, and unlike ratings are never summed into a global total.
+
 ## Foundation stack
 
 - **pvlib** — tested PV equations and I-V/single-diode reference models behind a space-specific adapter.

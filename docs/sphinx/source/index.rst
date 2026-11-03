@@ -89,6 +89,7 @@ and a generated API Reference.
    :maxdepth: 2
    :hidden:
 
+   database-viewer
    user_guide/index
    gallery/index
    reference/index
