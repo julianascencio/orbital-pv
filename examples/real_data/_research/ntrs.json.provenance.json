@@ -1,0 +1,10 @@
+{
+  "source": "NASA NTRS",
+  "url": "https://ntrs.nasa.gov/api/citations/search?q=%22solar+array%22+%22end+of+life%22&page.from=0&page.size=5",
+  "retrieved_at": "2026-11-03T04:27:21.962552+00:00",
+  "sha256": "c3396834825f629b3e05a06bf1d2f64de1326ccb0c0e15fc1ccdc52f21983546",
+  "bytes": 28843,
+  "path": "examples/real_data/_research/ntrs.json",
+  "request_url": "https://ntrs.nasa.gov/api/citations/search?q=%22solar+array%22+%22end+of+life%22&page.from=0&page.size=5",
+  "documentation": "https://ntrs.nasa.gov/api/openapi/"
+}

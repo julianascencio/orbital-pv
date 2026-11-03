@@ -11,6 +11,17 @@ from .http_base import DownloadReceipt
 from .lisird import LisirdConnector
 from .naif import NaifKernelConnector
 from .opssat import OpsSatADConnector, load_opssat_segments
+from .research import (
+    DataverseConnector,
+    DiscosConnector,
+    DonkiConnector,
+    HorizonsConnector,
+    NtrsConnector,
+    PdsConnector,
+    PsaConnector,
+    ZenodoConnector,
+)
+from .research_http import ResearchResponse
 from .satnogs import SatnogsDbConnector
 from .space_track import SpaceTrackConnector
 from .sscweb import SscWebConnector
@@ -21,21 +32,30 @@ __all__ = [
     "BirdsEPSConnector",
     "CdawebHapiConnector",
     "CelesTrakConnector",
+    "DataverseConnector",
+    "DiscosConnector",
+    "DonkiConnector",
     "DownloadReceipt",
     "FlyingLaptopConnector",
     "GHSLSettlementConnector",
     "GroundImage",
+    "HorizonsConnector",
     "LisirdConnector",
     "NaifKernelConnector",
     "NoaaSwpcConnector",
+    "NtrsConnector",
     "OpenStreetMapEnergyConnector",
     "OpsSatADConnector",
     "PVSite",
+    "PdsConnector",
+    "PsaConnector",
+    "ResearchResponse",
     "SatnogsDbConnector",
     "Sentinel2GroundConnector",
     "SettlementRaster",
     "SpaceTrackConnector",
     "SscWebConnector",
+    "ZenodoConnector",
     "load_birds_eps_workbook",
     "load_flying_laptop_power",
     "load_goes_integral_particle_flux",

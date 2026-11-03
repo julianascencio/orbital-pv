@@ -64,6 +64,22 @@ python -m pip install "orbital-pv[orbit]"
 python -m pip install "orbital-pv[full]"
 ```
 
+### Free spacecraft and PV research APIs
+
+The source checkout includes eight additional research connectors:
+`NtrsConnector`, `DiscosConnector`, `ZenodoConnector`, `DataverseConnector`,
+`HorizonsConnector`, `PdsConnector`, `PsaConnector` and `DonkiConnector`.
+Seven support anonymous public access; DISCOS requires a free account/token.
+They preserve original responses, source metadata and checksums, and support
+explicit query caching. Literature and archive search results remain evidence
+to review before adding PV capacity or specifications to the catalogue.
+
+See the [research API guide](https://julianascencio.github.io/orbital-pv/user_guide/modeling_topics/research_connectors.html)
+and [offline example](https://julianascencio.github.io/orbital-pv/gallery/real_data/plot_research_connectors.html).
+From an installed checkout, run `python scripts/check_research_connectors.py`
+for a small live access check. These additions are unreleased until the next
+package release.
+
 ### Ground satellite imagery
 
 The repository's ground-data API retrieves **Sentinel-2 Collection 1 imagery**

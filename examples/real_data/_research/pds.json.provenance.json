@@ -1,0 +1,10 @@
+{
+  "source": "NASA PDS",
+  "url": "https://pds.mcp.nasa.gov/api/search/1/products?limit=2&q=%28product_class+eq+%22Product_Bundle%22%29",
+  "retrieved_at": "2026-11-03T04:27:41.994274+00:00",
+  "sha256": "0672b66680fee11cfb141e8ec1fe323b789f83a4d06771dd07d8d6434e3d9306",
+  "bytes": 18312,
+  "path": "examples/real_data/_research/pds.json",
+  "request_url": "https://pds.nasa.gov/api/search/1/products?q=%28product_class+eq+%22Product_Bundle%22%29&limit=2",
+  "documentation": "https://nasa-pds.github.io/pds-api/guides/search.html"
+}

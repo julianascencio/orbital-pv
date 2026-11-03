@@ -1,0 +1,10 @@
+{
+  "source": "ESA PSA",
+  "url": "https://psa.esa.int/psa-tap/tap/sync?REQUEST=doQuery&LANG=ADQL&FORMAT=json&QUERY=SELECT+TOP+2+granule_uid%2C+instrument_host_name%2C+access_url+FROM+psa.epn_core+WHERE+instrument_host_name+%3D+%27Mars+Express%27&MAXREC=2",
+  "retrieved_at": "2026-11-03T04:27:47.466112+00:00",
+  "sha256": "898b58fa90bb2caf3cdcf322ef23ca1d3855f168eb18a0d2958f8a4c2eccd393",
+  "bytes": 1168,
+  "path": "examples/real_data/_research/psa.json",
+  "request_url": "https://psa.esa.int/psa-tap/tap/sync?REQUEST=doQuery&LANG=ADQL&FORMAT=json&QUERY=SELECT+TOP+2+granule_uid%2C+instrument_host_name%2C+access_url+FROM+psa.epn_core+WHERE+instrument_host_name+%3D+%27Mars+Express%27&MAXREC=2",
+  "documentation": "https://meetingorganizer.copernicus.org/EPSC2024/EPSC2024-105.html"
+}

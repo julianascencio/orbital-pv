@@ -4,6 +4,10 @@ Data Connectors
 Connectors retrieve external facts and preserve provenance. They do not contain
 performance analytics logic.
 
+See :doc:`research_connectors` for the free NTRS, DISCOS, Zenodo, Dataverse,
+Horizons, PDS, PSA and DONKI APIs, including access requirements, original-file
+downloads and reproducible query snapshots.
+
 Current sources
 ---------------
 
