@@ -33,8 +33,8 @@ From the repository root:
 
 ```bash
 uv sync --all-packages --group dev --group lab --group docs --group ground
-uv run python analysis/tandem_procurement/run.py --output outputs/tandem_procurement
-MPLBACKEND=Agg uv run python examples/space_business/plot_tandem_procurement.py
+PYTHONPATH=src uv run python analysis/tandem_procurement/run.py --output outputs/tandem_procurement
+PYTHONPATH=src MPLBACKEND=Agg uv run python examples/space_business/plot_tandem_procurement.py
 uv run pytest tests/test_procurement.py
 uv run sphinx-build -W --keep-going -b html docs/sphinx/source docs/sphinx/build/html
 ```
