@@ -27,7 +27,8 @@ import numpy as np
 
 from orbitalpv.procurement import ArrayOffer, break_even_cost_m2, load_array_offers, size_array
 
-inputs = load_array_offers(Path(__file__).parent / "_data/array_offers.csv")
+directory = Path(__file__).resolve().parent if "__file__" in globals() else Path.cwd()
+inputs = load_array_offers(directory / "_data/array_offers.csv")
 offers = [
     ArrayOffer(**row)
     for row in inputs[["name", "bol_w_m2", "eol_retention", "kg_m2", "cost_m2"]].to_dict("records")
