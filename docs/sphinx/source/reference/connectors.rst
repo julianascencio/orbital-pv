@@ -114,3 +114,9 @@ N2YO positions
 
 .. automodule:: space_pv_connectors.n2yo
    :members:
+
+Array procurement inputs
+------------------------
+
+.. automodule:: space_pv_connectors.procurement
+   :members:

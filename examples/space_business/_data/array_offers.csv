@@ -1,0 +1,3 @@
+name,bol_w_m2,eol_retention,kg_m2,cost_m2,evidence_status,source_url,assumptions
+HJT scenario,300,0.85,2,1000,modeled,https://www.swiftsolar.com/news/space-solar-is-going-gigascale,"All absolute inputs are illustrative; five-year EOL; USD; common design point"
+Tandem scenario,360,0.85,2,1500,modeled,https://www.swiftsolar.com/news/space-solar-is-going-gigascale,"20 percent BOL uplift tests a supplier claim; equal array mass and retention are unverified assumptions; five-year EOL; USD"
