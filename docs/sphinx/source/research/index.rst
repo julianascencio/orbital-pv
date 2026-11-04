@@ -40,3 +40,13 @@ checks, constructed scenarios and optional pretrained-model adapters.
 See :doc:`../reference/research` and the corresponding modeling guides for the
 implemented interfaces. Each new analysis directory contains a runner,
 reproduction instructions and an executed reference result.
+
+News-driven business cases
+--------------------------
+
+The :doc:`tandem procurement example <../gallery/space_business/plot_tandem_procurement>`
+turns a November 2026 supplier announcement into an EOL power and procurement
+price-ceiling study. All absolute inputs and economics are explicitly modeled;
+source claims are separated from flight qualification evidence. See the
+`reproduction and evidence notes
+<https://github.com/julianascencio/orbital-pv/tree/main/analysis/tandem_procurement>`_.

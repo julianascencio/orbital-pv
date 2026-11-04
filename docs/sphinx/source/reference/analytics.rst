@@ -13,3 +13,9 @@ Power and energy loss accounting
 
 .. automodule:: space_pv_analytics.losses
    :members:
+
+Array procurement screening
+----------------------------
+
+.. automodule:: space_pv_analytics.procurement
+   :members:

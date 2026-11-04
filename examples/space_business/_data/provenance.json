@@ -1,0 +1,14 @@
+{
+  "source_url": "https://www.swiftsolar.com/news/space-solar-is-going-gigascale",
+  "title": "Space solar is going gigascale",
+  "publisher": "Swift Solar",
+  "published_date": "2026-11-03",
+  "reviewed_date": "2026-11-04",
+  "source_type": "manufacturer announcement; not independently verified flight data",
+  "claim_used": "Tandems are being developed for at least 20 percent more power than HJT at the same cell size and weight.",
+  "claim_limit": "Cell-level aspiration does not establish array-level performance, mass, qualification or lifetime.",
+  "input_status": "Modeled scenarios. No measured data and no supplier quotes are included.",
+  "assumed_not_sourced": ["300 W/m2 HJT array BOL design point", "85 percent five-year EOL retention for both arrays", "2 kg/m2 array mass for both technologies", "1000 and 1500 USD/m2 procurement prices", "5000 USD/kg marginal launch cost", "10000 W EOL sunlit bus demand", "20 percent design margin", "90 percent common bus efficiency"],
+  "sensitivity": {"tandem_retention": [0.55, 1.0], "launch_usd_kg": [0, 10000]},
+  "rights": "Source text and images are not redistributed. Numeric scenarios and original analysis are repository-authored."
+}

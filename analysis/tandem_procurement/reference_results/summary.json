@@ -1,0 +1,65 @@
+{
+  "evidence_status": "modeled scenario; not flight telemetry or a supplier quote",
+  "source": {
+    "source_url": "https://www.swiftsolar.com/news/space-solar-is-going-gigascale",
+    "title": "Space solar is going gigascale",
+    "publisher": "Swift Solar",
+    "published_date": "2026-11-03",
+    "reviewed_date": "2026-11-04",
+    "source_type": "manufacturer announcement; not independently verified flight data",
+    "claim_used": "Tandems are being developed for at least 20 percent more power than HJT at the same cell size and weight.",
+    "claim_limit": "Cell-level aspiration does not establish array-level performance, mass, qualification or lifetime.",
+    "input_status": "Modeled scenarios. No measured data and no supplier quotes are included.",
+    "assumed_not_sourced": [
+      "300 W/m2 HJT array BOL design point",
+      "85 percent five-year EOL retention for both arrays",
+      "2 kg/m2 array mass for both technologies",
+      "1000 and 1500 USD/m2 procurement prices",
+      "5000 USD/kg marginal launch cost",
+      "10000 W EOL sunlit bus demand",
+      "20 percent design margin",
+      "90 percent common bus efficiency"
+    ],
+    "sensitivity": {
+      "tandem_retention": [
+        0.55,
+        1.0
+      ],
+      "launch_usd_kg": [
+        0,
+        10000
+      ]
+    },
+    "rights": "Source text and images are not redistributed. Numeric scenarios and original analysis are repository-authored."
+  },
+  "inputs_sha256": "bfc66cb89423ec0d796d5131acc882f8243a246aa89378d2cb6b3f94fa37a9f6",
+  "required_sunlit_bus_w": 10000,
+  "margin": 0.2,
+  "bus_efficiency": 0.9,
+  "launch_usd_kg": 5000,
+  "results": [
+    {
+      "name": "HJT scenario",
+      "area_m2": 52.287581699346404,
+      "mass_kg": 104.57516339869281,
+      "eol_bus_w": 12000.0,
+      "procurement_cost": 52287.5816993464,
+      "launch_cost": 522875.816993464,
+      "total_cost": 575163.3986928104,
+      "cost_per_eol_bus_w": 47.93028322440087
+    },
+    {
+      "name": "Tandem scenario",
+      "area_m2": 43.57298474945533,
+      "mass_kg": 87.14596949891066,
+      "eol_bus_w": 12000.0,
+      "procurement_cost": 65359.477124182995,
+      "launch_cost": 435729.8474945533,
+      "total_cost": 501089.3246187363,
+      "cost_per_eol_bus_w": 41.757443718228025
+    }
+  ],
+  "candidate_break_even_usd_m2": 3200.0,
+  "candidate_savings_usd": 74074.07407407416,
+  "interpretation": "Conditional price ceiling only. Equal array-level gain, mass and five-year retention require qualification evidence. No continuous payload-power or investment-return claim."
+}
