@@ -6,7 +6,7 @@
 
 [Swift Solar, 3 November 2026](https://www.swiftsolar.com/news/space-solar-is-going-gigascale), reviewed 4 November, motivates a 20% BOL uplift scenario. The supplier's cell-level claim does not validate deployed-array mass, AM0 power or five-year retention. This analysis uses no measured flight data and makes no technology qualification claim.
 
-`examples/space_business/_data/array_offers.csv` contains **modeled inputs**, loaded through the validated `space_pv_connectors.procurement.load_array_offers` connector (CSV, Excel and Parquet via the existing tabular connector). `provenance.json` separates the source claim from every assumed input. No copyrighted article or images are redistributed.
+`examples/space_business/_data/array_offers.csv` contains **modeled inputs**, loaded through the validated `orbitalpv.procurement.load_array_offers` connector (CSV, Excel and Parquet via the existing tabular connector). `provenance.json` separates the source claim from every assumed input. No copyrighted article or images are redistributed.
 
 | Input | HJT scenario | Tandem scenario | Evidence |
 |---|---:|---:|---|

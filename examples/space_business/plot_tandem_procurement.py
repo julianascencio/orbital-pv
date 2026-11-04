@@ -25,8 +25,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
-from space_pv_analytics.procurement import ArrayOffer, break_even_cost_m2, size_array
-from space_pv_connectors.procurement import load_array_offers
+from orbitalpv.procurement import ArrayOffer, break_even_cost_m2, load_array_offers, size_array
 
 inputs = load_array_offers(Path(__file__).parent / "_data/array_offers.csv")
 offers = [

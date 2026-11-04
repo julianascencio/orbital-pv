@@ -11,8 +11,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from space_pv_analytics.procurement import ArrayOffer, break_even_cost_m2, size_array
-from space_pv_connectors.procurement import load_array_offers
+from orbitalpv.procurement import ArrayOffer, break_even_cost_m2, load_array_offers, size_array
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "examples/space_business/_data"
