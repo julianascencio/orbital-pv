@@ -1,6 +1,6 @@
 """
 When is a tandem array worth its price premium?
-==============================================
+===============================================
 
 A constellation procurement team needs 10 kW at its five-year end-of-life
 sunlit design point. Swift Solar's November 3, 2026 announcement motivates
