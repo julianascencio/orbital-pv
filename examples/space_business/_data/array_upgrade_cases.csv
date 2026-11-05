@@ -1,0 +1,4 @@
+scenario,sunlit_power_w,nominal_battery_wh,evidence_status
+Baseline scenario,160000,80000,modeled
+PV upgrade only,215000,80000,modeled
+PV and storage upgrade,215000,120000,modeled

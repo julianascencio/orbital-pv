@@ -396,3 +396,49 @@ def radiator_feasibility(
         "thermal_margin_w": capacity - heat_load_w,
         "feasible": bool(capacity >= heat_load_w),
     }
+
+
+def periodic_load_limit(
+    sunlit_power_w: float,
+    sunlight_h: float,
+    eclipse_h: float,
+    *,
+    battery: BatterySpec,
+) -> dict[str, float]:
+    """Maximum constant bus load sustainable over repeated identical cycles.
+
+    Generation is constant in sunlight and zero in eclipse. Storage is lossless
+    except for the specified charge/discharge efficiencies; the full SOC window
+    is available. Initial SOC is deliberately ignored: this is a periodic-state
+    feasibility bound, not a startup guarantee. No payload/base-load allocation,
+    reserve margin, thermal constraint or degradation is inferred.
+
+    Returns the minimum of orbit energy, usable storage and converter bounds.
+    All returned limits are bus-side watts. Infinite converter limits are allowed
+    by BatterySpec. A zero eclipse bypasses storage entirely.
+    """
+    for name, value in (
+        ("sunlit_power_w", sunlit_power_w),
+        ("sunlight_h", sunlight_h),
+        ("eclipse_h", eclipse_h),
+    ):
+        if not np.isfinite(value) or value < 0:
+            raise ValueError(f"{name} must be finite and nonnegative")
+    if sunlight_h <= 0:
+        raise ValueError("sunlight_h must be positive")
+    if eclipse_h == 0:
+        return {
+            "sustainable_load_w": float(sunlit_power_w),
+            "energy_limit_w": float(sunlit_power_w),
+        }
+    roundtrip = battery.charge_efficiency * battery.discharge_efficiency
+    limits = {
+        "energy_limit_w": sunlit_power_w * sunlight_h / (sunlight_h + eclipse_h / roundtrip),
+        "storage_limit_w": battery.capacity_wh
+        * (battery.maximum_soc - battery.minimum_soc)
+        * battery.discharge_efficiency
+        / eclipse_h,
+        "charge_limit_w": battery.max_charge_w * roundtrip * sunlight_h / eclipse_h,
+        "discharge_limit_w": battery.max_discharge_w,
+    }
+    return {"sustainable_load_w": float(min(limits.values())), **limits}
