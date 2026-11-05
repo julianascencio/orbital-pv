@@ -50,3 +50,8 @@ price-ceiling study. All absolute inputs and economics are explicitly modeled;
 source claims are separated from flight qualification evidence. See the
 `reproduction and evidence notes
 <https://github.com/julianascencio/orbital-pv/tree/main/analysis/tandem_procurement>`_.
+
+The :doc:`array augmentation example <../gallery/space_business/plot_array_upgrade_firm_power>`
+examines how eclipse storage can limit the continuous-load benefit of additional
+solar generation. NASA's November 2026 announcement motivates explicitly modeled
+scenarios; no ISS telemetry or actual payload allocation is inferred.

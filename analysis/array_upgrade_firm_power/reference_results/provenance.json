@@ -1,0 +1,14 @@
+{
+  "source": {
+    "source_url": "https://www.nasa.gov/blogs/spacestation/2026/11/02/week-starts-with-spacewalk-preps-and-life-science/",
+    "publication_date": "2026-11-02",
+    "planned_event_date": "2026-11-05",
+    "reviewed_date": "2026-11-05",
+    "event_status_at_review": "Planned; completion not verified",
+    "source_facts": "NASA describes approximately 160 to 215 kW station capacity after the final upgrade.",
+    "interpretation_limit": "NASA headline capacity is not a measured sunlit bus-power trace. These numbers only set illustrative scenario scales; no ISS operational load or storage capability is inferred.",
+    "assumptions": "60 minutes sunlight, 35 minutes eclipse, 80 or 120 kWh nominal battery, SOC window 20-90 percent, 95 percent efficiency each way, 200 kW charge and discharge limits. All modeled; no flight telemetry, actual battery specifications or cost quotes.",
+    "rights": "Original scenario values and analysis; source article and images not redistributed."
+  },
+  "inputs_sha256": "a4759f4b190c273dbb0bd927f0287b7839ec493343da66c2b4b5621263e424f3"
+}

@@ -1,0 +1,4 @@
+scenario,sustainable_load_w,energy_limit_w,storage_limit_w,charge_limit_w,discharge_limit_w,max_unserved_w,final_soc
+Baseline scenario,91200.0,97184.52047111609,91200.0,309428.5714285714,200000,0.0,0.2
+PV upgrade only,91200.0,130591.69938306225,91200.0,309428.5714285714,200000,0.0,0.2
+PV and storage upgrade,130591.69938306225,130591.69938306225,136800.0,309428.5714285714,200000,0.0,0.2
