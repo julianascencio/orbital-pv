@@ -21,7 +21,7 @@ project = "OrbitalPV"
 author = "OrbitalPV contributors"
 release = _project["version"]
 version = release
-copyright = "2026, OrbitalPV contributors"
+copyright = "2026, ASVA Consulting TFE SL"
 
 extensions = [
     "sphinx.ext.autodoc",

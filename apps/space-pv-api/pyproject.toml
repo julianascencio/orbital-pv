@@ -1,4 +1,6 @@
 [project]
+license = "LicenseRef-ASVA-Noncommercial-1.0"
+license-files = ["LICENSE", "LICENSING.md", "LEGACY-MIT.txt"]
 name = "space-pv-api"
 version = "0.1.0"
 description = "FastAPI boundary for the Space PV web application and automation clients"

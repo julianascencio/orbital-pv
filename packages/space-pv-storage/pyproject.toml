@@ -1,4 +1,6 @@
 [project]
+license = "LicenseRef-ASVA-Noncommercial-1.0"
+license-files = ["LICENSE", "LICENSING.md", "LEGACY-MIT.txt"]
 name = "space-pv-storage"
 version = "0.1.0"
 description = "DuckDB and PostgreSQL persistence adapters for Space PV Analytics"

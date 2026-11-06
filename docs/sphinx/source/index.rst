@@ -18,7 +18,7 @@ OrbitalPV
      </p>
    </div>
 
-**OrbitalPV** is an open-source Python research platform for spacecraft
+**OrbitalPV** is a source-available noncommercial Python research platform for spacecraft
 photovoltaic performance analytics, created by **ASVA Consulting**.
 
 It combines orbital geometry, Sun and eclipse state, spacecraft PV modelling,
@@ -95,3 +95,12 @@ and a generated API Reference.
    reference/index
    research/index
    contributing/index
+
+License
+-------
+
+Copyright (c) 2026 ASVA Consulting TFE SL. Original software is source-available
+for noncommercial use only. Internal business use, paid services, and commercial
+products require separate written permission. Third-party materials keep their
+own terms. Read the `full license <https://github.com/julianascencio/orbital-pv/blob/main/LICENSE>`_
+and `licensing scope <https://github.com/julianascencio/orbital-pv/blob/main/LICENSING.md>`_.
