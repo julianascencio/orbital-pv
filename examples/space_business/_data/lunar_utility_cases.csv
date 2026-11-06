@@ -1,0 +1,5 @@
+scenario,pv_w,battery_wh,dark_h,sun_h
+Reference node,2000,120000,400,120
+Larger PV only,20000,120000,400,120
+Larger storage,2000,240000,400,120
+Shorter dark interval,2000,120000,200,120

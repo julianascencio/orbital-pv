@@ -1,0 +1,11 @@
+{
+  "source_url": "https://www.astrolab.space/2026/11/04/astrolab-unveils-lumis-power-and-communications-node-for-lunar-operations/",
+  "publication_date": "2026-11-04",
+  "announcement_date": "2026-11-04",
+  "reviewed_date": "2026-11-06",
+  "evidence": "Manufacturer announcement, not flight data",
+  "claims_used": "2 kW initial and 20 kW future node designs; more than 400 hours internal reserves while supporting external payloads; deployment targeted for 2028.",
+  "interpretation": "400-hour darkness is an analyst stress scenario, not the stated reserve duration's verified operating condition. Advertised reserve duration gives neither customer load nor battery capacity.",
+  "assumptions": "120/240 kWh nominal battery, 50 W housekeeping, 50 W continuous customers, 90 percent delivery efficiency, 95 percent charge and discharge efficiency, initial SOC 90 percent, minimum SOC 20 percent, maximum SOC 95 percent, 20 kW battery power limits, 120-hour recharge interval. Synthetic two-block illumination, no lunar terrain observations.",
+  "rights": "Original scenario inputs; no article text or imagery redistributed."
+}

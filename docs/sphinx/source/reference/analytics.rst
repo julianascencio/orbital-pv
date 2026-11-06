@@ -19,3 +19,9 @@ Array procurement screening
 
 .. automodule:: space_pv_analytics.procurement
    :members:
+
+Power-service admission
+-----------------------
+
+.. automodule:: orbitalpv.utility
+   :members:

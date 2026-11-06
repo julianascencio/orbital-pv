@@ -1,0 +1,5 @@
+scenario,customers
+Larger PV only,2
+Larger storage,6
+Reference node,2
+Shorter dark interval,6
