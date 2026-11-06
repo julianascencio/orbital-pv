@@ -16,7 +16,7 @@
   <a href="mailto:contacto@asvaconsulting.com">contacto@asvaconsulting.com</a>
 </p>
 
-Created by **ASVA Consulting**, OrbitalPV is an open-source full-stack lab for **spacecraft photovoltaic performance analytics**: PV physics, orbit/Sun geometry, real spacecraft data connectors, degradation/anomaly analytics, reproducible research labs, and a web application platform.
+Created by **ASVA Consulting**, OrbitalPV is a source-available noncommercial full-stack lab for **spacecraft photovoltaic performance analytics**: PV physics, orbit/Sun geometry, real spacecraft data connectors, degradation/anomaly analytics, reproducible research labs, and a web application platform.
 
 The structure follows a modular separation-of-concerns approach: domain models, physics engines, connectors and analytics are independent workspace packages with consistent quality tooling.
 
@@ -406,3 +406,13 @@ OrbitalPV is created and maintained by **ASVA Consulting**.
 
 - Website: https://asvaconsulting.com
 - Contact: contacto@asvaconsulting.com
+
+## License
+
+Copyright (c) 2026 **ASVA Consulting TFE SL**. The original software is
+source-available under the [ASVA Noncommercial Software License 1.0](LICENSE).
+**Commercial use is prohibited**, including internal business use, paid client
+work, commercial products, and paid hosted services. Noncommercial use,
+modification, and sharing are allowed subject to the license.
+
+Third-party materials retain their own terms. See [licensing scope](LICENSING.md).

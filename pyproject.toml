@@ -3,12 +3,12 @@ requires = ["setuptools>=84", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
+license = "LicenseRef-ASVA-Noncommercial-1.0"
+license-files = ["LICENSE", "LICENSING.md", "licenses/*.txt"]
 name = "orbital-pv"
 version = "0.7.0"
-description = "Open-source spacecraft photovoltaic performance analytics"
+description = "Source-available noncommercial spacecraft photovoltaic performance analytics"
 readme = "README.md"
-license = "MIT"
-license-files = ["LICENSE", "licenses/*.txt"]
 requires-python = ">=3.13"
 authors = [{ name = "OrbitalPV contributors" }]
 keywords = ["photovoltaics", "space", "satellite", "orbit", "solar", "telemetry"]
