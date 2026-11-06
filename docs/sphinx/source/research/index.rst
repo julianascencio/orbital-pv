@@ -55,3 +55,8 @@ The :doc:`array augmentation example <../gallery/space_business/plot_array_upgra
 examines how eclipse storage can limit the continuous-load benefit of additional
 solar generation. NASA's November 2026 announcement motivates explicitly modeled
 scenarios; no ISS telemetry or actual payload allocation is inferred.
+
+The :doc:`lunar utility example <../gallery/space_business/plot_lunar_utility_service>`
+screens customer commitments against housekeeping, delivery losses, dark-interval
+storage and recharge. Its source-linked scenarios are modeled, not verified
+commercial node performance.
