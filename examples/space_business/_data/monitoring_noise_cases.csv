@@ -1,0 +1,4 @@
+scenario,independent_sigma,correlated_sigma,correlation_days,drift_bound_per_year
+independent,0.02,0,7,0
+correlated,0.02,0.03,7,0
+correlated_and_drift,0.02,0.03,7,0.01

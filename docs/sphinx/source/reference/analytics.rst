@@ -25,3 +25,9 @@ Power-service admission
 
 .. automodule:: orbitalpv.utility
    :members:
+
+Degradation monitoring design
+-----------------------------
+
+.. automodule:: space_pv_analytics.monitoring
+   :members:
