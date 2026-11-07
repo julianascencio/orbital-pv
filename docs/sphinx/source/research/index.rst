@@ -60,3 +60,10 @@ The :doc:`lunar utility example <../gallery/space_business/plot_lunar_utility_se
 screens customer commitments against housekeeping, delivery losses, dark-interval
 storage and recharge. Its source-linked scenarios are modeled, not verified
 commercial node performance.
+
+The :doc:`perovskite monitoring example <../gallery/space_business/plot_perovskite_monitoring>`
+compares acquisition cadence, campaign duration and calibration stability after
+JAXA's October 2026 bus-power demonstration announcement. It models detection
+capability under declared noise assumptions; it does not infer flight degradation.
+See the `campaign equations and reproduction notes
+<https://github.com/julianascencio/orbital-pv/tree/main/analysis/perovskite_monitoring>`_.

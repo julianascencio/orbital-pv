@@ -1,0 +1,150 @@
+{
+  "evidence": "modeled design; no measured OrigamiSat-2 data",
+  "cases": 30,
+  "long_campaign_cases": [
+    {
+      "scenario": "independent",
+      "cadence_days": 1,
+      "observations": 365,
+      "duration_days": 364.0,
+      "slope_standard_error_per_year": 0.003628884757627687,
+      "minimum_detectable_annual_loss": 0.010115124407015666,
+      "confidence": 0.95,
+      "detection_probability": 0.8,
+      "drift_bound_per_year": 0.0,
+      "detects_five_percent_annual_loss": true
+    },
+    {
+      "scenario": "independent",
+      "cadence_days": 1,
+      "observations": 729,
+      "duration_days": 728.0,
+      "slope_standard_error_per_year": 0.0012856417267069356,
+      "minimum_detectable_annual_loss": 0.0035953560310499457,
+      "confidence": 0.95,
+      "detection_probability": 0.8,
+      "drift_bound_per_year": 0.0,
+      "detects_five_percent_annual_loss": true
+    },
+    {
+      "scenario": "independent",
+      "cadence_days": 7,
+      "observations": 53,
+      "duration_days": 364.0,
+      "slope_standard_error_per_year": 0.009370792402159211,
+      "minimum_detectable_annual_loss": 0.025911457560473583,
+      "confidence": 0.95,
+      "detection_probability": 0.8,
+      "drift_bound_per_year": 0.0,
+      "detects_five_percent_annual_loss": true
+    },
+    {
+      "scenario": "independent",
+      "cadence_days": 7,
+      "observations": 105,
+      "duration_days": 728.0,
+      "slope_standard_error_per_year": 0.003360071751358217,
+      "minimum_detectable_annual_loss": 0.009369358804407521,
+      "confidence": 0.95,
+      "detection_probability": 0.8,
+      "drift_bound_per_year": 0.0,
+      "detects_five_percent_annual_loss": true
+    },
+    {
+      "scenario": "correlated",
+      "cadence_days": 1,
+      "observations": 365,
+      "duration_days": 364.0,
+      "slope_standard_error_per_year": 0.01977378131362133,
+      "minimum_detectable_annual_loss": 0.05389141520358338,
+      "confidence": 0.95,
+      "detection_probability": 0.8,
+      "drift_bound_per_year": 0.0,
+      "detects_five_percent_annual_loss": false
+    },
+    {
+      "scenario": "correlated",
+      "cadence_days": 1,
+      "observations": 729,
+      "duration_days": 728.0,
+      "slope_standard_error_per_year": 0.007166933277704046,
+      "minimum_detectable_annual_loss": 0.019878538145838405,
+      "confidence": 0.95,
+      "detection_probability": 0.8,
+      "drift_bound_per_year": 0.0,
+      "detects_five_percent_annual_loss": true
+    },
+    {
+      "scenario": "correlated",
+      "cadence_days": 7,
+      "observations": 53,
+      "duration_days": 364.0,
+      "slope_standard_error_per_year": 0.022142923150520053,
+      "minimum_detectable_annual_loss": 0.060150277504558536,
+      "confidence": 0.95,
+      "detection_probability": 0.8,
+      "drift_bound_per_year": 0.0,
+      "detects_five_percent_annual_loss": false
+    },
+    {
+      "scenario": "correlated",
+      "cadence_days": 7,
+      "observations": 105,
+      "duration_days": 728.0,
+      "slope_standard_error_per_year": 0.008037855269985777,
+      "minimum_detectable_annual_loss": 0.022267082280604505,
+      "confidence": 0.95,
+      "detection_probability": 0.8,
+      "drift_bound_per_year": 0.0,
+      "detects_five_percent_annual_loss": true
+    },
+    {
+      "scenario": "correlated_and_drift",
+      "cadence_days": 1,
+      "observations": 365,
+      "duration_days": 364.0,
+      "slope_standard_error_per_year": 0.01977378131362133,
+      "minimum_detectable_annual_loss": 0.07262562037842062,
+      "confidence": 0.95,
+      "detection_probability": 0.8,
+      "drift_bound_per_year": 0.01,
+      "detects_five_percent_annual_loss": false
+    },
+    {
+      "scenario": "correlated_and_drift",
+      "cadence_days": 1,
+      "observations": 729,
+      "duration_days": 728.0,
+      "slope_standard_error_per_year": 0.007166933277704046,
+      "minimum_detectable_annual_loss": 0.03928624341107323,
+      "confidence": 0.95,
+      "detection_probability": 0.8,
+      "drift_bound_per_year": 0.01,
+      "detects_five_percent_annual_loss": true
+    },
+    {
+      "scenario": "correlated_and_drift",
+      "cadence_days": 7,
+      "observations": 53,
+      "duration_days": 364.0,
+      "slope_standard_error_per_year": 0.022142923150520053,
+      "minimum_detectable_annual_loss": 0.07876054890224615,
+      "confidence": 0.95,
+      "detection_probability": 0.8,
+      "drift_bound_per_year": 0.01,
+      "detects_five_percent_annual_loss": false
+    },
+    {
+      "scenario": "correlated_and_drift",
+      "cadence_days": 7,
+      "observations": 105,
+      "duration_days": 728.0,
+      "slope_standard_error_per_year": 0.008037855269985777,
+      "minimum_detectable_annual_loss": 0.04162749120310559,
+      "confidence": 0.95,
+      "detection_probability": 0.8,
+      "drift_bound_per_year": 0.01,
+      "detects_five_percent_annual_loss": true
+    }
+  ]
+}

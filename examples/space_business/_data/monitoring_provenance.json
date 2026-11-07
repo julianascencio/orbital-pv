@@ -1,0 +1,14 @@
+{
+  "retrieved_utc": "2026-11-07",
+  "news_url": "https://www.ihub-tansa.jaxa.jp/english/topics_Origamisat2_en.html",
+  "publication_or_update_date": "2026-10-30",
+  "bus_power_event_date": "2026-09-10",
+  "first_iv_measurements_date": "2026-05-30",
+  "evidence": "JAXA reports flight demonstration; no numerical flight measurements imported. All numerical noise, drift, schedule and decision-target inputs are analyst assumptions.",
+  "method_sources": [
+    "https://pvpmc.sandia.gov/tools/pv-degradation-methods/",
+    "https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd143.htm"
+  ],
+  "source_rights": "JAXA page copyright JAXA; images copyright Institute of Science Tokyo. No article text, images or flight data redistributed. URLs and factual event dates recorded only. Original scenario table and code use the repository license.",
+  "assumptions": "Natural-log independent sigma 0.02; correlated sigma 0 or 0.03; correlation time 7 days; bounded log drift 0 or 0.01/year. Constant slope, known Gaussian covariance, complete valid daily or weekly normalized MPP sweeps. Target 5% annual loss; confidence 95%, detection probability 80%."
+}
