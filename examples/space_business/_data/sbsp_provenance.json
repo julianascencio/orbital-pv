@@ -1,0 +1,13 @@
+{
+ "retrieved_utc": "2026-11-08",
+ "source_url": "https://www.virtussolis.space/blog/virtus-solis-signs-landmark-20-year-ppa-with-brae-systems",
+ "release_url": "https://www.prnewswire.com/news-releases/virtus-solis-signs-landmark-20-year-space-solar-ppa-with-brae-systems-to-deliver-250-mw-of-orbital-baseload-clean-power-302894283.html",
+ "publication_date": "2026-09-30",
+ "event_date": "2026-09-30 announcement; no operational delivery date inferred",
+ "source_values": {"advertised_power_mw": 100, "advertised_annual_energy_mwh": 876000},
+ "evidence": "No measured data. Advertised targets imported manually; profiles, outages and efficiencies are explicit analyst scenarios.",
+ "rights": "Company announcement remains source copyright; no source article or imagery redistributed. Original scenario data use repository license.",
+ "units": "elapsed hours, watts, watt-hours; efficiencies dimensionless",
+ "time_frame": "constructed contiguous non-leap 8760-hour year; no orbital reference frame",
+ "assumptions": "constant load, no storage or grid backup included, no simultaneous beam allocation; 88 outage hours clustered or separated; deterministic sensitivities, not probability distributions"
+}

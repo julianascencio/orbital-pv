@@ -31,3 +31,9 @@ Degradation monitoring design
 
 .. automodule:: space_pv_analytics.monitoring
    :members:
+
+Ground delivery adequacy
+------------------------
+
+.. automodule:: orbitalpv.delivery
+   :members:
