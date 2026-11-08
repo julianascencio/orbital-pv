@@ -67,3 +67,8 @@ JAXA's October 2026 bus-power demonstration announcement. It models detection
 capability under declared noise assumptions; it does not infer flight degradation.
 See the `campaign equations and reproduction notes
 <https://github.com/julianascencio/orbital-pv/tree/main/analysis/perovskite_monitoring>`_.
+
+The :doc:`SBSP delivery example <../gallery/space_business/plot_sbsp_delivery>`
+separates annual energy targets from continuous power service and ideal backup
+requirements. It implements the source-backed P7.3 backlog with explicitly
+constructed profiles, not operational orbital-power data.

@@ -1,0 +1,34 @@
+[
+  {
+    "scenario": "energy_surplus_interrupted",
+    "pattern": "clustered",
+    "duration_h": 8760.0,
+    "delivered_wh": 910560000000.0,
+    "required_wh": 876000000000.0,
+    "served_wh": 867200000000.0,
+    "shortfall_wh": 8800000000.0,
+    "surplus_wh": 43360000000.0,
+    "availability": 0.9899543378995433,
+    "shortfall_h": 88.0,
+    "longest_shortfall_h": 88.0,
+    "backup_peak_w": 100000000.0,
+    "largest_event_shortfall_wh": 8800000000.0,
+    "energy_target_met": true
+  },
+  {
+    "scenario": "energy_surplus_interrupted",
+    "pattern": "distributed",
+    "duration_h": 8760.0,
+    "delivered_wh": 910560000000.0,
+    "required_wh": 876000000000.0,
+    "served_wh": 867200000000.0,
+    "shortfall_wh": 8800000000.0,
+    "surplus_wh": 43360000000.0,
+    "availability": 0.9899543378995433,
+    "shortfall_h": 88.0,
+    "longest_shortfall_h": 1.0,
+    "backup_peak_w": 100000000.0,
+    "largest_event_shortfall_wh": 100000000.0,
+    "energy_target_met": true
+  }
+]
