@@ -1,0 +1,104 @@
+{
+  "evidence": [
+    {
+      "design_id": "illustrative_array",
+      "protocol_id": "ambient",
+      "units": 20,
+      "successes": 20,
+      "failures": 0,
+      "confidence": 0.95,
+      "reliability_lower": 0.8608916593317348
+    },
+    {
+      "design_id": "illustrative_array",
+      "protocol_id": "thermal_vacuum",
+      "units": 20,
+      "successes": 19,
+      "failures": 1,
+      "confidence": 0.95,
+      "reliability_lower": 0.7838938357931526
+    }
+  ],
+  "plans": [
+    {
+      "reliability_target": 0.9,
+      "confidence": 0.8,
+      "zero_failure_units": 16
+    },
+    {
+      "reliability_target": 0.9,
+      "confidence": 0.9,
+      "zero_failure_units": 22
+    },
+    {
+      "reliability_target": 0.9,
+      "confidence": 0.95,
+      "zero_failure_units": 29
+    },
+    {
+      "reliability_target": 0.9,
+      "confidence": 0.99,
+      "zero_failure_units": 44
+    },
+    {
+      "reliability_target": 0.95,
+      "confidence": 0.8,
+      "zero_failure_units": 32
+    },
+    {
+      "reliability_target": 0.95,
+      "confidence": 0.9,
+      "zero_failure_units": 45
+    },
+    {
+      "reliability_target": 0.95,
+      "confidence": 0.95,
+      "zero_failure_units": 59
+    },
+    {
+      "reliability_target": 0.95,
+      "confidence": 0.99,
+      "zero_failure_units": 90
+    },
+    {
+      "reliability_target": 0.99,
+      "confidence": 0.8,
+      "zero_failure_units": 161
+    },
+    {
+      "reliability_target": 0.99,
+      "confidence": 0.9,
+      "zero_failure_units": 230
+    },
+    {
+      "reliability_target": 0.99,
+      "confidence": 0.95,
+      "zero_failure_units": 299
+    },
+    {
+      "reliability_target": 0.99,
+      "confidence": 0.99,
+      "zero_failure_units": 459
+    },
+    {
+      "reliability_target": 0.999,
+      "confidence": 0.8,
+      "zero_failure_units": 1609
+    },
+    {
+      "reliability_target": 0.999,
+      "confidence": 0.9,
+      "zero_failure_units": 2302
+    },
+    {
+      "reliability_target": 0.999,
+      "confidence": 0.95,
+      "zero_failure_units": 2995
+    },
+    {
+      "reliability_target": 0.999,
+      "confidence": 0.99,
+      "zero_failure_units": 4603
+    }
+  ]
+}

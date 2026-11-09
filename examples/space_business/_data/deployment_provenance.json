@@ -1,0 +1,11 @@
+{
+ "retrieved_utc": "2026-11-09",
+ "news_url": "https://www.esa.int/media/about-us/directorates/earth-observation-programmes/copernicus/testing-cristal-s-solar-panel-deployment",
+ "publication_date": "2026-10-26",
+ "test_event_date": null,
+ "evidence": "ESA reports deployment testing but supplies no numerical outcomes or event date. All 40 unit records are synthetic, with assumed independent units and protocols; no CRISTAL reliability inferred.",
+ "method_url": "https://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/exacbici.htm",
+ "rights": "No ESA imagery or article text redistributed. Original synthetic data and code use repository license. External publications retain their own rights.",
+ "units": "unit counts and dimensionless probabilities; no orbit/time coordinates",
+ "assumptions": "Independent exchangeable Bernoulli outcomes within each design/protocol; fixed sample size, representative environment, no unmodeled common cause; not a qualification certificate."
+}

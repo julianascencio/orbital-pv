@@ -72,3 +72,8 @@ The :doc:`SBSP delivery example <../gallery/space_business/plot_sbsp_delivery>`
 separates annual energy targets from continuous power service and ideal backup
 requirements. It implements the source-backed P7.3 backlog with explicitly
 constructed profiles, not operational orbital-power data.
+
+The :doc:`deployment evidence example <../gallery/space_business/plot_deployment_evidence>`
+uses ESA's October 2026 CRISTAL testing update to motivate exact binomial
+confidence bounds and fixed zero-failure sample plans. All trial records are
+synthetic; neither test success nor statistical bounds replace qualification.
