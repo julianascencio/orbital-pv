@@ -123,3 +123,10 @@ committed `reference_results.json` contains the executed values. The gallery
 registers `examples/space_business/plot_deployment_evidence.py` automatically;
 the research index and API reference expose it. Original synthetic data and code
 use the repository license; referenced sources retain their own rights.
+
+Local validation on November 9: 830 Python tests, repository Ruff and type checks,
+web lint/tests/build, package build/Twine and four catalogue JavaScript tests
+passed. The strict Sphinx build executed all 58 gallery examples successfully;
+the new example also ran against an isolated installed wheel. Remote CI status
+is recorded in the pull request separately, so local success is not confused
+with missing remote checks.
