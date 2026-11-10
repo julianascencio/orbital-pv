@@ -14,6 +14,7 @@ from space_pv_pvmodel.eps import (
     rainflow_cycles,
     schedule_compute_workload,
 )
+from space_pv_pvmodel.pointing import pointing_power_envelope
 from space_pv_pvmodel.spectral import (
     TandemCurrent,
     spectral_photocurrent_density,
@@ -40,6 +41,7 @@ __all__ = [
     "battery_cycle_damage",
     "dispatch_power",
     "periodic_load_limit",
+    "pointing_power_envelope",
     "radiation_equivalent_fluence",
     "radiator_feasibility",
     "rainflow_cycles",
