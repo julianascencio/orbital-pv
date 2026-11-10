@@ -1,0 +1,14 @@
+{
+  "start_tt": "2027-09-01",
+  "stop_tt": "2029-09-01",
+  "array_1au_w": 1400.0,
+  "retention": 0.9,
+  "bus_efficiency": 0.9,
+  "load_w": 300.0,
+  "reserve_fraction": 0.2,
+  "offpoint_deg": 30.0,
+  "sensitivity_array_1au_w": [1000, 1200, 1400, 1600],
+  "sensitivity_retention": [0.8, 0.9, 1.0],
+  "sensitivity_load_w": [250, 300, 350],
+  "distance_stress_fraction": 0.001
+}

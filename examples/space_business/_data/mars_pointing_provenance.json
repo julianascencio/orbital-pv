@@ -1,0 +1,27 @@
+{
+  "retrieved_at": "2026-11-10",
+  "news": {
+    "url": "https://science.nasa.gov/science-research/heliophysics/nasas-escapade-completes-powered-earth-flybys-now-en-route-to-mars/",
+    "published": "2026-11-09",
+    "event_dates": ["2026-11-07", "2026-11-09"],
+    "planned_mars_arrivals": ["2027-09-07", "2027-09-09"],
+    "evidence_kind": "NASA mission status report and future schedule; no power telemetry"
+  },
+  "geometry": {
+    "url": "https://www.giss.nasa.gov/tools/mars24/help/algorithm.html",
+    "source_updated": "2025-01-07",
+    "method": "Mars24 sections B1 and D2, reused via orbitalpv.mars.mars_solar_parameters",
+    "evidence_kind": "published analytical approximation; generated distances are modeled",
+    "time_scale": "TT",
+    "units": "Julian days; astronomical units",
+    "rights": "NASA GISS published algorithm; attribution retained. No source text, imagery or binaries redistributed."
+  },
+  "engineering_inputs": {
+    "file": "mars_pointing.json",
+    "evidence_kind": "author-selected illustrative scenarios; not ESCAPADE specifications",
+    "license": "repository license",
+    "retention": "static combined retained-power multiplier; no measured radiation/degradation rate",
+    "distance_stress_fraction": "assumed +0.1% sensitivity, not a validated error bound"
+  },
+  "data_acquisition_note": "Horizons vectors requests on 2026-11-10 returned date-only records without XYZ. Those incomplete responses are not inputs. Reused the repository's NASA Mars24 model; no downloaded ephemeris or flight measurements claimed."
+}

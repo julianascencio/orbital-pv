@@ -77,3 +77,11 @@ The :doc:`deployment evidence example <../gallery/space_business/plot_deployment
 uses ESA's October 2026 CRISTAL testing update to motivate exact binomial
 confidence bounds and fixed zero-failure sample plans. All trial records are
 synthetic; neither test success nor statistical bounds replace qualification.
+
+The :doc:`Mars pointing reserve example <../gallery/space_business/plot_mars_pointing>`
+uses NASA's November 9, 2026 ESCAPADE update to motivate seasonal array pointing
+and bus-reserve constraints. It reuses NASA Mars24 geometry and compares a
+fixed-distance baselines with 36 assumed sizing/load/retention cases. Results are
+modeled, not ESCAPADE telemetry or specifications. See the
+`inputs, equations and reproduction notes
+<https://github.com/julianascencio/orbital-pv/tree/main/analysis/mars_pointing>`_.
