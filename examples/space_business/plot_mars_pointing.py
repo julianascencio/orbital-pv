@@ -1,6 +1,6 @@
 """
 Mars orbital solar-array pointing reserve
-========================================
+=========================================
 
 NASA's November 9, 2026 ESCAPADE flyby update motivates a Mars mission power
 planning screen. Can an assumed 1.4 kW array (at 1 AU) support a 300 W bus,
