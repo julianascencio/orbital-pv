@@ -162,3 +162,37 @@ def test_invalid_launch_cadence(invalid_launches):
     args = dict(DATA["deployment"], array_area_m2=1000, continuous_compute_kw=175)
     with pytest.raises(ValueError):
         deployment_screen(**{**args, "launches_per_year": invalid_launches})
+
+
+@pytest.mark.parametrize("scenario", DATA["scenarios"], ids=lambda s: s["name"])
+def test_continuous_cap_protects_platform_and_accounts_rejection(base, scenario):
+    spec = replace(
+        base,
+        **scenario["changes"],
+        battery=replace(base.battery, **scenario.get("battery_changes", {})),
+    )
+    trace = simulate_orbital_compute(spec, cycles=4, dispatch_policy="continuous_cap")
+    assert (spec.platform_load_w - trace.served_platform_w).max() < 1e-7
+    assert trace.power_balance_error_w.abs().max() < 1e-6
+    assert trace.unserved_load_w.max() < 1e-7
+    assert trace.soc_end.iloc[-1] >= spec.battery.minimum_soc - 1e-10
+    np.testing.assert_allclose(trace.unserved_compute_wh, trace.rejected_compute_wh, atol=1e-6)
+    assert (trace.admitted_compute_w <= trace.requested_compute_w).all()
+
+
+def test_policy_validation_and_impossible_platform(base):
+    with pytest.raises(ValueError, match="dispatch_policy"):
+        simulate_orbital_compute(base, dispatch_policy="unknown")
+    with pytest.raises(ValueError, match="feasible platform"):
+        simulate_orbital_compute(
+            replace(base, platform_load_w=300000), dispatch_policy="continuous_cap"
+        )
+
+
+def test_cap_removes_greedy_platform_outage(base):
+    spec = replace(base, beta_angle_deg=0)
+    greedy = simulate_orbital_compute(spec, cycles=4)
+    capped = simulate_orbital_compute(spec, cycles=4, dispatch_policy="continuous_cap")
+    assert (spec.platform_load_w - greedy.served_platform_w).max() > 1000
+    assert (spec.platform_load_w - capped.served_platform_w).max() < 1e-7
+    assert (capped.rejected_compute_wh > 0).any()

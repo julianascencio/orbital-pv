@@ -174,6 +174,7 @@ def simulate_orbital_compute(
     cycles: int = 40,
     intervals_per_orbit: int = 120,
     peak_fraction: float = 0.2,
+    dispatch_policy: str = "greedy",
 ) -> pd.DataFrame:
     """Dispatch orbit-repeating bursts with exactly the requested mean load.
 
@@ -185,6 +186,15 @@ def simulate_orbital_compute(
     A fixed radiator cap excludes
     thermal inertia, and the full trace reports SOC drift and unserved energy.
     Initial SOC is set to the reserve floor to avoid gifting stored energy.
+
+    ``continuous_cap`` admits at most the repeatable continuous compute bound
+    at every interval. This conservative admission policy protects platform
+    demand under this fixed repeating geometry, provided the platform alone is
+    feasible. It can reject useful sunlit bursts; it is not an optimal scheduler
+    or protection against uncertain generation. ``greedy`` preserves the
+    original unconstrained demand. Requested, admitted and rejected compute
+    are reported separately; rejected work is not automatically rescheduled.
+    Dispatch conservation columns refer to admitted electrical demand.
     """
     if isinstance(cycles, bool) or not isinstance(cycles, int) or cycles < 1:
         raise ValueError("cycles must be a positive integer")
@@ -201,7 +211,11 @@ def simulate_orbital_compute(
     )
     if low_compute < 0:
         raise ValueError("peak_fraction makes the off-peak compute load negative")
+    if dispatch_policy not in ("greedy", "continuous_cap"):
+        raise ValueError("dispatch_policy must be greedy or continuous_cap")
     screen = screen_orbital_compute(spec)
+    if dispatch_policy == "continuous_cap" and not screen["platform_continuous_feasible"]:
+        raise ValueError("continuous_cap requires a continuously feasible platform")
     period = float(screen["orbit_period_min"]) * 60
     eclipse = float(screen["eclipse_min"]) * 60
     sun_end = period - eclipse
@@ -218,15 +232,23 @@ def simulate_orbital_compute(
     phase = ((edges[:-1] + edges[1:]) / 2) % period
     generation = np.where(phase < sun_end, float(screen["sunlit_bus_power_kw"]) * 1000, 0)
     compute = np.where(phase >= peak_start, spec.peak_compute_w, low_compute)
+    admitted = (
+        np.minimum(compute, float(screen["sustainable_compute_kw"]) * 1000)
+        if dispatch_policy == "continuous_cap"
+        else compute
+    )
     trace = dispatch_power(
         edges,
         generation,
-        compute + spec.platform_load_w,
+        admitted + spec.platform_load_w,
         battery=replace(spec.battery, initial_soc=spec.battery.minimum_soc),
         maximum_served_power_w=float(screen["thermal_bus_limit_kw"]) * 1000,
     )
     trace["cycle"] = np.floor(((edges[:-1] + edges[1:]) / 2) / period).astype(int)
     trace["requested_compute_w"] = compute
+    trace["admitted_compute_w"] = admitted
+    trace["rejected_compute_wh"] = (compute - admitted) * trace.duration_h
+    trace["dispatch_policy"] = dispatch_policy
     trace["served_platform_w"] = np.minimum(trace.served_load_w, spec.platform_load_w)
     trace["served_compute_w"] = trace.served_load_w - trace.served_platform_w
     trace["unserved_compute_wh"] = (compute - trace.served_compute_w) * trace.duration_h

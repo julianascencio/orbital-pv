@@ -145,3 +145,22 @@ plt.show()
 # target orbit, 1,000 flights/year. No fairing or orbital approval is implied.
 # Electrical energy served is not tokens/s, FLOPS, training throughput, revenue
 # or proof of chip-temperature feasibility. Those require additional models.
+
+
+# %% Protecting the platform trades compute service for a repeatable power budget.
+# This is conservative admission control under the same assumed repeating orbit,
+# not a flight controller or a prediction of useful AI work. Rejected work is lost.
+fig_policy, axes_policy = plt.subplots(1, 2, figsize=(11, 4), layout="constrained")
+for policy in ("greedy", "continuous_cap"):
+    trace = simulate_orbital_compute(specs[2], dispatch_policy=policy)
+    tail = trace[trace.cycle >= 38]
+    time = (tail.interval_start_s - tail.interval_start_s.iloc[0]) / 3600
+    axes_policy[0].step(time, tail.served_compute_w / 1000, where="post", label=policy)
+    axes_policy[1].step(time, tail.served_platform_w / 1000, where="post", label=policy)
+axes_policy[0].set(ylabel="Compute served [kW]", title="Conservative admission reduces compute")
+axes_policy[1].set(ylabel="Platform served [kW]", title="Platform continuity in modeled eclipse")
+for ax in axes_policy:
+    ax.set_xlabel("Time in final two orbits [h]")
+    ax.legend()
+fig_policy.suptitle("Assumed low-beta scenario: policy comparison")
+plt.show()

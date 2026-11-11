@@ -88,3 +88,35 @@ This excludes fairing volume, orbit insertion penalties beyond the supplied payl
 The model does not estimate useful AI work, tokens/s, FLOPS, workload accuracy, revenue, launch cost or terrestrial cost competitiveness. Those need hardware benchmarks, networking and cost inputs. Radiation damage is a retention sensitivity, not a validated HJT lifetime model. The 600 m² radiator area counts emitting faces once each; blocked faces must be removed. Thermal transport, junction temperatures, fluid loops, transient heat storage, micrometeoroid exposure and structural design are outside this screening calculation.
 
 Tests cover independent power/thermal arithmetic, repeatable continuous service, conservation of energy, SOC bounds, eclipse/burst boundary resolution, overloaded cases, and deployment unit conversion/limits. These checks validate implementation consistency, not SpaceX hardware.
+
+## Conservative compute admission (November 11 follow-up)
+
+The November 10 SINGULUS primary announcement was rechecked November 11, 2026.
+November 10 is the publication/announcement date; the exact contract signing date
+is not specified. H1 2027 delivery is a future plan. No supplier content is
+redistributed. The operator decision is whether to sacrifice burst service to
+protect platform continuity before procuring larger arrays/storage.
+
+`simulate_orbital_compute(..., dispatch_policy="continuous_cap")` caps admitted
+compute at the existing repeatable continuous electrical/thermal bound. The
+original `greedy` default remains the baseline. The cap refuses configurations
+where platform demand alone is not continuously feasible. Requested, admitted,
+rejected and served compute remain distinct; rejection is not rescheduling.
+Conservation diagnostics refer to admitted demand; `unserved_compute_wh`
+includes both rejected work and any admitted compute not served.
+
+The runner now writes `dispatch_policies.csv` for both policies across all five
+scenarios, and the gallery adds a compute/platform time-series comparison.
+In the low-beta case, over the final five orbits (7.9708 h), greedy dispatch serves
+134.845 kW mean compute but leaves 18.931 kWh platform demand unserved. The cap
+serves 97.043 kW compute with **zero modeled platform shortfall**, rejects
+621.385 kWh requested compute and has no net SOC depletion. This trades a
+37.803 kW reduction in mean compute for platform continuity under the assumptions.
+
+This policy is intentionally conservative, not throughput-optimal: in the
+high-beta baseline it reduces mean compute from 175.000 to 170.364 kW even though
+the original burst schedule is feasible. It has no forecast uncertainty,
+variable-orbit protection, task deadlines, queues or useful-work model. The
+continuous bound assumes fixed repeating generation and the specified battery;
+it is not a flight safety guarantee or revenue estimate. All numerical results
+remain modeled, using the existing assumed input file, not flight measurements.

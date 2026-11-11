@@ -33,7 +33,7 @@ def run(output: Path, input_path: Path = INPUT) -> None:
     if not 1 <= report_cycles <= dispatch["cycles"]:
         raise ValueError("report_last_cycles must be between 1 and cycles")
     output.mkdir(parents=True, exist_ok=True)
-    rows, traces, fleets = [], [], []
+    rows, traces, fleets, policies = [], [], [], []
     for scenario in data["scenarios"]:
         spec = replace(
             base,
@@ -41,6 +41,29 @@ def run(output: Path, input_path: Path = INPUT) -> None:
             battery=replace(base.battery, **scenario.get("battery_changes", {})),
         )
         screen = screen_orbital_compute(spec)
+        for policy in ("greedy", "continuous_cap"):
+            policy_trace = simulate_orbital_compute(spec, **dispatch, dispatch_policy=policy)
+            window = policy_trace[policy_trace.cycle >= dispatch["cycles"] - report_cycles]
+            policies.append(
+                {
+                    "scenario": scenario["name"],
+                    "policy": policy,
+                    "served_compute_kw": float(
+                        (window.served_compute_w * window.duration_h).sum()
+                        / window.duration_h.sum()
+                        / 1000
+                    ),
+                    "platform_unserved_kwh": float(
+                        (
+                            (spec.platform_load_w - window.served_platform_w) * window.duration_h
+                        ).sum()
+                        / 1000
+                    ),
+                    "rejected_compute_kwh": float(window.rejected_compute_wh.sum() / 1000),
+                    "report_duration_h": float(window.duration_h.sum()),
+                    "soc_change": float(window.soc_end.iloc[-1] - window.soc_start.iloc[0]),
+                }
+            )
         trace = simulate_orbital_compute(spec, **dispatch)
         tail = trace[trace.cycle >= dispatch["cycles"] - report_cycles].copy()
         hours = tail.duration_h.sum()
@@ -103,6 +126,7 @@ def run(output: Path, input_path: Path = INPUT) -> None:
         }
         for launches in (100, 500, 1000, 2000, 5000, 8000, 10000)
     ]
+    pd.DataFrame(policies).to_csv(output / "dispatch_policies.csv", index=False)
     pd.DataFrame(rows).to_csv(output / "scenarios.csv", index=False)
     pd.concat(traces, ignore_index=True).to_csv(output / "dispatch.csv", index=False)
     pd.DataFrame(fleets).to_csv(output / "deployment.csv", index=False)
