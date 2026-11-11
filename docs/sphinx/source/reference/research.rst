@@ -13,6 +13,12 @@ Spacecraft physics and power systems
    :imported-members:
    :no-index:
 
+Orbital compute and deployment
+------------------------------
+
+.. automodule:: orbitalpv.orbital_compute
+   :members:
+
 Flight telemetry and uncertainty
 --------------------------------
 
