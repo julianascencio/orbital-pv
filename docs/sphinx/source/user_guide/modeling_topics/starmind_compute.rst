@@ -1,5 +1,5 @@
 SpaceX-inspired orbital compute
-==============================
+===================================
 
 The Starmind example connects a news-motivated HJT manufacturing scenario to
 solar generation, eclipse storage, radiative cooling and deployment throughput.
@@ -11,7 +11,7 @@ hardware, orbit and launch inputs are explicit analyst assumptions.
    :width: 100%
 
 Run and inspect
----------------
+-------------------
 
 Install the current source checkout, then run::
 
@@ -28,7 +28,7 @@ and `full analysis, evidence, equations and reference results
 <https://github.com/julianascencio/orbital-pv/tree/main/analysis/spacex_starmind>`_.
 
 What the result means
---------------------
+-------------------------
 
 The assumed illuminated baseline serves the full burst schedule. Reducing PV
 output, entering a low-beta eclipse orbit, or reducing radiator area can make

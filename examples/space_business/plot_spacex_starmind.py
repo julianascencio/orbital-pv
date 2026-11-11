@@ -1,6 +1,6 @@
 """
 SpaceX Starmind: from HJT solar cells to usable orbital compute
-=============================================================
+===================================================================
 
 The November 11, 2026 BigGo report motivates this scenario. SINGULUS confirms
 an HJT manufacturing agreement; SpaceX lists AI1 at 175 kW average and 250 kW
