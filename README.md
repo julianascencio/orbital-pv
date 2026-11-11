@@ -80,6 +80,22 @@ From an installed checkout, run `python scripts/check_research_connectors.py`
 for a small live access check. These additions are unreleased until the next
 package release.
 
+### SpaceX Starmind orbital-compute scenario (source tree)
+
+The [Starmind analysis](analysis/spacex_starmind) uses the November 2026 HJT
+manufacturing news and AI1's published 175 kW average / 250 kW peak compute
+targets to explore PV, eclipse storage, radiator and launch constraints.
+Hardware and deployment assumptions are explicitly separated from company claims.
+
+![Starmind orbital-compute trade study](docs/sphinx/source/_static/spacex_starmind.png)
+
+From an installed checkout, run `python analysis/spacex_starmind/run.py` for
+reproducible CSV results and provenance, or
+`python examples/space_business/plot_spacex_starmind.py` for the gallery figure.
+The reusable `orbitalpv.orbital_compute` API includes continuous power sizing,
+burst dispatch and factory-to-orbit capacity screening. These methods are
+unreleased until the next package release; they are not SpaceX flight models.
+
 ### Lunar surface power (source tree)
 
 `opv.lunar` adds four anonymous data connectors (LOLA terrain, Diviner polar

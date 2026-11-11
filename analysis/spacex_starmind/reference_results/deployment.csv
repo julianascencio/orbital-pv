@@ -1,0 +1,6 @@
+scenario,array_stc_kw,usable_factory_gw_per_year,arrays_per_year,satellites_per_launch,launch_limited_satellites_per_year,deployed_satellites_per_year,launches_to_deploy_factory_output,launch_payload_can_fit_one_satellite,deployed_array_stc_gw_per_year,added_continuous_compute_gw,added_utilized_compute_gw
+High-beta baseline,225.0,36.0,160000,20,20000,20000,8000,1,4.5,3.5,2.975
+25% PV loss,225.0,36.0,160000,20,20000,20000,8000,1,4.5,3.3273308203125005,2.8282311972656253
+Low-beta eclipse,225.0,36.0,160000,20,20000,20000,8000,1,4.5,1.9408500567414735,1.6497225482302524
+Eclipse resized,360.0,36.0,100000,12,12000,12000,8334,1,4.32,2.1,1.785
+Smaller radiator,225.0,36.0,160000,20,20000,20000,8000,1,4.5,2.2312926699294278,1.8965987694400135

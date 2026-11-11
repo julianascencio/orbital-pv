@@ -1,0 +1,72 @@
+{
+  "as_of": "2026-11-11",
+  "evidence": [
+    {"id": "news_context", "url": "https://finance.biggo.com/news/6df155a6-43f9-4a25-8077-010be64ec6c3", "status": "secondary_context", "claim": "Links HJT manufacturing plans to Starmind orbital AI. The reported 100 GW/year ambition is a scenario scale, not operational capacity."},
+    {"id": "supplier_contract", "url": "https://www.singulus.com/2026/11/10/singulus-spacex-supply-contract/", "status": "primary_announcement", "claim": "First HJT line exceeds EUR 60 million, delivery H1 2027; more lines planned. Initial line throughput and cell efficiency are undisclosed. The release refers to more than 100 GW of equipment without an annual rate or completion date."},
+    {"id": "spacecraft_payload", "url": "https://new.spacex.com/spacexai/starmind", "status": "primary_company_design_claim", "claim": "AI1 compute payload: 175 kW average, 250 kW peak; 30 m deployed height and 75 m wingspan; solar-powered compute with Starlink laser connectivity. Not measured flight telemetry."},
+    {"id": "thermal_physics", "url": "https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/", "status": "primary_method_reference", "claim": "Radiative heat balance includes internal dissipation and absorbed solar, albedo and planetary infrared energy."},
+    {"id": "eclipse_physics", "url": "https://ntrs.nasa.gov/api/citations/20220006584/downloads/NASAPassiveThermalGuidebookv5%201Public.pdf", "status": "primary_method_reference", "claim": "Eclipse duration depends on altitude and beta angle; sun-synchronous alone does not ensure continuous sunlight."}
+  ],
+  "input_status": {
+    "average_compute_w": "company design claim: spacecraft_payload",
+    "peak_compute_w": "company design claim: spacecraft_payload",
+    "all_other_spec_fields": "analyst assumptions for screening, not SpaceX specifications",
+    "manufacturing_gw_per_year": "headline ambition used for sensitivity; assumed STC nameplate basis",
+    "all_other_deployment_fields": "analyst assumptions, not a launch forecast or supplier specification",
+    "efficiency_am0_vs_stc": "independently assumed 25% values; no claim that terrestrial HJT has this AM0 efficiency or space qualification",
+    "beta_angle_deg": "fixed representative orbit, not a propagated yearly SSO ephemeris",
+    "thermal_allowance_w": "40 kW fixed EPS/storage heat budget; checked against modeled losses",
+    "retained_power_fraction": "imposed loss sensitivity; no calibrated lifetime or radiation prediction"
+  },
+  "baseline": {
+    "altitude_m": 550000,
+    "beta_angle_deg": 75,
+    "pv_area_m2": 1000,
+    "efficiency_am0": 0.25,
+    "packing_fraction": 0.9,
+    "pv_temperature_c": 75,
+    "temperature_coefficient_per_k": -0.0025,
+    "array_derate": 0.95,
+    "eps_efficiency": 0.95,
+    "retained_power_fraction": 1.0,
+    "irradiance_w_m2": 1361,
+    "platform_load_w": 15000,
+    "average_compute_w": 175000,
+    "peak_compute_w": 250000,
+    "radiator_emitting_area_m2": 600,
+    "radiator_temperature_k": 330,
+    "radiator_emissivity": 0.9,
+    "absorbed_environment_w_m2": 50,
+    "thermal_allowance_w": 40000,
+    "battery": {
+      "capacity_wh": 100000,
+      "initial_soc": 0.2,
+      "minimum_soc": 0.2,
+      "maximum_soc": 0.9,
+      "charge_efficiency": 0.95,
+      "discharge_efficiency": 0.95,
+      "max_charge_w": 300000,
+      "max_discharge_w": 300000
+    }
+  },
+  "scenarios": [
+    {"name": "High-beta baseline", "changes": {}},
+    {"name": "25% PV loss", "changes": {"retained_power_fraction": 0.75}},
+    {"name": "Low-beta eclipse", "changes": {"beta_angle_deg": 0}},
+    {"name": "Eclipse resized", "changes": {"beta_angle_deg": 0, "pv_area_m2": 1600}, "battery_changes": {"capacity_wh": 240000}, "deployment_changes": {"satellite_mass_kg": 8000}},
+    {"name": "Smaller radiator", "changes": {"radiator_emitting_area_m2": 300}}
+  ],
+  "dispatch": {"cycles": 40, "intervals_per_orbit": 120, "peak_fraction": 0.2, "report_last_cycles": 5},
+  "deployment": {
+    "manufacturing_gw_per_year": 100,
+    "factory_utilization": 0.8,
+    "manufacturing_yield": 0.9,
+    "space_allocation_fraction": 0.5,
+    "packing_fraction": 0.9,
+    "efficiency_stc": 0.25,
+    "satellite_mass_kg": 5000,
+    "payload_to_target_orbit_kg": 100000,
+    "launches_per_year": 1000,
+    "compute_utilization": 0.85
+  }
+}
