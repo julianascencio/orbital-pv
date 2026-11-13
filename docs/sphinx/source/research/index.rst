@@ -85,3 +85,11 @@ fixed-distance baselines with 36 assumed sizing/load/retention cases. Results ar
 modeled, not ESCAPADE telemetry or specifications. See the
 `inputs, equations and reproduction notes
 <https://github.com/julianascencio/orbital-pv/tree/main/analysis/mars_pointing>`_.
+
+The :doc:`lunar DC distribution example <../gallery/space_business/plot_lunar_dc_distribution>`
+uses NASA's June 2026 technology catalogue as a source-backed backlog case.
+It compares conductor mass, resistive loss and receiving-voltage feasibility
+for 36 assumed scenarios. These are DC screening calculations, not lunar cable
+measurements or an AC LunaGrid-Lite reconstruction. See the
+`equations, provenance and reproduction notes
+<https://github.com/julianascencio/orbital-pv/tree/main/analysis/lunar_dc_distribution>`_.

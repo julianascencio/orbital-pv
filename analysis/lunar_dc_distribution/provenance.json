@@ -1,0 +1,13 @@
+{
+  "retrieved_at": "2026-11-13",
+  "sources": [
+    {"url": "https://www.nasa.gov/power/", "kind": "NASA technology catalogue description", "claim": "Low-mass lunar cable concept: 10 kV DC, 10 kW, up to 4 km; not mission telemetry."},
+    {"url": "https://www.nasa.gov/wp-content/uploads/2026/06/space-logistics-nasa-tech-catalog-final-20260610-v2-508complaint-signed.pdf", "kind": "June 2026 catalogue version", "version_date_from_filename": "2026-06-10", "age_days_on_review": 156, "publication_date": null, "event_date": null}
+  ],
+  "input_kind": "Synthetic engineering scenarios inspired by catalogue scale; no measured cable performance",
+  "material": "Assumed copper-like resistivity 1.72e-8 ohm m and density 8960 kg/m3; neither supplier material nor flight cable specification",
+  "resistance_sensitivity": "Multipliers 1, 1.5 and 2 are assumed stress cases, not a measured temperature curve or confidence interval",
+  "rights": "URLs and factual metadata only; NASA images and catalogue text not redistributed. Original scenarios and code use repository license.",
+  "units": "SI except conductor area in mm2; length is one-way; two conductors counted",
+  "limitations": "DC resistive equilibrium, not the AC LunaGrid-Lite demonstration; no insulation, converters, thermal limits or qualification"
+}

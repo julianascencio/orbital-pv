@@ -4,6 +4,7 @@ These models are scientific screening tools with explicit approximations. They
 are not flight-qualified designs or exact reproductions of the cited papers.
 """
 
+from space_pv_pvmodel.distribution import dc_cable_delivery
 from space_pv_pvmodel.eps import (
     BatterySpec,
     ComputeTask,
@@ -39,6 +40,7 @@ __all__ = [
     "ThermalSurface",
     "array_iv_curve",
     "battery_cycle_damage",
+    "dc_cable_delivery",
     "dispatch_power",
     "periodic_load_limit",
     "pointing_power_envelope",
