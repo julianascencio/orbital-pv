@@ -33,6 +33,7 @@ workflows in OrbitalPV.
    modeling_topics/storage_gis
    modeling_topics/physics_research
    modeling_topics/starmind_compute
+   modeling_topics/space_ai_cluster
    modeling_topics/flight_research
    modeling_topics/environmental_inputs
    modeling_topics/ground_research

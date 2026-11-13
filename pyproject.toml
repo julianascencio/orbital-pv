@@ -119,6 +119,7 @@ include = ["orbitalpv*", "space_pv_*"]
 namespaces = false
 
 [tool.setuptools.package-data]
+"orbitalpv" = ["_data/*.json"]
 "orbitalpv.catalogue" = ["data/*.json", "data/*.txt", "data/records/*/*.jsonl"]
 
 [tool.uv]

@@ -31,6 +31,7 @@ jobs:
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/plot_pv_incidence.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/plot_case0_health.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/plot_orbit_eclipse.py
+          MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/space_business/plot_space_ai_cluster.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/orbit_visualization/plot_orbit_families_3d.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/orbit_visualization/plot_molniya_orbit_3d.py
           MPLBACKEND=Agg /tmp/orbitalpv-wheel/bin/python examples/orbit_visualization/plot_ground_track.py
