@@ -1,6 +1,6 @@
 """
 Solar-powered AI clusters: links, formation, radiation and cost
-=============================================================
+=======================================================================
 
 Explore arXiv:2511.19468v2 (Agüera y Arcas et al., Google, June 2026) with
 version-pinned, manually curated evidence. The paper reports a short-path

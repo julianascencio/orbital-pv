@@ -1,5 +1,5 @@
 Solar-powered AI satellite clusters
-==================================
+===========================================
 
 This study adds the supplied arXiv:2511.19468v2 paper to OrbitalPV with a
 version-pinned arXiv connector, curated numerical evidence, reusable optical,
@@ -18,7 +18,7 @@ and `full equations, evidence, limitations and reference results
 The `paper version <https://arxiv.org/abs/2511.19468v2>`_ is dated June 17, 2026.
 
 Connectors and reproducibility
------------------------------
+--------------------------------------
 
 ``orbitalpv.data.ArxivConnector`` fetches an explicit paper version and records
 the original response hash, request URL and retrieval time. Its offline cache
@@ -35,7 +35,7 @@ a modified copy of the packaged JSON. The default runner and gallery are offline
 the snapshot is also included in the installed wheel.
 
 What the models establish
-------------------------
+---------------------------------
 
 * Far-field Friis power, photon and electronics ceilings, receiver margin and
   propagation latency. Near-field confocal geometry is reported separately.
