@@ -16,11 +16,13 @@ from .http_base import DownloadReceipt, HttpConnector
 
 @dataclass(frozen=True, slots=True)
 class ResearchResponse:
-    """Unmodified provider JSON and the receipt for its original response bytes.
+    """Provider metadata and the receipt for its original response bytes.
 
     ``request_url`` includes non-secret query parameters; authentication headers
-    are never serialized. ``data`` retains provider units, licenses, pagination,
-    versions and uncertainty fields. It is not a normalized PV specification.
+    are never serialized. JSON connectors retain provider units, licenses,
+    pagination, versions and uncertainty fields. The arXiv connector documents
+    its Atom-to-metadata normalization and can cache original XML bytes.
+    Neither representation is a validated engineering or PV specification.
     """
 
     data: Any

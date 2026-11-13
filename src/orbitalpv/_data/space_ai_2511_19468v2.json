@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "source": {
+    "paper_id": "2511.19468v2",
+    "title": "Towards a future space-based, highly scalable AI infrastructure system design",
+    "authors": [
+      "Blaise Agüera y Arcas",
+      "Travis Beals",
+      "Maria Biggs",
+      "Jessica V. Bloom",
+      "Thomas Fischbacher",
+      "Konstantin Gromov",
+      "Urs Köster",
+      "Rishiraj Pravahan",
+      "James Manyika"
+    ],
+    "url": "https://arxiv.org/abs/2511.19468v2",
+    "doi": "10.48550/arXiv.2511.19468",
+    "version_date": "2026-06-17",
+    "reviewed_date": "2026-11-13",
+    "uploaded_pdf_sha256": "0dee31ee1f2d9185d724e58d039a5df89c204797aad1cd006042ad31abd5b290",
+    "extraction": "Manually checked numerical facts from the supplied v2 PDF; original paper and figures are not redistributed."
+  },
+  "optical": {
+    "locator": "Sections 2.1 and 4.2; Figure 1; pp. 2-3, 8-9",
+    "evidence_kind": "analytical_design_inputs_with_separate_bench_result",
+    "inputs": {
+      "transmit_power_w": 5.0,
+      "aperture_diameter_m": 0.1,
+      "wavelength_m": 1.55e-06,
+      "aperture_efficiency": 0.8,
+      "loss_db": 3.0,
+      "photons_per_bit": 195.6,
+      "channels": 24,
+      "channel_rate_gbps": 400.0,
+      "receiver_threshold_dbm_per_channel": -20.0
+    },
+    "bench_demonstration": {
+      "one_way_gbps": 800.0,
+      "bidirectional_aggregate_gbps": 1600.0,
+      "status": "short_free_space_bench_path_not_orbital_demonstration"
+    },
+    "paper_reported_dwdm_tbps": 9.6,
+    "direction_convention": "Paper calls 24 x 400 Gbps = 9.6 Tbps bidirectional. This model explicitly uses 400 Gbps per channel per direction as an engineering convention and does not double the paper claim.",
+    "paper_reported_5000km_received_uw": 1.6,
+    "other_photons_per_bit": {
+      "ook": 71.0,
+      "shannon_limit": 1.39
+    }
+  },
+  "formation": {
+    "locator": "Section 2.2, Figures 2-3; Section 4.1; pp. 3-5, 8",
+    "evidence_kind": "paper_design_scale_with_independent_hcw_lattice",
+    "inputs": {
+      "altitude_m": 650000.0,
+      "cluster_radius_m": 1000.0,
+      "grid_side": 9
+    },
+    "paper_satellite_count": 81,
+    "paper_approx_neighbor_range_m": [
+      100,
+      200
+    ],
+    "paper_j2_adjusted_axis_ratio": [
+      2.0,
+      1.0037
+    ],
+    "paper_j2_drift_bound_m_s_year_per_km": 3.0,
+    "caveat": "The HCW lattice uses the paper scale but is not its Fig. 2 initial state. J2 tuning, DOP853 propagation and learned control are not reproduced."
+  },
+  "radiation": {
+    "locator": "Sections 2.3 and 4.3; pp. 5-6, 9-10",
+    "evidence_kind": "reported_proton_beam_results_plus_conditional_orbit_extrapolation",
+    "annual_dose_rad_si": 150.0,
+    "mission_years": 5.0,
+    "shielding_al_equivalent_mm": 10.0,
+    "beam_nominal_mev": 67.0,
+    "hbm_irregularity_onset_rad_si": 2000.0,
+    "maximum_tested_tid_rad_si": 15000.0,
+    "dose_per_event_rad_si": {
+      "tpu_sdc_nominal": 17.0,
+      "tpu_sdc_low_dose": 14.4,
+      "tpu_sdc_high_dose": 20.0,
+      "hbm_uecc": 44.0,
+      "tpu_sefi": 5000.0,
+      "host_cpu_sefi": 450.0,
+      "host_ram_sefi": 400.0
+    },
+    "caveats": [
+      "67 MeV is source beam energy; intervening material lowers and broadens energy at the die.",
+      "150 rad(Si)/year is the paper assumption for its shielded target orbit; this code has no transport or orbit dose model.",
+      "HBM irregularities begin at 2 krad(Si); other workloads run to 15 krad(Si) on one chip. Neither is a guaranteed survival threshold.",
+      "CPU, RAM, TPU SEFI, HBM UECC and SDC describe distinct observations; do not sum into a demonstrated system failure rate.",
+      "Dose-based event extrapolation cannot replace energy-dependent SEE cross sections, heavy-ion testing or mission qualification."
+    ]
+  },
+  "economics": {
+    "locator": "Table 1; Sections 2.4 and 4.4; pp. 6-7, 10-12",
+    "evidence_kind": "paper_proxy_estimates_and_conditional_cost_scenarios",
+    "launch_prices_usd_kg": [
+      200.0,
+      3600.0
+    ],
+    "initial_price_usd_kg": 1800.0,
+    "initial_cumulative_mass_t": 400.0,
+    "learning_rate": 0.2,
+    "paper_additional_mass_t": 370000.0,
+    "paper_terrestrial_energy_usd_kwh": [
+      0.06,
+      0.25
+    ],
+    "paper_terrestrial_pue": [
+      1.09,
+      1.4
+    ],
+    "proxies": [
+      {
+        "name": "Starlink v2 mini (optimized proxy)",
+        "mass_kg": 575.0,
+        "power_kw": 28.0,
+        "lifetime_years": 5.0,
+        "reported_cost_200_usd_kw_year": 810.0,
+        "reported_cost_3600_usd_kw_year": 14700.0,
+        "power_status": "paper_estimate"
+      },
+      {
+        "name": "Starlink v1 proxy",
+        "mass_kg": 260.0,
+        "power_kw": 7.0,
+        "lifetime_years": 5.0,
+        "reported_cost_200_usd_kw_year": 1470.0,
+        "reported_cost_3600_usd_kw_year": 26600.0,
+        "power_status": "paper_estimate"
+      },
+      {
+        "name": "OneWeb proxy",
+        "mass_kg": 150.0,
+        "power_kw": 0.8,
+        "lifetime_years": 5.0,
+        "reported_cost_200_usd_kw_year": 7500.0,
+        "reported_cost_3600_usd_kw_year": 135800.0,
+        "power_status": "paper_cited_proxy"
+      },
+      {
+        "name": "Iridium proxy",
+        "mass_kg": 860.0,
+        "power_kw": 2.0,
+        "lifetime_years": 12.5,
+        "reported_cost_200_usd_kw_year": 6900.0,
+        "reported_cost_3600_usd_kw_year": 124600.0,
+        "power_status": "paper_cited_proxy"
+      }
+    ],
+    "caveat": "Launch-only amortization is not TCO, LCOE, current pricing or a date forecast. Rounded table inputs do not reproduce every reported cost exactly."
+  },
+  "solar_estimate": {
+    "locator": "Section 4.4, p. 12",
+    "evidence_kind": "paper_estimate_not_manufacturer_rating",
+    "array_area_m2": 105.0,
+    "efficiency_am0_assumed": 0.22,
+    "packing_fraction": 0.9,
+    "irradiance_w_m2": 1361.0
+  },
+  "engineering_assumptions": {
+    "locator": "OrbitalPV analyst scenario, not supplied by the paper",
+    "evidence_kind": "synthetic_engineering_sensitivity",
+    "device_count": 81,
+    "inferences_per_second_per_device": 1.0,
+    "mass_kg": 575.0,
+    "lifetime_years": 5.0,
+    "electricity_usd_kwh": 0.1,
+    "terrestrial_pue": 1.2,
+    "compute_utilization": 0.8,
+    "baseline": {
+      "altitude_m": 650000.0,
+      "beta_angle_deg": 90.0,
+      "pv_area_m2": 105.0,
+      "efficiency_am0": 0.22,
+      "packing_fraction": 0.9,
+      "pv_temperature_c": 25.0,
+      "temperature_coefficient_per_k": -0.002,
+      "array_derate": 0.9,
+      "eps_efficiency": 0.95,
+      "retained_power_fraction": 1.0,
+      "irradiance_w_m2": 1361.0,
+      "platform_load_w": 2000.0,
+      "average_compute_w": 20000.0,
+      "peak_compute_w": 20000.0,
+      "radiator_emitting_area_m2": 80.0,
+      "radiator_temperature_k": 320.0,
+      "radiator_emissivity": 0.9,
+      "absorbed_environment_w_m2": 80.0,
+      "thermal_allowance_w": 2500.0,
+      "battery": {
+        "capacity_wh": 5000.0,
+        "minimum_soc": 0.2,
+        "maximum_soc": 1.0,
+        "initial_soc": 0.2,
+        "max_charge_w": 10000.0,
+        "max_discharge_w": 30000.0,
+        "charge_efficiency": 0.95,
+        "discharge_efficiency": 0.95
+      }
+    },
+    "scenarios": [
+      {
+        "name": "High beta",
+        "changes": {}
+      },
+      {
+        "name": "Low beta eclipse",
+        "changes": {
+          "beta_angle_deg": 0.0
+        }
+      },
+      {
+        "name": "Half radiator area",
+        "changes": {
+          "radiator_emitting_area_m2": 40.0
+        }
+      },
+      {
+        "name": "25 percent PV loss",
+        "changes": {
+          "retained_power_fraction": 0.75
+        }
+      }
+    ],
+    "caveat": "Proxy spacecraft mass and array inputs are used only for sensitivity. They do not specify a Google/TPU spacecraft. Compute kW is electrical capacity, not FLOPS or useful AI throughput."
+  }
+}

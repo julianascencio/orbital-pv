@@ -120,3 +120,9 @@ Array procurement inputs
 
 .. automodule:: space_pv_connectors.procurement
    :members:
+
+Version-pinned arXiv literature
+------------------------------
+
+.. automodule:: space_pv_connectors.arxiv
+   :members:

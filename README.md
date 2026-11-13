@@ -432,3 +432,19 @@ work, commercial products, and paid hosted services. Noncommercial use,
 modification, and sharing are allowed subject to the license.
 
 Third-party materials retain their own terms. See [licensing scope](LICENSING.md).
+
+### Solar-powered AI cluster paper study
+
+The [arXiv:2511.19468v2 integration](analysis/space_ai_cluster/README.md) adds a
+version-pinned literature connector, optical link and HCW formation methods,
+conditional radiation-event analysis and launch-cost sensitivities. It reuses
+the solar/battery/radiator models for explicit synthetic compute scenarios.
+
+```bash
+python analysis/space_ai_cluster/run.py --output outputs/space_ai_cluster
+python examples/space_business/plot_space_ai_cluster.py
+```
+
+The offline [gallery example](examples/space_business/plot_space_ai_cluster.py)
+uses packaged evidence with page locators and source hashes. Reported bench
+results, analytical ceilings and analyst assumptions remain distinct.

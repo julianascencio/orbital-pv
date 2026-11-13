@@ -1,3 +1,4 @@
+from .arxiv import ArxivConnector, parse_arxiv_atom
 from .birds import BirdsEPSConnector, load_birds_eps_workbook
 from .cdaweb import CdawebHapiConnector
 from .celestrak import CelesTrakConnector
@@ -30,6 +31,7 @@ from .swpc import NoaaSwpcConnector, load_goes_integral_particle_flux
 from .tabular import load_table, make_demo_telemetry, normalize_birds_like
 
 __all__ = [
+    "ArxivConnector",
     "BirdsEPSConnector",
     "CdawebHapiConnector",
     "CelesTrakConnector",
@@ -68,5 +70,6 @@ __all__ = [
     "load_table",
     "make_demo_telemetry",
     "normalize_birds_like",
+    "parse_arxiv_atom",
     "read_ground_image",
 ]

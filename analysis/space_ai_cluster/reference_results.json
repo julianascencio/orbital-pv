@@ -1,0 +1,251 @@
+{
+  "paper_id": "2511.19468v2",
+  "input_sha256": "653c611622684964a2488a2e294cdffde0f2f5b630d0bea3c93e23654c8585f9",
+  "interpretation": "Calculated screening outputs; not measured orbital performance.",
+  "solar_estimate": [
+    {
+      "paper_array_estimate_kw": 28.29519,
+      "table_1_rounded_power_kw": 28,
+      "evidence_kind": "paper_estimate_not_manufacturer_rating"
+    }
+  ],
+  "spatial_geometry": [
+    {
+      "beam_count": 1,
+      "subaperture_diameter_m": 0.1,
+      "ideal_distance_m": 5067.084925,
+      "pointing_allowance_urad": 0.9867606472
+    },
+    {
+      "beam_count": 4,
+      "subaperture_diameter_m": 0.05,
+      "ideal_distance_m": 1266.771231,
+      "pointing_allowance_urad": 1.973521294
+    },
+    {
+      "beam_count": 16,
+      "subaperture_diameter_m": 0.025,
+      "ideal_distance_m": 316.6928078,
+      "pointing_allowance_urad": 3.947042589
+    }
+  ],
+  "tid_context": [
+    {
+      "mission_dose_rad_si": 750,
+      "hbm_irregularity_onset_rad_si": 2000,
+      "maximum_tested_tid_rad_si": 15000,
+      "hbm_onset_to_mission_dose_ratio": 2.666666667,
+      "interpretation": "observed_test_context_not_guaranteed_survival"
+    }
+  ],
+  "radiation_events": [
+    {
+      "event_kind": "tpu_sdc_nominal",
+      "dose_per_event_rad_si": 17.0,
+      "mission_dose_rad_si": 750,
+      "events_per_device_year": 8.823529412,
+      "expected_fleet_mission_events": 3573.529412,
+      "probability_at_least_one_fleet_event": 1.0,
+      "expected_events_per_inference": 2.796e-07
+    },
+    {
+      "event_kind": "tpu_sdc_low_dose",
+      "dose_per_event_rad_si": 14.4,
+      "mission_dose_rad_si": 750,
+      "events_per_device_year": 10.41666667,
+      "expected_fleet_mission_events": 4218.75,
+      "probability_at_least_one_fleet_event": 1.0,
+      "expected_events_per_inference": 3.301e-07
+    },
+    {
+      "event_kind": "tpu_sdc_high_dose",
+      "dose_per_event_rad_si": 20.0,
+      "mission_dose_rad_si": 750,
+      "events_per_device_year": 7.5,
+      "expected_fleet_mission_events": 3037.5,
+      "probability_at_least_one_fleet_event": 1.0,
+      "expected_events_per_inference": 2.377e-07
+    },
+    {
+      "event_kind": "hbm_uecc",
+      "dose_per_event_rad_si": 44.0,
+      "mission_dose_rad_si": 750,
+      "events_per_device_year": 3.409090909,
+      "expected_fleet_mission_events": 1380.681818,
+      "probability_at_least_one_fleet_event": 1.0,
+      "expected_events_per_inference": 1.08e-07
+    },
+    {
+      "event_kind": "tpu_sefi",
+      "dose_per_event_rad_si": 5000.0,
+      "mission_dose_rad_si": 750,
+      "events_per_device_year": 0.03,
+      "expected_fleet_mission_events": 12.15,
+      "probability_at_least_one_fleet_event": 0.9999947116,
+      "expected_events_per_inference": 1e-09
+    },
+    {
+      "event_kind": "host_cpu_sefi",
+      "dose_per_event_rad_si": 450.0,
+      "mission_dose_rad_si": 750,
+      "events_per_device_year": 0.3333333333,
+      "expected_fleet_mission_events": 135.0,
+      "probability_at_least_one_fleet_event": 1.0,
+      "expected_events_per_inference": 1.06e-08
+    },
+    {
+      "event_kind": "host_ram_sefi",
+      "dose_per_event_rad_si": 400.0,
+      "mission_dose_rad_si": 750,
+      "events_per_device_year": 0.375,
+      "expected_fleet_mission_events": 151.875,
+      "probability_at_least_one_fleet_event": 1.0,
+      "expected_events_per_inference": 1.19e-08
+    }
+  ],
+  "launched_power": [
+    {
+      "proxy": "Starlink v2 mini (optimized proxy)",
+      "launch_price_usd_kg": 200,
+      "calculated_usd_kw_year": 821.4285714,
+      "paper_reported_usd_kw_year": 810,
+      "difference_percent": 1.410934744
+    },
+    {
+      "proxy": "Starlink v2 mini (optimized proxy)",
+      "launch_price_usd_kg": 3600,
+      "calculated_usd_kw_year": 14785.71429,
+      "paper_reported_usd_kw_year": 14700,
+      "difference_percent": 0.583090379
+    },
+    {
+      "proxy": "Starlink v1 proxy",
+      "launch_price_usd_kg": 200,
+      "calculated_usd_kw_year": 1485.714286,
+      "paper_reported_usd_kw_year": 1470,
+      "difference_percent": 1.068999028
+    },
+    {
+      "proxy": "Starlink v1 proxy",
+      "launch_price_usd_kg": 3600,
+      "calculated_usd_kw_year": 26742.85714,
+      "paper_reported_usd_kw_year": 26600,
+      "difference_percent": 0.537056928
+    },
+    {
+      "proxy": "OneWeb proxy",
+      "launch_price_usd_kg": 200,
+      "calculated_usd_kw_year": 7500.0,
+      "paper_reported_usd_kw_year": 7500,
+      "difference_percent": 0.0
+    },
+    {
+      "proxy": "OneWeb proxy",
+      "launch_price_usd_kg": 3600,
+      "calculated_usd_kw_year": 135000.0,
+      "paper_reported_usd_kw_year": 135800,
+      "difference_percent": -0.58910162
+    },
+    {
+      "proxy": "Iridium proxy",
+      "launch_price_usd_kg": 200,
+      "calculated_usd_kw_year": 6880.0,
+      "paper_reported_usd_kw_year": 6900,
+      "difference_percent": -0.2898550725
+    },
+    {
+      "proxy": "Iridium proxy",
+      "launch_price_usd_kg": 3600,
+      "calculated_usd_kw_year": 123840.0,
+      "paper_reported_usd_kw_year": 124600,
+      "difference_percent": -0.6099518459
+    }
+  ],
+  "compute_screen": [
+    {
+      "scenario": "High beta",
+      "orbit_period_min": 97.72823561,
+      "eclipse_min": 0.0,
+      "sunlight_fraction": 1.0,
+      "sunlit_bus_power_kw": 24.19238745,
+      "eps_battery_heat_bound_kw": 2.431178287,
+      "electrical_bus_limit_kw": 24.19238745,
+      "thermal_bus_limit_kw": 33.90989306,
+      "sustainable_compute_kw": 20.0,
+      "average_target_feasible": true,
+      "platform_continuous_feasible": true,
+      "required_pv_area_m2": 95.48458187,
+      "required_nominal_battery_kwh": 0.0,
+      "required_charge_kw": 0.0,
+      "required_discharge_kw": 0,
+      "required_radiator_emitting_area_m2": 53.83152312,
+      "launch_only_energy_cost_parity_usd_kg": 146.253913,
+      "evidence_kind": "synthetic_engineering_sensitivity"
+    },
+    {
+      "scenario": "Low beta eclipse",
+      "orbit_period_min": 97.72823561,
+      "eclipse_min": 35.37985664,
+      "sunlight_fraction": 0.6379771268,
+      "sunlit_bus_power_kw": 24.19238745,
+      "eps_battery_heat_bound_kw": 2.431178287,
+      "electrical_bus_limit_kw": 6.444344936,
+      "thermal_bus_limit_kw": 33.90989306,
+      "sustainable_compute_kw": 4.444344936,
+      "average_target_feasible": false,
+      "platform_continuous_feasible": true,
+      "required_pv_area_m2": 155.5212998,
+      "required_nominal_battery_kwh": 17.06922908,
+      "required_charge_kw": 13.83268135,
+      "required_discharge_kw": 22,
+      "required_radiator_emitting_area_m2": 53.83152312,
+      "launch_only_energy_cost_parity_usd_kg": 32.50014189,
+      "evidence_kind": "synthetic_engineering_sensitivity"
+    },
+    {
+      "scenario": "Half radiator area",
+      "orbit_period_min": 97.72823561,
+      "eclipse_min": 0.0,
+      "sunlight_fraction": 1.0,
+      "sunlit_bus_power_kw": 24.19238745,
+      "eps_battery_heat_bound_kw": 2.431178287,
+      "electrical_bus_limit_kw": 24.19238745,
+      "thermal_bus_limit_kw": 15.70494653,
+      "sustainable_compute_kw": 13.70494653,
+      "average_target_feasible": false,
+      "platform_continuous_feasible": true,
+      "required_pv_area_m2": 95.48458187,
+      "required_nominal_battery_kwh": 0.0,
+      "required_charge_kw": 0.0,
+      "required_discharge_kw": 0,
+      "required_radiator_emitting_area_m2": 53.83152312,
+      "launch_only_energy_cost_parity_usd_kg": 100.2201029,
+      "evidence_kind": "synthetic_engineering_sensitivity"
+    },
+    {
+      "scenario": "25 percent PV loss",
+      "orbit_period_min": 97.72823561,
+      "eclipse_min": 0.0,
+      "sunlight_fraction": 1.0,
+      "sunlit_bus_power_kw": 18.14429059,
+      "eps_battery_heat_bound_kw": 2.112857399,
+      "electrical_bus_limit_kw": 18.14429059,
+      "thermal_bus_limit_kw": 33.90989306,
+      "sustainable_compute_kw": 16.14429059,
+      "average_target_feasible": false,
+      "platform_continuous_feasible": true,
+      "required_pv_area_m2": 127.3127758,
+      "required_nominal_battery_kwh": 0.0,
+      "required_charge_kw": 0.0,
+      "required_discharge_kw": 0,
+      "required_radiator_emitting_area_m2": 53.83152312,
+      "launch_only_energy_cost_parity_usd_kg": 118.0582836,
+      "evidence_kind": "synthetic_engineering_sensitivity"
+    }
+  ],
+  "formation_summary": {
+    "sampled_min_separation_m": 88.38834765,
+    "maximum_neighbor_separation_m": 176.7766953,
+    "maximum_cluster_radius_m": 1000.0
+  }
+}

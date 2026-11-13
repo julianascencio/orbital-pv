@@ -42,6 +42,7 @@ from .cells import (
     simulate_space_cell,
 )
 from .data import (
+    ArxivConnector,
     BirdsEPSConnector,
     CelesTrakConnector,
     DataverseConnector,
@@ -181,6 +182,7 @@ __all__ = [
     "REFERENCE_TEMPERATURE_C",
     "SATELLITECOTS_COMMIT",
     "SPACE_CELL_TECHNOLOGIES",
+    "ArxivConnector",
     "BayesianLinearCalibration",
     "BirdsEPSConnector",
     "BlockConformalVI",

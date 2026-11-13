@@ -49,3 +49,12 @@ Satellite irradiance forecast baselines
 .. automodule:: orbitalpv.ground_forecasting
    :members:
    :no-index:
+
+Space-based AI screening
+------------------------
+
+.. automodule:: orbitalpv.space_ai
+   :members:
+
+.. automodule:: orbitalpv.space_ai_analysis
+   :members:
