@@ -44,6 +44,14 @@ reproduction instructions and an executed reference result.
 News-driven business cases
 --------------------------
 
+The :doc:`repaired-panel acceptance example <../gallery/space_business/plot_panel_acceptance>`
+uses ESA's November 5, 2026 Da Vinci report to distinguish a point estimate from
+an uncertainty-aware electrical retention decision. All paired readings are
+synthetic. Calibration correlation and repeat-count sensitivity show why more
+flashes alone may not resolve an inconclusive result. See the
+`equations, source dates and reproduction notes
+<https://github.com/julianascencio/orbital-pv/tree/main/analysis/panel_acceptance>`_.
+
 The :doc:`tandem procurement example <../gallery/space_business/plot_tandem_procurement>`
 turns a November 2026 supplier announcement into an EOL power and procurement
 price-ceiling study. All absolute inputs and economics are explicitly modeled;

@@ -58,3 +58,10 @@ Space-based AI screening
 
 .. automodule:: orbitalpv.space_ai_analysis
    :members:
+
+Panel electrical acceptance
+---------------------------
+
+.. automodule:: orbitalpv.acceptance
+   :members:
+   :imported-members:
