@@ -1,0 +1,30 @@
+{
+  "retrieval_date_utc": "2026-11-14",
+  "sources": [
+    {
+      "url": "https://education.esa.int/da-vinci-satellite-team-assesses-solar-panel-performance-at-esa-estec/",
+      "publication_date": "2026-11-05",
+      "event_date": "early September 2026; exact day not stated",
+      "role": "Business motivation only: TU Delft Da Vinci panel damage, repair and AM0 testing; no numerical readings published",
+      "license": "ESA standard terms; link and factual attribution only, no images or article text redistributed"
+    },
+    {
+      "url": "https://www.nist.gov/pml/nist-technical-note-1297/nist-tn-1297-appendix-law-propagation-uncertainty",
+      "publication_date": "TN 1297: 1994 edition; web page is not treated as current news",
+      "event_date": null,
+      "role": "Method background: covariance propagation; Gaussian log-error and known uncertainty assumptions are this study's explicit model",
+      "license": "US government technical reference; linked and paraphrased, no source dataset or images redistributed"
+    }
+  ],
+  "input_csv": "examples/space_business/_data/panel_acceptance.csv",
+  "input_kind": "synthetic; hand-constructed eight independent-pair scenario for one hypothetical panel",
+  "input_license": "Repository LicenseRef-ASVA-Noncommercial-1.0",
+  "measured_evidence": "None ingested. ESA describes tests qualitatively but publishes no numeric data here.",
+  "imported_evidence": "Source facts and dates only; no imported measurement values",
+  "modeled_evidence": "Conditional Gaussian retention bounds and sensitivity at fixed point estimate",
+  "assumptions": "Matched AM0 spectrum, irradiance, temperature and Pmax boundary; common multiplicative retention; independent paired repeat errors with known log sigma 0.01; campaign calibration log sigmas 0.02 each; rho varied, never inferred from repeats; threshold 0.95 and confidence 0.95 are assumed",
+  "units": {"before_power_w": "W", "after_power_w": "W", "retention": "dimensionless ratio", "sigma": "dimensionless natural-log standard deviation", "calibration_correlation": "dimensionless"},
+  "reference_frame": "Not applicable: laboratory panel Pmax at matched conditions, no orbital frame",
+  "time_scale": "No measurement timestamps; pair_id is a synthetic sequence, not a date",
+  "query": "Offline pinned CSV via orbitalpv.data.load_table; no credentials or network required to reproduce"
+}
