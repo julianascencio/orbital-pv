@@ -46,7 +46,8 @@ else:
     label = "Synthetic demonstration — not an observed event"
 
 fig, axes = plt.subplots(2, 1, figsize=(9, 6), layout="constrained")
-for (satellite, band), group in xrays.groupby(["satellite", "energy"]):
+for _, group in xrays.groupby(["satellite", "energy"]):
+    satellite, band = group["satellite"].iloc[0], group["energy"].iloc[0]
     axes[0].semilogy(
         group.timestamp,
         group.flux_w_m2.where(group.flux_w_m2.gt(0) & group.quality_good),
