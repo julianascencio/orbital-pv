@@ -89,6 +89,59 @@ class NoaaSwpcConnector(HttpConnector):
     def real_time_solar_wind(self) -> Any:
         return self.fetch_json("json/rtsw/rtsw_wind_1m.json")
 
+    def solar_wind_magnetic_field(self) -> Any:
+        """Return native real-time solar-wind magnetic-field records (L1).
+
+        Preserve provider coordinates, spacecraft identity and quality fields.
+        This is upstream solar-wind context, not a local spacecraft field model.
+        """
+        return self.fetch_json("json/rtsw/rtsw_mag_1m.json")
+
+    def solar_activity(
+        self,
+        product: str,
+        *,
+        cache_path: str | Path | None = None,
+        refresh: bool = False,
+    ) -> pd.DataFrame:
+        """Return UTC X-ray, Kp or alert records with source provenance.
+
+        Products are ``xrays`` (primary GOES, rolling six hours), ``kp``
+        (estimated planetary Kp), and ``alerts`` (provider bulletin text).
+        Original fields are retained. A cache is a frozen snapshot until
+        explicitly refreshed; inspect timestamp/retrieved_at for freshness.
+        X-rays are band-limited irradiance, not total sunlight or PV power.
+        """
+        paths = {
+            "xrays": "json/goes/primary/xrays-6-hour.json",
+            "kp": "products/noaa-planetary-k-index.json",
+            "alerts": "products/alerts.json",
+        }
+        if product not in paths:
+            raise ValueError(f"product must be one of {sorted(paths)}")
+        url = f"{self.BASE_URL}/{paths[product]}"
+        path = Path(cache_path) if cache_path is not None else None
+        sidecar = path.with_suffix(path.suffix + ".metadata.json") if path else None
+        if path is not None and path.exists() and not refresh:
+            if sidecar is None or not sidecar.exists():
+                raise ValueError("Solar activity cache provenance is missing")
+            content = path.read_bytes()
+            metadata = json.loads(sidecar.read_text())
+            if metadata.get("url") != url or metadata.get("sha256") != sha256(content).hexdigest():
+                raise ValueError("Solar activity cache request or checksum mismatch")
+        else:
+            response = self._client.get(url)
+            response.raise_for_status()
+            content = response.content
+            metadata = asdict(self.receipt("NOAA SWPC", url, content, path=path))
+        frame = normalize_solar_activity(json.loads(content), product)
+        frame.attrs.update(metadata)
+        if path is not None and sidecar is not None:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(content)
+            sidecar.write_text(json.dumps(metadata, indent=2) + "\n")
+        return frame
+
     def goes_integral_particle_flux(
         self,
         particle: str,
@@ -145,4 +198,61 @@ class NoaaSwpcConnector(HttpConnector):
         return frame
 
 
-__all__ = ["NoaaSwpcConnector", "load_goes_integral_particle_flux"]
+__all__ = ["NoaaSwpcConnector", "load_goes_integral_particle_flux", "normalize_solar_activity"]
+
+
+def normalize_solar_activity(payload: object, product: str) -> pd.DataFrame:
+    """Normalize native SWPC snapshots without network access.
+
+    Negative/nonfinite flux and Kp outside 0--9 are flagged and masked in
+    canonical columns, while raw source fields remain available for auditing.
+    Empty lists represent no records, never fabricated quiet conditions.
+    """
+    schemas = {
+        "xrays": ("time_tag", ["time_tag", "satellite", "energy", "flux"]),
+        "kp": ("time_tag", ["time_tag", "Kp"]),
+        "alerts": ("issue_datetime", ["issue_datetime", "product_id", "message"]),
+    }
+    if product not in schemas:
+        raise ValueError(f"Unknown solar activity product: {product}")
+    time_field, required = schemas[product]
+    if not isinstance(payload, list):
+        raise ValueError("SWPC payload must be a list")
+    if product == "kp" and payload and isinstance(payload[0], list):
+        header, *rows = payload
+        if (
+            not isinstance(header, list)
+            or not all(isinstance(x, str) for x in header)
+            or len(set(header)) != len(header)
+            or any(not isinstance(row, list) or len(row) != len(header) for row in rows)
+        ):
+            raise ValueError("Invalid SWPC Kp table")
+        frame = pd.DataFrame(rows, columns=header)
+    elif payload:
+        if not all(isinstance(row, dict) for row in payload):
+            raise ValueError("SWPC records must be objects")
+        frame = pd.DataFrame(payload)
+    else:
+        frame = pd.DataFrame({name: pd.Series(dtype="object") for name in required})
+    if missing := set(required) - set(frame.columns):
+        raise ValueError(f"Missing SWPC fields: {sorted(missing)}")
+    frame["timestamp"] = pd.to_datetime(frame[time_field], utc=True, errors="coerce")
+    if frame["timestamp"].isna().any():
+        raise ValueError("Invalid SWPC timestamps")
+    if product in {"xrays", "kp"}:
+        source, target, unit = (
+            ("flux", "flux_w_m2", "W m^-2") if product == "xrays" else ("Kp", "kp", "dimensionless")
+        )
+        values = pd.to_numeric(frame[source], errors="coerce")
+        valid = np.isfinite(values) & values.ge(0)
+        if product == "kp":
+            valid &= values.le(9)
+        frame["valid_measurement"] = valid
+        frame[target] = values.where(valid)
+        frame.attrs["units"] = {target: unit}
+        if product == "xrays":
+            # NOAA currently spells the native field "electron_contaminaton".
+            flag = frame.get("electron_contamination", frame.get("electron_contaminaton"))
+            frame["quality_good"] = valid & (flag.eq(False) if flag is not None else False)
+    frame.attrs["product"] = product
+    return frame.sort_values("timestamp", kind="stable").reset_index(drop=True)
