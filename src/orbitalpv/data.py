@@ -42,6 +42,7 @@ from space_pv_connectors import (
     read_ground_image,
 )
 from space_pv_connectors.gp_cache import GPCache, GPSnapshot, GPUnavailableError
+from space_pv_connectors.swpc import normalize_solar_activity
 
 
 def fetch_celestrak_omm(
@@ -160,5 +161,6 @@ __all__ = [
     "load_table",
     "make_demo_telemetry",
     "normalize_birds_like",
+    "normalize_solar_activity",
     "read_ground_image",
 ]

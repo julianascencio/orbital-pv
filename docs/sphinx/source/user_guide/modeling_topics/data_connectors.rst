@@ -332,3 +332,51 @@ Every serious ingestion workflow should retain:
 * licensing or usage constraints.
 
 This information is required to reproduce later modelling results.
+
+Solar radiation, activity and storms
+------------------------------------
+
+Use the existing ``LisirdConnector.total_solar_irradiance`` and
+``spectral_irradiance`` for measured sunlight (TSIS/SORCE, W/m² and W/m²/nm).
+These distinguish irradiance at 1 AU from irradiance at Earth's actual distance.
+They are not surface irradiance or spacecraft electrical telemetry.
+
+``NoaaSwpcConnector`` additionally provides:
+
+* ``solar_activity("xrays")``: rolling six-hour primary GOES X-ray channels;
+  ``flux_w_m2`` retains separate energy bands and satellite identifiers.
+* ``solar_activity("kp")``: estimated planetary Kp, dimensionless, 0–9.
+* ``solar_activity("alerts")``: complete official bulletin text and issue time;
+  bulletins can be watches, warnings, cancellations or summaries, not just events.
+* ``solar_wind_magnetic_field()``: native real-time L1 magnetic-field records.
+* Existing ``real_time_solar_wind()``, ``f107_flux()`` and
+  ``goes_integral_particle_flux()``: plasma, radio activity and proton/electron
+  measurements. Existing ``DonkiConnector.events`` supplies NASA event catalogues.
+
+The normalized activity interface accepts ``cache_path`` and ``refresh=True``.
+Caches preserve original JSON plus URL, retrieval time and SHA-256 in a sidecar.
+A cache is deliberately a frozen snapshot, not a freshness guarantee. Inspect
+measurement/issue timestamps independently of retrieval time. Missing records
+are not quiet conditions; invalid numeric measurements are masked and flagged.
+For X-rays, ``quality_good`` additionally requires an explicitly false NOAA
+electron-contamination flag; missing quality is not treated as good.
+HTTP and schema errors propagate instead of generating substitute observations.
+
+Example::
+
+    from orbitalpv import NoaaSwpcConnector
+
+    with NoaaSwpcConnector() as source:
+        xrays = source.solar_activity("xrays", cache_path="xrays.json", refresh=True)
+        kp = source.solar_activity("kp")
+        alerts = source.solar_activity("alerts")
+
+Run ``examples/real_data/plot_solar_activity.py`` for an offline synthetic demo;
+set ``ORBITALPV_LIVE_SOLAR=1`` for rolling observations. The demo does not infer
+causation from concurrent curves. X-ray flux is not broadband PV irradiance;
+Kp and L1 observations are not orbit-specific dose or PV loss estimates.
+Operational feeds may be provisional and primary GOES identity can change.
+
+Sources: `NOAA SWPC data services <https://services.swpc.noaa.gov/>`_,
+`GOES X-ray flux <https://www.swpc.noaa.gov/products/goes-x-ray-flux>`_,
+`LASP TSIS data <https://lasp.colorado.edu/tsis/data/>`_.
