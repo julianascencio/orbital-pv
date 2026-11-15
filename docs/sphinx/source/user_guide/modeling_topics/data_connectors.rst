@@ -334,7 +334,7 @@ Every serious ingestion workflow should retain:
 This information is required to reproduce later modelling results.
 
 Solar radiation, activity and storms
------------------------------------
+------------------------------------
 
 Use the existing ``LisirdConnector.total_solar_irradiance`` and
 ``spectral_irradiance`` for measured sunlight (TSIS/SORCE, W/m² and W/m²/nm).

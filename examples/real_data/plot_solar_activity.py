@@ -1,5 +1,5 @@
 """Solar activity: sunlight, X-rays and geomagnetic context
-=======================================================
+========================================================
 
 An offline, explicitly illustrative example of the NOAA normalization API.
 These synthetic values demonstrate separate physical quantities; they are not
