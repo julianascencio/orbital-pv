@@ -12,7 +12,7 @@ import os
 
 import matplotlib.pyplot as plt
 
-from space_pv_connectors.swpc import NoaaSwpcConnector, normalize_solar_activity
+from orbitalpv import NoaaSwpcConnector, normalize_solar_activity
 
 if os.environ.get("ORBITALPV_LIVE_SOLAR") == "1":
     with NoaaSwpcConnector() as connector:

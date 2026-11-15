@@ -79,6 +79,7 @@ from .data import (
     load_table,
     make_demo_telemetry,
     normalize_birds_like,
+    normalize_solar_activity,
     read_ground_image,
 )
 from .environment import am0_irradiance, incidence_factor
@@ -286,6 +287,7 @@ __all__ = [
     "measured_energy_budget",
     "normalize_birds_like",
     "normalize_bupt1_telemetry",
+    "normalize_solar_activity",
     "omm_epoch",
     "osm_pv_features",
     "persistence_vi_forecast",

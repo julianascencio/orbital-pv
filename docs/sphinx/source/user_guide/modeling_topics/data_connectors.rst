@@ -364,7 +364,7 @@ HTTP and schema errors propagate instead of generating substitute observations.
 
 Example::
 
-    from space_pv_connectors import NoaaSwpcConnector
+    from orbitalpv import NoaaSwpcConnector
 
     with NoaaSwpcConnector() as source:
         xrays = source.solar_activity("xrays", cache_path="xrays.json", refresh=True)
