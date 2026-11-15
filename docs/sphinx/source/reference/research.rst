@@ -65,3 +65,10 @@ Panel electrical acceptance
 .. automodule:: orbitalpv.acceptance
    :members:
    :imported-members:
+
+Charging-session scheduling
+----------------------------
+
+.. automodule:: orbitalpv.charging
+   :members:
+   :imported-members:

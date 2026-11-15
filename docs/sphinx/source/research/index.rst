@@ -101,3 +101,9 @@ for 36 assumed scenarios. These are DC screening calculations, not lunar cable
 measurements or an AC LunaGrid-Lite reconstruction. See the
 `equations, provenance and reproduction notes
 <https://github.com/julianascencio/orbital-pv/tree/main/analysis/lunar_dc_distribution>`_.
+
+The :doc:`lunar charging example <../gallery/space_business/plot_lunar_charging>`
+uses NASA's November 7, 2026 miniCAST announcement to compare immediate charging
+with bounded exact scheduling of noninterruptible sessions. All engineering
+inputs are synthetic. Battery dispatch checks energy and power shortfalls;
+this is not a demonstration of actual miniCAST hardware performance.
