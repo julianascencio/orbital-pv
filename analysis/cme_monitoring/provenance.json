@@ -1,0 +1,17 @@
+{
+ "source_url": "https://ccmc.gsfc.nasa.gov/CMESB-Earth/",
+ "event_id": "2026-11-14T22:15:00-CME-001",
+ "event_start_utc": "2026-11-14T22:15:00Z",
+ "publication_times_utc": ["2026-11-15T14:34:00Z", "2026-11-15T14:53:00Z"],
+ "source_page_last_updated": "2026-11-16",
+ "retrieved_date_utc": "2026-11-16",
+ "imported_evidence": "Two individually submitted research arrival forecasts and their published bounds, manually transcribed; auto-generated mean/median rows excluded",
+ "measured_evidence": "None: arrivals remain forecasts as of retrieval, no PV telemetry or damage data imported",
+ "modeled_evidence": "Union windows, sample counts and uncompressed telemetry bytes",
+ "synthetic_assumptions": "SARM missing bounds replaced explicitly by 6/12/24 h planning buffers; computed midpoint baseline ±7 h; sample payload 256 bytes; cadence 60/600 s",
+ "units": "UTC timestamps; bounds in hours; cadence in seconds; storage in bytes (decimal MB)",
+ "reference_frame": "Earth-arrival forecasts, not spacecraft location or local radiation dose",
+ "rights": "NASA-hosted factual forecast metadata with attribution to NASA M2M and UMA SARM; no article text, images, personal submitter details or model software redistributed; no upstream dataset license asserted",
+ "limitations": "CCMC labels this experimental research information. Use NOAA SWPC for official forecasts. Missing bounds are not zero uncertainty. Model disagreement is not a probability distribution.",
+ "query": "Pinned CSV through existing orbitalpv.data.load_table; offline reproduction"
+}

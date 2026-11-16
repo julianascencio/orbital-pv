@@ -101,3 +101,8 @@ for 36 assumed scenarios. These are DC screening calculations, not lunar cable
 measurements or an AC LunaGrid-Lite reconstruction. See the
 `equations, provenance and reproduction notes
 <https://github.com/julianascencio/orbital-pv/tree/main/analysis/lunar_dc_distribution>`_.
+
+The :doc:`CME monitoring example <../gallery/space_business/plot_cme_monitoring>`
+uses November 15, 2026 experimental research forecasts to budget PV telemetry
+acquisition windows. Imported forecast times are separated from assumed missing
+bounds and sample sizes. No operational storm warning or PV damage is inferred.

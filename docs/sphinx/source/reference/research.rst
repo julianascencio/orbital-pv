@@ -65,3 +65,10 @@ Panel electrical acceptance
 .. automodule:: orbitalpv.acceptance
    :members:
    :imported-members:
+
+Forecast monitoring windows
+-----------------------------
+
+.. automodule:: orbitalpv.monitoring_windows
+   :members:
+   :imported-members:
