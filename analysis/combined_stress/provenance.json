@@ -1,0 +1,41 @@
+{
+  "retrieved_date_utc": "2026-11-17",
+  "sources": [
+    {
+      "url": "https://www.energy.gov/cmei/systems/2026-space-photovoltaics-workshop",
+      "event_date": "2026-06-02",
+      "publication_date": "Not stated on summary page; no current-news claim",
+      "role": "Participant recommendations for combined-stressor testing, not DOE commitments or measured data",
+      "last_updated_date": "2026-09-28"
+    },
+    {
+      "url": "https://www.energy.gov/cmei/systems/articles/ieso-holds-solar-space-workshop-advance-photovoltaics-orbital-and-lunar",
+      "publication_date": "2026-06-11",
+      "role": "Dated primary workshop announcement"
+    },
+    {
+      "url": "https://itl.nist.gov/div898/handbook/pri/section6/pri615.htm",
+      "role": "Factorial interaction methodological context; bootstrap here is an original implementation, not a NIST qualification standard"
+    }
+  ],
+  "backlog": "P8.3 combined-stressor evidence; repository review dated 2026-10-03, 45 days old",
+  "input_kind": "24 hand-constructed synthetic independent hardware samples, six per arm; no measured or imported power readings",
+  "measurement_boundary": "Cell maximum power at matched AM0 illumination and cell temperature; assumed identical measurement boundary for all arms",
+  "units": {
+    "before_power_w": "W",
+    "after_power_w": "W",
+    "retention": "dimensionless",
+    "interaction": "natural-log contrast or exponentiated dimensionless ratio"
+  },
+  "protocol_assumptions": {
+    "control": "Sham handling, no applied stress",
+    "radiation": "Hypothetical 1 MeV electrons, fluence 1e14 cm^-2",
+    "thermal": "Hypothetical 100 cycles from -40 to +80 degC",
+    "combined": "Same radiation exposure followed by same thermal cycles; NOT simultaneous exposure"
+  },
+  "protocol_limitations": "Stress levels are labels defining this synthetic matched campaign, not inputs to a validated physical degradation model. Dwell/ramp times and dosimetry must be supplied for real testing. All powers are selected independently of a dose-response model.",
+  "time_scale": "No real observation dates; sample IDs identify synthetic hardware, not repeated readings",
+  "reference_frame": "Laboratory electrical measurements; no orbital spatial frame",
+  "rights": "Attributed source links and factual recommendations only; no copyrighted text or figures redistributed. Synthetic data and original code use repository noncommercial license.",
+  "query": "Pinned CSV via existing orbitalpv.data.load_table; offline reproduction"
+}

@@ -65,3 +65,10 @@ Panel electrical acceptance
 .. automodule:: orbitalpv.acceptance
    :members:
    :imported-members:
+
+Combined-stressor evidence
+----------------------------
+
+.. automodule:: orbitalpv.stress
+   :members:
+   :imported-members:

@@ -1,0 +1,63 @@
+{
+  "base": {
+    "independent_retention": 0.935678391960586,
+    "combined_retention": 0.8400000000001046,
+    "interaction_ratio": 0.8977443609016122,
+    "ratio_lower": 0.8870358083879426,
+    "ratio_upper": 0.909188113565631,
+    "confidence": 0.95,
+    "bootstrap_samples": 4000,
+    "seed": 1711,
+    "extra_loss_supported": true
+  },
+  "sensitivity": [
+    {
+      "assumed_combined_retention": 0.84,
+      "independent_retention": 0.935678391960586,
+      "combined_retention": 0.8400000000001046,
+      "interaction_ratio": 0.8977443609016122,
+      "ratio_lower": 0.8870358083879426,
+      "ratio_upper": 0.909188113565631,
+      "confidence": 0.95,
+      "bootstrap_samples": 4000,
+      "seed": 1711,
+      "extra_loss_supported": true
+    },
+    {
+      "assumed_combined_retention": 0.9,
+      "independent_retention": 0.935678391960586,
+      "combined_retention": 0.9000000000001119,
+      "interaction_ratio": 0.9618689581088702,
+      "ratio_lower": 0.9503955089870813,
+      "ratio_upper": 0.9741301216774617,
+      "confidence": 0.95,
+      "bootstrap_samples": 4000,
+      "seed": 1711,
+      "extra_loss_supported": true
+    },
+    {
+      "assumed_combined_retention": 0.9356783919597991,
+      "independent_retention": 0.935678391960586,
+      "combined_retention": 0.9356783919599155,
+      "interaction_ratio": 0.9999999999992835,
+      "ratio_lower": 0.9880717128609412,
+      "ratio_upper": 1.0127472286786343,
+      "confidence": 0.95,
+      "bootstrap_samples": 4000,
+      "seed": 1711,
+      "extra_loss_supported": false
+    },
+    {
+      "assumed_combined_retention": 0.97,
+      "independent_retention": 0.935678391960586,
+      "combined_retention": 0.9700000000001208,
+      "interaction_ratio": 1.0366809881840047,
+      "ratio_lower": 1.0243151596860767,
+      "ratio_upper": 1.049895797807931,
+      "confidence": 0.95,
+      "bootstrap_samples": 4000,
+      "seed": 1711,
+      "extra_loss_supported": false
+    }
+  ]
+}

@@ -101,3 +101,8 @@ for 36 assumed scenarios. These are DC screening calculations, not lunar cable
 measurements or an AC LunaGrid-Lite reconstruction. See the
 `equations, provenance and reproduction notes
 <https://github.com/julianascencio/orbital-pv/tree/main/analysis/lunar_dc_distribution>`_.
+
+The :doc:`combined-stress example <../gallery/space_business/plot_combined_stress>`
+implements a source-backed qualification research backlog case: compare an
+ordered radiation/thermal campaign against separate-test predictions. All
+sample powers are synthetic; approximate bootstrap evidence is not qualification.
