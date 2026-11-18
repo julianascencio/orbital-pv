@@ -66,6 +66,13 @@ Panel electrical acceptance
    :members:
    :imported-members:
 
+Charging-session scheduling
+----------------------------
+
+.. automodule:: orbitalpv.charging
+   :members:
+   :imported-members:
+
 Forecast monitoring windows
 -----------------------------
 

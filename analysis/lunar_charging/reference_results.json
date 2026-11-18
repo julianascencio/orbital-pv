@@ -1,0 +1,182 @@
+[
+  {
+    "efficiency": 0.6,
+    "pv_w": 500,
+    "policy": "earliest",
+    "peak_bus_w": 2100.0,
+    "peak_deficit_w": 1600.0,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 2060.0,
+    "final_soc": 0.95
+  },
+  {
+    "efficiency": 0.6,
+    "pv_w": 500,
+    "policy": "scheduled",
+    "peak_bus_w": 766.6666666666667,
+    "peak_deficit_w": 266.66666666666674,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 460.0000000000002,
+    "final_soc": 0.2
+  },
+  {
+    "efficiency": 0.6,
+    "pv_w": 700,
+    "policy": "earliest",
+    "peak_bus_w": 2100.0,
+    "peak_deficit_w": 1400.0,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 1660.0,
+    "final_soc": 0.95
+  },
+  {
+    "efficiency": 0.6,
+    "pv_w": 700,
+    "policy": "scheduled",
+    "peak_bus_w": 766.6666666666667,
+    "peak_deficit_w": 66.66666666666674,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 0.0,
+    "final_soc": 0.5894736842105264
+  },
+  {
+    "efficiency": 0.6,
+    "pv_w": 900,
+    "policy": "earliest",
+    "peak_bus_w": 2100.0,
+    "peak_deficit_w": 1200.0,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 1260.0,
+    "final_soc": 0.95
+  },
+  {
+    "efficiency": 0.6,
+    "pv_w": 900,
+    "policy": "scheduled",
+    "peak_bus_w": 766.6666666666667,
+    "peak_deficit_w": 0.0,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 0.0,
+    "final_soc": 0.95
+  },
+  {
+    "efficiency": 0.8,
+    "pv_w": 500,
+    "policy": "earliest",
+    "peak_bus_w": 1600.0,
+    "peak_deficit_w": 1100.0,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 1060.0,
+    "final_soc": 0.95
+  },
+  {
+    "efficiency": 0.8,
+    "pv_w": 500,
+    "policy": "scheduled",
+    "peak_bus_w": 600.0,
+    "peak_deficit_w": 100.0,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 0.0,
+    "final_soc": 0.48421052631578926
+  },
+  {
+    "efficiency": 0.8,
+    "pv_w": 700,
+    "policy": "earliest",
+    "peak_bus_w": 1600.0,
+    "peak_deficit_w": 900.0,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 660.0,
+    "final_soc": 0.95
+  },
+  {
+    "efficiency": 0.8,
+    "pv_w": 700,
+    "policy": "scheduled",
+    "peak_bus_w": 600.0,
+    "peak_deficit_w": 0.0,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 0.0,
+    "final_soc": 0.95
+  },
+  {
+    "efficiency": 0.8,
+    "pv_w": 900,
+    "policy": "earliest",
+    "peak_bus_w": 1600.0,
+    "peak_deficit_w": 700.0,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 260.0,
+    "final_soc": 0.95
+  },
+  {
+    "efficiency": 0.8,
+    "pv_w": 900,
+    "policy": "scheduled",
+    "peak_bus_w": 600.0,
+    "peak_deficit_w": 0.0,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 0.0,
+    "final_soc": 0.95
+  },
+  {
+    "efficiency": 1.0,
+    "pv_w": 500,
+    "policy": "earliest",
+    "peak_bus_w": 1300.0,
+    "peak_deficit_w": 800.0,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 460.0,
+    "final_soc": 0.95
+  },
+  {
+    "efficiency": 1.0,
+    "pv_w": 500,
+    "policy": "scheduled",
+    "peak_bus_w": 500.0,
+    "peak_deficit_w": 0.0,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 0.0,
+    "final_soc": 0.8
+  },
+  {
+    "efficiency": 1.0,
+    "pv_w": 700,
+    "policy": "earliest",
+    "peak_bus_w": 1300.0,
+    "peak_deficit_w": 600.0,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 60.0,
+    "final_soc": 0.95
+  },
+  {
+    "efficiency": 1.0,
+    "pv_w": 700,
+    "policy": "scheduled",
+    "peak_bus_w": 500.0,
+    "peak_deficit_w": 0.0,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 0.0,
+    "final_soc": 0.95
+  },
+  {
+    "efficiency": 1.0,
+    "pv_w": 900,
+    "policy": "earliest",
+    "peak_bus_w": 1300.0,
+    "peak_deficit_w": 400.0,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 0.0,
+    "final_soc": 0.95
+  },
+  {
+    "efficiency": 1.0,
+    "pv_w": 900,
+    "policy": "scheduled",
+    "peak_bus_w": 500.0,
+    "peak_deficit_w": 0.0,
+    "requested_receiver_wh": 2400.0,
+    "unserved_bus_wh": 0.0,
+    "final_soc": 0.95
+  }
+]

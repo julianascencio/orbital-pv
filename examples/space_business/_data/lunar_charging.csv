@@ -1,0 +1,4 @@
+id,release_slot,deadline_slot,duration_slots,delivered_power_w
+rover-a,0,6,2,400
+rover-b,0,6,2,400
+rover-c,0,6,2,400
