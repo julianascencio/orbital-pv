@@ -1,0 +1,20 @@
+{
+  "retrieved_date": "2026-11-18",
+  "source_url": "https://doi.org/10.1016/j.solmat.2026.114494",
+  "source_title": "Electron irradiation tolerance of halide perovskite solar cells for space applications",
+  "publication_date": "2026-10-15",
+  "experiment_date": "Not established from accessible abstract",
+  "evidence": "Primary abstract: partial glass-transmittance recovery after aging/annealing. Full text unavailable; no quantitative fit or reproduction claimed.",
+  "input_kind": "Synthetic rates and interval durations; modeled outputs; no measured power imported",
+  "backlog": "P8.7 last reviewed 2026-10-03, 46 days old",
+  "time_scale": "elapsed hours, no real observation timestamps",
+  "reference_frame": "cell electrical power boundary, matched illumination and temperature assumed",
+  "units": {
+    "duration": "h",
+    "rates": "h^-1",
+    "power": "W",
+    "retention": "dimensionless"
+  },
+  "rights": "Source facts attributed, no source text/figures redistributed; original code and synthetic data under repository noncommercial license",
+  "query": "Offline CSV via existing load_table connector"
+}

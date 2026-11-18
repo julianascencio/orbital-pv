@@ -1,0 +1,37 @@
+[
+  {
+    "recovery_multiplier":0.0,
+    "minimum_retention":0.7116260563,
+    "final_retention":0.7116260563,
+    "mean_retention":0.7864245026,
+    "required_bol_w":1405.2324125877
+  },
+  {
+    "recovery_multiplier":0.25,
+    "minimum_retention":0.7436284894,
+    "final_retention":0.8048916781,
+    "mean_retention":0.8234463403,
+    "required_bol_w":1344.757515628
+  },
+  {
+    "recovery_multiplier":0.5,
+    "minimum_retention":0.767336475,
+    "final_retention":0.8632877829,
+    "mean_retention":0.8502231319,
+    "required_bol_w":1303.2092603523
+  },
+  {
+    "recovery_multiplier":1.0,
+    "minimum_retention":0.797911001,
+    "final_retention":0.9251558474,
+    "mean_retention":0.8849237691,
+    "required_bol_w":1253.2726065499
+  },
+  {
+    "recovery_multiplier":2.0,
+    "minimum_retention":0.8238995269,
+    "final_retention":0.9658388846,
+    "mean_retention":0.9182935494,
+    "required_bol_w":1213.7402284649
+  }
+]

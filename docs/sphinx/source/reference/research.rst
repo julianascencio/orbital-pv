@@ -65,3 +65,10 @@ Panel electrical acceptance
 .. automodule:: orbitalpv.acceptance
    :members:
    :imported-members:
+
+Recovery history
+----------------
+
+.. automodule:: orbitalpv.recovery
+   :members:
+   :imported-members:

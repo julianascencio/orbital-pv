@@ -101,3 +101,8 @@ for 36 assumed scenarios. These are DC screening calculations, not lunar cable
 measurements or an AC LunaGrid-Lite reconstruction. See the
 `equations, provenance and reproduction notes
 <https://github.com/julianascencio/orbital-pv/tree/main/analysis/lunar_dc_distribution>`_.
+
+Recovery-aware power margin
+--------------------------
+
+See :doc:`../gallery/space_business/plot_recovery_history`.
