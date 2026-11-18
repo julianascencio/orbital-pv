@@ -1,0 +1,58 @@
+[
+  {
+    "policy": "midpoint \u00b17h",
+    "cadence_s": 60,
+    "monitoring_hours": 14.0,
+    "samples": 840,
+    "bytes": 215040
+  },
+  {
+    "policy": "midpoint \u00b17h",
+    "cadence_s": 600,
+    "monitoring_hours": 14.0,
+    "samples": 84,
+    "bytes": 21504
+  },
+  {
+    "policy": "union: missing \u00b16h",
+    "cadence_s": 60,
+    "monitoring_hours": 26.0,
+    "samples": 1560,
+    "bytes": 399360
+  },
+  {
+    "policy": "union: missing \u00b16h",
+    "cadence_s": 600,
+    "monitoring_hours": 26.0,
+    "samples": 156,
+    "bytes": 39936
+  },
+  {
+    "policy": "union: missing \u00b112h",
+    "cadence_s": 60,
+    "monitoring_hours": 38.0,
+    "samples": 2280,
+    "bytes": 583680
+  },
+  {
+    "policy": "union: missing \u00b112h",
+    "cadence_s": 600,
+    "monitoring_hours": 38.0,
+    "samples": 228,
+    "bytes": 58368
+  },
+  {
+    "policy": "union: missing \u00b124h",
+    "cadence_s": 60,
+    "monitoring_hours": 51.38333333333333,
+    "samples": 3083,
+    "bytes": 789248
+  },
+  {
+    "policy": "union: missing \u00b124h",
+    "cadence_s": 600,
+    "monitoring_hours": 51.38333333333333,
+    "samples": 309,
+    "bytes": 79104
+  }
+]
