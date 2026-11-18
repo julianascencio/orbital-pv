@@ -72,3 +72,10 @@ Charging-session scheduling
 .. automodule:: orbitalpv.charging
    :members:
    :imported-members:
+
+Forecast monitoring windows
+-----------------------------
+
+.. automodule:: orbitalpv.monitoring_windows
+   :members:
+   :imported-members:

@@ -107,3 +107,8 @@ uses NASA's November 7, 2026 miniCAST announcement to compare immediate charging
 with bounded exact scheduling of noninterruptible sessions. All engineering
 inputs are synthetic. Battery dispatch checks energy and power shortfalls;
 this is not a demonstration of actual miniCAST hardware performance.
+
+The :doc:`CME monitoring example <../gallery/space_business/plot_cme_monitoring>`
+uses November 15, 2026 experimental research forecasts to budget PV telemetry
+acquisition windows. Imported forecast times are separated from assumed missing
+bounds and sample sizes. No operational storm warning or PV damage is inferred.
