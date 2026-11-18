@@ -117,3 +117,8 @@ The :doc:`combined-stress example <../gallery/space_business/plot_combined_stres
 implements a source-backed qualification research backlog case: compare an
 ordered radiation/thermal campaign against separate-test predictions. All
 sample powers are synthetic; approximate bootstrap evidence is not qualification.
+
+Recovery-aware power margin
+---------------------------
+
+See :doc:`../gallery/space_business/plot_recovery_history`.

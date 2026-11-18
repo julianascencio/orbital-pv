@@ -86,3 +86,10 @@ Combined-stressor evidence
 .. automodule:: orbitalpv.stress
    :members:
    :imported-members:
+
+Recovery history
+----------------
+
+.. automodule:: orbitalpv.recovery
+   :members:
+   :imported-members:
