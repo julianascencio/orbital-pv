@@ -1,0 +1,16 @@
+{
+  "source_url": "https://www.nasa.gov/news-release/nasa-awards-moon-base-transportation-technology-science-projects/",
+  "publication_date": "2026-11-07",
+  "event_date": "2026-11-07 announcement; future hardware assembly and tests not dated",
+  "retrieved_date_utc": "2026-11-15",
+  "source_role": "miniCAST component awards motivate solar tower charging scheduling, not numeric design inputs",
+  "source_rights": "NASA factual attribution and link only; no text or images redistributed",
+  "input_kind": "All numeric inputs are author-selected synthetic scenarios under repository noncommercial license",
+  "measured_data": "None: no miniCAST operating or charging data published in the cited announcement",
+  "imported_evidence": "Announcement facts and date only",
+  "modeled_outputs": "Discrete schedules, bus peaks and finite-horizon battery dispatch",
+  "units": "Bus and receiver power W; energy Wh; slot length h; efficiency and SOC dimensionless",
+  "reference_frame": "Tower electrical bus; no spatial frame or ephemeris",
+  "time_scale": "Elapsed hours, synthetic six-hour illuminated interval, not UTC site illumination",
+  "query": "Offline CSV via existing orbitalpv.data.load_table"
+}
