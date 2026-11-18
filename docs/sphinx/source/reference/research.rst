@@ -66,6 +66,27 @@ Panel electrical acceptance
    :members:
    :imported-members:
 
+Charging-session scheduling
+----------------------------
+
+.. automodule:: orbitalpv.charging
+   :members:
+   :imported-members:
+
+Forecast monitoring windows
+-----------------------------
+
+.. automodule:: orbitalpv.monitoring_windows
+   :members:
+   :imported-members:
+
+Combined-stressor evidence
+----------------------------
+
+.. automodule:: orbitalpv.stress
+   :members:
+   :imported-members:
+
 Recovery history
 ----------------
 
