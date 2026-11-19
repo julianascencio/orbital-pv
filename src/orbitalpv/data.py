@@ -6,6 +6,8 @@ from pathlib import Path
 import pandas as pd
 
 from space_pv_connectors import (
+    AlisioConnector,
+    AlisioScene,
     ArxivConnector,
     BirdsEPSConnector,
     CelesTrakConnector,
@@ -122,6 +124,8 @@ def fetch_opssat_segments(
 
 
 __all__ = [
+    "AlisioConnector",
+    "AlisioScene",
     "ArxivConnector",
     "BirdsEPSConnector",
     "CelesTrakConnector",
