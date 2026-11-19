@@ -1,6 +1,6 @@
 """
 Plan laboratory hours without claiming qualification
-===================================================
+====================================================
 
 DOE workshop recommendations motivate mission-specific qualification planning.
 All requirements, coverage links, weights and lab hours here are synthetic.
