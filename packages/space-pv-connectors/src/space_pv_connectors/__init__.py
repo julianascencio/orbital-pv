@@ -1,3 +1,4 @@
+from .alisio import AlisioConnector, AlisioScene
 from .arxiv import ArxivConnector, parse_arxiv_atom
 from .birds import BirdsEPSConnector, load_birds_eps_workbook
 from .cdaweb import CdawebHapiConnector
@@ -31,6 +32,8 @@ from .swpc import NoaaSwpcConnector, load_goes_integral_particle_flux
 from .tabular import load_table, make_demo_telemetry, normalize_birds_like
 
 __all__ = [
+    "AlisioConnector",
+    "AlisioScene",
     "ArxivConnector",
     "BirdsEPSConnector",
     "CdawebHapiConnector",

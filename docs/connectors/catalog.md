@@ -24,12 +24,35 @@ The connector layer retrieves raw external facts and preserves provenance. It do
 | Flying Laptop / DaRUS | calibrated four-array voltage/current and derived V×I, UTC packet timestamps | No | Measured on-orbit generation; monthly archives, DOI 10.18419/darus-451, CC BY 4.0 |
 | OPS-SAT-AD v2 | original photodiode/magnetometer segments and expert anomaly annotations | No | Sensor/illumination-related benchmark; units unspecified in source, DOI 10.5281/zenodo.15108715, CC BY 4.0 |
 | LASP LISIRD | TSIS-1/SORCE measured total irradiance; TSIS-1 measured spectral irradiance | No | Real illumination inputs in W/m² or W/m²/nm; 1-AU and actual-Earth-distance fields, uncertainties and quality flags |
+| IAC / ALISIO-1 DRAGO-2 | Five false-colour first-observation composites | No | Inspect original Earth-observation imagery and verify file provenance |
 | Earth Search / Sentinel-2 Collection 1 | STAC scene metadata, RGB, spectral bands and scene classification | No | Native-resolution ground-image crops and GeoTIFF export; optional Rasterio; no implicit reflectance conversion or cloud masking |
 | OpenStreetMap / Overpass | Raw solar/wind nodes, ways and relations with tags and geometry | No | Small-area mapping inputs following Dunnett et al.'s source-tag selection, with legacy tags included; no farm clustering or capacity estimation |
 
 The [ground imagery guide](https://julianascencio.github.io/orbital-pv/user_guide/modeling_topics/ground_imagery.html)
 and [Cestas gallery walkthrough](https://julianascencio.github.io/orbital-pv/gallery/ground_imagery/plot_ground_satellite_inputs.html)
 show how image and OSM snapshots remain distinct, with acquisition dates, source licenses and checksums.
+
+## ALISIO-1 imagery
+
+The [image gallery example](../../examples/ground_imagery/plot_alisio_canary_islands.py)
+displays the original [La Palma](../../packages/space-pv-connectors/src/space_pv_connectors/_data/alisio/la_palma.png)
+and [El Hierro](../../packages/space-pv-connectors/src/space_pv_connectors/_data/alisio/el_hierro.png)
+images offline. Image credit © IACTEC-Espacio, Instituto de Astrofísica de Canarias.
+The [energy budgeting example](../../examples/space_business/plot_alisio_imaging_energy.py)
+uses the published camera power ceiling to size an illustrative array energy allocation.
+
+```python
+import orbitalpv as opv
+
+with opv.AlisioConnector() as iac:
+    print(list(iac.scenes))
+    receipt = iac.download("donana", "data/donana_crop.jpg")
+    print(receipt.sha256)
+```
+
+Every download is checked against the original image digest and accompanied by
+a receipt with its source and credit. See the [IAC media folder](https://cloud.iac.es/index.php/s/RS9pKNp272N5LEL)
+and [image usage terms](https://www.iac.es/en/outreach/multimedia-gallery).
 
 ## Executable measurement examples
 

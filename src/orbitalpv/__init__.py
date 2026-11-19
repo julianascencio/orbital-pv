@@ -42,6 +42,8 @@ from .cells import (
     simulate_space_cell,
 )
 from .data import (
+    AlisioConnector,
+    AlisioScene,
     ArxivConnector,
     BirdsEPSConnector,
     CelesTrakConnector,
@@ -183,6 +185,8 @@ __all__ = [
     "REFERENCE_TEMPERATURE_C",
     "SATELLITECOTS_COMMIT",
     "SPACE_CELL_TECHNOLOGIES",
+    "AlisioConnector",
+    "AlisioScene",
     "ArxivConnector",
     "BayesianLinearCalibration",
     "BirdsEPSConnector",

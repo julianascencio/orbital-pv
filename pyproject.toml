@@ -119,6 +119,7 @@ include = ["orbitalpv*", "space_pv_*"]
 namespaces = false
 
 [tool.setuptools.package-data]
+"space_pv_connectors" = ["_data/alisio/*.png", "_data/alisio/README.md"]
 "orbitalpv" = ["_data/*.json"]
 "orbitalpv.catalogue" = ["data/*.json", "data/*.txt", "data/records/*/*.jsonl"]
 

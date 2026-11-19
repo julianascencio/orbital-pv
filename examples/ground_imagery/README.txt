@@ -12,3 +12,7 @@ The image-detection example trains on Cestas and predicts Tenerife and Chile
 from multispectral pixels. It reports held-out weak-reference errors openly.
 The inventory example groups mapped features, samples historical GHSL classes,
 and tests a capacity model against independent records from a withheld country.
+
+The ALISIO-1 walkthrough displays two original DRAGO-2 false-colour
+composites of La Palma and El Hierro from the IAC's first observations.
+Both images are included for offline use, with attribution and SHA-256 checks.

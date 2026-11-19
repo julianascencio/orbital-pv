@@ -13,6 +13,12 @@ Ground satellite imagery
 .. automodule:: space_pv_connectors.ground_raster
    :members:
 
+ALISIO-1 first observations
+---------------------------
+
+.. automodule:: space_pv_connectors.alisio
+   :members: AlisioConnector, AlisioScene
+
 Cached PV site inputs
 ---------------------
 
