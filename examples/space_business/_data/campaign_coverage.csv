@@ -1,0 +1,9 @@
+test_id,requirement_id
+radiation-only,radiation
+thermal-only,thermal
+vacuum-only,vacuum
+deployment-only,deployment
+combined-rt,radiation
+combined-rt,thermal
+combined-vd,vacuum
+combined-vd,deployment

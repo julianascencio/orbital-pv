@@ -1,0 +1,5 @@
+requirement_id,mission_id,boundary,weight
+radiation,leo-demo,panel,4
+thermal,leo-demo,panel,3
+vacuum,leo-demo,panel,2
+deployment,leo-demo,panel,1

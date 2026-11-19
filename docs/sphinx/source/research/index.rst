@@ -122,3 +122,8 @@ Recovery-aware power margin
 ---------------------------
 
 See :doc:`../gallery/space_business/plot_recovery_history`.
+
+Test campaign planning
+----------------------
+
+See :doc:`../gallery/space_business/plot_test_campaign`.

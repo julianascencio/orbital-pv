@@ -1,0 +1,27 @@
+{
+  "base": {
+    "selected_tests": [
+      "combined-rt",
+      "combined-vd"
+    ],
+    "planned_hours": 8.0,
+    "covered_weight": 10.0,
+    "total_weight": 10.0,
+    "budget_h": 8,
+    "all_requirements_planned": true,
+    "qualification_demonstrated": false
+  },
+  "sensitivity": {
+    "selected_tests": [
+      "radiation-only",
+      "thermal-only",
+      "vacuum-only"
+    ],
+    "planned_hours": 8.0,
+    "covered_weight": 9.0,
+    "total_weight": 10.0,
+    "budget_h": 8,
+    "all_requirements_planned": false,
+    "qualification_demonstrated": false
+  }
+}
