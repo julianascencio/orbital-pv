@@ -1,0 +1,7 @@
+test_id,mission_id,boundary,hours
+radiation-only,leo-demo,panel,3
+thermal-only,leo-demo,panel,3
+vacuum-only,leo-demo,panel,2
+deployment-only,leo-demo,panel,2
+combined-rt,leo-demo,panel,5
+combined-vd,leo-demo,panel,3

@@ -93,3 +93,10 @@ Recovery history
 .. automodule:: orbitalpv.recovery
    :members:
    :imported-members:
+
+Test campaign planning
+----------------------
+
+.. automodule:: orbitalpv.campaign
+   :members:
+   :imported-members:

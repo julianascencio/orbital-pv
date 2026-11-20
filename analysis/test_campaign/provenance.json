@@ -1,0 +1,17 @@
+{
+  "retrieved_date": "2026-11-20",
+  "source_url": "https://www.energy.gov/cmei/systems/2026-space-photovoltaics-workshop",
+  "event_date": "2026-06-02",
+  "publication_date": "Initial publication not established; page last updated 2026-09-28",
+  "backlog": "P8.4 last reviewed 2026-10-03; 48 days old",
+  "evidence_kind": "Participant recommendations, not DOE standards. All numeric inputs and proposed coverage mappings synthetic. No test results imported.",
+  "units": {
+    "hours": "assumed lab effort hours, not exposure duration or calendar schedule",
+    "weight": "dimensionless planning priority"
+  },
+  "time_scale": "No observation timestamps; planning budget only",
+  "reference_frame": "panel electrical/mechanical boundary for hypothetical leo-demo mission",
+  "rights": "Source facts and URL attributed, no article text/images redistributed. Original synthetic CSVs and code use repository noncommercial license.",
+  "query": "Offline local CSVs via existing load_table",
+  "mandatory_assumptions": "Deployment mandatory is an illustrative customer constraint, not a DOE/ESA requirement. All coverage and hours synthetic."
+}

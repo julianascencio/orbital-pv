@@ -1,0 +1,50 @@
+{
+  "base": {
+    "mandatory_requirements": [],
+    "selected_tests": [
+      "combined-rt",
+      "combined-vd"
+    ],
+    "planned_hours": 8.0,
+    "covered_weight": 10.0,
+    "total_weight": 10.0,
+    "budget_h": 8,
+    "all_requirements_planned": true,
+    "qualification_demonstrated": false
+  },
+  "sensitivity": {
+    "weighted_only": {
+      "mandatory_requirements": [],
+      "selected_tests": [
+        "radiation-only",
+        "thermal-only",
+        "vacuum-only"
+      ],
+      "planned_hours": 8.0,
+      "covered_weight": 9.0,
+      "total_weight": 10.0,
+      "budget_h": 8,
+      "all_requirements_planned": false,
+      "qualification_demonstrated": false
+    },
+    "deployment_mandatory": {
+      "mandatory_requirements": [
+        "deployment"
+      ],
+      "selected_tests": [
+        "deployment-only",
+        "radiation-only",
+        "thermal-only"
+      ],
+      "planned_hours": 8.0,
+      "covered_weight": 8.0,
+      "total_weight": 10.0,
+      "budget_h": 8,
+      "all_requirements_planned": false,
+      "qualification_demonstrated": false
+    },
+    "mandatory_plan_uncovered": [
+      "vacuum"
+    ]
+  }
+}
