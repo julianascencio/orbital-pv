@@ -23,7 +23,14 @@ def run():
         json.dumps({"base": result, "sensitivity": sensitivity}, indent=2)
     )
     (out / "config.json").write_text(
-        json.dumps({"budget_h": 8, "budget_sweep_h": list(range(11)), "seed": None})
+        json.dumps(
+            {
+                "budget_h": 8,
+                "budget_sweep_h": list(range(11)),
+                "seed": None,
+                "mandatory_policy": ["deployment"],
+            }
+        )
     )
     manifest = json.loads((ROOT / "analysis/test_campaign/provenance.json").read_text())
     files = [
@@ -36,7 +43,7 @@ def run():
         str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in files
     }
     (out / "input_manifest.json").write_text(json.dumps(manifest, indent=2))
-    (out / "logs.jsonl").write_text(json.dumps({"event": "completed", "scenarios": 12}) + "\n")
+    (out / "logs.jsonl").write_text(json.dumps({"event": "completed", "scenarios": 25}) + "\n")
     module.plot_study(frontier).savefig(out / "figures/frontier.png", dpi=150)
     print(result)
     print(sensitivity)

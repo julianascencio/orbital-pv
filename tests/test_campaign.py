@@ -63,3 +63,34 @@ def test_reject_invalid(problem):
         budget = float("nan")
     with pytest.raises(ValueError):
         plan_test_campaign(req, tests, edges, budget_h=budget)
+
+
+def test_mandatory_overrides_weight_and_marks_matrix():
+    req, tests, edges = inputs()
+    plan, matrix = plan_test_campaign(req, tests, edges, budget_h=2, mandatory_requirements=("a",))
+    assert plan["selected_tests"] == ["x"]
+    assert plan["covered_weight"] == 1
+    assert matrix.loc[matrix.mandatory, "planned_coverage"].all()
+
+
+def test_mandatory_infeasible_budget_and_missing_edge():
+    from orbitalpv.campaign import InfeasibleCampaignError
+
+    req, tests, edges = inputs()
+    for budget, links in [(1, edges), (20, edges[edges.requirement_id != "a"])]:
+        with pytest.raises(InfeasibleCampaignError):
+            plan_test_campaign(req, tests, links, budget_h=budget, mandatory_requirements=("a",))
+
+
+@pytest.mark.parametrize("mandatory", [("missing",), ("a", "a"), "a"])
+def test_invalid_mandatory_ids(mandatory):
+    req, tests, edges = inputs()
+    with pytest.raises(ValueError):
+        plan_test_campaign(req, tests, edges, budget_h=4, mandatory_requirements=mandatory)
+
+
+def test_joint_mandatory_requirements_and_boundary_budget():
+    req, tests, edges = inputs()
+    plan, _ = plan_test_campaign(req, tests, edges, budget_h=3, mandatory_requirements=("a", "b"))
+    assert plan["selected_tests"] == ["z"]
+    assert plan["all_requirements_planned"]
