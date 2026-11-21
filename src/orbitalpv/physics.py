@@ -16,6 +16,7 @@ from space_pv_pvmodel.eps import (
     schedule_compute_workload,
 )
 from space_pv_pvmodel.pointing import pointing_power_envelope
+from space_pv_pvmodel.reserve import InfeasibleReserveError, battery_reserve_envelope
 from space_pv_pvmodel.spectral import (
     TandemCurrent,
     spectral_photocurrent_density,
@@ -33,6 +34,7 @@ from space_pv_space_env.thermal import ThermalSurface, simulate_panel_thermal
 __all__ = [
     "BatterySpec",
     "ComputeTask",
+    "InfeasibleReserveError",
     "PVSubstring",
     "RadiationExposure",
     "RadiationResponse",
@@ -40,6 +42,7 @@ __all__ = [
     "ThermalSurface",
     "array_iv_curve",
     "battery_cycle_damage",
+    "battery_reserve_envelope",
     "dc_cable_delivery",
     "dispatch_power",
     "periodic_load_limit",

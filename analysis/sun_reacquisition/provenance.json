@@ -1,0 +1,17 @@
+{
+  "review_date": "2026-11-21",
+  "retrieved_at_utc": "2026-11-21",
+  "source_url": "https://science.nasa.gov/blogs/mars/2026/11/19/nasas-perseverance-odyssey-teams-investigate-technical-issues/",
+  "publication_date": "2026-11-19",
+  "page_last_updated": "2026-11-20",
+  "event_dates": {"odyssey_safe_mode_start": "2026-11-04", "odyssey_safe_mode_end": "2026-11-06"},
+  "imported_evidence": "NASA reports an Odyssey reaction-wheel malfunction, science paused, and continuing recovery tests. The event motivates the decision only.",
+  "engineering_inputs": "Every CSV/JSON duration, power, efficiency, capacity, SOC and limit is synthetic; none is an Odyssey specification or observation.",
+  "modeled_outputs": "Minimum boundary energy, feasible reacquisition-delay samples, forward SOC and unserved energy; no measured power results.",
+  "units": {"power": "bus-side W", "energy": "nominal stored Wh", "duration": "h", "boundaries": "elapsed s", "soc": "dimensionless"},
+  "reference_frame": "Lumped electrical bus; no spatial coordinate frame or ephemeris",
+  "time_scale": "Elapsed SI seconds; calendar event dates are context only",
+  "licenses": "Source is linked and factual metadata paraphrased; no article text or imagery redistributed. Synthetic inputs and code use repository license.",
+  "seed": null,
+  "uncertainty": "Deterministic capacity and generation stress grid, not a probability distribution or confidence interval"
+}

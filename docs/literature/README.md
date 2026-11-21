@@ -68,3 +68,7 @@ InSight comparison, NASA geometry, surface dust treatment and research gaps.
 
 See [lunar papers, connectors and modelling boundaries](12_lunar_surface_pv.md)
 for terrain-aware PV, thermal boundaries, storage/tower sizing and rover routing.
+
+## November 2026 operational case
+
+[Sun-reacquisition reserve](../../analysis/sun_reacquisition/README.md) links NASA's November 19 Odyssey report to a synthetic, reproducible inverse battery-reserve study. Event dates, source metadata and engineering assumptions are kept separate.

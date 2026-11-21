@@ -1,0 +1,15 @@
+{
+  "data_kind": "synthetic engineering scenarios",
+  "cases": 594,
+  "backward_forward_agreement": true,
+  "baseline_delay_limits": {
+    "load_shed": {
+      "latest_sampled_delay_h": 5.25,
+      "sweep_upper_bound_reached": false
+    },
+    "normal": {
+      "latest_sampled_delay_h": 1.25,
+      "sweep_upper_bound_reached": false
+    }
+  }
+}
