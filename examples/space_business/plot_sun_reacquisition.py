@@ -1,6 +1,6 @@
 """
 Battery reserve for delayed Sun reacquisition
-============================================
+=============================================
 
 NASA's November 19, 2026 Odyssey report motivates a finite-horizon power
 contingency screen. Compare maintaining normal load with shedding discretionary
