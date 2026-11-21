@@ -122,3 +122,10 @@ Recovery-aware power margin
 ---------------------------
 
 See :doc:`../gallery/space_business/plot_recovery_history`.
+
+Sun-reacquisition reserve
+-------------------------
+
+See :doc:`../gallery/space_business/plot_sun_reacquisition`.
+The inverse battery envelope compares a normal-load baseline with load shedding
+for explicitly synthetic recovery scenarios motivated by NASA's Odyssey report.

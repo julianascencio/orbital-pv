@@ -1,0 +1,64 @@
+{
+  "battery": {
+    "capacity_wh": 600,
+    "initial_soc": 0.7,
+    "minimum_soc": 0.1,
+    "maximum_soc": 0.95,
+    "charge_efficiency": 0.95,
+    "discharge_efficiency": 0.9,
+    "max_charge_w": 400,
+    "max_discharge_w": 400
+  },
+  "terminal_soc": 0.5,
+  "delay_generation_w": 60,
+  "delay_loads_w": {
+    "normal": 300,
+    "load_shed": 120
+  },
+  "delays_h": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    1.75,
+    2.0,
+    2.25,
+    2.5,
+    2.75,
+    3.0,
+    3.25,
+    3.5,
+    3.75,
+    4.0,
+    4.25,
+    4.5,
+    4.75,
+    5.0,
+    5.25,
+    5.5,
+    5.75,
+    6.0,
+    6.25,
+    6.5,
+    6.75,
+    7.0,
+    7.25,
+    7.5,
+    7.75,
+    8.0
+  ],
+  "capacity_sensitivity_wh": [
+    450,
+    600,
+    750
+  ],
+  "generation_sensitivity_scale": [
+    0.8,
+    1.0,
+    1.2
+  ],
+  "seed": null
+}
